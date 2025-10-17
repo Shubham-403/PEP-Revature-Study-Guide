@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Fundamentals - Revature Study Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom styles for the article content for readability and aesthetics */
+        .prose h1 {
+            font-size: 2.5rem; /* 40px */
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.5em;
+        }
+        .prose h2 {
+            font-size: 1.875rem; /* 30px */
+            font-weight: 600;
+            margin-top: 2.5em;
+            margin-bottom: 1.25em;
+            border-bottom: 1px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem;
+        }
+        .prose h3 {
+            font-size: 1.5rem; /* 24px */
+            font-weight: 600;
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+        }
+        .prose h4 {
+            font-size: 1.25rem; /* 20px */
+            font-weight: 600;
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            color: #1f2937; /* gray-800 */
+        }
+        .prose p, .prose ul, .prose ol {
+            color: #374151; /* gray-700 */
+            line-height: 1.75;
+            margin-bottom: 1.25em;
+        }
+        .prose ul, .prose ol {
+            padding-left: 1.5em;
+        }
+        .prose li {
+            margin-bottom: 0.5em;
+        }
+        .prose ul {
+            list-style-type: disc;
+        }
+        .prose ol {
+            list-style-type: decimal;
+        }
+        /* Inline code */
+        .prose code {
+            background-color: #f3f4f6; /* gray-100 */
+            color: #be123c; /* rose-700 */
+            padding: 0.2em 0.4em;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        /* Code blocks */
+        .prose pre {
+            background-color: #1f2937; /* gray-800 */
+            color: #d1d5db; /* gray-300 */
+            padding: 1.5em;
+            border-radius: 0.5rem; /* 8px */
+            overflow-x: auto;
+            margin-top: 1.5em;
+            margin-bottom: 2em;
+        }
+        .prose pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            font-size: 0.95em;
+            font-weight: 400;
+        }
+        /* Blockquotes / Callouts */
+        .prose blockquote {
+            border-left: 4px solid #f97316; /* orange-500 */
+            padding: 1rem 1.5rem;
+            margin: 1.5em 0;
+            font-style: normal;
+            background-color: #fff7ed; /* orange-50 */
+            color: #4b5563; /* gray-600 */
+            border-radius: 0 8px 8px 0;
+        }
+        .prose strong {
+            color: #111827; /* gray-900 */
+        }
+        .prose a {
+            color: #ea580c; /* orange-600 */
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .prose a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-orange-600">
+                <a href="#">Revature Study Guide</a>
+            </div>
+            <div>
+                <a href="index.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300">Home</a>
+                <a href="java-fundamentals.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300"style="background-color: #e5e7eb; font-weight: bold;">Java</a>
+                <a href="python-fundamentals.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300">Python</a>
+                <a href="sql-fundamentals.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300">SQL</a>
+
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 py-12">
+        <article class="prose max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg">
+            
+            <h1>The Journey to Java</h1>
+
+            <h2>What Exactly Is a Programming Language?</h2>
+            <p>Computers are powerful—but they only understand machine code, which is a long stream of 1s and 0s (electrical signals: on/off). If you wanted to make a computer save a photo or print your name using only 1s and 0s, it would be nearly impossible to write or understand.</p>
+            <p>That's where programming languages come in. They act as a translator—helping humans talk to machines in a more understandable way.</p>
+            <p>Think of it like this:</p>
+            <p>When you say to your friend,</p>
+            <p>"Please pass me the notebook,"</p>
+            <p>you're using English.</p>
+            <p>When you say to a computer,</p>
+            <p>"Print 'Hello World!'" —(Don't Mind the Syntax or Language)</p>
+            <p>you're using a programming language.</p>
+            <p>The programming language then translates that request into machine code the computer can actually execute.</p>
+
+            <h2>Why Do We Use Programming Languages?</h2>
+            <p>We use programming languages to:</p>
+            <ul>
+                <li>Automate tasks (like processing thousands of records instantly).</li>
+                <li>Calculate and perform logical operations accurately.</li>
+                <li>Communicate between systems, applications, and devices.</li>
+                <li>Imagine manually calculating every bank transaction, every product price update, or every train timing — it would take forever!
+                    <ul>
+                        <li>A program does it millions of times faster, without error.</li>
+                        <li>In simple words: a programming language = a set of instructions to make computers do what we want.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Why Java? The "Write Once, Run Anywhere" Powerhouse</h2>
+            <p>Among hundreds of programming languages, Java stands out because of three major qualities:</p>
+            <ul>
+                <li><strong>Robust</strong> — it handles memory and crashes efficiently.</li>
+                <li><strong>Platform-Independent</strong> — the same code runs anywhere.</li>
+            </ul>
+            <p>You can write a Java program on Windows, and run the same program on Linux, macOS, or even Android — without changing a single line of code. This magic happens because of Java's core principle:</p>
+            <blockquote>
+                <p class="font-semibold">"Write Once, Run Anywhere."</p>
+            </blockquote>
+            
+            <h2>Behind this principle are three main components:</h2>
+            <ul>
+                <li>JDK (Java Development Kit)</li>
+                <li>JRE (Java Runtime Environment)</li>
+                <li>JVM (Java Virtual Machine)</li>
+            </ul>
+            <p>Let's understand each clearly:</p>
+            
+            <h3>JDK – Java Development Kit</h3>
+            <h4>What It Is</h4>
+            <p>The JDK is the complete package developers install to write and build Java programs.</p>
+            <p>What It Includes:</p>
+            <ul>
+                <li><strong>Compiler (javac)</strong> — converts .java source files into .class bytecode files.</li>
+                <li>Tools for debugging, documentation, and packaging.</li>
+                <li><strong>JRE</strong> (which means the JDK includes everything needed to run Java programs).</li>
+            </ul>
+            <h4>In short:</h4>
+            <p><strong>JDK = JRE + Development Tools</strong></p>
+            <h4>Why It's Needed</h4>
+            <p>Without the JDK, you can't write or compile Java code — you can only run existing programs. So, anyone who is learning or developing in Java must install the JDK.</p>
+
+            <h3>JRE – Java Runtime Environment</h3>
+            <h4>What It Is</h4>
+            <p>Once your code is written and compiled, it needs an environment to run — that's the JRE.</p>
+            <p>The JRE provides:</p>
+            <ul>
+                <li>The <strong>Java Virtual Machine (JVM)</strong> to execute bytecode.</li>
+                <li>The <strong>Core Libraries</strong> (like java.lang, java.util) your program depends on.</li>
+                <li>The <strong>Class Loader</strong> that loads required classes into memory.</li>
+            </ul>
+
+            <h4>In simpler terms:</h4>
+            <p>JDK is the kitchen where you cook; JRE is the dining table where the meal (your code) is served.</p>
+            <h4>Who Needs It:</h4>
+            <p>If you only want to run Java programs — like using an already-built desktop or web app — you just need the JRE, not the full JDK.</p>
+
+            <h2>JVM – Java Virtual Machine</h2>
+            <h4>What It Is</h4>
+            <p>The JVM is the heart of Java — it's a virtual engine inside your computer that executes Java bytecode.</p>
+            <h4>How It Works</h4>
+            <ol>
+                <li>You write code in a file named HelloWorld.java.</li>
+                <li>The compiler (javac) converts it into HelloWorld.class — a file full of bytecode.</li>
+                <li>The JVM reads that bytecode and converts it into machine code (1s and 0s) your hardware understands.</li>
+                <li>The code runs — and you see the output:</li>
+                <li>Hello, World!</li>
+            </ol>
+            <h4>Why JVM Is Powerful</h4>
+            <p>The JVM takes care of all hardware differences. This means the same .class file can run on any operating system — as long as that system has a JVM installed. That's the core reason Java is platform-independent.</p>
+            
+            <h2>Getting Comfortable with Your First Java Program:</h2>
+            <p>Before you dive deep into coding, let's look at how a simple Java program is structured. Even a tiny program like printing "Hello, World!" tells us a lot about how Java actually works.</p>
+            <h4>The Complete Code:</h4>
+            <pre><code class="language-java">class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</code></pre>
+            <p>It looks small — but there's a lot happening in just these few lines. Let's break it down step by step.</p>
+
+            <h3>Class Declaration</h3>
+            <p><code>class HelloWorld { }</code></p>
+            <ul>
+                <li>Every Java program starts with a class.</li>
+                <li>Think of a class as a container that holds your logic — variables, methods, and code.</li>
+                <li>The name of this class is HelloWorld.</li>
+            </ul>
+            <h4>Rule:</h4>
+            <p>The file name must match the class name exactly. So, if your class is HelloWorld, save it as HelloWorld.java. When compiled, Java creates a file named HelloWorld.class which contains bytecode for the JVM to run.</p>
+            
+            <h3>The main() Method</h3>
+            <p><code>public static void main(String[] args) { }</code></p>
+            <p>This is where every Java program starts execution. The JVM looks for this method first when you run your code.</p>
+            <ul>
+                <li><strong>public</strong> — Accessible by everyone — needed so JVM can call it.</li>
+                <li><strong>static</strong> — Belongs to the class, not an object. JVM can run it directly.</li>
+                <li><strong>void</strong> — No value is returned.</li>
+                <li><strong>main</strong> — Starting point for execution.</li>
+                <li><strong>String[] args</strong> Used to receive input from the command line.</li>
+            </ul>
+            <h4>Tip:</h4>
+            <p>If the <code>main()</code> method is missing or has a typo, the program won't run.</p>
+
+            <h3>The Print Statement:</h3>
+            <p><code>System.out.println("Hello, World!");</code></p>
+            <h4>Breakdown:</h4>
+            <ul>
+                <li><strong>System</strong> — A built-in Java class.</li>
+                <li><strong>out</strong> — Represents the console output stream.</li>
+                <li><strong>println</strong> — Prints the text and moves to a new line.</li>
+            </ul>
+            <h4>So this line means:</h4>
+            <p>"Display the text 'Hello, World!' on the screen."</p>
+            <h4>Fun Fact:</h4>
+            <p>If you use <code>System.out.print()</code> instead, the next message appears on the same line.</p>
+
+            <h3>Braces { } and Semicolons ;</h3>
+            <ul>
+                <li><strong>{ }</strong> define code blocks (start and end of class or method).
+                    <ul>
+                        <li>Every opening { must have a closing }.</li>
+                    </ul>
+                </li>
+                <li><strong>;</strong> Each statement ends with a ; — it tells Java that one command is complete.</li>
+            </ul>
+
+            <h2>Java Basics: Data Types and Variables:</h2>
+            <h3>What Are Variables?</h3>
+            <p>A variable is simply a name you give to a piece of memory where you want to store some data. Think of it like a <strong>labeled box</strong> on your storage shelf:</p>
+            <ul>
+                <li>The box is the memory space.</li>
+                <li>The label (variable name) helps you find what's inside.</li>
+                <li>The content is the value you store.</li>
+            </ul>
+            <p>Example:</p>
+            <p><code>int age = 25;</code></p>
+            <p>Here:</p>
+            <ul>
+                <li><strong>int</strong> — type of data (integer)</li>
+                <li><strong>age</strong> — variable name</li>
+                <li><strong>25</strong> — value stored inside</li>
+            </ul>
+            <p>You can read this as: "store the number 25 in a box named age."</p>
+
+            <h3>Why Do We Need Data Types?</h3>
+            <p>Data types tell Java <strong>what kind</strong> of value a variable holds and how much memory to allocate for it. Without data types, Java wouldn't know if 10 is:</p>
+            <ul>
+                <li>A number to calculate with,</li>
+                <li>a character ('10' as text), or</li>
+                <li>a truth value (True/False).</li>
+            </ul>
+            <p>Every variable in Java must have a data type — because Java is strongly typed, meaning types are checked during compilation to prevent logical errors.</p>
+            <h2>Primitive Data Types</h2>
+            <p>Primitive types are the basic building blocks—they store simple, single values directly in memory. Let's go through each one clearly 🧐</p>
+
+            <h3>1. byte</h3>
+            <pre><code class="language-java">byte age = 25;</code></pre>
+            <ul>
+                <li><strong>Size:</strong> 8 bits</li>
+                <li><strong>Range:</strong> -128 to 127</li>
+                <li>Used for: <strong>very small numbers</strong>, like counters, ages, or small data sets.</li>
+                <li><strong>Why use it?</strong> Saves memory when you know your values are small. Example: Ideal for IoT devices or embedded systems tracking sensor values.</li>
+            </ul>
+
+            <h3>2. short</h3>
+            <pre><code class="language-java">short year = 2025;</code></pre>
+            <ul>
+                <li><strong>Size:</strong> 16 bits</li>
+                <li><strong>Range:</strong> -32,768 to 32,767</li>
+                <li>Used for: slightly larger numbers</li>
+                <li><strong>Example:</strong> Representing a year, temperature reading, or small numeric ID.</li>
+            </ul>
+
+            <h3>3. int</h3>
+            <pre><code class="language-java">int salary = 50000;</code></pre>
+            <ul>
+                <li><strong>Size:</strong> 32 bits</li>
+                <li>Most commonly used for whole numbers.</li>
+                <li><strong>Example:</strong> Storing employee salary, age, count of users, etc.</li>
+                <li><strong>Fun Fact:</strong> Almost every number-based variable in enterprise-level Java code is an int.</li>
+            </ul>
+
+            <h3>4. long</h3>
+            <pre><code class="language-java">long distance = 15000000000L;</code></pre>
+            <ul>
+                <li><strong>Size:</strong> 64 bits</li>
+                <li>For very large numbers—like population counts, distance in meters, etc.</li>
+                <li>Must end with <strong>L</strong> (or l) to indicate long. Example: <code>long curve = 2500000000L;</code></li>
+            </ul>
+
+            <h3>5. float</h3>
+            <pre><code class="language-java">float rating = 4.5f;</code></pre>
+            <ul>
+                <li><strong>Size:</strong> 32 bits</li>
+                <li>Used for decimal numbers with limited precision.</li>
+                <li>Must end with <strong>f</strong> or <strong>F</strong>. Example: <code>float temperature = 36.6f;</code></li>
+                <li>💡 <strong>Note:</strong> Suitable when slight rounding is okay (like ratings or averages).</li>
+            </ul>
+
+            <h3>6. double</h3>
+            <pre><code class="language-java">double price = 999.99;</code></pre>
+            <ul>
+                <li><strong>Size:</strong> 64 bits</li>
+                <li>Used for decimal numbers requiring higher precision.</li>
+                <li><strong>Example:</strong> prices, interest rates, scientific calculations.</li>
+                <li>Default type for decimal numbers in Java. <strong>Tip:</strong> If you don't add 'f', Java treats decimals as double.</li>
+            </ul>
+
+            <h3>7. char</h3>
+            <pre><code class="language-java">char grade = 'A';</code></pre>
+            <ul>
+                <li><strong>Size:</strong> 16 bits</li>
+                <li>Stores a single character (letter, digit, or symbol).</li>
+                <li>Enclosed in single quotes <code>' '</code>.</li>
+                <li>Example: <code>char symbol = '$';</code></li>
+            </ul>
+
+            <h3>8. boolean</h3>
+            <pre><code class="language-java">boolean isActive = true;</code></pre>
+            <ul>
+                <li><strong>Size:</strong> 1 bit (theoretically; depends on JVM implementation)</li>
+                <li>Stores <code>true</code> or <code>false</code> values.</li>
+                <li>Used for decision-making.</li>
+            </ul>
+            <pre><code class="language-java">boolean isLoggedIn = false;</code></pre>
+            <p><strong>Real-world use:</strong> Checking if a user is verified, payment completed, or server is running.</p>
+
+            <h2>Non-Primitive (Reference) Data Types</h2>
+            <p>Non-primitive types are created by <strong>programmers</strong> and can hold multiple values or complex structures. They don't store the value directly — they store a <strong>reference (address)</strong> to where the data actually lives in memory.</p>
+            <p>Common examples:</p>
+            <ul>
+                <li>String</li>
+                <li>Arrays</li>
+                <li>Classes</li>
+                <li>Interfaces</li>
+                <li>Objects</li>
+            </ul>
+            <p>Let's see a few simple ones.</p>
+
+            <h3>String</h3>
+            <pre><code class="language-java">String name = "Vishal";</code></pre>
+            <ul>
+                <li>A sequence of characters (not a primitive, though it looks simple).</li>
+                <li>Stored as an <strong>object</strong>, meaning it has built-in methods like: <code>name.length();</code>, <code>name.toUpperCase();</code></li>
+            </ul>
+            <p><strong>Real-world example:</strong> Storing user names, addresses, or messages.</p>
+
+            <h3>Array</h3>
+            <pre><code class="language-java">int[] scores = {85, 90, 78};</code></pre>
+            <ul>
+                <li>Stores <strong>multiple values of the same type</strong> under one variable.</li>
+                <li>Accessed using indexes (starting from 0). Example: <code>System.out.println(scores[1]);</code> // prints 90</li>
+            </ul>
+            <p><strong>Real-world example:</strong> Keeping track of daily sales or marks of a student.</p>
+
+            <h2>Operators and Expressions</h2>
+            <h3>What Are Operators?</h3>
+            <p>An <strong>operator</strong> is a symbol that tells the computer to perform a specific operation or calculation. Think of them as tools you use to work with data — add, compare, assign, or check conditions.</p>
+            <p>For example:</p>
+            <pre><code class="language-java">int a = 10, b = 5;
+int result = a + b;</code></pre>
+            <p>Here, <strong>+</strong> is an operator that adds a and b, and stores the value 15.</p>
+            <p>So, operators act like verbs in a sentence — they tell Java what to do with the data.</p>
+            
+            <h3>What Is an Expression?</h3>
+            <p>An <strong>expression</strong> is a combination of variables, values, and operators that produces a result.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">int sum = (a + b) * 2;</code></pre>
+            <p>This is an expression — Java evaluates it, and the result is stored in sum. <strong>Simple way to remember:</strong> An *operator* does the action, and an *expression* is the complete action.</p>
+
+            <h3>Types of Operators in Java</h3>
+            <p>Java provides several types of operators to handle different kinds of tasks. Let's go through each one with simple examples.</p>
+            
+            <h4>1. Arithmetic Operators</h4>
+            <p>Used to perform basic mathematical operations.</p>
+            <div class="overflow-x-auto my-6 rounded-lg border">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-4 font-semibold text-gray-700">Operator</th>
+                            <th class="p-4 font-semibold text-gray-700">Description</th>
+                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-gray-700">Output</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>+</code></td>
+                            <td class="p-4">Addition</td>
+                            <td class="p-4"><code>10 + 5</code></td>
+                            <td class="p-4">15</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>-</code></td>
+                            <td class="p-4">Subtraction</td>
+                            <td class="p-4"><code>10 - 5</code></td>
+                            <td class="p-4">5</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>*</code></td>
+                            <td class="p-4">Multiplication</td>
+                            <td class="p-4"><code>10 * 5</code></td>
+                            <td class="p-4">50</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>/</code></td>
+                            <td class="p-4">Division</td>
+                            <td class="p-4"><code>10 / 5</code></td>
+                            <td class="p-4">2</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>%</code></td>
+                            <td class="p-4">Modulus (Remainder)</td>
+                            <td class="p-4"><code>10 % 3</code></td>
+                            <td class="p-4">1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p>Example in code:</p>
+            <pre><code class="language-java">int a = 10, b = 3;
+System.out.println(a / b); // prints 3
+System.out.println(a % b); // prints 1</code></pre>
+            <p><strong>Fun Fact:</strong> In real-world applications, modulus (%) is often used to check for even/odd numbers or to rotate through arrays.</p>
+            
+            <h4>2. Assignment Operators</h4>
+            <p>Used to assign values to variables.</p>
+            <div class="overflow-x-auto my-6 rounded-lg border">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-4 font-semibold text-gray-700">Operator</th>
+                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-gray-700">Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>=</code></td>
+                            <td class="p-4"><code>x = 10;</code></td>
+                            <td class="p-4">Assigns 10 to x</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>+=</code></td>
+                            <td class="p-4"><code>x += 5;</code></td>
+                            <td class="p-4">Same as x = x + 5</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>-=</code></td>
+                            <td class="p-4"><code>x -= 2;</code></td>
+                            <td class="p-4">Same as x = x - 2</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>*=</code></td>
+                            <td class="p-4"><code>x *= 3;</code></td>
+                            <td class="p-4">Same as x = x * 3</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>/=</code></td>
+                            <td class="p-4"><code>x /= 2;</code></td>
+                            <td class="p-4">Same as x = x / 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Example:</p>
+            <pre><code class="language-java">int x = 10;
+x += 5; // (now x is 15)</code></pre>
+            <p><strong>Real-world use:</strong> Updating scores, prices, or counters incrementally.</p>
+            
+            <h4>3. Relational (Comparison) Operators</h4>
+            <p>Used to compare two values. They always return a <strong>boolean</strong> — either true or false.</p>
+            <div class="overflow-x-auto my-6 rounded-lg border">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-4 font-semibold text-gray-700">Operator</th>
+                            <th class="p-4 font-semibold text-gray-700">Description</th>
+                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-gray-700">Result</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>==</code></td>
+                            <td class="p-4">Equal to</td>
+                            <td class="p-4"><code>5 == 5</code></td>
+                            <td class="p-4">true</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>!=</code></td>
+                            <td class="p-4">Not equal to</td>
+                            <td class="p-4"><code>5 != 10</code></td>
+                            <td class="p-4">true</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>></code></td>
+                            <td class="p-4">Greater than</td>
+                            <td class="p-4"><code>8 > 5</code></td>
+                            <td class="p-4">true</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code><</code></td>
+                            <td class="p-4">Less than</td>
+                            <td class="p-4"><code>3 < 4</code></td>
+                            <td class="p-4">true</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>>=</code></td>
+                            <td class="p-4">Greater than or equal to</td>
+                            <td class="p-4"><code>7 >= 7</code></td>
+                            <td class="p-4">true</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code><=</code></td>
+                            <td class="p-4">Less than or equal to</td>
+                            <td class="p-4"><code>6 <= 9</code></td>
+                            <td class="p-4">true</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Example:</p>
+            <pre><code class="language-java">int marks = 75;
+System.out.println(marks >= 50); // true</code></pre>
+            <p><strong>Real-world use:</strong> Checking age eligibility, pass/fail logic, or login attempts.</p>
+
+            <h4>4. Logical Operators</h4>
+            <p>Used to combine multiple conditions.</p>
+            <div class="overflow-x-auto my-6 rounded-lg border">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-4 font-semibold text-gray-700">Operator</th>
+                            <th class="p-4 font-semibold text-gray-700">Name</th>
+                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-gray-700">Description</th>
+                            <th class="p-4 font-semibold text-gray-700">Returns True When</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>&&</code></td>
+                            <td class="p-4">Logical AND</td>
+                            <td class="p-4"><code>(a > 5 && b < 10)</code></td>
+                            <td class="p-4">Checks if both conditions are true.</td>
+                            <td class="p-4">Both conditions are true</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>||</code></td>
+                            <td class="p-4">Logical OR</td>
+                            <td class="p-4"><code>(a > 5 || b < 10)</code></td>
+                            <td class="p-4">Checks if at least one condition is true.</td>
+                            <td class="p-4">At least one condition is true</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>!</code></td>
+                            <td class="p-4">Logical NOT</td>
+                            <td class="p-4"><code>!(a > 5)</code></td>
+                            <td class="p-4">Reverses the result—true becomes false and vice versa.</td>
+                            <td class="p-4">Condition is false</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p>Example:</p>
+            <pre><code class="language-java">int age = 20;
+boolean hasID = true;
+if (age >= 18 && hasID) {
+    System.out.println("Eligible to vote");
+}</code></pre>
+            <p><strong>Real-world use:</strong> Access control, validations, decision-making.</p>
+
+            <h4>5. Unary Operators</h4>
+            <p>Operate on a single variable.</p>
+            <div class="overflow-x-auto my-6 rounded-lg border">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-4 font-semibold text-gray-700">Operator</th>
+                            <th class="p-4 font-semibold text-gray-700">Description</th>
+                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>++</code></td>
+                            <td class="p-4">Increment by 1</td>
+                            <td class="p-4"><code>++x</code> or <code>x++</code></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>--</code></td>
+                            <td class="p-4">Decrement by 1</td>
+                            <td class="p-4"><code>--x</code> or <code>x--</code></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>+</code></td>
+                            <td class="p-4">Positive sign</td>
+                            <td class="p-4"><code>+x</code></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><code>-</code></td>
+                            <td class="p-4">Negative sign</td>
+                            <td class="p-4"><code>-x</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Example:</p>
+            <pre><code class="language-java">int count = 5;
+count++;
+System.out.println(count); // 6</code></pre>
+            <p><strong>Tip:</strong> <code>++count</code> (pre-increment) increases before use, <code>count++</code> (post-increment) increases after use.</p>
+
+            <h4>6. Bitwise Operators</h4>
+            <p>Used for bit-level operations (mostly in system-level or performance-focused code).</p>
+            <p>Example:</p>
+            <pre><code class="language-java">int a = 5; // 0101 in binary
+int b = 3; // 0011
+System.out.println(a & b); // 1 (AND)
+System.out.println(a | b); // 7 (OR)</code></pre>
+            <p><strong>Practical use:</strong> Networking, encryption, or file compression algorithms.</p>
+
+            <h4>8. Type Comparison Operator</h4>
+            <p><code>instanceof</code> checks whether an object belongs to a specific class.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">String name = "Java";
+System.out.println(name instanceof String); // true</code></pre>
+            <p><strong>Real-world use:</strong> Checking object type before performing specific operations.</p>
+
+            <h2>Operator Precedence (Order of Execution)</h2>
+            <p>Just like math, Java follows an order when evaluating expressions:</p>
+            <ol>
+                <li><strong>Brackets</strong> <code>()</code></li>
+                <li><strong>Unary</strong> <code>++</code>, <code>--</code>, <code>!</code></li>
+                <li><strong>Multiplication / Division / Modulus</strong></li>
+                <li><strong>Addition / Subtraction</strong></li>
+                <li><strong>Relational</strong></li>
+                <li><strong>Logical</strong></li>
+                <li><strong>Assignment</strong> (<code>=</code>, <code>+=</code>, etc.)</li>
+            </ol>
+            <p>Example:</p>
+            <pre><code class="language-java">int result = 10 + 5 * 2; // result is 20, not 30
+// Because multiplication has higher precedence than addition.</code></pre>
+            
+            <h4>Real-World Example</h4>
+            <p>Let's bring all this together:</p>
+            <pre><code class="language-java">int balance = 1000;
+int withdrawal = 200;
+
+if (balance >= withdrawal && withdrawal > 0) {
+    balance -= withdrawal;
+    System.out.println("Withdrawal successful! Remaining balance: " + balance);
+} else {
+    System.out.println("Invalid transaction");
+}</code></pre>
+            <p>Here we used:</p>
+            <ul>
+                <li>Relational operators (<code>>=</code>, <code>></code>)</li>
+                <li>Logical operator (<code>&&</code>)</li>
+                <li>Assignment operators (<code>=</code>, <code>-=</code>)</li>
+            </ul>
+            <p>A simple but real example of how ATM software checks transaction rules!</p>
+
+            <h2>Java Keywords: continue, break, and return</h2>
+            <p>These are jump statements — they alter the normal flow of control in loops or methods.</p>
+            
+            <h3>1. continue — Skip to the Next Iteration</h3>
+            <p>The <strong>continue</strong> keyword skips the remaining code inside a loop for the current iteration and jumps directly to the next iteration.</p>
+            <p>It's like saying: "I'm done with this round — move on to the next one."</p>
+            <p>Example:</p>
+            <pre><code class="language-java">for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        continue; // Skip when i is 3
+    }
+    System.out.println(i);
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>1
+2
+4
+5</pre>
+            <p>Here, when <code>i == 3</code>, the <code>continue</code> statement makes the loop skip the <code>System.out.println(i)</code> line and jump back to check the next value.</p>
+            <h4>When to Use:</h4>
+            <ul>
+                <li>When you want to <strong>ignore specific cases</strong> inside a loop.</li>
+                <li>Useful in <strong>filtering logic</strong>, like skipping negative numbers or invalid inputs.</li>
+            </ul>
+
+            <h3>2. break — Exit the Loop or Switch Immediately</h3>
+            <p>The <strong>break</strong> keyword completely stops the loop or switch block it's in.</p>
+            <p>It's like saying: "I've found what I needed — stop everything!"</p>
+            <p>Example:</p>
+            <pre><code class="language-java">for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        break; // Stop the loop completely when i is 3
+    }
+    System.out.println(i);
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>1
+2</pre>
+            <p>When <code>i == 3</code>, the <code>break</code> statement ends the loop right away — no more iterations are executed.</p>
+            <h4>When to Use:</h4>
+            <ul>
+                <li>When a condition is met and <strong>no further checking</strong> is needed.</li>
+                <li>Often used in <strong>search algorithms</strong> or <strong>switch-case</strong> statements.</li>
+            </ul>
+            <h4>Example in Switch:</h4>
+            <pre><code class="language-java">int day = 2;
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    default:
+        System.out.println("Invalid day");
+}
+// Without 'break', execution would fall through to the next case unintentionally.</code></pre>
+
+            <h3>3. return — Exit from a Method and (Optionally) Return a Value</h3>
+            <p>The <strong>return</strong> keyword is used inside a method to:</p>
+            <ol>
+                <li>Exit the method immediately.</li>
+                <li>Optionally send back a value to the caller.</li>
+            </ol>
+            <p>It's like saying: "I'm done — here's your result!"</p>
+            <h4>Example 1: return Without a Value (void methods)</h4>
+            <pre><code class="language-java">void checkNumber(int num) {
+    if (num < 0) {
+        System.out.println("Negative number");
+        return; // exit method early
+    }
+    System.out.println("Positive number");
+}</code></pre>
+
+            <h4>Example 2: return With a Value (non-void methods)</h4>
+            <pre><code class="language-java">int add(int a, int b) {
+    return a + b; // sends result back
+}
+
+public static void main(String[] args) {
+    int sum = add(2, 10);
+    System.out.println(sum);
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>15</pre>
+            <h4>When to Use:</h4>
+            <ul>
+                <li>To exit a method early (common in validations).</li>
+                <li>To send back computed results (from a non-void method).</li>
+            </ul>
+            <h4>Quick Analogy:</h4>
+            <p>Imagine you're reading pages of a book:</p>
+            <ul>
+                <li><strong>continue</strong> → Skip a boring paragraph and move to the next one.</li>
+                <li><strong>break</strong> → Close the book entirely.</li>
+                <li><strong>return</strong> → Close the book and hand it to someone else with a note inside.</li>
+            </ul>
+
+            <h2>Control Flow Statements in Java</h2>
+            <p>"Control Flow" decides which part of your code runs, when, and how often. Every real-world program makes decisions—just like we do daily: You check the weather (if rain → take an umbrella), or repeat a routine (wake up → brush → eat → repeat daily). In Java, these decisions and repetitions are handled by Control Flow Statements.</p>
+            
+            <h3>1. Decision-Making Statements</h3>
+            <p>These statements help your program decide what to do next, based on conditions.</p>
+
+            <h4>if Statement</h4>
+            <p>Used to run a block of code only if a condition is true.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">int marks = 85;
+if (marks > 60) {
+    System.out.println("You passed!");
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>You passed!</pre>
+            <p>If the condition (marks > 60) is true, the code inside runs. Otherwise, it's skipped.</p>
+
+            <h4>if-else Statement</h4>
+            <p>Used when you want to handle two possibilities — one for true, one for false.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">int age = 17;
+if (age >= 18) {
+    System.out.println("Eligible to vote");
+} else {
+    System.out.println("Not eligible yet");
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>Not eligible yet</pre>
+
+            <h4>Nested if Statement</h4>
+            <p>You can place one <code>if</code> inside another to check dependent conditions.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">int age = 25;
+boolean hasID = true;
+if (age >= 18) {
+    if (hasID) {
+        System.out.println("Access granted");
+    } else {
+        System.out.println("Please show ID");
+    }
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>Access granted</pre>
+
+            <h3>2. switch Statement</h3>
+            <p>When you have many possible values for a single variable, <code>switch</code> is cleaner than multiple if-else blocks.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">int day = 3;
+switch(day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    case 3:
+        System.out.println("Wednesday");
+        break;
+    default:
+        System.out.println("Invalid day");
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>Wednesday</pre>
+            <p><strong>Why break is important:</strong> Without <code>break</code>, execution "falls through" and runs all subsequent cases.</p>
+            <p>Example (without break):</p>
+            <pre><code class="language-java">int day = 2;
+switch(day) {
+    case 1: System.out.println("Mon");
+    case 2: System.out.println("Tue");
+    case 3: System.out.println("Wed");
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>Tue
+Wed</pre>
+            <p>So always use <code>break</code> unless you intentionally want fall-through.</p>
+            
+            <h3>3. Looping Statements</h3>
+            <p>Loops are used when you want to repeat a block of code multiple times, until a condition is met.</p>
+            
+            <h4>for Loop</h4>
+            <p>Used when you know how many times to repeat.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">for(int i = 1; i <= 3; i++) {
+    System.out.println("Count: " + i);
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>Count: 1
+Count: 2
+Count: 3</pre>
+            <h4>Flow Explanation:</h4>
+            <ol>
+                <li><strong>Start:</strong> <code>i = 1</code></li>
+                <li><strong>Check condition:</strong> <code>i <= 3</code></li>
+                <li><strong>Execute the block</strong></li>
+                <li><strong>Increment:</strong> <code>i</code></li>
+                <li><strong>Repeat</strong> until condition is false</li>
+            </ol>
+
+            <h4>while Loop</h4>
+            <p>Used when you don't know in advance how many times to loop — it continues as long as the condition is true.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">int num = 1;
+while(num <= 3) {
+    System.out.println("Number: " + num);
+    num++;
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>Number: 1
+Number: 2
+Number: 3</pre>
+
+            <h4>do-while Loop</h4>
+            <p>Similar to <code>while</code>, but it runs at least once — even if the condition is false initially.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">int count = 6;
+do {
+    System.out.println("Count: " + count);
+    count++;
+} while(count <= 5);</code></pre>
+            <h4>Output:</h4>
+            <pre>Count: 6</pre>
+            <p><strong>Why?</strong> Because the condition is checked *after* the loop body runs once.</p>
+
+            <h4>Enhanced for Loop (for-each)</h4>
+            <p>Used to iterate over arrays or collections easily.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">String[] fruits = {"Apple", "Banana", "Mango"};
+for(String fruit : fruits) {
+    System.out.println(fruit);
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>Apple
+Banana
+Mango</pre>
+
+            <h4>Real-World Connection</h4>
+            <p>Every app you use—from Instagram to banking software—is full of control flow. For example:</p>
+            <ul>
+                <li>Instagram checks: <em>if user logged in</em> → <em>show feed</em>, <em>else</em> → <em>show login screen</em>.</li>
+                <li>Payment systems: <em>while payment not confirmed</em> → <em>keep checking server</em>.</li>
+                <li>Music player: <em>switch</em> between Play, Pause, Next, Previous.</li>
+            </ul>
+            <p>Control flow is literally the decision-making brain of every Java program.</p>
+            
+            <h2>Arrays and Strings in Java</h2>
+            <p>When we write programs, we rarely deal with just <strong>one</strong> piece of data. Imagine storing the scores of 50 students in separate variables — chaos! This is where <strong>arrays</strong> and <strong>strings</strong> shine.</p>
+
+            <h3>Arrays — Grouping Multiple Values</h3>
+            <h4>What is an Array?</h4>
+            <p>An <strong>array</strong> is a container that holds multiple values of the <strong>same type</strong>. Think of it like a row of lockers. Each locker has a number (index), starting from 0, and you can store one value in each locker.</p>
+            <ul>
+                <li>All values must be of the same type.</li>
+                <li>Arrays are fixed in size; you must decide the size at creation.</li>
+            </ul>
+            
+            <h4>How to Create Arrays</h4>
+            <p><strong>1. Declare and initialize together:</strong></p>
+            <pre><code class="language-java">int[] scores = {85, 90, 78};</code></pre>
+            <p><strong>2. Declare first, initialize later:</strong></p>
+            <pre><code class="language-java">int[] scores = new int[2]; // Creates space for 2 integers
+scores[0] = 85;
+scores[1] = 90;</code></pre>
+            <blockquote>
+                <p class="font-semibold">💡 Tip: Access array elements using the index. <code>scores[0]</code> is 85, <code>scores[1]</code> is 90.</p>
+            </blockquote>
+
+            <h4>Accessing and Modifying</h4>
+            <pre><code class="language-java">scores[1] = 95; // Change value at index 1
+System.out.println(scores[1]); // Prints 95</code></pre>
+            <ul>
+                <li><strong>Zero-indexed:</strong> First element is at 0.</li>
+                <li><strong>Fixed size:</strong> Trying to access <code>scores[2]</code> when the array has only 2 elements causes an <code>ArrayIndexOutOfBoundsException</code>.</li>
+            </ul>
+
+            <h4>Looping Through Arrays</h4>
+            <p><strong>1. Traditional for loop</strong> — when you need the index:</p>
+            <pre><code class="language-java">for(int i = 0; i < scores.length; i++) {
+    System.out.println("Score " + (i+1) + ": " + scores[i]);
+}</code></pre>
+            <p><strong>2. Enhanced for-each loop</strong> — when index isn't needed:</p>
+            <pre><code class="language-java">for(int score : scores) {
+    System.out.println(score);
+}</code></pre>
+            <blockquote>
+                <p class="font-semibold">🧐 Fun Fact: Arrays are stored in the <strong>heap</strong>, while the reference variable points to them from the stack. This is why multiple variables can refer to the same array.</p>
+            </blockquote>
+
+            <h4>When to Use Arrays</h4>
+            <ul>
+                <li>Fixed number of items.</li>
+                <li>High performance and memory efficiency.</li>
+                <li><strong>Examples:</strong> storing daily temperatures, exam scores, or IoT sensor data.</li>
+            </ul>
+            
+            <h3>Strings — Handling Text</h3>
+            <p>A <strong>String</strong> in Java is a sequence of characters.</p>
+            <pre><code class="language-java">String message = "Hello Java";</code></pre>
+            <ul>
+                <li>Internally, a String is like an array of characters.</li>
+                <li>Strings are <strong>immutable</strong>: once created, they cannot be changed. Any modification creates a new String object.</li>
+                <li>Any operation that modifies a String actually creates a new String object.</li>
+            </ul>
+            
+            <h4>Code Snippet:</h4>
+            <pre><code class="language-java">String name = "Java";
+name.concat(" Rocks"); // Still "Java"
+System.out.println(name);</code></pre>
+            <p>To actually save changes:</p>
+            <pre><code class="language-java">name = name.concat(" Rocks");
+System.out.println(name); // Prints "Java Rocks"</code></pre>
+
+            <h4>Ways to Create Strings</h4>
+            <p><strong>a) String Literal</strong></p>
+            <pre><code class="language-java">String name = "Java";</code></pre>
+            <ul>
+                <li>Stored in the <strong>String Pool</strong> (special memory in the heap).</li>
+                <li><strong>Efficient</strong>—if another <code>String s = "Java"</code> is created as a literal, Java reuses the existing object instead of creating a new one.</li>
+            </ul>
+            <p><strong>b) Using new Keyword</strong></p>
+            <pre><code class="language-java">String name2 = new String("Java");</code></pre>
+            <ul>
+                <li>Creates a new object in heap memory, outside the String Pool.</li>
+                <li>Even if "Java" exists in the String Pool, <code>new String()</code> always makes a fresh object.</li>
+            </ul>
+            <blockquote>
+                <p class="font-semibold">🧐 Fun Fact: Java uses a String Pool to save memory. Two identical String literals share the same memory location.</p>
+            </blockquote>
+
+            <h4>Common String Operations:</h4>
+            <ul>
+                <li><code>.length()</code> → Number of characters: "Hello".length() → 5</li>
+                <li><code>.charAt(index)</code> → Character at position: "Hello".charAt(1) → 'e'</li>
+                <li><code>.toUpperCase()/.toLowerCase()</code> → "Hello".toUpperCase() → "HELLO"</li>
+                <li><code>.substring(start, end)</code> → Part of the string: "Hello".substring(1,4) → "ell"</li>
+                <li><code>.concat()</code> → Join two strings: "Hello".concat(" Java") → "Hello Java"</li>
+                <li><code>.equals()/.equalsIgnoreCase()</code> → Compare strings</li>
+            </ul>
+            <blockquote>
+                <p class="font-semibold">💡 Fun tip: Strings are preferred over char[] for text, but for passwords or sensitive data, using char[] is safer because you can clear it from memory.</p>
+            </blockquote>
+
+            <h4>String vs StringBuilder vs StringBuffer</h4>
+            <ul>
+                <li><strong>String</strong> → Immutable, simple, thread-safe.</li>
+                <li><strong>StringBuilder</strong> → Mutable, fast, single-threaded.</li>
+                <li><strong>StringBuffer</strong> → Mutable, thread-safe, slower.</li>
+            </ul>
+            <h4>Code Snippet:</h4>
+            <pre><code class="language-java">StringBuilder sb = new StringBuilder("Hello");
+sb.append(" Java");
+System.out.println(sb); // Hello Java</code></pre>
+
+            <h4>Arrays vs Strings (Conceptually)</h4>
+            <ul>
+                <li>Arrays store <strong>multiple values</strong> of the same type (numbers, objects).</li>
+                <li>Strings store <strong>text</strong> (sequence of characters).</li>
+                <li>Arrays are <strong>mutable</strong> (change values directly).</li>
+                <li>Strings are <strong>immutable</strong> (modifications create new objects).</li>
+            </ul>
+            <h4>Real-World Connections</h4>
+            <ul>
+                <li><strong>Arrays:</strong> storing marks of students, monthly sales data, or frames of a video.</li>
+                <li><strong>Strings:</strong> messages, usernames, file paths, URLs, or API responses.</li>
+            </ul>
+            <p>Arrays and Strings together form the <strong>foundation of data handling in Java</strong>. Without them, nothing from loops to methods to object-oriented logic would work effectively.</p>
+
+            <h2>Java Memory Model Basics</h2>
+            <p>When you write a Java program, your computer doesn't just magically run it. Java uses memory to store everything—from your variables to objects. Understanding how Java manages memory is essential to write efficient and error-free programs.</p>
+            <p>Java memory can be broadly divided into <strong>Stack</strong> and <strong>Heap</strong>—think of them as two different storage areas with distinct roles.</p>
+            
+            <h3>1. Stack – The Fast and Organized Workspace</h3>
+            <p>The stack is where Java stores primitive variables (int, char, boolean) and references to objects.</p>
+            <ul>
+                <li>Each time a method is called, Java creates a <strong>stack frame</strong> for it.</li>
+                <li>Local variables live inside this frame.</li>
+                <li>When the method finishes, the frame is automatically removed—freeing memory instantly.</li>
+            </ul>
+            <p><strong>Analogy:</strong> Imagine a stack of trays in a cafeteria. You place a tray on top when you start a task (method call) and remove it when done. <strong>Last-in, first-out (LIFO)</strong> is how the stack works.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">public void calculate() {
+    int a = 10; // stored in stack
+    int b = 20; // stored in stack
+}
+// a and b exist only while calculate() is running. After it ends, memory is cleared automatically.</code></pre>
+
+            <h3>2. Heap – The Flexible Object Storage</h3>
+            <p>The heap is where all <strong>objects</strong> and <strong>arrays</strong> live. Unlike the stack, heap memory is dynamic and shared across threads.</p>
+            <ul>
+                <li>Any object created with <code>new</code> is stored in the heap.</li>
+                <li>The heap is managed by the JVM, meaning it keeps track of which objects are still in use and which aren't.</li>
+            </ul>
+            <p>Example:</p>
+            <pre><code class="language-java">String message = new String("Hello Java"); // 'message' object is in heap
+int[] scores = {85, 90, 78}; // 'scores' array is in heap</code></pre>
+            <p><strong>Analogy:</strong> The heap is like a big warehouse. You store items (objects) there, and some may be removed later if nobody needs them anymore.</p>
+            <h3>3. References – Connecting Stack and Heap</h3>
+            <ul>
+                <li>Variables in the stack often <strong>point to</strong> objects in the heap.</li>
+                <li>The stack keeps the address/reference, while the actual data lives in the heap.</li>
+            </ul>
+            <p>Example:</p>
+            <pre><code class="language-java">String text = "Hello";
+StringBuilder sb = new StringBuilder("World");</code></pre>
+            <ul>
+                <li><code>text</code> points to a String object in the String Pool (special heap).</li>
+                <li><code>sb</code> points to a StringBuilder object in the heap.</li>
+            </ul>
+
+            <h3>4. Garbage Collection – Automatic Cleaning Service</h3>
+            <p>Java has a built-in <strong>garbage collector (GC)</strong> that automatically removes objects no longer referenced. This is a huge advantage compared to languages like C/C++, where you must free memory manually.</p>
+            <ul>
+                <li><strong>When does GC run?</strong> JVM decides based on memory needs—not predictable exactly.</li>
+                <li><strong>How does GC know what to delete?</strong> It removes objects that cannot be reached from any active reference.</li>
+            </ul>
+            <p>Example:</p>
+            <pre><code class="language-java">String s1 = new String("Java");
+s1 = null; // object in heap now has no reference
+         // eligible for garbage collection</code></pre>
+            <blockquote>
+                <p class="font-semibold">🧐 Fun fact: You can suggest the JVM to run GC using <code>System.gc()</code>, but it's only a <strong>hint</strong>, not a command. JVM decides the actual timing.</p>
+            </blockquote>
+
+            <h2>Object-Oriented Programming (OOP) in Java</h2>
+            <p>Java is an object-oriented programming language, which means it organizes software around <strong>objects</strong> rather than just procedures or logic. Understanding OOP is crucial because it's the foundation of how Java applications are structured, maintained, and scaled.</p>
+            <p>OOP is built on four main principles: <strong>Encapsulation</strong>, <strong>Inheritance</strong>, <strong>Polymorphism</strong>, and <strong>Abstraction</strong>, which we will cover in detail. But first, we need to understand the core building blocks: <strong>Classes and Objects</strong>.</p>
+            
+            <h3>1. Classes – The Blueprint of Objects</h3>
+            <p>Think of a <strong>class</strong> as a blueprint or template. Just like an architect draws a blueprint before constructing a building, a class defines what an object will contain and what it can do.</p>
+            <p>A class in Java contains:</p>
+            <ul>
+                <li><strong>Attributes (Fields/Properties):</strong> Represent the <strong>data</strong> or state of an object.</li>
+                <li><strong>Methods (Functions):</strong> Represent <strong>behavior</strong> or actions the object can perform.</li>
+            </ul>
+            <h4>Example: Class Declaration</h4>
+            <p>Blueprint for a car</p>
+            <pre><code class="language-java">public class Car {
+    String color;    // Attribute
+    String model;    // Attribute
+    
+    void startEngine() { // Behavior
+        System.out.println("Engine started");
+    }
+}</code></pre>
+            <h4>Key Points:</h4>
+            <ul>
+                <li>The class itself does not consume memory for attributes. Memory is allocated only when an object is created.</li>
+                <li>Class names in Java are usually PascalCase (first letter of each word capitalized).</li>
+                <li>Think of a class as a cookie cutter—it <strong>defines</strong> the shape, but the actual cookies are <strong>objects</strong> made from it.</li>
+            </ul>
+
+            <h3>2. Objects – Real-life Instances of Classes</h3>
+            <p>An <strong>object</strong> is a concrete instance of a class. It contains actual values for the class's attributes and can perform the <strong>behaviors</strong> defined in the class.</p>
+            <h4>Example: Creating Objects</h4>
+            <pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car(); // Object creation
+        
+        myCar.color = "Red";   // Setting attribute
+        myCar.model = "Tesla";
+        
+        System.out.println("My car model: " + myCar.model);
+        
+        myCar.startEngine(); // Calling method
+    }
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>My car model: Tesla
+Engine started</pre>
+            <blockquote>
+                <p class="font-semibold">🧐 Fun Fact: You can create multiple objects from the same class—each with different attribute values:</p>
+                <pre><code>Car car1 = new Car();
+car1.color = "Red";
+
+Car car2 = new Car();
+car2.color = "Blue";</code></pre>
+                <p>Each object has its own state but shares the same behavior defined in the class.</p>
+            </blockquote>
+
+            <h3>3. How Objects Work in Memory</h3>
+            <ul>
+                <li>When you create an object using <code>new</code>, Java allocates memory for it in the <strong>heap</strong>.</li>
+                <li>The variable (like <code>myCar</code>) is stored in the <strong>stack</strong> as a reference pointing to the actual object in the heap.</li>
+            </ul>
+            <p><strong>Analogy:</strong> The <strong>class</strong> is the blueprint, the <strong>heap object</strong> is the actual building, and the <strong>stack reference</strong> is the address card pointing to it.</p>
+
+            <h3>4. Why Classes and Objects Matter</h3>
+            <p>They allow real-world modeling: cars, bank accounts, students, or even online shopping carts can all be modeled as objects.</p>
+            <ul>
+                <li>They promote <strong>code reuse</strong>. Once a class is defined, you can create multiple objects without rewriting code.</li>
+                <li>They enable <strong>encapsulation</strong>: Objects can control access to their own data.</li>
+                <li>They form the foundation for <strong>Inheritance, Polymorphism,</strong> and <strong>Abstraction</strong>.</li>
+            </ul>
+
+            <h2>Constructors and Methods in Java</h2>
+            <p>Once you understand classes and objects, the next step is to learn how to initialize objects and make them perform actions. That's where constructors and methods come in.</p>
+            
+            <h3>1. Constructors – Giving Life to Objects</h3>
+            <p>A <strong>constructor</strong> is a special method used to initialize objects. It sets the initial state of an object when it's created.</p>
+            <h4>Key Points about Constructors</h4>
+            <ul>
+                <li>Name of the constructor must <strong>match the class name</strong>.</li>
+                <li><strong>No return type</strong>, not even <code>void</code>.</li>
+                <li>Called <strong>automatically</strong> when an object is created using <code>new</code>.</li>
+            </ul>
+            <p>You can be overloaded to provide different ways of initializing an object.</p>
+            <h4>Example: Constructor in Action</h4>
+            <pre><code class="language-java">public class Car {
+    String color;
+    String model;
+    
+    // Constructor
+    public Car(String color, String model) {
+        this.color = color;
+        this.model = model;
+    }
+    
+    void displayInfo() {
+        System.out.println("Model: " + model + ", Color: " + color);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Constructor called here
+        Car myCar = new Car("Red", "Tesla"); 
+        myCar.displayInfo(); // Model: Tesla, Color: Red
+    }
+}</code></pre>
+            <blockquote>
+                <p class="font-semibold">🧐 Fun fact: If you don't write a constructor, Java provides a default constructor that does nothing but allows object creation.</p>
+            </blockquote>
+            <h4>Why Constructors Matter</h4>
+            <ul>
+                <li>They ensure objects are <strong>properly initialized</strong>.</li>
+                <li>They avoid repetitive code by setting values during object creation.</li>
+                <li><strong>Overloaded constructors</strong> allow flexibility:
+                    <pre><code>Car car1 = new Car("Blue", "BMW");
+Car car2 = new Car("Green", "Audi");</code></pre>
+                    Both cars are initialized differently, but the same class is used.
+                </li>
+            </ul>
+
+            <h3>2. Methods – Making Objects Do Things</h3>
+            <p>A <strong>method</strong> is a block of code that defines behavior or action. Objects use methods to perform tasks, just like in real life a <strong>car</strong> can <code>startEngine()</code>, a <strong>student</strong> can <code>study()</code>.</p>
+            <h4>Parts of a Method:</h4>
+            <ul>
+                <li><strong>Access modifier</strong> (e.g., <code>public</code>, <code>private</code>) — controls visibility.</li>
+                <li><strong>Return type</strong> (e.g., <code>void</code>, <code>int</code>, <code>String</code>) — what the method gives back.</li>
+                <li><strong>Method name</strong> — how you call it.</li>
+                <li><strong>Parameters</strong> (optional) — input values for the method.</li>
+                <li><strong>Method body</strong> — the code executed.</li>
+            </ul>
+            <h4>Example: Method</h4>
+            <pre><code class="language-java">public class Car {
+    String model;
+    
+    void startEngine() { // Method
+        System.out.println(model + " engine started!");
+    }
+    
+    // Method with return value
+    int addNumbers(int a, int b) { 
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.model = "Tesla";
+        
+        myCar.startEngine(); // Tesla engine started!
+        
+        int sum = myCar.addNumbers(10, 20);
+        System.out.println(sum); // 30
+    }
+}</code></pre>
+            <blockquote>
+                <p class="font-semibold">💡 Tip: Methods promote code reuse. Instead of writing the same logic multiple times, you call the method whenever needed.</p>
+            </blockquote>
+
+            <h3>3. Methods vs Constructors</h3>
+            <div class="overflow-x-auto my-6 rounded-lg border">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-4 font-semibold text-gray-700">Feature</th>
+                            <th class="p-4 font-semibold text-gray-700">Constructor</th>
+                            <th class="p-4 font-semibold text-gray-700">Method</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><strong>Purpose</strong></td>
+                            <td class="p-4">Initialize objects</td>
+                            <td class="p-4">Perform actions or calculations</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><strong>Name</strong></td>
+                            <td class="p-4">Same as class</td>
+                            <td class="p-4">Custom name</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><strong>Return type</strong></td>
+                            <td class="p-4">None</td>
+                            <td class="p-4">Can have any type</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4"><strong>Called automatically</strong></td>
+                            <td class="p-4">Yes, during object creation</td>
+                            <td class="p-4">No, called explicitly</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Access Modifiers and Non-Access Modifiers in Java</h2>
+            <p>When writing Java programs, it's not enough to just create classes, objects, and methods. You also need to control who can access them and how they behave. That's where modifiers come in.</p>
+            <p>Modifiers in Java are of two types:</p>
+            <ol>
+                <li><strong>Access Modifiers</strong> — control visibility.</li>
+                <li><strong>Non-Access Modifiers</strong> — control behavior or property of classes, methods, or variables.</li>
+            </ol>
+
+            <h3>1. Access Modifiers – Who Can See What</h3>
+            
+            <h4>a) Public</h4>
+            <ul>
+                <li><strong>Visible everywhere</strong> — any class in any package can access it.</li>
+                <li>Usually used for API methods or main entry points.</li>
+            </ul>
+            <pre><code class="language-java">public class Car {
+    public String model;
+}</code></pre>
+
+            <h4>b) Private</h4>
+            <ul>
+                <li><strong>Visible only inside the class</strong> where it's defined.</li>
+                <li>Promotes <strong>encapsulation</strong> — hiding internal details.</li>
+            </ul>
+            <pre><code class="language-java">public class Car {
+    private int speed; // cannot access directly from outside
+}</code></pre>
+
+            <h4>c) Protected</h4>
+            <ul>
+                <li>Visible <strong>inside the same package</strong> and to <strong>subclasses</strong> (even in different packages).</li>
+                <li>Useful in <strong>inheritance</strong>.</li>
+            </ul>
+            <pre><code class="language-java">protected String engineType;</code></pre>
+
+            <h4>d) Default (No Modifier)</h4>
+            <ul>
+                <li>If you don't specify any modifier, it's package-private.</li>
+                <li>Accessible <strong>only within the same package</strong>, not outside.</li>
+            </ul>
+            <h4>Real-world analogy:</h4>
+            <ul>
+                <li>➤ <strong>Public</strong> → everyone can see and use (like a public restroom).</li>
+                <li>➤ <strong>Private</strong> → only you can see and use (like your personal bathroom).</li>
+                <li>➤ <strong>Protected</strong> → relatives and friends can see and use (like a guesthouse bathroom).</li>
+                <li>➤ <strong>Default</strong> → only neighbors in the same building/package can see (like a shared apartment restroom).</li>
+            </ul>
+
+            <h3>2. Non-Access Modifiers – Controlling Behavior</h3>
+            <p>These modifiers change the <strong>behavior</strong> of variables, methods, or classes.</p>
+            
+            <h4>a) static</h4>
+            <ul>
+                <li><strong>Belongs to the class, not to individual objects</strong>.</li>
+                <li>Shared by all objects of the class.</li>
+            </ul>
+            <p>Example:</p>
+            <pre><code class="language-java">public class Car {
+    // 'static' int wheels = 4; // same for all cars
+}</code></pre>
+
+            <h4>b) final</h4>
+            <ul>
+                <li>Makes a variable <strong>constant</strong>, a method <strong>non-overridable</strong>, or a class <strong>non-inheritable</strong>.</li>
+            </ul>
+            <pre><code class="language-java">final int MAX_SPEED = 200; // cannot be changed
+final class Vehicle { } // cannot be extended
+final void run() { } // cannot be overridden</code></pre>
+
+            <h4>c) abstract</h4>
+            <ul>
+                <li><strong>Abstract class:</strong> Cannot be instantiated, meant to be extended.</li>
+                <li><strong>Abstract method:</strong> Declared without implementation; subclass must define it.</li>
+            </ul>
+            <pre><code class="language-java">abstract class Vehicle {
+    abstract void start();
+}</code></pre>
+
+            <h4>d) synchronized</h4>
+            <ul>
+                <li>Ensures <strong>thread-safe access</strong> to methods or blocks.</li>
+                <li>Used in <strong>multi-threaded</strong> programming.</li>
+            </ul>
+            <pre><code class="language-java">synchronized void updateBalance() { }</code></pre>
+
+            <h4>e) transient</h4>
+            <ul>
+                <li>Prevents a variable from being <strong>serialized</strong> (saved to disk).</li>
+            </ul>
+            <pre><code class="language-java">transient int sessionId;</code></pre>
+            <blockquote>
+                <p class="font-semibold">🧐 Fun Fact: Modifiers help Java <strong>enforce rules and avoid bugs</strong>. Without them, anyone could change any variable anywhere, leading to chaos in large programs.</p>
+            </blockquote>
+
+            <h3>3. Real-World Connection</h3>
+            <ul>
+                <li><strong>Access modifiers:</strong> Think of it as security levels in a software system: who can access what.</li>
+                <li><strong>Non-access modifiers:</strong> Think of them as special properties: <strong>constants</strong> (final), <strong>shared features</strong> (static), or rules for <strong>multi-thread safety</strong> (synchronized).</li>
+            </ul>
+
+            <h2>Inheritance in Java</h2>
+            <p><strong>Inheritance</strong> is a mechanism where one class acquires the properties and behaviors of another class. It helps in code <strong>reuse</strong>, <strong>organization</strong>, and hierarchical design.</p>
+            <h4>Why Inheritance?</h4>
+            <ul>
+                <li>Avoids rewriting code.</li>
+                <li>Makes programs easier to maintain.</li>
+                <li>Models real-world relationships like parent-child or general-specific.</li>
+            </ul>
+
+            <h3>1. Types of Inheritance in Java</h3>
+            <p>Java supports several types of inheritance:</p>
+            
+            <h4>a) Single Inheritance</h4>
+            <ul>
+                <li>A child class inherits from one parent class.</li>
+                <li>Most common and simple type.</li>
+            </ul>
+            <pre><code class="language-java">// Parent class
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle started");
+    }
+}
+
+// Child class
+class Car extends Vehicle {
+    void honk() {
+        System.out.println("Car honks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.start(); // inherited from Vehicle
+        myCar.honk();  // Car's own method
+    }
+}</code></pre>
+            <p><strong>Analogy:</strong> A Car <strong>is a</strong> type of Vehicle. It inherits general features like starting the engine but has its own special features like honking.</p>
+            
+            <h4>b) Multilevel Inheritance</h4>
+            <ul>
+                <li>A child class inherits from a parent, which itself is a child of another class.</li>
+                <li>Forms a <strong>chain of inheritance</strong>.</li>
+            </ul>
+            <pre><code class="language-java">class Vehicle {
+    void start() { System.out.println("Vehicle started"); }
+}
+
+class Car extends Vehicle {
+    void honk() { System.out.println("Car honks"); }
+}
+
+class SportsCar extends Car {
+    void turboBoost() { System.out.println("Turbo Boost Activated!"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SportsCar sc = new SportsCar();
+        sc.start();      // Vehicle
+        sc.honk();       // Car
+        sc.turboBoost(); // SportsCar
+    }
+}</code></pre>
+            <p><strong>Analogy:</strong> Think of Vehicle → Car → SportsCar. Each level adds more specialized features.</p>
+            
+            <h4>c) Hierarchical Inheritance</h4>
+            <ul>
+                <li><strong>Multiple child classes inherit from the same parent class</strong>.</li>
+            </ul>
+            <pre><code class="language-java">class Vehicle {
+    void start() { System.out.println("Vehicle started"); }
+}
+
+class Car extends Vehicle {
+    void honk() { System.out.println("Car honks"); }
+}
+
+class Bike extends Vehicle {
+    void kickStart() { System.out.println("Bike kickstarted"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car c = new Car();
+        Bike b = new Bike();
+        
+        c.start(); // Vehicle method
+        c.honk();  // Car method
+        
+        b.start();     // Vehicle method
+        b.kickStart(); // Bike method
+    }
+}</code></pre>
+            <p><strong>Analogy:</strong> From the same Vehicle blueprint, you can make Car and Bike — each has its own unique features but shares common ones.</p>
+            
+            <h4>d) Hybrid Inheritance</h4>
+            <p>Hybrid inheritance means a combination of two or more types of inheritance, such as single + multilevel or single + hierarchical.</p>
+            <h4>Is Hybrid Inheritance Possible in Java?</h4>
+            <ul>
+                <li>Java supports hybrid inheritance only through class combinations like:
+                    <ul>
+                        <li>Single + Multilevel inheritance</li>
+                        <li>Single + Hierarchical inheritance</li>
+                    </ul>
+                </li>
+                <li>These combinations are valid because they do not create ambiguity.</li>
+            </ul>
+            <h4>Example for Hybrid Inheritance : Single + Hierarchical + Multilevel</h4>
+            <pre><code class="language-java">class A {
+    void showA() { System.out.println("Class A"); }
+}
+
+class B extends A {
+    void showB() { System.out.println("Class B"); }
+}
+
+class C extends B {
+    void showC() { System.out.println("Class C"); }
+}
+
+class D extends A {
+    void showD() { System.out.println("Class D"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        C obj1 = new C();
+        obj1.showA(); // from A
+        obj1.showB(); // from B
+        obj1.showC(); // from C
+        
+        D obj2 = new D();
+        obj2.showA(); // from A
+        obj2.showD(); // from D
+    }
+}</code></pre>
+
+            <h4>When Hybrid Inheritance is Not Possible</h4>
+            <ul>
+                <li>Java does not support multiple inheritance with classes, so a combination involving multiple inheritance (e.g., single + multiple) is not allowed.</li>
+                <li>This restriction avoids the <strong>diamond problem</strong> (confusion when two parent classes have the same method).</li>
+            </ul>
+            <p>Example:</p>
+            <pre><code class="language-java">class A {
+    void display() { System.out.println("Class A"); }
+}
+
+class B extends A {
+    void display() { System.out.println("Class B"); }
+}
+
+class C extends A {
+    void display() { System.out.println("Class C"); }
+}
+
+// class D extends B, C { // ❌ Compilation Error
+//     void display() { System.out.println("Class D"); }
+// }</code></pre>
+            
+            <h3>Multiple Inheritance:</h3>
+            <p>Multiple inheritance means a class inherits from more than one parent class at the same time.</p>
+            <ul>
+                <li>A child class has two or more direct parent classes.</li>
+            </ul>
+            <p>Multiple inheritance is not supported through Classes in Java.</p>
+
+            <h3>Why Multiple Inheritance with Classes is Not Allowed in Java</h3>
+            <h4>Reason:</h4>
+            <ol>
+                <li><strong>Ambiguity Problem (Diamond Problem)</strong>
+                    <p>If both B and C have the same method <code>display()</code>, then class A doesn't know which one to inherit. —This causes ambiguity.</p>
+                </li>
+                <li><strong>Java's Design Philosophy — Simplicity and Clarity</strong>
+                    <p>Java was designed to be a simpler alternative to C++. Removing multiple class inheritance eliminates confusion while still giving flexibility through <strong>interfaces</strong>.</p>
+                </li>
+            </ol>
+            
+            <h4>Reason:</h4>
+            <p>Multiple Inheritance can be Achieved in Java <strong>interfaces</strong> to avoid multiple inheritance issues through Classes.</p>
+            <ul>
+                <li>Interfaces only contain method <strong>declarations</strong> (no implementation) — so there's no ambiguity about which parent's method should be inherited.</li>
+            </ul>
+            <pre><code class="language-java">interface A {
+    void show();
+}
+interface B {
+    void show(); // same method name as in A
+}
+
+class C implements A, B {
+    public void show() {
+        System.out.println("Inside show()");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.show();
+    }
+}</code></pre>
+            <h4>Why This Works:</h4>
+            <ul>
+                <li>Both interfaces A and B only <strong>declare</strong> the method <code>show()</code> (no body).</li>
+                <li>Class C provides the <strong>actual implementation</strong>, so no conflict or ambiguity occurs.</li>
+                <li>The child class <strong>controls the behavior</strong> — not the parents.</li>
+            </ul>
+
+            <h4>Important Facts & Deep Insights</h4>
+            <p><strong>Fact 1: Interface = Contract, Class = Implementation</strong></p>
+            <ul>
+                <li>Interface only defines "what to do", not "how to do it."</li>
+                <li>So multiple interfaces can be implemented safely because the actual logic comes from one place — the implementing class.</li>
+            </ul>
+            <p><strong>Fact 2: Diamond Problem is Solved by Design</strong></p>
+            <ul>
+                <li>In interfaces, even if two parents define the same method name, the implementing class is <strong>forced</strong> to provide its own version — removing ambiguity at compile time.</li>
+            </ul>
+
+            <h4>Rules of Inheritance</h4>
+            <ol>
+                <li>Java supports single, multilevel, and hierarchical inheritance.</li>
+                <li>Multiple inheritance with classes is not allowed, only via interfaces.</li>
+                <li>Constructors of superclass are called first before the subclass constructor.</li>
+            </ol>
+
+            <h2>Polymorphism in Java – One Action, Many Forms!</h2>
+            <p>The word Polymorphism comes from Greek — "Poly" = many, "Morphism" = forms. It literally means "something that exists in more than one form." In Java, polymorphism allows the same method name or object reference to behave differently based on context or object type. It's like giving one command but getting different reactions depending on who receives it.</p>
+            
+            <h3>Why We Need Polymorphism</h3>
+            <ul>
+                <li>To write <strong>flexible and reusable code</strong>.</li>
+                <li>To achieve <strong>dynamic behavior</strong> in object-oriented programming.</li>
+                <li>To let Java decide "which version" of a method should run — either at <strong>compile time or runtime</strong>.</li>
+            </ul>
+
+            <h3>Two Faces of Polymorphism in Java</h3>
+            <p>Java supports:</p>
+            <ol>
+                <li><strong>Compile-Time Polymorphism (Static Binding / Early Binding)</strong></li>
+                <li><strong>Runtime Polymorphism (Dynamic Binding / Late Binding)</strong></li>
+            </ol>
+            <p>Let's dive into each with clarity and a bit of fun.</p>
+
+            <h3>1. Compile-Time Polymorphism (Method Overloading)</h3>
+            <p>Compile-time polymorphism happens when the method that needs to be executed is determined during compilation. In other words — Java decides "which method to call" before your program even starts running.</p>
+            
+            <h4>Method Overloading —</h4>
+            <p>Multiple methods with the same name, but different parameter lists (type, number, or order).</p>
+            <p>Example:</p>
+            <pre><code class="language-java">class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Calculator c = new Calculator();
+        System.out.println(c.add(2, 3));      // int version
+        System.out.println(c.add(2.5, 3.5)); // double version
+    }
+}</code></pre>
+            
+            <h4>How It Works</h4>
+            <ul>
+                <li>All methods have the same name (<code>add</code>), but with different parameter sets.</li>
+                <li>The compiler checks the arguments at compile time and picks the matching method.</li>
+                <li>The decision is static, i.e., done before execution.</li>
+            </ul>
+            
+            <h4>Terminologies to Remember</h4>
+            <ul>
+                <li><strong>Static Binding</strong> — method call linked during compilation.</li>
+                <li><strong>Early Binding</strong> — method selection happens before execution.</li>
+                <li>No inheritance required, since overloading can occur within a single class.</li>
+            </ul>
+
+            <h4>Fun Facts</h4>
+            <ul>
+                <li>You can't overload methods just by changing the return type — parameters must differ.</li>
+                <li>Overloading improves readability and code clarity — same method name, different tasks.</li>
+            </ul>
+
+            <h3>2. Runtime Polymorphism (Method Overriding)</h3>
+            <p>Runtime polymorphism occurs when the method call is resolved during program execution, not compilation. The <strong>object type</strong>, not the reference type, decides which method runs.</p>
+            
+            <h4>Method Overriding —</h4>
+            <p>A subclass provides its own version of a method already defined in its parent class.</p>
+            <p>Example:</p>
+            <pre><code class="language-java">class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Animal obj = new Dog(); // Parent reference, Child object
+        obj.sound(); // Output: Dog barks
+    }
+}</code></pre>
+
+            <h4>How It Works</h4>
+            <ul>
+                <li><code>Animal</code> reference points to a <code>Dog</code> object.</li>
+                <li>At runtime, the JVM checks the <strong>actual object</strong> (Dog) and executes its <code>sound()</code> method.</li>
+                <li>This decision is made dynamically, hence called <strong>Dynamic Binding / Late Binding</strong>.</li>
+            </ul>
+
+            <h4>Terminologies to Remember</h4>
+            <ul>
+                <li><strong>Dynamic Binding</strong> — binding done at runtime.</li>
+                <li><strong>Late Binding</strong> — JVM decides method call after object creation.</li>
+                <li>Requires inheritance and typically uses the <code>@Override</code> annotation.</li>
+                <li>Works only with non-static methods (static methods are resolved at compile time).</li>
+            </ul>
+
+            <h4>Fun Facts</h4>
+            <ul>
+                <li><code>@Override</code> is not mandatory, but using it helps catch errors early.</li>
+                <li>You can't override a <strong>final</strong> or <strong>static</strong> method — they're bound at compile time.</li>
+                <li>It's like a child saying, "I'll handle this task my own way, Dad." — That's overriding in action!</li>
+            </ul>
+
+            <h2>Encapsulation — The Protective Shield of Java!</h2>
+            <p>The word Encapsulation comes from "capsule," which means something tightly wrapped or sealed. In Java, <strong>Encapsulation</strong> means wrapping data (variables) and the code (methods) that operate on that data into a <strong>single unit</strong> — a class — and protecting it from outside interference.</p>
+            <p>Think of it like a <strong>medicine capsule</strong> 💊 — the powder (data) is hidden inside the shell (class), and you can't see or touch it directly — you can only use it safely in the way it's meant to be used.</p>
+            
+            <h3>Core Idea</h3>
+            <p><strong>Encapsulation = Data Hiding + Controlled Access</strong></p>
+            <p>You hide the sensitive details of an object and allow interaction only through well-defined methods (getters and setters).</p>
+            
+            <h3>Real-World Analogy</h3>
+            <p>Imagine your ATM card.</p>
+            <ul>
+                <li>You can withdraw money or check balance — but you can't directly access the bank's database!</li>
+                <li>The <strong>ATM screen</strong> acts like getter/setter methods, controlling how you interact with the data.</li>
+                <li>The bank system hides the implementation details inside (Encapsulation).</li>
+            </ul>
+
+            <h3>Code Example</h3>
+            <pre><code class="language-java">class BankAccount {
+    private double balance; // data hidden from direct access
+
+    // controlled access using methods
+    public void deposit(double amount) {
+        if (amount > 0) balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) balance -= amount;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount();
+        account.deposit(1000);
+        account.withdraw(200);
+        System.out.println("Current Balance: " + account.getBalance());
+    }
+}</code></pre>
+            
+            <h3>Explanation</h3>
+            <ul>
+                <li><code>balance</code> is declared <strong>private</strong> — can't be accessed directly from outside.</li>
+                <li>Methods like <code>deposit()</code>, <code>withdraw()</code>, and <code>getBalance()</code> are <strong>public</strong> — provide safe access.</li>
+                <li>The class acts as a capsule, controlling how data is seen and modified.</li>
+            </ul>
+            
+            <h3>Why It's Important</h3>
+            <ul>
+                <li>Increases <strong>security</strong> of data.</li>
+                <li>Improves code <strong>maintainability</strong>.</li>
+                <li>Makes code <strong>modular and reusable</strong>.</li>
+                <li>Prevents accidental misuse of variables.</li>
+            </ul>
+
+            <h3>Fun Fact Zone</h3>
+            <p>Encapsulation is like putting your phone in a case — you still use it, but you don't mess with the internal circuits. In OOP, "Encapsulation" is not just about hiding — it's about protecting and controlling access, like a security gate with a password.</p>
+
+            <h2>Abstraction in Java</h2>
+            <p>Think of abstraction like using a phone app. You tap "Send" in WhatsApp, but you don't know all the network protocols, encryption, or server processing happening in the background. You only see what matters—sending the message. <strong>Abstraction</strong> is the process of hiding internal implementation details and showing only the necessary functionalities to the user.</p>
+            
+            <h3>Key Points:</h3>
+            <ul>
+                <li>Focus on "<strong>what</strong>" an object does, not "<strong>how</strong>" it does it.</li>
+                <li>Helps <strong>simplify complex systems</strong>.</li>
+                <li>Makes code more readable, reusable, and maintainable.</li>
+            </ul>
+
+            <h3>Analogy:</h3>
+            <ul>
+                <li><strong>Driving a car:</strong> You use accelerator, brakes, steering. You don't need to know how the engine works.</li>
+                <li><strong>Using a TV:</strong> You press buttons on the remote; the inner circuitry is hidden.</li>
+            </ul>
+
+            <h3>Why Do We Need Abstraction?</h3>
+            <ol>
+                <li><strong>Simplifies coding</strong> — Users interact with objects easily without worrying about internal logic.</li>
+                <li><strong>Reduces complexity</strong> — Large programs become manageable.</li>
+                <li><strong>Supports modularity</strong> — Change one part without affecting others.</li>
+                <li><strong>Enhances security</strong> — Sensitive implementation details are hidden.</li>
+                <li><strong>Enables flexibility</strong> — Different implementations can follow the same interface or abstract class.</li>
+            </ol>
+            <h3>How Java Provides Abstraction</h3>
+            <p>Java supports abstraction mainly through <strong>Abstract Classes</strong> and <strong>Interfaces</strong>.</p>
+            
+            <h4>Abstract Classes</h4>
+            <ul>
+                <li>A class that cannot be instantiated directly.</li>
+                <li>Can have both <strong>abstract methods</strong> (without body) and <strong>concrete methods</strong> (with body).</li>
+                <li>Used when classes share <strong>common behavior</strong>, but some methods differ.</li>
+            </ul>
+            <p><strong>Syntax:</strong></p>
+            <pre><code class="language-java">abstract class Vehicle {
+    abstract void start(); // Abstract method (no body)
+    
+    void stop() { // Concrete method
+        System.out.println("Vehicle stopped");
+    }
+}
+
+class Car extends Vehicle {
+    void start() {
+        System.out.println("Car started");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Vehicle myVehicle = new Vehicle(); // Error! Cannot instantiate.
+        Car myCar = new Car();
+        myCar.start(); // Output: Car started
+        myCar.stop();  // Output: Vehicle stopped
+    }
+}</code></pre>
+            <h5>Key Notes:</h5>
+            <ul>
+                <li>Cannot create <code>Vehicle</code> object directly.</li>
+                <li>Subclasses <strong>must</strong> implement abstract methods.</li>
+                <li>Can have constructors, variables, and concrete methods.</li>
+            </ul>
+            
+            <h4>Interfaces</h4>
+            <ul>
+                <li>Defines a <strong>contract</strong>; classes must implement its methods.</li>
+                <li>All methods are implicitly <strong>abstract</strong> (unless default or static).</li>
+                <li>Supports <strong>multiple inheritance</strong>, which abstract classes do not.</li>
+            </ul>
+            <p><strong>Syntax:</strong></p>
+            <pre><code class="language-java">interface Playable {
+    void play(); // Abstract method
+}
+
+class Guitar implements Playable {
+    public void play() {
+        System.out.println("Playing Guitar");
+    }
+}
+
+class Piano implements Playable {
+    public void play() {
+        System.out.println("Playing Piano");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Playable g = new Guitar();
+        Playable p = new Piano();
+        
+        g.play(); // Output: Playing Guitar
+        p.play(); // Output: Playing Piano
+    }
+}</code></pre>
+            <h5>Key Notes:</h5>
+            <ul>
+                <li>Classes must implement <strong>all</strong> interface methods.</li>
+                <li>Useful when different classes need the same <strong>behavior</strong> but implementations differ.</li>
+            </ul>
+
+            <h2>Java Exception Handling</h2>
+            <p>Even the most reliable programs can run into trouble. Imagine your banking app crashing while transferring money, or your game freezing because a file was missing. That's where exception handling comes to the rescue.</p>
+            <p>An <strong>exception</strong> is an unexpected event or error that occurs while a program is running, disrupting its normal flow.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li>Dividing by zero → <code>ArithmeticException</code></li>
+                <li>Accessing a non-existing array element → <code>ArrayIndexOutOfBoundsException</code></li>
+                <li>Opening a missing file → <code>FileNotFoundException</code></li>
+            </ul>
+            <h4>Key Idea:</h4>
+            <ul>
+                <li><strong>Without handling</strong> → Program crashes</li>
+                <li><strong>With handling</strong> → Program recovers gracefully</li>
+            </ul>
+            <blockquote>
+                <p class="font-semibold">🧐 Fun Fact: Even Java "fails gracefully"—it won't just quit unexpectedly if you handle exceptions properly.</p>
+            </blockquote>
+
+            <h3>Why Do We Need Exception Handling?</h3>
+            <ol>
+                <li><strong>Prevent Crashes</strong> – Keeps your program alive.</li>
+                <li><strong>Identify Problems</strong> – Exceptions tell you what went wrong.</li>
+                <li><strong>Clean Code</strong> – Error-handling is separate from main logic.</li>
+                <li><strong>Reliable Applications</strong> – Better user experience.</li>
+            </ol>
+            <p><strong>Analogy:</strong> Cooking a recipe and accidentally dropping an ingredient—you fix it and continue, instead of burning the whole dish.</p>
+            
+            <h3>Java Exception Hierarchy</h3>
+            <p>All exceptions extend the <code>Throwable</code> class:</p>
+            <p></p>
+            <ul>
+                <li><strong>Throwable</strong>
+                    <ul>
+                        <li><strong>Exception</strong> (Can be handled)
+                            <ul>
+                                <li><strong>Checked Exceptions</strong> (e.g., <code>IOException</code>, <code>SQLException</code>): Must be handled at compile-time.</li>
+                                <li><strong>Unchecked (Runtime) Exceptions</strong> (e.g., <code>ArithmeticException</code>, <code>NullPointerException</code>): Occur at runtime, handling is optional.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Error</strong> (Generally not handled)
+                            <ul>
+                                <li>e.g., <code>StackOverflowError</code>, <code>VirtualMachineError</code>: Serious problems the application can't recover from.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <blockquote>
+                <p class="font-semibold">🧐 Fun Fact: Errors (like <code>StackOverflowError</code>) are so severe that even Java can't recover from them—they're the "natural disasters" of programming!</p>
+            </blockquote>
+
+            <h3>Handling Exceptions</h3>
+            <p>The heart of exception handling is the <strong>try-catch-finally</strong> block.</p>
+            <h4>try Block</h4>
+            <ul>
+                <li>Contains code that <strong>might throw an exception</strong> (risky code).</li>
+                <li>If an exception occurs → stop catch.</li>
+                <li>If <strong>no exception</strong> occurs → jumps to the matching catch block.</li>
+            </ul>
+            <h4>catch Block</h4>
+            <ul>
+                <li><strong>Handles</strong> the exception.</li>
+                <li>Can log, fix, or display friendly messages.</li>
+                <li>Think of it as a recovery room.</li>
+            </ul>
+            <h4>finally Block</h4>
+            <ul>
+                <li>Optional but important.</li>
+                <li><strong>Always executes</strong>, whether exception occurs or not.</li>
+                <li>Great for <strong>cleaning resources</strong> (closing files, database connections).</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+            <pre><code class="language-java">try {
+    int[] arr = {1, 2, 3};
+    System.out.println(arr[5]); // Risky code
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Oops! Invalid array index.");
+} finally {
+    System.out.println("Cleanup done, program continues.");
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>Oops! Invalid array index.
+Cleanup done, program continues.</pre>
+
+            <h3>throw and throws</h3>
+            <ul>
+                <li><strong>throw</strong> → explicitly <strong>throw an exception</strong>.</li>
+                <li><strong>throws</strong> → <strong>declare</strong> that a method might throw an exception.</li>
+            </ul>
+            <pre><code class="language-java">static void checkAge(int age) throws Exception {
+    if (age < 18) {
+        throw new Exception("Age must be 18+");
+    }
+}
+
+public static void main(String[] args) {
+    try {
+        checkAge(17);
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+    }
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>Age must be 18+</pre>
+
+            <h3>Tips for Exception Handling Like a Pro</h3>
+            <ol>
+                <li>Handle exceptions you can <strong>actually recover from</strong>.</li>
+                <li>Avoid empty catch blocks (<code>catch(Exception e){}</code>)—they hide errors.</li>
+                <li>Use specific exceptions to catch known issues.</li>
+                <li>Use <code>finally</code> or <code>try-with-resources</code> for cleanup.</li>
+                <li>Log exceptions to help <strong>debugging</strong>.</li>
+            </ol>
+            <blockquote>
+                <p class="font-semibold">🧐 Fun Fact: Logging exceptions is like leaving breadcrumbs in the forest—you'll always find your way back to the bug.</p>
+            </blockquote>
+
+            <h3>Quick Summary</h3>
+            <ul>
+                <li><strong>Exception:</strong> Unexpected problem during program execution.</li>
+                <li><strong>try-catch:</strong> Handle problems gracefully.</li>
+                <li><strong>finally:</strong> Always runs, perfect for cleanup.</li>
+                <li><strong>throw/throws:</strong> Create or declare exceptions.</li>
+                <li><strong>Checked vs Unchecked:</strong> Compile-time vs runtime handling.</li>
+            </ul>
+            <p><strong>Goal:</strong> Keep programs running smoothly, even when the unexpected happens.</p>
+            
+            </article>
+    </main>
+
+    <footer class="bg-white border-t mt-12">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-600">
+            <p>&copy; 2025 Revature Study Guide. All Rights Reserved.</p>
+            <p class="mt-2 text-sm">A resource by associates, for associates.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
