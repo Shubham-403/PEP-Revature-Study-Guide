@@ -1,0 +1,44 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 40px;
+    background-color: #fff;
+}
+
+.content {
+    max-width: 900px;
+    margin: auto;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.image-box {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.image-box img {
+    width: 100%;
+    height: 300px;        /* 👈 increase this value as needed */
+    object-fit: contain;  /* keeps it from getting too distorted */
+    border-radius: 10px;
+}
+.image-box1 img {
+    width: 100%;
+    height: 200px;        /* 👈 increase this value as needed */
+    object-fit: scale-down;  /* keeps it from getting too distorted */
+    border-radius: 10px;
+}
+.image-box2 img {
+    width: 100%;
+    height: 350px;        /* 👈 increase this value as needed */
+    object-fit: contain;  /* keeps it from getting too distorted */
+    border-radius: 10px;
+}
+.image-box3 img {
+    width: 100%;
+    height: 320px;        /* 👈 increase this value as needed */
+    object-fit: contain;  /* keeps it from getting too distorted */
+    border-radius: 10px;
+}

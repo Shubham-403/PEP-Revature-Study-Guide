@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="Style/style.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -20,6 +20,7 @@
             font-weight: 700;
             letter-spacing: -0.025em;
             margin-bottom: 1.5em;
+            
         }
         .prose h2 {
             font-size: 1.875rem; /* 30px */
@@ -28,12 +29,15 @@
             margin-bottom: 1.25em;
             border-bottom: 1px solid #e5e7eb; /* gray-200 */
             padding-bottom: 0.5rem;
+            
         }
         .prose h3 {
             font-size: 1.5rem; /* 24px */
             font-weight: 600;
             margin-top: 2.5em;
             margin-bottom: 1em;
+            border-bottom: 1px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem;
         }
         .prose h4 {
             font-size: 1.25rem; /* 20px */
@@ -41,6 +45,7 @@
             margin-top: 2em;
             margin-bottom: 0.5em;
             color: #1f2937; /* gray-800 */
+            
         }
         .prose p, .prose ul, .prose ol {
             color: #374151; /* gray-700 */
@@ -186,7 +191,7 @@
                 <li><strong>JRE</strong> (which means the JDK includes everything needed to run Java programs).</li>
             </ul>
             <h4>In short:</h4>
-            <p><strong>JDK = JRE + Development Tools</strong></p>
+            <p>JDK = JRE + Development Tools</p>
             <h4>Why It's Needed</h4>
             <p>Without the JDK, you can't write or compile Java code — you can only run existing programs. So, anyone who is learning or developing in Java must install the JDK.</p>
 
@@ -206,20 +211,39 @@
             <p>If you only want to run Java programs — like using an already-built desktop or web app — you just need the JRE, not the full JDK.</p>
 
             <h2>JVM – Java Virtual Machine</h2>
-            <h4>What It Is</h4>
+           <h4>What It Is</h4>
             <p>The JVM is the heart of Java — it's a virtual engine inside your computer that executes Java bytecode.</p>
-            <h4>How It Works</h4>
+              <h4>How It Works</h4>
             <ol>
                 <li>You write code in a file named HelloWorld.java.</li>
                 <li>The compiler (javac) converts it into HelloWorld.class — a file full of bytecode.</li>
                 <li>The JVM reads that bytecode and converts it into machine code (1s and 0s) your hardware understands.</li>
                 <li>The code runs — and you see the output:</li>
                 <li>Hello, World!</li>
-            </ol>
+            </ol>  
             <h4>Why JVM Is Powerful</h4>
             <p>The JVM takes care of all hardware differences. This means the same .class file can run on any operating system — as long as that system has a JVM installed. That's the core reason Java is platform-independent.</p>
+            <div class="content">  
+    <h3>Diagram :</h3>
+
+    <div class="image-box">
+        <img src="./imgJava/Picture1.png" alt="Revature Image" class="h-8">
+    </div>
+</div>  
+<h4>Can We Read Bytecode?</h4>
+<p> <b><h5>Technically yes — but it’s not fun</h5></b> </p>
+<p> Bytecode looks like a mix of strange instructions only the JVM understands.
+However, you can view it using the javap command, which shows the internal bytecode structure.</p>
+  
+
             
-            <h2>Getting Comfortable with Your First Java Program:</h2>
+          <h3>The Complete Flow</h3>
+          <p>Here’s how a Java program travels from your idea to execution:</p>
+          <div class="image-box">
+        <img src="./imgJava/Picture2.png" alt="Revature Image" class="h-8">
+    </div>
+          <h2>Getting Comfortable with Your First Java Program:</h2>
+            
             <p>Before you dive deep into coding, let's look at how a simple Java program is structured. Even a tiny program like printing "Hello, World!" tells us a lot about how Java actually works.</p>
             <h4>The Complete Code:</h4>
             <pre><code class="language-java">class HelloWorld {
@@ -261,20 +285,20 @@
                 <li><strong>println</strong> — Prints the text and moves to a new line.</li>
             </ul>
             <h4>So this line means:</h4>
-            <p>"Display the text 'Hello, World!' on the screen."</p>
+            <p><i>"Display the text 'Hello, World!' on the screen."</i></p>
             <h4>Fun Fact:</h4>
             <p>If you use <code>System.out.print()</code> instead, the next message appears on the same line.</p>
 
             <h3>Braces { } and Semicolons ;</h3>
             <ul>
                 <li><strong>{ }</strong> define code blocks (start and end of class or method).
-                    <ul>
+                    
                         <li>Every opening { must have a closing }.</li>
-                    </ul>
-                </li>
+                    
+                
                 <li><strong>;</strong> Each statement ends with a ; — it tells Java that one command is complete.</li>
             </ul>
-
+  
             <h2>Java Basics: Data Types and Variables:</h2>
             <h3>What Are Variables?</h3>
             <p>A variable is simply a name you give to a piece of memory where you want to store some data. Think of it like a <strong>labeled box</strong> on your storage shelf:</p>
@@ -283,16 +307,16 @@
                 <li>The label (variable name) helps you find what's inside.</li>
                 <li>The content is the value you store.</li>
             </ul>
-            <p>Example:</p>
+            <p><b>Example:</b></p>
             <p><code>int age = 25;</code></p>
-            <p>Here:</p>
+            <p><b>Here:</b></p>
             <ul>
-                <li><strong>int</strong> — type of data (integer)</li>
-                <li><strong>age</strong> — variable name</li>
-                <li><strong>25</strong> — value stored inside</li>
+                <li>int — type of data (integer)</li>
+                <li>age— variable name</li>
+                <li>25 — value stored inside</li>
             </ul>
             <p>You can read this as: "store the number 25 in a box named age."</p>
-
+  
             <h3>Why Do We Need Data Types?</h3>
             <p>Data types tell Java <strong>what kind</strong> of value a variable holds and how much memory to allocate for it. Without data types, Java wouldn't know if 10 is:</p>
             <ul>
@@ -301,9 +325,10 @@
                 <li>a truth value (True/False).</li>
             </ul>
             <p>Every variable in Java must have a data type — because Java is strongly typed, meaning types are checked during compilation to prevent logical errors.</p>
+              
             <h2>Primitive Data Types</h2>
             <p>Primitive types are the basic building blocks—they store simple, single values directly in memory. Let's go through each one clearly 🧐</p>
-
+   
             <h3>1. byte</h3>
             <pre><code class="language-java">byte age = 25;</code></pre>
             <ul>
@@ -312,7 +337,7 @@
                 <li>Used for: <strong>very small numbers</strong>, like counters, ages, or small data sets.</li>
                 <li><strong>Why use it?</strong> Saves memory when you know your values are small. Example: Ideal for IoT devices or embedded systems tracking sensor values.</li>
             </ul>
-
+   
             <h3>2. short</h3>
             <pre><code class="language-java">short year = 2025;</code></pre>
             <ul>
@@ -321,7 +346,7 @@
                 <li>Used for: slightly larger numbers</li>
                 <li><strong>Example:</strong> Representing a year, temperature reading, or small numeric ID.</li>
             </ul>
-
+   
             <h3>3. int</h3>
             <pre><code class="language-java">int salary = 50000;</code></pre>
             <ul>
@@ -330,7 +355,7 @@
                 <li><strong>Example:</strong> Storing employee salary, age, count of users, etc.</li>
                 <li><strong>Fun Fact:</strong> Almost every number-based variable in enterprise-level Java code is an int.</li>
             </ul>
-
+   
             <h3>4. long</h3>
             <pre><code class="language-java">long distance = 15000000000L;</code></pre>
             <ul>
@@ -338,7 +363,7 @@
                 <li>For very large numbers—like population counts, distance in meters, etc.</li>
                 <li>Must end with <strong>L</strong> (or l) to indicate long. Example: <code>long curve = 2500000000L;</code></li>
             </ul>
-
+   
             <h3>5. float</h3>
             <pre><code class="language-java">float rating = 4.5f;</code></pre>
             <ul>
@@ -347,7 +372,7 @@
                 <li>Must end with <strong>f</strong> or <strong>F</strong>. Example: <code>float temperature = 36.6f;</code></li>
                 <li>💡 <strong>Note:</strong> Suitable when slight rounding is okay (like ratings or averages).</li>
             </ul>
-
+   
             <h3>6. double</h3>
             <pre><code class="language-java">double price = 999.99;</code></pre>
             <ul>
@@ -356,7 +381,7 @@
                 <li><strong>Example:</strong> prices, interest rates, scientific calculations.</li>
                 <li>Default type for decimal numbers in Java. <strong>Tip:</strong> If you don't add 'f', Java treats decimals as double.</li>
             </ul>
-
+   
             <h3>7. char</h3>
             <pre><code class="language-java">char grade = 'A';</code></pre>
             <ul>
@@ -365,7 +390,7 @@
                 <li>Enclosed in single quotes <code>' '</code>.</li>
                 <li>Example: <code>char symbol = '$';</code></li>
             </ul>
-
+   
             <h3>8. boolean</h3>
             <pre><code class="language-java">boolean isActive = true;</code></pre>
             <ul>
@@ -379,15 +404,15 @@
             <h2>Non-Primitive (Reference) Data Types</h2>
             <p>Non-primitive types are created by <strong>programmers</strong> and can hold multiple values or complex structures. They don't store the value directly — they store a <strong>reference (address)</strong> to where the data actually lives in memory.</p>
             <p>Common examples:</p>
-            <ul>
+            <ul><strong>
                 <li>String</li>
                 <li>Arrays</li>
                 <li>Classes</li>
                 <li>Interfaces</li>
-                <li>Objects</li>
+                <li>Objects</li></strong>
             </ul>
             <p>Let's see a few simple ones.</p>
-
+  
             <h3>String</h3>
             <pre><code class="language-java">String name = "Vishal";</code></pre>
             <ul>
@@ -395,7 +420,7 @@
                 <li>Stored as an <strong>object</strong>, meaning it has built-in methods like: <code>name.length();</code>, <code>name.toUpperCase();</code></li>
             </ul>
             <p><strong>Real-world example:</strong> Storing user names, addresses, or messages.</p>
-
+  
             <h3>Array</h3>
             <pre><code class="language-java">int[] scores = {85, 90, 78};</code></pre>
             <ul>
@@ -405,6 +430,7 @@
             <p><strong>Real-world example:</strong> Keeping track of daily sales or marks of a student.</p>
 
             <h2>Operators and Expressions</h2>
+
             <h3>What Are Operators?</h3>
             <p>An <strong>operator</strong> is a symbol that tells the computer to perform a specific operation or calculation. Think of them as tools you use to work with data — add, compare, assign, or check conditions.</p>
             <p>For example:</p>
@@ -412,210 +438,53 @@
 int result = a + b;</code></pre>
             <p>Here, <strong>+</strong> is an operator that adds a and b, and stores the value 15.</p>
             <p>So, operators act like verbs in a sentence — they tell Java what to do with the data.</p>
-            
+              
             <h3>What Is an Expression?</h3>
             <p>An <strong>expression</strong> is a combination of variables, values, and operators that produces a result.</p>
             <p>Example:</p>
             <pre><code class="language-java">int sum = (a + b) * 2;</code></pre>
             <p>This is an expression — Java evaluates it, and the result is stored in sum. <strong>Simple way to remember:</strong> An *operator* does the action, and an *expression* is the complete action.</p>
-
+  
             <h3>Types of Operators in Java</h3>
             <p>Java provides several types of operators to handle different kinds of tasks. Let's go through each one with simple examples.</p>
-            
+              
             <h4>1. Arithmetic Operators</h4>
             <p>Used to perform basic mathematical operations.</p>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-gray-700">Operator</th>
-                            <th class="p-4 font-semibold text-gray-700">Description</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
-                            <th class="p-4 font-semibold text-gray-700">Output</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>+</code></td>
-                            <td class="p-4">Addition</td>
-                            <td class="p-4"><code>10 + 5</code></td>
-                            <td class="p-4">15</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>-</code></td>
-                            <td class="p-4">Subtraction</td>
-                            <td class="p-4"><code>10 - 5</code></td>
-                            <td class="p-4">5</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>*</code></td>
-                            <td class="p-4">Multiplication</td>
-                            <td class="p-4"><code>10 * 5</code></td>
-                            <td class="p-4">50</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>/</code></td>
-                            <td class="p-4">Division</td>
-                            <td class="p-4"><code>10 / 5</code></td>
-                            <td class="p-4">2</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>%</code></td>
-                            <td class="p-4">Modulus (Remainder)</td>
-                            <td class="p-4"><code>10 % 3</code></td>
-                            <td class="p-4">1</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+             <div class="image-box1">
+        <img src="./imgJava/Picture3.png" alt="Revature Image" class="h-8">
+    </div>
+            
             
             <p>Example in code:</p>
             <pre><code class="language-java">int a = 10, b = 3;
 System.out.println(a / b); // prints 3
 System.out.println(a % b); // prints 1</code></pre>
             <p><strong>Fun Fact:</strong> In real-world applications, modulus (%) is often used to check for even/odd numbers or to rotate through arrays.</p>
-            
+              
             <h4>2. Assignment Operators</h4>
             <p>Used to assign values to variables.</p>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-gray-700">Operator</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
-                            <th class="p-4 font-semibold text-gray-700">Meaning</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>=</code></td>
-                            <td class="p-4"><code>x = 10;</code></td>
-                            <td class="p-4">Assigns 10 to x</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>+=</code></td>
-                            <td class="p-4"><code>x += 5;</code></td>
-                            <td class="p-4">Same as x = x + 5</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>-=</code></td>
-                            <td class="p-4"><code>x -= 2;</code></td>
-                            <td class="p-4">Same as x = x - 2</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>*=</code></td>
-                            <td class="p-4"><code>x *= 3;</code></td>
-                            <td class="p-4">Same as x = x * 3</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>/=</code></td>
-                            <td class="p-4"><code>x /= 2;</code></td>
-                            <td class="p-4">Same as x = x / 2</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="image-box1">
+        <img src="./imgJava/Picture4.png" alt="Revature Image" class="h-8">
+            
             <p>Example:</p>
             <pre><code class="language-java">int x = 10;
 x += 5; // (now x is 15)</code></pre>
             <p><strong>Real-world use:</strong> Updating scores, prices, or counters incrementally.</p>
-            
+              
             <h4>3. Relational (Comparison) Operators</h4>
             <p>Used to compare two values. They always return a <strong>boolean</strong> — either true or false.</p>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-gray-700">Operator</th>
-                            <th class="p-4 font-semibold text-gray-700">Description</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
-                            <th class="p-4 font-semibold text-gray-700">Result</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>==</code></td>
-                            <td class="p-4">Equal to</td>
-                            <td class="p-4"><code>5 == 5</code></td>
-                            <td class="p-4">true</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>!=</code></td>
-                            <td class="p-4">Not equal to</td>
-                            <td class="p-4"><code>5 != 10</code></td>
-                            <td class="p-4">true</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>></code></td>
-                            <td class="p-4">Greater than</td>
-                            <td class="p-4"><code>8 > 5</code></td>
-                            <td class="p-4">true</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code><</code></td>
-                            <td class="p-4">Less than</td>
-                            <td class="p-4"><code>3 < 4</code></td>
-                            <td class="p-4">true</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>>=</code></td>
-                            <td class="p-4">Greater than or equal to</td>
-                            <td class="p-4"><code>7 >= 7</code></td>
-                            <td class="p-4">true</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code><=</code></td>
-                            <td class="p-4">Less than or equal to</td>
-                            <td class="p-4"><code>6 <= 9</code></td>
-                            <td class="p-4">true</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="image-box1">
+        <img src="./imgJava/Picture5.png" alt="Revature Image" class="h-8">
 
             <p>Example:</p>
             <pre><code class="language-java">int marks = 75;
 System.out.println(marks >= 50); // true</code></pre>
             <p><strong>Real-world use:</strong> Checking age eligibility, pass/fail logic, or login attempts.</p>
-
+  
             <h4>4. Logical Operators</h4>
             <p>Used to combine multiple conditions.</p>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-gray-700">Operator</th>
-                            <th class="p-4 font-semibold text-gray-700">Name</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
-                            <th class="p-4 font-semibold text-gray-700">Description</th>
-                            <th class="p-4 font-semibold text-gray-700">Returns True When</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>&&</code></td>
-                            <td class="p-4">Logical AND</td>
-                            <td class="p-4"><code>(a > 5 && b < 10)</code></td>
-                            <td class="p-4">Checks if both conditions are true.</td>
-                            <td class="p-4">Both conditions are true</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>||</code></td>
-                            <td class="p-4">Logical OR</td>
-                            <td class="p-4"><code>(a > 5 || b < 10)</code></td>
-                            <td class="p-4">Checks if at least one condition is true.</td>
-                            <td class="p-4">At least one condition is true</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>!</code></td>
-                            <td class="p-4">Logical NOT</td>
-                            <td class="p-4"><code>!(a > 5)</code></td>
-                            <td class="p-4">Reverses the result—true becomes false and vice versa.</td>
-                            <td class="p-4">Condition is false</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="image-box1">
+        <img src="./imgJava/Picture6.png" alt="Revature Image" class="h-8">
             
             <p>Example:</p>
             <pre><code class="language-java">int age = 20;
@@ -624,49 +493,19 @@ if (age >= 18 && hasID) {
     System.out.println("Eligible to vote");
 }</code></pre>
             <p><strong>Real-world use:</strong> Access control, validations, decision-making.</p>
-
+  
             <h4>5. Unary Operators</h4>
             <p>Operate on a single variable.</p>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-gray-700">Operator</th>
-                            <th class="p-4 font-semibold text-gray-700">Description</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>++</code></td>
-                            <td class="p-4">Increment by 1</td>
-                            <td class="p-4"><code>++x</code> or <code>x++</code></td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>--</code></td>
-                            <td class="p-4">Decrement by 1</td>
-                            <td class="p-4"><code>--x</code> or <code>x--</code></td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>+</code></td>
-                            <td class="p-4">Positive sign</td>
-                            <td class="p-4"><code>+x</code></td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><code>-</code></td>
-                            <td class="p-4">Negative sign</td>
-                            <td class="p-4"><code>-x</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="image-box1">
+        <img src="./imgJava/Picture7.png" alt="Revature Image" class="h-8">
+            
 
             <p>Example:</p>
             <pre><code class="language-java">int count = 5;
 count++;
 System.out.println(count); // 6</code></pre>
             <p><strong>Tip:</strong> <code>++count</code> (pre-increment) increases before use, <code>count++</code> (post-increment) increases after use.</p>
-
+  
             <h4>6. Bitwise Operators</h4>
             <p>Used for bit-level operations (mostly in system-level or performance-focused code).</p>
             <p>Example:</p>
@@ -675,14 +514,14 @@ int b = 3; // 0011
 System.out.println(a & b); // 1 (AND)
 System.out.println(a | b); // 7 (OR)</code></pre>
             <p><strong>Practical use:</strong> Networking, encryption, or file compression algorithms.</p>
-
-            <h4>8. Type Comparison Operator</h4>
+  
+            <h4>7. Type Comparison Operator</h4>
             <p><code>instanceof</code> checks whether an object belongs to a specific class.</p>
             <p>Example:</p>
             <pre><code class="language-java">String name = "Java";
 System.out.println(name instanceof String); // true</code></pre>
             <p><strong>Real-world use:</strong> Checking object type before performing specific operations.</p>
-
+  
             <h2>Operator Precedence (Order of Execution)</h2>
             <p>Just like math, Java follows an order when evaluating expressions:</p>
             <ol>
@@ -697,7 +536,7 @@ System.out.println(name instanceof String); // true</code></pre>
             <p>Example:</p>
             <pre><code class="language-java">int result = 10 + 5 * 2; // result is 20, not 30
 // Because multiplication has higher precedence than addition.</code></pre>
-            
+              
             <h4>Real-World Example</h4>
             <p>Let's bring all this together:</p>
             <pre><code class="language-java">int balance = 1000;
@@ -716,7 +555,7 @@ if (balance >= withdrawal && withdrawal > 0) {
                 <li>Assignment operators (<code>=</code>, <code>-=</code>)</li>
             </ul>
             <p>A simple but real example of how ATM software checks transaction rules!</p>
-
+  
             <h2>Java Keywords: continue, break, and return</h2>
             <p>These are jump statements — they alter the normal flow of control in loops or methods.</p>
             
@@ -741,7 +580,7 @@ if (balance >= withdrawal && withdrawal > 0) {
                 <li>When you want to <strong>ignore specific cases</strong> inside a loop.</li>
                 <li>Useful in <strong>filtering logic</strong>, like skipping negative numbers or invalid inputs.</li>
             </ul>
-
+  
             <h3>2. break — Exit the Loop or Switch Immediately</h3>
             <p>The <strong>break</strong> keyword completely stops the loop or switch block it's in.</p>
             <p>It's like saying: "I've found what I needed — stop everything!"</p>
@@ -774,7 +613,7 @@ switch (day) {
         System.out.println("Invalid day");
 }
 // Without 'break', execution would fall through to the next case unintentionally.</code></pre>
-
+  
             <h3>3. return — Exit from a Method and (Optionally) Return a Value</h3>
             <p>The <strong>return</strong> keyword is used inside a method to:</p>
             <ol>
@@ -1297,48 +1136,18 @@ public class Main {
             </blockquote>
 
             <h3>3. Methods vs Constructors</h3>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-gray-700">Feature</th>
-                            <th class="p-4 font-semibold text-gray-700">Constructor</th>
-                            <th class="p-4 font-semibold text-gray-700">Method</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>Purpose</strong></td>
-                            <td class="p-4">Initialize objects</td>
-                            <td class="p-4">Perform actions or calculations</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>Name</strong></td>
-                            <td class="p-4">Same as class</td>
-                            <td class="p-4">Custom name</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>Return type</strong></td>
-                            <td class="p-4">None</td>
-                            <td class="p-4">Can have any type</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>Called automatically</strong></td>
-                            <td class="p-4">Yes, during object creation</td>
-                            <td class="p-4">No, called explicitly</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
+            <div class="image-box">
+        <img src="./imgJava/Picture8.png" alt="Revature Image" class="h-8">
+          </div>
             <h2>Access Modifiers and Non-Access Modifiers in Java</h2>
+           
             <p>When writing Java programs, it's not enough to just create classes, objects, and methods. You also need to control who can access them and how they behave. That's where modifiers come in.</p>
             <p>Modifiers in Java are of two types:</p>
-            <ol>
+            <ol> 
                 <li><strong>Access Modifiers</strong> — control visibility.</li>
                 <li><strong>Non-Access Modifiers</strong> — control behavior or property of classes, methods, or variables.</li>
             </ol>
-
+  
             <h3>1. Access Modifiers – Who Can See What</h3>
             
             <h4>a) Public</h4>
@@ -1378,7 +1187,7 @@ public class Main {
                 <li>➤ <strong>Protected</strong> → relatives and friends can see and use (like a guesthouse bathroom).</li>
                 <li>➤ <strong>Default</strong> → only neighbors in the same building/package can see (like a shared apartment restroom).</li>
             </ul>
-
+  
             <h3>2. Non-Access Modifiers – Controlling Behavior</h3>
             <p>These modifiers change the <strong>behavior</strong> of variables, methods, or classes.</p>
             
@@ -1424,13 +1233,13 @@ final void run() { } // cannot be overridden</code></pre>
             <blockquote>
                 <p class="font-semibold">🧐 Fun Fact: Modifiers help Java <strong>enforce rules and avoid bugs</strong>. Without them, anyone could change any variable anywhere, leading to chaos in large programs.</p>
             </blockquote>
-
-            <h3>3. Real-World Connection</h3>
+  
+            <h3> Real-World Connection</h3>
             <ul>
                 <li><strong>Access modifiers:</strong> Think of it as security levels in a software system: who can access what.</li>
                 <li><strong>Non-access modifiers:</strong> Think of them as special properties: <strong>constants</strong> (final), <strong>shared features</strong> (static), or rules for <strong>multi-thread safety</strong> (synchronized).</li>
             </ul>
-
+  
             <h2>Inheritance in Java</h2>
             <p><strong>Inheritance</strong> is a mechanism where one class acquires the properties and behaviors of another class. It helps in code <strong>reuse</strong>, <strong>organization</strong>, and hierarchical design.</p>
             <h4>Why Inheritance?</h4>
@@ -1439,7 +1248,7 @@ final void run() { } // cannot be overridden</code></pre>
                 <li>Makes programs easier to maintain.</li>
                 <li>Models real-world relationships like parent-child or general-specific.</li>
             </ul>
-
+  
             <h3>1. Types of Inheritance in Java</h3>
             <p>Java supports several types of inheritance:</p>
             
@@ -1448,6 +1257,8 @@ final void run() { } // cannot be overridden</code></pre>
                 <li>A child class inherits from one parent class.</li>
                 <li>Most common and simple type.</li>
             </ul>
+            <div class="image-box">
+        <img src="./imgJava/Picture9.png" alt="Revature Image" class="h-8"></div>
             <pre><code class="language-java">// Parent class
 class Vehicle {
     void start() {
@@ -1470,12 +1281,14 @@ public class Main {
     }
 }</code></pre>
             <p><strong>Analogy:</strong> A Car <strong>is a</strong> type of Vehicle. It inherits general features like starting the engine but has its own special features like honking.</p>
-            
+            </div>
             <h4>b) Multilevel Inheritance</h4>
             <ul>
                 <li>A child class inherits from a parent, which itself is a child of another class.</li>
                 <li>Forms a <strong>chain of inheritance</strong>.</li>
             </ul>
+            <div class="image-box">
+        <img src="./imgJava/Picture10.png" alt="Revature Image" class="h-8"></div>
             <pre><code class="language-java">class Vehicle {
     void start() { System.out.println("Vehicle started"); }
 }
@@ -1496,12 +1309,15 @@ public class Main {
         sc.turboBoost(); // SportsCar
     }
 }</code></pre>
+</div>
             <p><strong>Analogy:</strong> Think of Vehicle → Car → SportsCar. Each level adds more specialized features.</p>
             
             <h4>c) Hierarchical Inheritance</h4>
             <ul>
                 <li><strong>Multiple child classes inherit from the same parent class</strong>.</li>
             </ul>
+            <div class="image-box">
+        <img src="./imgJava/Picture11.png" alt="Revature Image" class="h-8"> </div>
             <pre><code class="language-java">class Vehicle {
     void start() { System.out.println("Vehicle started"); }
 }
@@ -1525,12 +1341,13 @@ public class Main {
         b.start();     // Vehicle method
         b.kickStart(); // Bike method
     }
-}</code></pre>
+}</code></pre></div>
             <p><strong>Analogy:</strong> From the same Vehicle blueprint, you can make Car and Bike — each has its own unique features but shares common ones.</p>
             
             <h4>d) Hybrid Inheritance</h4>
             <p>Hybrid inheritance means a combination of two or more types of inheritance, such as single + multilevel or single + hierarchical.</p>
             <h4>Is Hybrid Inheritance Possible in Java?</h4>
+             
             <ul>
                 <li>Java supports hybrid inheritance only through class combinations like:
                     <ul>
@@ -1541,6 +1358,8 @@ public class Main {
                 <li>These combinations are valid because they do not create ambiguity.</li>
             </ul>
             <h4>Example for Hybrid Inheritance : Single + Hierarchical + Multilevel</h4>
+            <div class="image-box">
+        <img src="./imgJava/Picture12.png" alt="Revature Image" class="h-8"></div>
             <pre><code class="language-java">class A {
     void showA() { System.out.println("Class A"); }
 }
@@ -1574,7 +1393,8 @@ public class Main {
             <ul>
                 <li>Java does not support multiple inheritance with classes, so a combination involving multiple inheritance (e.g., single + multiple) is not allowed.</li>
                 <li>This restriction avoids the <strong>diamond problem</strong> (confusion when two parent classes have the same method).</li>
-            </ul>
+            </ul><div class="image-box">
+        <img src="./imgJava/Picture13.png" alt="Revature Image" class="h-8"></div>
             <p>Example:</p>
             <pre><code class="language-java">class A {
     void display() { System.out.println("Class A"); }
@@ -1598,7 +1418,7 @@ class C extends A {
                 <li>A child class has two or more direct parent classes.</li>
             </ul>
             <p>Multiple inheritance is not supported through Classes in Java.</p>
-
+  
             <h3>Why Multiple Inheritance with Classes is Not Allowed in Java</h3>
             <h4>Reason:</h4>
             <ol>
@@ -1609,12 +1429,29 @@ class C extends A {
                     <p>Java was designed to be a simpler alternative to C++. Removing multiple class inheritance eliminates confusion while still giving flexibility through <strong>interfaces</strong>.</p>
                 </li>
             </ol>
-            
-            <h4>Reason:</h4>
+            <div class="image-box">
+        <img src="./imgJava/Picture14.png" alt="Revature Image" class="h-8"></div>
+            <pre><code class="language-java"> Class A {
+    void display() { System.out.println("Class A"); }
+}
+
+class B {
+    void display() { System.out.println("Class B"); } 
+}
+class C extends A, B {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.display(); // ❓Ambiguity: Which display() should run?
+    }
+}
+</code></pre>
+            <h4>Note:</h4>
             <p>Multiple Inheritance can be Achieved in Java <strong>interfaces</strong> to avoid multiple inheritance issues through Classes.</p>
             <ul>
                 <li>Interfaces only contain method <strong>declarations</strong> (no implementation) — so there's no ambiguity about which parent's method should be inherited.</li>
             </ul>
+            <div class="image-box">
+        <img src="./imgJava/Picture15.png" alt="Revature Image" class="h-8"></div>
             <pre><code class="language-java">interface A {
     void show();
 }
@@ -1817,7 +1654,8 @@ public class Main {
                 <li><code>balance</code> is declared <strong>private</strong> — can't be accessed directly from outside.</li>
                 <li>Methods like <code>deposit()</code>, <code>withdraw()</code>, and <code>getBalance()</code> are <strong>public</strong> — provide safe access.</li>
                 <li>The class acts as a capsule, controlling how data is seen and modified.</li>
-            </ul>
+            </ul><div class="image-box2">
+        <img src="./imgJava/Picture16.png" alt="Revature Image" class="h-8"></div>
             
             <h3>Why It's Important</h3>
             <ul>
@@ -1961,23 +1799,8 @@ public class Main {
             <h3>Java Exception Hierarchy</h3>
             <p>All exceptions extend the <code>Throwable</code> class:</p>
             <p></p>
-            <ul>
-                <li><strong>Throwable</strong>
-                    <ul>
-                        <li><strong>Exception</strong> (Can be handled)
-                            <ul>
-                                <li><strong>Checked Exceptions</strong> (e.g., <code>IOException</code>, <code>SQLException</code>): Must be handled at compile-time.</li>
-                                <li><strong>Unchecked (Runtime) Exceptions</strong> (e.g., <code>ArithmeticException</code>, <code>NullPointerException</code>): Occur at runtime, handling is optional.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Error</strong> (Generally not handled)
-                            <ul>
-                                <li>e.g., <code>StackOverflowError</code>, <code>VirtualMachineError</code>: Serious problems the application can't recover from.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="image-box3">
+        <img src="./imgJava/Picture17.png" alt="Revature Image" class="h-8"></div>
             <blockquote>
                 <p class="font-semibold">🧐 Fun Fact: Errors (like <code>StackOverflowError</code>) are so severe that even Java can't recover from them—they're the "natural disasters" of programming!</p>
             </blockquote>
