@@ -193,8 +193,6 @@
                 <li><strong>JRE </strong>(Java Runtime Environment)</li>
                 <li><strong>JVM</strong> (Java Virtual Machine)</li>
             </ul>
-            <p>Let's understand each clearly:</p>
-            
             <h3>JDK – Java Development Kit</h3>
             <h4>What It Is</h4>
             <p>The JDK is the complete package developers install to write and build Java programs.</p>
@@ -287,9 +285,9 @@ However, you can view it using the javap command, which shows the internal bytec
                 <li><strong>main</strong> — Starting point for execution.</li>
                 <li><strong>String[] args</strong> Used to receive input from the command line.</li>
             </ul>
-            <h4>Tip:</h4>
-            <p>If the <code>main()</code> method is missing or has a typo, the program won't run.</p>
-
+            <blockquote>
+            <p class="font-semibold"><strong>Tip:</strong>If the <code>main()</code> method is missing or has a typo, the program won't run.</p>
+            </blockquote>
             <h3>The Print Statement:</h3>
             <p><code>System.out.println("Hello, World!");</code></p>
             <h4>Breakdown:</h4>
@@ -300,9 +298,9 @@ However, you can view it using the javap command, which shows the internal bytec
             </ul>
             <h4>So this line means:</h4>
             <p><i>"Display the text 'Hello, World!' on the screen."</i></p>
-            <blockquote>
-            <h4>Fun Fact:</h4>
-            <p>If you use <code>System.out.print()</code> instead, the next message appears on the same line.</p>
+            <blockquote class="font-semibold">
+            
+            <p><strong>Fun Fact:</strong> you use <code>System.out.print()</code> instead, the next message appears on the same line.</p>
                 </blockquote>
             <h3>Braces { } and Semicolons ;</h3>
             <ul>
@@ -829,7 +827,7 @@ Mango</pre>
 scores[0] = 85;
 scores[1] = 90;</code></pre>
             <blockquote>
-                <p class="font-semibold">Tip: Access array elements using the index. <code>scores[0]</code> is 85, <code>scores[1]</code> is 90.</p>
+                <p class="font-semibold"><strong>Tip : </strong> Access array elements using the index. <code>scores[0]</code> is 85, <code>scores[1]</code> is 90.</p>
             </blockquote>
 
             <h4>Accessing and Modifying</h4>
@@ -850,7 +848,7 @@ System.out.println(scores[1]); // Prints 95</code></pre>
     System.out.println(score);
 }</code></pre>
             <blockquote>
-                <p class="font-semibold">Fun Fact: Arrays are stored in the <strong>heap</strong>, while the reference variable points to them from the stack. This is why multiple variables can refer to the same array.</p>
+                <p class="font-semibold"><strong>Fact:</strong>  Arrays are stored in the <strong>heap</strong>, while the reference variable points to them from the stack. This is why multiple variables can refer to the same array.</p>
             </blockquote>
 
             <h4>When to Use Arrays</h4>
@@ -891,7 +889,7 @@ System.out.println(name); // Prints "Java Rocks"</code></pre>
                 <li>Even if "Java" exists in the String Pool, <code>new String()</code> always makes a fresh object.</li>
             </ul>
             <blockquote>
-                <p class="font-semibold"> Fun Fact: Java uses a String Pool to save memory. Two identical String literals share the same memory location.</p>
+                <p class="font-semibold"> <strong>Fun Fact:</strong> Java uses a String Pool to save memory. Two identical String literals share the same memory location.</p>
             </blockquote>
 
             <h4>Common String Operations:</h4>
@@ -904,7 +902,7 @@ System.out.println(name); // Prints "Java Rocks"</code></pre>
                 <li><code>.equals()/.equalsIgnoreCase()</code> → Compare strings</li>
             </ul>
             <blockquote>
-                <p class="font-semibold">Fun tip: Strings are preferred over char[] for text, but for passwords or sensitive data, using char[] is safer because you can clear it from memory.</p>
+                <p class="font-semibold"><strong>Fun tip:</strong> Strings are preferred over char[] for text, but for passwords or sensitive data, using char[] is safer because you can clear it from memory.</p>
             </blockquote>
 
             <h4>String vs StringBuilder vs StringBuffer</h4>
@@ -989,7 +987,7 @@ StringBuilder sb = new StringBuilder("World");</code></pre>
 s1 = null; // object in heap now has no reference
          // eligible for garbage collection</code></pre>
             <blockquote>
-                <p class="font-semibold">Fun fact: You can suggest the JVM to run GC using <code>System.gc()</code>, but it's only a <strong>hint</strong>, not a command. JVM decides the actual timing.</p>
+                <p class="font-semibold"><strong>Fun Fact:</strong> You can suggest the JVM to run GC using <code>System.gc()</code>, but it's only a <strong>hint</strong>, not a command. JVM decides the actual timing.</p>
             </blockquote>
 
             <h2>8. Object-Oriented Programming (OOP) in Java</h2>
@@ -1039,7 +1037,7 @@ s1 = null; // object in heap now has no reference
             <pre>My car model: Tesla
 Engine started</pre>
             <blockquote>
-                <p class="font-semibold">Fun Fact: You can create multiple objects from the same class—each with different attribute values:</p>
+                <p class="font-semibold"><strong>Fun Fact:</strong> You can create multiple objects from the same class—each with different attribute values:</p>
                 <pre><code>Car car1 = new Car();
 car1.color = "Red";
 
@@ -1099,7 +1097,7 @@ public class Main {
     }
 }</code></pre>
             <blockquote>
-                <p class="font-semibold"> Fun fact: If you don't write a constructor, Java provides a default constructor that does nothing but allows object creation.</p>
+                <p class="font-semibold"> <strong>Fun Fact:</strong> If you don't write a constructor, Java provides a default constructor that does nothing but allows object creation.</p>
             </blockquote>
             <h4>Why Constructors Matter</h4>
             <ul>
@@ -1107,10 +1105,15 @@ public class Main {
                 <li>They avoid repetitive code by setting values during object creation.</li>
                 <li><strong>Overloaded constructors</strong> allow flexibility:
                     <pre><code>Car car1 = new Car("Blue", "BMW");
-Car car2 = new Car("Green", "Audi");</code></pre>
+                    Car car2 = new Car("Green", "Audi");</code></pre>
                     Both cars are initialized differently, but the same class is used.
                 </li>
-            </ul>
+                            </ul>
+                <blockquote>
+                <p><strong>Note : </strong> This is an example of constructor overloading, where multiple constructors share the same name (Car) 
+                    but have different parameter lists. We’ll explore  in more depth 
+                    later in the Polymorphism section.</p></blockquote>
+
 
             <h3>Methods – Making Objects Do Things</h3>
             <p>A <strong>method</strong> is a block of code that defines behavior or action. Objects use methods to perform tasks, just like in real life a <strong>car</strong> can <code>startEngine()</code>, a <strong>student</strong> can <code>study()</code>.</p>
@@ -1148,7 +1151,7 @@ public class Main {
     }
 }</code></pre>
             <blockquote>
-                <p class="font-semibold">Tip: Methods promote code reuse. Instead of writing the same logic multiple times, you call the method whenever needed.</p>
+                <p class="font-semibold"><strong>Tip :</strong> Methods promote code reuse. Instead of writing the same logic multiple times, you call the method whenever needed.</p>
             </blockquote>
 
             <h3>Methods vs Constructors</h3>
@@ -1248,7 +1251,7 @@ final void run() { } // cannot be overridden</code></pre>
             </ul>
             <pre><code class="language-java">transient int sessionId;</code></pre>
             <blockquote>
-                <p class="font-semibold">Fun Fact: Modifiers help Java <strong>enforce rules and avoid bugs</strong>. Without them, anyone could change any variable anywhere, leading to chaos in large programs.</p>
+                <p class="font-semibold"><strong>Fun Fact:</strong> Modifiers help Java <strong>enforce rules and avoid bugs</strong>. Without them, anyone could change any variable anywhere, leading to chaos in large programs.</p>
             </blockquote>
             <blockquote>
             <h4> Real-World Connection</h4>
@@ -1570,7 +1573,7 @@ public class Demo {
                 <li>No inheritance required, since overloading can occur within a single class.</li>
             </ul>
  <blockquote class="font-semibold"> 
-            <h4 >Fun Facts</h4>
+            <strong>Fun Fact:</strong>
             <ul>
                 <li>You can't overload methods just by changing the return type — parameters must differ.</li>
                 <li>Overloading improves readability and code clarity — same method name, different tasks.</li>
@@ -1683,7 +1686,7 @@ public class Main {
                 <li>Prevents accidental misuse of variables.</li>
             </ul>
 <blockquote class="font-semibold"> 
-            <b>Fun Fact :</b>
+            <strong>Fun Fact :</strong>
             <p>Encapsulation is like putting your phone in a case — you still use it, but you don't mess with the internal circuits. In OOP, "Encapsulation" is not just about hiding — it's about protecting and controlling access, like a security gate with a password.</p>
 </blockquote> 
             <h2>14. Abstraction in Java</h2>
@@ -1802,7 +1805,7 @@ public class Main {
                 <li><strong>With handling</strong> → Program recovers gracefully</li>
             </ul>
             <blockquote>
-                <p class="font-semibold"> Fun Fact: Even Java "fails gracefully"—it won't just quit unexpectedly if you handle exceptions properly.</p>
+                <p class="font-semibold"> <strong>Fun Fact:</strong> Even Java "fails gracefully"—it won't just quit unexpectedly if you handle exceptions properly.</p>
             </blockquote>
 
             <h3>Why Do We Need Exception Handling?</h3>
@@ -1820,7 +1823,7 @@ public class Main {
             <div class="image-box3">
         <img src="./imgJava/Picture17.png" alt="Revature Image" class="h-8"></div>
             <blockquote>
-                <p class="font-semibold"> Fun Fact: Errors (like <code>StackOverflowError</code>) are so severe that even Java can't recover from them—they're the "natural disasters" of programming!</p>
+                <p class="font-semibold"><strong> Fun Fact:</strong> Errors (like <code>StackOverflowError</code>) are so severe that even Java can't recover from them—they're the "natural disasters" of programming!</p>
             </blockquote>
 
             <h3>Handling Exceptions</h3>
@@ -1886,7 +1889,7 @@ public static void main(String[] args) {
                 <li>Log exceptions to help <strong>debugging</strong>.</li>
             </ol>
             <blockquote>
-                <p class="font-semibold">Fun Fact: Logging exceptions is like leaving breadcrumbs in the forest—you'll always find your way back to the bug.</p>
+                <p class="font-semibold"><strong>Fun Fact:</strong> Logging exceptions is like leaving breadcrumbs in the forest—you'll always find your way back to the bug.</p>
             </blockquote>
 
             <h3>Quick Summary</h3>
