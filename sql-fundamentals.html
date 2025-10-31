@@ -130,13 +130,13 @@
         <article class="prose max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg">
             
             <h1>Yogananda Grocery Shop & The World of Databases</h1>
-            <p>Meet Yogananda, a grocery shop owner in Chennai. He sells rice, sugar, oil, and biscuits – everything. He has a big problem with maintaining all the data on paper.</p>
+            <p>Meet Yogananda, a grocery shop owner in Chennai. He sells rice, sugar, oil, and biscuits – everything. He has a big problem with maintaining all the data on <code>paper</code>.</p>
             <ul>
                 <li>One notebook for customer details</li>
                 <li>One notebook for sale.</li>
                 <li>One notebook for payment details (EMI's type).</li>
             </ul>
-            <p>When a customer asks, "Did I pay last week?". If 5 customers came together, everything became a mess! Then one day, his son said "Appa, let's use a computer database!"</p>
+            <p>When a customer asks, "Did I pay last week?". If 5 customers came together, everything became a mess! Then one day, his son said "Appa, let's use a <code>computer database!</code>"</p>
 
             <h2>What is Database?</h2>
             <p>A database is like a digital notebook—a structured place to store, manage, and update information easily. It's organized neatly using <strong>tables</strong> with <strong>rows</strong> and <strong>columns</strong>.</p>
@@ -147,8 +147,8 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Problem (Before)</th>
-                            <th class="p-4 font-semibold text-gray-700">Solution (With Database)</th>
+                            <th class="p-4 font-semibold text-orange-700 bg-orange-100">Problem (Before)</th>
+                            <th class="p-4 font-semibold text-orange-700 bg-orange-100">Solution (With Database)</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -177,7 +177,15 @@
                 <li>Show me all customers from Chennai</li>
             </ul>
             <p>But... how will he <strong>talk</strong> to the database?</p>
-            <p>Just like we speak English to people, computers understand a special language called SQL.</p>
+            <p>Just like we speak <code>English</code> to people, computers understand a special language called <code>SQL</code>.</p>
+            <!-- ✅ Add the link here -->
+<p>
+    You can practice writing SQL queries using this online SQL compiler: 
+    <a  href="https://www.mycompiler.io/new/sql" target="_blank" style="color: #0073e6; text-decoration: underline;">
+        SQL Compiler
+    </a>
+</p>
+<!-- ✅ End of addition -->
 
             <h2>Structured Query Language (SQL):</h2>
             <p>SQL is a language used to <strong>communicate with databases</strong>. It helps you:</p>
@@ -185,9 +193,9 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Action</th>
-                            <th class="p-4 font-semibold text-gray-700">SQL Command</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-orange-700 bg-orange-100">Action</th>
+                            <th class="p-4 font-semibold text-orange-700 bg-orange-100">SQL Command</th>
+                            <th class="p-4 font-semibold text-orange-700 bg-orange-100">Example</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -226,9 +234,9 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Concept</th>
-                            <th class="p-4 font-semibold text-gray-700">Meaning</th>
-                            <th class="p-4 font-semibold text-gray-700">Analogy</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Concept</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Meaning</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Analogy</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -267,9 +275,9 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">CustomerID (PK)</th>
-                            <th class="p-4 font-semibold text-gray-700">CustomerName</th>
-                            <th class="p-4 font-semibold text-gray-700">City</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID (PK)</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">City</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -292,9 +300,9 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">OrderID (PK)</th>
-                            <th class="p-4 font-semibold text-gray-700">CustomerID (FK)</th>
-                            <th class="p-4 font-semibold text-gray-700">Product</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID (PK)</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID (FK)</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -322,9 +330,9 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Command</th>
-                            <th class="p-4 font-semibold text-gray-700">Use</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Example</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -364,9 +372,9 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Command</th>
-                            <th class="p-4 font-semibold text-gray-700">Use</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Example</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -396,9 +404,9 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Command</th>
-                            <th class="p-4 font-semibold text-gray-700">Use</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Example</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -418,9 +426,9 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Command</th>
-                            <th class="p-4 font-semibold text-gray-700">Use</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Example</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -445,9 +453,9 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Command</th>
-                            <th class="p-4 font-semibold text-gray-700">Use</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Example</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -482,9 +490,9 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">CustomerID</th>
-                            <th class="p-4 font-semibold text-gray-700">CustomerName</th>
-                            <th class="p-4 font-semibold text-gray-700">City</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">City</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -511,10 +519,10 @@
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">OrderID</th>
-                            <th class="p-4 font-semibold text-gray-700">CustomerID</th>
-                            <th class="p-4 font-semibold text-gray-700">Product</th>
-                             <th class="p-4 font-semibold text-gray-700">Quantity</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
+                             <th class="p-4 font-semibold text-orange-800 bg-orange-100">Quantity</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -593,9 +601,9 @@ ON Customers.CustomerID = Orders.CustomerID;</code></pre>
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Join Type</th>
-                            <th class="p-4 font-semibold text-gray-700">What It Shows</th>
-                            <th class="p-4 font-semibold text-gray-700">NULLs Shown?</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Join Type</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">What It Shows</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">NULLs Shown?</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -635,9 +643,9 @@ ON Customers.CustomerID = Orders.CustomerID;</code></pre>
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Function</th>
-                            <th class="p-4 font-semibold text-gray-700">Description</th>
-                            <th class="p-4 font-semibold text-gray-700">Example</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Function</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Description</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Example</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -675,9 +683,9 @@ ON Customers.CustomerID = Orders.CustomerID;</code></pre>
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">OrderID</th>
-                            <th class="p-4 font-semibold text-gray-700">Product</th>
-                            <th class="p-4 font-semibold text-gray-700">Quantity</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Quantity</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -710,9 +718,9 @@ ON Customers.CustomerID = Orders.CustomerID;</code></pre>
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Goal</th>
-                            <th class="p-4 font-semibold text-gray-700">Query</th>
-                            <th class="p-4 font-semibold text-gray-700">Output</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Goal</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Query</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Output</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -813,9 +821,9 @@ ORDER BY CustomerName DESC;</code></pre>
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="p-4 font-semibold text-gray-700">Normal Form</th>
-                            <th class="p-4 font-semibold text-gray-700">Rule</th>
-                            <th class="p-4 font-semibold text-gray-700">Fixes</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Normal Form</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Rule</th>
+                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Fixes</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
