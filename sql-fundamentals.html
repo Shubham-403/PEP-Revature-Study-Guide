@@ -329,101 +329,317 @@
             <h2>SQL Commands:</h2>
             <p>To manage all this, SQL gives us five families of commands, called <strong>SQL Sub-Languages</strong>.</p>
             
-            <h3>1. DDL (Data Definition Language):</h3>
-            <p>These are used to design or modify tables and databases.</p>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Example</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>CREATE</strong></td>
-                            <td class="p-4">Make a new table/database</td>
-                            <td class="p-4"><code>CREATE DATABASE GroceryShop;</code></td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>ALTER</strong></td>
-                            <td class="p-4">Add or change columns</td>
-                            <td class="p-4"><code>ALTER TABLE Customers ADD Phone VARCHAR(10);</code></td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>DROP</strong></td>
-                            <td class="p-4">Delete table/database permanently</td>
-                            <td class="p-4"><code>DROP TABLE Customers;</code></td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>TRUNCATE</strong></td>
-                            <td class="p-4">Delete all data, keep structure</td>
-                            <td class="p-4"><code>TRUNCATE TABLE Customers;</code></td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>RENAME</strong></td>
-                            <td class="p-4">Rename table</td>
-                            <td class="p-4"><code>RENAME TABLE Customers TO Clients;</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <h3>1. DDL (Data Definition Language):</h3>
+<p>These commands are used to design or modify the structure of databases and tables — they deal with how data is stored, not the actual data itself.</p>
 
-            <h3>2. DML (Data Manipulation Language):</h3>
-            <p>These commands are used to manage data.</p>
-            <p>Think of DML as "filling or updating the shelves".</p>
-             <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Example</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>INSERT</strong></td>
-                            <td class="p-4">Add new row</td>
-                            <td class="p-4"><code>INSERT INTO Customers VALUES (1, 'Yogananda', 'Chennai');</code></td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>UPDATE</strong></td>
-                            <td class="p-4">Change data</td>
-                            <td class="p-4"><code>UPDATE Customers SET City='Hyderabad' WHERE CustomerID=1;</code></td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>DELETE</strong></td>
-                            <td class="p-4">Remove data</td>
-                            <td class="p-4"><code>DELETE FROM Customers WHERE CustomerID=4;</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Syntax</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>CREATE</strong></td>
+                <td class="p-4">Make a new table or database</td>
+                <td class="p-4"><code>CREATE TABLE table_name (column_name datatype, ...);</code></td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>ALTER</strong></td>
+                <td class="p-4">Add, modify, or delete columns in an existing table</td>
+                <td class="p-4"><code>ALTER TABLE table_name ADD column_name datatype;</code></td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>DROP</strong></td>
+                <td class="p-4">Permanently delete a table or database</td>
+                <td class="p-4"><code>DROP TABLE table_name;</code></td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>TRUNCATE</strong></td>
+                <td class="p-4">Remove all data from a table but keep the structure</td>
+                <td class="p-4"><code>TRUNCATE TABLE table_name;</code></td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>RENAME</strong></td>
+                <td class="p-4">Rename an existing table</td>
+                <td class="p-4"><code>RENAME TABLE old_name TO new_name;</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-            <h3>3. DQL (Data Query Language):</h3>
-            <p>These commands are used to fetch data.</p>
-            <p>Think of DQL as "asking your system questions and getting answers".</p>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Example</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>SELECT</strong></td>
-                            <td class="p-4">Retrieve data</td>
-                            <td class="p-4"><code>SELECT * FROM Customers;</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<p class="mt-6">
+Now, let's apply these DDL commands on our sample database structure.  
+Note that DDL only <strong>defines the structure</strong> of tables — it does not insert or modify any data.  
+Adding records (data) is done later using <strong>DML commands</strong> such as <code>INSERT</code>.
+</p>
 
+<pre>
+    <code class="language-sql">
+-- Create a new database
+CREATE DATABASE GroceryShop;
+
+-- Create the Customers table (only structure, no data yet)
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(50),
+    City VARCHAR(50)
+);
+
+-- Create the Orders table linked to Customers (structure only)
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    Product VARCHAR(50),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+-- Note:
+-- The above statements only define table structure.
+-- To insert data into these tables, we use DML commands such as:
+-- INSERT INTO Customers VALUES (1, 'Yogananda', 'Chennai');
+    </code>
+</pre>
+
+<h4 class="text-orange-700 font-semibold mt-4">ALTER</h4>
+<p>Used to add or modify columns in an existing table.</p>
+<pre>
+    <code class="language-sql">
+-- Add a new column for storing phone numbers
+ALTER TABLE Customers ADD Phone VARCHAR(10);
+
+-- Modify column size
+ALTER TABLE Customers MODIFY CustomerName VARCHAR(100);
+    </code>
+</pre>
+
+<h4 class="text-orange-700 font-semibold mt-4">RENAME</h4>
+<p>Used to change the table name.</p>
+<pre>
+    <code class="language-sql">
+-- Rename Customers table to Clients
+RENAME TABLE Customers TO Clients;
+    </code>
+</pre>
+
+<h4 class="text-orange-700 font-semibold mt-4">TRUNCATE</h4>
+<p>Used to delete all rows from a table while keeping its structure intact.</p>
+<pre>
+    <code class="language-sql">
+-- Remove all order records but retain table structure
+TRUNCATE TABLE Orders;
+    </code>
+</pre>
+
+<h4 class="text-orange-700 font-semibold mt-4">DROP</h4>
+<p>Used to permanently delete a table or database.</p>
+<pre>
+    <code class="language-sql">
+-- Drop the Orders table permanently
+DROP TABLE Orders;
+
+-- Drop the entire database
+DROP DATABASE GroceryShop;
+    </code>
+</pre>
+
+
+<h3>2. DML (Data Manipulation Language):</h3>
+<p>DML commands are used to manage and manipulate the actual data stored within database tables.</p>
+<p>Think of DML as <strong>"filling, updating, or clearing the shelves"</strong> — it deals with the data itself, not the structure.</p>
+
+<div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Syntax</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>INSERT</strong></td>
+                <td class="p-4">Add new rows of data into a table</td>
+                <td class="p-4"><code>INSERT INTO table_name (column1, column2) VALUES (value1, value2);</code></td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>UPDATE</strong></td>
+                <td class="p-4">Modify existing data within a table</td>
+                <td class="p-4"><code>UPDATE table_name SET column1 = value1 WHERE condition;</code></td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>DELETE</strong></td>
+                <td class="p-4">Remove data from a table</td>
+                <td class="p-4"><code>DELETE FROM table_name WHERE condition;</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p class="mt-6">Let’s now understand each DML command with clear syntax and important notes for practical usage.</p>
+
+<!-- INSERT -->
+<h4 class="mt-4 text-lg font-semibold text-green-700">INSERT</h4>
+<p>Used to add new records into a table.</p>
+<pre>
+<code class="language-sql">
+-- Insert multiple customer records
+INSERT INTO Customers (CustomerID, CustomerName, City)
+VALUES 
+(1, 'Yogananda', 'Chennai'),
+(2, 'Vishnu', 'Hyderabad'),
+(3, 'Ramesh', 'Bangalore'),
+(4, 'Kavitha', 'Pune'),
+(5, 'Suresh', 'Delhi'),
+(6, 'Meena', 'Kochi');
+
+-- Insert corresponding order records
+INSERT INTO Orders (OrderID, CustomerID, Product)
+VALUES 
+(101, 1, 'Sugar'),
+(102, 2, 'Rice'),
+(103, 3, 'Milk'),
+(104, 4, 'Wheat'),
+(105, 5, 'Tea'),
+(106, 6, 'Coffee');
+</code>
+</pre>
+<blockquote><p><strong>Important:</strong> The number of columns and values must match, and data types should be compatible with the table definition.</p>
+</blockquote>
+<!-- UPDATE -->
+<h4 class="mt-4 text-lg font-semibold text-green-700">UPDATE</h4>
+<p>Used to modify existing records in a table based on a condition.</p>
+<pre>
+<code class="language-sql">
+-- Update city for a specific customer
+UPDATE Customers
+SET City = 'Hyderabad'
+WHERE CustomerID = 3;
+
+-- Update product name for a specific order
+UPDATE Orders
+SET Product = 'Brown Sugar'
+WHERE OrderID = 101;
+</code>
+</pre>
+<blockquote><p><strong>Important:</strong> Always use a <code>WHERE</code> clause; omitting it updates all rows in the table.</p>
+</blockquote>
+<!-- DELETE -->
+<h4 class="mt-4 text-lg font-semibold text-green-700">DELETE</h4>
+<p>Used to remove one or more records from a table.</p>
+<pre>
+<code class="language-sql">
+-- Delete a customer record
+DELETE FROM Customers
+WHERE CustomerID = 5;
+
+-- Delete all orders for a specific customer
+DELETE FROM Orders
+WHERE CustomerID = 5;
+</code>
+</pre>
+<blockquote><p><strong>Important:</strong> If you skip the <code>WHERE</code> clause, all data from the table will be deleted.</p>
+</blockquote>
+<h3>3. DQL (Data Query Language):</h3>
+<p>DQL commands are used to query and retrieve data stored in database tables.</p>
+<p>Think of DQL as <strong>"asking your database questions and getting answers"</strong> — it helps you view and analyze the stored information.</p>
+
+<div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Command</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Use</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Syntax</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>SELECT</strong></td>
+                <td class="p-4">Retrieve specific or all records from one or more tables</td>
+                <td class="p-4"><code>SELECT column1, column2 FROM table_name WHERE condition;</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p class="mt-6">Let’s use the previously inserted <strong>Customers</strong> and <strong>Orders</strong> tables to perform various DQL queries and understand how to retrieve data effectively.</p>
+
+<!-- BASIC SELECT -->
+<h4 class="mt-4 text-lg font-semibold text-orange-700">1. Retrieve All Records</h4>
+<p>Fetch all columns and rows from the <code>Customers</code> table.</p>
+<pre>
+<code class="language-sql">
+-- Retrieve all customers
+SELECT * FROM Customers;
+
+-- Retrieve all orders
+SELECT * FROM Orders;
+</code>
+</pre>
+
+<!-- SELECT SPECIFIC COLUMNS -->
+<h4 class="mt-4 text-lg font-semibold text-orange-700">2. Retrieve Specific Columns</h4>
+<p>Fetch only the required columns instead of the entire table.</p>
+<pre>
+<code class="language-sql">
+-- Retrieve only customer names and cities
+SELECT CustomerName, City FROM Customers;
+
+-- Retrieve only product names from orders
+SELECT Product FROM Orders;
+</code>
+</pre>
+
+<!-- SELECT WITH CONDITION -->
+<h4 class="mt-4 text-lg font-semibold text-orange-700">3. Retrieve Data with Conditions</h4>
+<p>Use the <code>WHERE</code> clause to filter data based on specific conditions.</p>
+<pre>
+<code class="language-sql">
+-- Customers from Hyderabad
+SELECT * FROM Customers WHERE City = 'Hyderabad';
+
+-- Orders made by CustomerID = 3
+SELECT * FROM Orders WHERE CustomerID = 3;
+</code>
+</pre>
+
+<!-- SELECT WITH ORDER BY -->
+<h4 class="mt-4 text-lg font-semibold text-orange-700">4. Retrieve Data in Sorted Order</h4>
+<p>Use the <code>ORDER BY</code> clause to display results in ascending or descending order.</p>
+<pre>
+<code class="language-sql">
+-- Customers sorted by name
+SELECT * FROM Customers ORDER BY CustomerName ASC;
+
+-- Orders sorted by product name (descending)
+SELECT * FROM Orders ORDER BY Product DESC;
+</code>
+</pre>
+
+<!-- SELECT WITH ALIAS AND JOIN -->
+<h4 class="mt-4 text-lg font-semibold text-orange-700">5. Retrieve Data Using JOIN</h4>
+<p>Use <code>JOIN</code> to combine related data from multiple tables based on a common column.</p>
+<pre>
+<code class="language-sql">
+-- Retrieve customer names with their corresponding products
+SELECT 
+    C.CustomerName, 
+    C.City, 
+    O.Product
+FROM Customers AS C
+INNER JOIN Orders AS O
+ON C.CustomerID = O.CustomerID;
+</code>
+</pre>
+
+<blockquote><p><strong>Important:</strong> The <code>SELECT</code> statement does not modify data — it only retrieves it. Always use filters or joins carefully to avoid large, unnecessary data loads.</p>
+
+</blockquote>
             <h3>4. DCL (Data Control Language):</h3>
             <p>These commands are used to control who can do what.</p>
             <p>Think of DCL as "deciding who can enter which part of your shop".</p>
