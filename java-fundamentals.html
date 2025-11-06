@@ -326,6 +326,29 @@ However, you can view it using the javap command, which shows the internal bytec
                 <li>25 — value stored inside</li>
             </ul>
             <p>You can read this as: "store the number 25 in a box named age."</p>
+           
+
+<h4>Looking Ahead</h4>
+<p>Right now, we’re just learning what a variable is in general — how it stores data and how you use it.<br>
+But as we move into <strong>Object-Oriented Programming (OOP)</strong>, you’ll see that variables play a much bigger role.</p>
+
+
+<p>In OOP, variables can:</p>
+<ul>
+<li>Belong to a <strong>class or an object</strong> (like <code>color</code>, <code>model</code>, or <code>speed</code> in a <code>Car</code> class).</li>
+<li>Exist temporarily <strong>inside methods</strong> for calculations or logic.</li>
+</ul>
+
+
+<p>We’ll explore these in detail soon under topics like:</p>
+<ul>
+<li><strong>Instance Variables</strong> – variables that belong to each object</li>
+<li><strong>Local Variables</strong> – variables that exist only within a method</li>
+<li><strong>Static Variables</strong> – variables shared by all objects of a class</li>
+</ul>
+<p>That’s where you’ll see how variables connect directly to the way Java models real-world objects.</p>
+
+
   
             <h3>Why Do We Need Data Types?</h3>
             <p>Data types tell Java <strong>what kind</strong> of value a variable holds and how much memory to allocate for it. Without data types, Java wouldn't know if 10 is:</p>
@@ -564,106 +587,8 @@ if (balance >= withdrawal && withdrawal > 0) {
             </ul>
             <p>A simple but real example of how ATM software checks transaction rules!</p>
   
-            <h2>4. Java Keywords: continue, break, and return</h2>
-            <p>These are jump statements — they alter the normal flow of control in loops or methods.</p>
             
-            <h3>continue — Skip to the Next Iteration</h3>
-            <p>The <strong>continue</strong> keyword skips the remaining code inside a loop for the current iteration and jumps directly to the next iteration.</p>
-            <p>It's like saying: "I'm done with this round — move on to the next one."</p>
-            <p>Example:</p>
-            <pre><code class="language-java">for (int i = 1; i <= 5; i++) {
-    if (i == 3) {
-        continue; // Skip when i is 3
-    }
-    System.out.println(i);
-}</code></pre>
-            <h4>Output:</h4>
-            <pre>1
-2
-4
-5</pre>
-            <p>Here, when <code>i == 3</code>, the <code>continue</code> statement makes the loop skip the <code>System.out.println(i)</code> line and jump back to check the next value.</p>
-            <h4>When to Use:</h4>
-            <ul>
-                <li>When you want to <strong>ignore specific cases</strong> inside a loop.</li>
-                <li>Useful in <strong>filtering logic</strong>, like skipping negative numbers or invalid inputs.</li>
-            </ul>
-  
-            <h3>break — Exit the Loop or Switch Immediately</h3>
-            <p>The <strong>break</strong> keyword completely stops the loop or switch block it's in.</p>
-            <p>It's like saying: "I've found what I needed — stop everything!"</p>
-            <p>Example:</p>
-            <pre><code class="language-java">for (int i = 1; i <= 5; i++) {
-    if (i == 3) {
-        break; // Stop the loop completely when i is 3
-    }
-    System.out.println(i);
-}</code></pre>
-            <h4>Output:</h4>
-            <pre>1
-2</pre>
-            <p>When <code>i == 3</code>, the <code>break</code> statement ends the loop right away — no more iterations are executed.</p>
-            <h4>When to Use:</h4>
-            <ul>
-                <li>When a condition is met and <strong>no further checking</strong> is needed.</li>
-                <li>Often used in <strong>search algorithms</strong> or <strong>switch-case</strong> statements.</li>
-            </ul>
-            <h4>Example in Switch:</h4>
-            <pre><code class="language-java">int day = 2;
-switch (day) {
-    case 1:
-        System.out.println("Monday");
-        break;
-    case 2:
-        System.out.println("Tuesday");
-        break;
-    default:
-        System.out.println("Invalid day");
-}
-// Without 'break', execution would fall through to the next case unintentionally.</code></pre>
-  
-            <h3>return — Exit from a Method and (Optionally) Return a Value</h3>
-            <p>The <strong>return</strong> keyword is used inside a method to:</p>
-            <ol>
-                <li>Exit the method immediately.</li>
-                <li>Optionally send back a value to the caller.</li>
-            </ol>
-            <p>It's like saying: "I'm done — here's your result!"</p>
-            <h4>Example 1: return Without a Value (void methods)</h4>
-            <pre><code class="language-java">void checkNumber(int num) {
-    if (num < 0) {
-        System.out.println("Negative number");
-        return; // exit method early
-    }
-    System.out.println("Positive number");
-}</code></pre>
-
-            <h4>Example 2: return With a Value (non-void methods)</h4>
-            <pre><code class="language-java">int add(int a, int b) {
-    return a + b; // sends result back
-}
-
-public static void main(String[] args) {
-    int sum = add(2, 10);
-    System.out.println(sum);
-}</code></pre>
-            <h4>Output:</h4>
-            <pre>15</pre>
-            <h4>When to Use:</h4>
-            <ul>
-                <li>To exit a method early (common in validations).</li>
-                <li>To send back computed results (from a non-void method).</li>
-            </ul>
-            <blockquote>
-            <h4>Quick Analogy:</h4>
-            <p>Imagine you're reading pages of a book:</p>
-            <ul>
-                <li><strong>continue</strong> → Skip a boring paragraph and move to the next one.</li>
-                <li><strong>break</strong> → Close the book entirely.</li>
-                <li><strong>return</strong> → Close the book and hand it to someone else with a note inside.</li>
-            </ul>
-            </blockquote>
-            <h2>5. Control Flow Statements in Java</h2>
+            <h2>4. Control Flow Statements in Java</h2>
             <p>"Control Flow" decides which part of your code runs, when, and how often. Every real-world program makes decisions—just like we do daily: You check the weather <code>(if rain → take an umbrella)</code>, or repeat a routine <code>(wake up → brush → eat → repeat daily)</code>. In Java, these decisions and repetitions are handled by Control Flow Statements.</p>
             
             <h3>Decision-Making Statements</h3>
@@ -807,6 +732,106 @@ Mango</pre>
             </ul>
             </blockquote>
             <p>Control flow is literally the decision-making brain of every Java program.</p>
+
+            <h2>5. Java Keywords: continue, break, and return</h2>
+            <p>These are jump statements — they alter the normal flow of control in loops or methods.</p>
+            
+            <h3>continue — Skip to the Next Iteration</h3>
+            <p>The <strong>continue</strong> keyword skips the remaining code inside a loop for the current iteration and jumps directly to the next iteration.</p>
+            <p>It's like saying: "I'm done with this round — move on to the next one."</p>
+            <p>Example:</p>
+            <pre><code class="language-java">for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        continue; // Skip when i is 3
+    }
+    System.out.println(i);
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>1
+2
+4
+5</pre>
+            <p>Here, when <code>i == 3</code>, the <code>continue</code> statement makes the loop skip the <code>System.out.println(i)</code> line and jump back to check the next value.</p>
+            <h4>When to Use:</h4>
+            <ul>
+                <li>When you want to <strong>ignore specific cases</strong> inside a loop.</li>
+                <li>Useful in <strong>filtering logic</strong>, like skipping negative numbers or invalid inputs.</li>
+            </ul>
+  
+            <h3>break — Exit the Loop or Switch Immediately</h3>
+            <p>The <strong>break</strong> keyword completely stops the loop or switch block it's in.</p>
+            <p>It's like saying: "I've found what I needed — stop everything!"</p>
+            <p>Example:</p>
+            <pre><code class="language-java">for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        break; // Stop the loop completely when i is 3
+    }
+    System.out.println(i);
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>1
+2</pre>
+            <p>When <code>i == 3</code>, the <code>break</code> statement ends the loop right away — no more iterations are executed.</p>
+            <h4>When to Use:</h4>
+            <ul>
+                <li>When a condition is met and <strong>no further checking</strong> is needed.</li>
+                <li>Often used in <strong>search algorithms</strong> or <strong>switch-case</strong> statements.</li>
+            </ul>
+            <h4>Example in Switch:</h4>
+            <pre><code class="language-java">int day = 2;
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    default:
+        System.out.println("Invalid day");
+}
+// Without 'break', execution would fall through to the next case unintentionally.</code></pre>
+  
+            <h3>return — Exit from a Method and (Optionally) Return a Value</h3>
+            <p>The <strong>return</strong> keyword is used inside a method to:</p>
+            <ol>
+                <li>Exit the method immediately.</li>
+                <li>Optionally send back a value to the caller.</li>
+            </ol>
+            <p>It's like saying: "I'm done — here's your result!"</p>
+            <h4>Example 1: return Without a Value (void methods)</h4>
+            <pre><code class="language-java">void checkNumber(int num) {
+    if (num < 0) {
+        System.out.println("Negative number");
+        return; // exit method early
+    }
+    System.out.println("Positive number");
+}</code></pre>
+
+            <h4>Example 2: return With a Value (non-void methods)</h4>
+            <pre><code class="language-java">int add(int a, int b) {
+    return a + b; // sends result back
+}
+
+public static void main(String[] args) {
+    int sum = add(2, 10);
+    System.out.println(sum);
+}</code></pre>
+            <h4>Output:</h4>
+            <pre>15</pre>
+            <h4>When to Use:</h4>
+            <ul>
+                <li>To exit a method early (common in validations).</li>
+                <li>To send back computed results (from a non-void method).</li>
+            </ul>
+            <blockquote>
+            <h4>Quick Analogy:</h4>
+            <p>Imagine you're reading pages of a book:</p>
+            <ul>
+                <li><strong>continue</strong> → Skip a boring paragraph and move to the next one.</li>
+                <li><strong>break</strong> → Close the book entirely.</li>
+                <li><strong>return</strong> → Close the book and hand it to someone else with a note inside.</li>
+            </ul>
+            </blockquote>
             
             <h2>6. Arrays and Strings in Java</h2>
             <p>When we write programs, we rarely deal with just <strong>one</strong> piece of data. Imagine storing the scores of 50 students in separate variables — chaos! This is where <strong>arrays</strong> and <strong>strings</strong> shine.</p>
