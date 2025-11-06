@@ -333,18 +333,10 @@ However, you can view it using the javap command, which shows the internal bytec
 But as we move into <strong>Object-Oriented Programming (OOP)</strong>, you’ll see that variables play a much bigger role.</p>
 
 
-<p>In OOP, variables can:</p>
-<ul>
-<li>Belong to a <strong>class or an object</strong> (like <code>color</code>, <code>model</code>, or <code>speed</code> in a <code>Car</code> class).</li>
-<li>Exist temporarily <strong>inside methods</strong> for calculations or logic.</li>
-</ul>
-
-
 <p>We’ll explore these in detail soon under topics like:</p>
 <ul>
 <li><strong>Instance Variables</strong> – variables that belong to each object</li>
 <li><strong>Local Variables</strong> – variables that exist only within a method</li>
-<li><strong>Static Variables</strong> – variables shared by all objects of a class</li>
 </ul>
 <p>That’s where you’ll see how variables connect directly to the way Java models real-world objects.</p>
 
@@ -1085,8 +1077,103 @@ car2.color = "Blue";</code></pre>
                 <li>They enable <strong>encapsulation</strong>: Objects can control access to their own data.</li>
                 <li>They form the foundation for <strong>Inheritance, Polymorphism,</strong> and <strong>Abstraction</strong>.</li>
             </ul>
+           <h2>9. Instance Variables and Local Variables</h2>
+<p>Now that you understand how classes and objects work, let’s talk about <strong>variables</strong> inside them — because this is where beginners often trip up.</p>
 
-            <h2>9. Constructors and Methods in Java</h2>
+<h3>Instance Variables vs Local Variables</h3>
+
+<h4>Instance Variables</h4>
+<p>Instance variables <strong>belong to an object</strong>. They’re declared <strong>inside a class</strong> but <strong>outside any method or constructor</strong>. They hold data that describes the object’s state.</p>
+<pre><code class="language-java">class Car {
+    String color;   // Instance variable
+    String model;   // Instance variable
+}</code></pre>
+<p>Each object of <code>Car</code> gets its own copy of these variables. Changing one object’s color doesn’t affect another’s.</p>
+
+<blockquote><strong>Fun Fact:</strong> Every object in Java lives in the heap, and its instance variables live with it — like each car having its own glove box.</blockquote>
+
+<h4>Local Variables</h4>
+<p>Local variables are declared inside <strong>methods or constructors</strong>. They exist only while that method or constructor is running.</p>
+<pre><code class="language-java">void startEngine() {
+    int speed = 0;  // Local variable
+    System.out.println("Engine started at speed: " + speed);
+}</code></pre>
+<p>When the method ends, <code>speed</code> disappears from memory — gone instantly.</p>
+
+<blockquote><strong>Tip:</strong> Think of instance variables as “object memory” and local variables as “temporary notes.”</blockquote>
+
+
+<h3>The Variable Shadowing Problem</h3>
+<p>Let’s look at what happens when a local variable (like a parameter) has the same name as an instance variable.</p>
+<pre><code class="language-java">class Car {
+    String color;
+    String model;
+    
+    public Car(String color, String model) {
+        color = color; // ⚠️ This doesn't work as expected
+    }
+}</code></pre>
+
+<p>You might think this assigns the constructor’s <code>color</code> to the object’s <code>color</code>. But it doesn’t! Both names refer to the local parameter, so the instance variable stays untouched — it remains <code>null</code>.</p>
+
+<blockquote><strong>Think:</strong>“Why doesn’t this set the car’s color?” — because the local variable <code>color</code> is <strong>shadowing</strong> the instance variable <code>color</code>.</blockquote>
+
+<hr>
+
+<h3>The Fix: Using <code>this</code> Keyword</h3>
+<p>Here’s where Java gives you a simple but powerful solution: the <code>this</code> keyword.</p>
+
+<pre><code class="language-java">class Car {
+    String color;
+    String model;
+    
+    public Car(String color, String model) {
+        this.color = color;
+        this.model = model;
+    }
+}</code></pre>
+
+<p>The keyword <code>this</code> refers to the <strong>current object</strong> — the one being created or used. So:</p>
+<ul>
+    <li><code>this.color</code> → refers to the instance variable of the current object.</li>
+    <li><code>color</code> → refers to the local variable (parameter).</li>
+</ul>
+
+<p>This line:</p>
+<pre><code>this.color = color;</code></pre>
+<p>literally means: “Assign the value of the local variable <code>color</code> to this object’s instance variable <code>color</code>.”</p>
+
+<h4>Example in Action:</h4>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car("Red", "Tesla");
+        
+        System.out.println("Color: " + myCar.color);
+        System.out.println("Model: " + myCar.model);
+    }
+}</code></pre>
+
+<h4>Output:</h4>
+<pre>Color: Red
+Model: Tesla</pre>
+
+<blockquote><strong>Fun Fact:</strong> <code>this</code> can also be used for method chaining, returning the current object, or passing it as an argument to another method.</blockquote>
+<h3>Pro Tip:</h3>
+<p>If your constructor parameters have the same name as your instance variables — always use <code>this</code> for clarity and correctness.</p>
+<pre><code class="language-java">public Car(String color, String model) {
+    this.color = color;
+    this.model = model;
+}</code></pre>
+
+<p>If you use different parameter names, <code>this</code> becomes optional:</p>
+<pre><code class="language-java">public Car(String carColor, String carModel) {
+    color = carColor;
+    model = carModel;
+}</code></pre>
+
+<p>Both work, but using <code>this</code> makes your intent explicit — a hallmark of clean, professional code.</p>
+
+            <h2>10. Constructors and Methods in Java</h2>
             <p>Once you understand classes and objects, the next step is to learn how to initialize objects and make them perform actions. That's where constructors and methods come in.</p>
             
             <h3>Constructors – Giving Life to Objects</h3>
@@ -1098,8 +1185,9 @@ car2.color = "Blue";</code></pre>
                 <li>Called <strong>automatically</strong> when an object is created using <code>new</code>.</li>
             </ul>
             <p>You can be overloaded to provide different ways of initializing an object.</p>
-            <h4>Example: Constructor in Action</h4>
-            <pre><code class="language-java">public class Car {
+            <h3>Constructor in Action</h3>
+<p>Let’s see how a constructor actually works when creating an object.</p>
+<pre><code class="language-java">public class Car {
     String color;
     String model;
     
@@ -1120,6 +1208,88 @@ public class Main {
         Car myCar = new Car("Red", "Tesla"); 
         myCar.displayInfo(); // Model: Tesla, Color: Red
     }
+}</code></pre>
+<p><strong>Explanation:</strong> When <code>new Car("Red", "Tesla")</code> runs:</p>
+<ul>
+    <li>Memory is allocated for a new <code>Car</code> object.</li>
+    <li>The constructor initializes the instance variables <code>color</code> and <code>model</code> with the given values.</li>
+    <li><code>displayInfo()</code> confirms the values were correctly assigned.</li>
+</ul>
+<p>So far, everything seems smooth… but what if we accidentally write the constructor the wrong way?</p>
+
+<h3>The Variable Shadowing Problem</h3>
+<p>Let’s look at what happens when a <strong>local variable (like a parameter)</strong> has the <strong>same name</strong> as an <strong>instance variable</strong>.</p>
+<pre><code class="language-java">class Car {
+    String color;
+    String model;
+    
+    public Car(String color, String model) {
+        color = color; // ⚠️ This doesn't work as expected
+    }
+}</code></pre>
+<p>At first glance, this looks fine — but here’s the catch: both <code>color</code> variables refer to the <strong>parameter</strong>, not the instance variable.</p>
+<p>So this line:</p>
+<pre><code>color = color;</code></pre>
+<p>just assigns the <strong>parameter to itself</strong>, and the instance variable <code>color</code> remains untouched (its default value stays <code>null</code>).</p>
+<p>This is called <strong>variable shadowing</strong> — the local parameter “shadows” or hides the instance variable with the same name.</p>
+
+<h3>The Fix: Using <code>this</code> Keyword</h3>
+<p>Java gives a clear solution: the <strong><code>this</code></strong> keyword.</p>
+<pre><code class="language-java">class Car {
+    String color;
+    String model;
+    
+    public Car(String color, String model) {
+        this.color = color;
+        this.model = model;
+    }
+}</code></pre>
+<p>Now each line has a clear meaning:</p>
+<ul>
+    <li><code>this.color</code> → refers to the <strong>instance variable</strong> of the current object.</li>
+    <li><code>color</code> → refers to the <strong>constructor parameter</strong>.</li>
+</ul>
+<p>So this statement:</p>
+<pre><code>this.color = color;</code></pre>
+<p>literally means: “Assign the value of the local variable <code>color</code> to this object’s instance variable <code>color</code>.”</p>
+
+<h4>Example in Action</h4>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car("Red", "Tesla");
+        
+        System.out.println("Color: " + myCar.color);
+        System.out.println("Model: " + myCar.model);
+    }
+}</code></pre>
+<h4>Output:</h4>
+<pre>Color: Red
+Model: Tesla</pre>
+<p>✅ Problem fixed. The constructor now properly initializes the object’s data.</p>
+
+<h4>Behind the Scenes: How <code>this</code> Works</h4>
+<p>When you create an object with <code>new</code>, Java passes a hidden reference of that object into non-static methods and constructors — and that hidden reference is called <code>this</code>.</p>
+<ul>
+    <li>Inside the constructor, <code>this.color</code> refers to <em>that specific Car object’s</em> color.</li>
+    <li><code>this.model</code> refers to <em>that same object’s</em> model.</li>
+</ul>
+<p>You’re literally telling Java: “Use this object’s variable, not the local one.”</p>
+
+
+
+<h4>Pro Tip</h4>
+<p>If your constructor parameters have the same names as your instance variables — always use <code>this</code> for clarity and correctness.</p>
+<pre><code class="language-java">public Car(String color, String model) {
+    this.color = color;
+    this.model = model;
+}</code></pre>
+<p>If you prefer to name parameters differently, <code>this</code> becomes optional:</p>
+<pre><code class="language-java">public Car(String carColor, String carModel) {
+    color = carColor;
+    model = carModel;
+}</code></pre>
+<p>Both approaches work — but using <code>this</code> makes your intent crystal clear and is a mark of <strong>clean, professional Java code</strong>.</p>
+
 }</code></pre>
             <blockquote>
                 <p class="font-semibold"> <strong>Fun Fact:</strong> If you don't write a constructor, Java provides a default constructor that does nothing but allows object creation.</p>
@@ -1183,7 +1353,7 @@ public class Main {
             <div class="image-box">
         <img src="./imgJava/Picture8.png" alt="Revature Image" class="h-8">
           </div>
-            <h2>10. Access Modifiers and Non-Access Modifiers in Java</h2>
+            <h2>11. Access Modifiers and Non-Access Modifiers in Java</h2>
            
             <p>When writing Java programs, it's not enough to just create classes, objects, and methods. You also need to control who can access them and how they behave. That's where modifiers come in.</p>
             <p>Modifiers in Java are of two types:</p>
@@ -1285,7 +1455,7 @@ final void run() { } // cannot be overridden</code></pre>
                 <li><strong>Non-access modifiers:</strong> Think of them as special properties: <strong>constants</strong> (final), <strong>shared features</strong> (static), or rules for <strong>multi-thread safety</strong> (synchronized).</li>
             </ul>
             </blockquote>
-            <h2>11. Inheritance in Java</h2>
+            <h2>12. Inheritance in Java</h2>
             <p><strong>Inheritance</strong> is a mechanism where one class acquires the properties and behaviors of another class. It helps in code <strong>reuse</strong>, <strong>organization</strong>, and hierarchical design.</p>
             <h4>Why Inheritance?</h4>
             <ul>
@@ -1541,8 +1711,97 @@ public class Main {
                 <li>Multiple inheritance with classes is not allowed, only via interfaces.</li>
                 <li>Constructors of superclass are called first before the subclass constructor.</li>
             </ol>
+            <h3>Using the <code>super</code> Keyword in Inheritance</h3>
+<p>The <strong>super</strong> keyword is used to refer to the <strong>immediate parent class</strong>. It helps access members (variables, methods, constructors) of the parent class that are hidden or overridden by the child class.</p>
 
-            <h2>12. Polymorphism in Java – One Action, Many Forms!</h2>
+<h4>1. Using <code>super</code> to Call Parent Class Constructor</h4>
+<p>The first statement inside a subclass constructor can be <code>super()</code>, which calls the parent’s constructor.</p>
+<pre><code class="language-java">class Vehicle {
+    Vehicle() {
+        System.out.println("Vehicle constructor");
+    }
+}
+
+class Car extends Vehicle {
+    Car() {
+        super(); // calls Vehicle constructor first
+        System.out.println("Car constructor");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car c = new Car();
+    }
+}
+</code></pre>
+<blockquote><p><strong>Output:</strong><br>Vehicle constructor<br>Car constructor</p></blockquote>
+
+<h4>2. Using <code>super</code> to Access Parent Class Variables</h4>
+<pre><code class="language-java">class Vehicle {
+    String type = "Vehicle";
+}
+
+class Car extends Vehicle {
+    String type = "Car";
+    
+    void displayType() {
+        System.out.println(super.type); // accesses parent variable
+        System.out.println(type);       // accesses child variable
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        new Car().displayType();
+    }
+}
+</code></pre>
+<blockquote><p><strong>Output:</strong><br>Vehicle<br>Car</p></blockquote>
+
+<h4>3. Using <code>super</code> to Call Parent Class Method</h4>
+<pre><code class="language-java">class Vehicle {
+    void start() {
+        System.out.println("Vehicle started");
+    }
+}
+
+class Car extends Vehicle {
+    void start() {
+        System.out.println("Car started");
+    }
+
+    void showStart() {
+        super.start(); // calls Vehicle's version
+        start();       // calls Car's version
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car c = new Car();
+        c.showStart();
+    }
+}
+</code></pre>
+<blockquote><p><strong>Output:</strong><br>Vehicle started<br>Car started</p></blockquote>
+
+<h4>When to Use <code>super</code></h4>
+<ul>
+    <li>When subclass method or variable hides the parent’s version.</li>
+    <li>When you need to call parent class constructor explicitly.</li>
+    <li>When you override methods but still need parent’s logic.</li>
+</ul>
+
+<h4>Key Points:</h4>
+<ul>
+    <li><code>super()</code> must be the first statement in a constructor if used.</li>
+    <li>If you don’t write <code>super()</code>, Java automatically adds it to call the parent’s no-arg constructor.</li>
+    <li><code>super</code> cannot be used in static context.</li>
+</ul>
+
+
+            <h2>13. Polymorphism in Java – One Action, Many Forms!</h2>
             <p>The word Polymorphism comes from Greek — "Poly" = many, "Morphism" = forms. It literally means "something that exists in more than one form." In Java, polymorphism allows the same method name or object reference to behave differently based on context or object type. It's like giving one command but getting different reactions depending on who receives it.</p>
             
             <h3>Why We Need Polymorphism</h3>
@@ -1652,7 +1911,7 @@ public class Demo {
                 <li>It's like a child saying, "I'll handle this task my own way, Dad." — That's overriding in action!</li>
             </ul>
 </blockquote> 
-            <h2>13. Encapsulation — The Protective Shield of Java!</h2>
+            <h2>14. Encapsulation — The Protective Shield of Java!</h2>
             <p>The word Encapsulation comes from "capsule," which means something tightly wrapped or sealed. In Java, <strong>Encapsulation</strong> means wrapping data (variables) and the code (methods) that operate on that data into a <strong>single unit</strong> — a class — and protecting it from outside interference.</p>
             <p>Think of it like a <strong>medicine capsule</strong> 💊 — the powder (data) is hidden inside the shell (class), and you can't see or touch it directly — you can only use it safely in the way it's meant to be used.</p>
             
@@ -1714,7 +1973,7 @@ public class Main {
             <strong>Fun Fact :</strong>
             <p>Encapsulation is like putting your phone in a case — you still use it, but you don't mess with the internal circuits. In OOP, "Encapsulation" is not just about hiding — it's about protecting and controlling access, like a security gate with a password.</p>
 </blockquote> 
-            <h2>14. Abstraction in Java</h2>
+            <h2>15. Abstraction in Java</h2>
             <p>Think of abstraction like using a phone app. You tap "Send" in WhatsApp, but you don't know all the network protocols, encryption, or server processing happening in the background. You only see what matters—sending the message. <strong>Abstraction</strong> is the process of hiding internal implementation details and showing only the necessary functionalities to the user.</p>
             
             <h3>Key Points:</h3>
@@ -1911,7 +2170,7 @@ public static void main(String[] args) {
                 <li>Handle exceptions you can <strong>actually recover from</strong>.</li>
                 <li>Avoid empty catch blocks (<code>catch(Exception e){}</code>)—they hide errors.</li>
                 <li>Use specific exceptions to catch known issues.</li>
-                <li>Use <code>finally</code> or <code>try-with-resources</code> for cleanup.</li>
+                <li>Use <code>finally</code>for cleanup.</li>
                 <li>Log exceptions to help <strong>debugging</strong>.</li>
             </ol>
             <blockquote>
