@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Practice Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Light theme styles based on the new image */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB; /* Light grey background (Tailwind gray-50) */
+        }
+
+        /* This is the new white content card */
+        .content-card {
+            background-color: #FFFFFF;
+            color: #1F2937; /* Dark text */
+            max-width: 900px;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB; /* Light border */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        /* --- Text Color Classes (Light Theme) --- */
+        .text-lab-red {
+            color: #DC2626; /* Red */
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 600;
+        }
+
+        .text-lab-italic {
+            font-style: italic;
+        }
+        
+        /* --- Code Block Styling (Light Theme) --- */
+        code {
+            font-family: 'Fira Code', monospace;
+            background-color: #F3F4F6; /* Light grey background */
+            padding: 1.5em;
+            display: block;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            color: #111827; /* Dark text for code */
+            border: 1px solid #E5E7EB;
+        }
+        
+        /* --- Syntax Highlighting Classes (Light Theme) --- */
+        .code-keyword { color: #2563EB; } /* blue */
+        .code-type { color: #9333EA; } /* purple */
+        .code-string { color: #166534; } /* green */
+        .code-comment { color: #6B7280; } /* grey */
+        .code-class { color: #9333EA; } /* purple */
+        .code-method { color: #0B749B; } /* cyan-ish blue */
+        .code-object { color: #0B749B; }
+        .code-var { color: #374151; } /* dark grey */
+        .code-literal { color: #C2410C; } /* orange */
+        .code-operator { color: #2563EB; } /* blue */
+
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-orange-600">
+                <a href="#">Revature Study Guide</a>
+            </div>
+            <div>
+                <a href="index.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300">Home</a>
+                <a href="java-fundamentals.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300">Learn Java</a>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Card -->
+    <div class="content-card mx-auto p-6 sm:p-8 md:p-12 mt-8 mb-12">
+
+        <!-- Image 1 Content -->
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Java Practice Lab:</h2>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Mentor's Note:</h3>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Don't rush. Type the code yourself — don't copy paste.</li>
+            <li>Every error you see teaches you something:</li>
+            <li>a missing bracket, a misspelled variable, a <span class="font-bold text-gray-800">type mismatch</span> — all are clues, not failures.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 0: Make sure Java is ready</h3>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li><span class="font-bold text-gray-800">JDK installed</span>?</li>
+            <li>Can you run <span class="font-mono text-blue-800 font-medium">java -version</span> and <span class="font-mono text-blue-800 font-medium">javac -version</span> in your terminal?</li>
+            <li>Great! You're ready to start coding.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Create your first class</h3>
+        <p>Think of a class as a container for your program.</p>
+        <code>
+            <span class="code-keyword">class</span> <span class="code-class">HelloWorld</span> {
+                <span class="code-comment">// we will put code here next</span>
+            }
+        </code>
+
+        <h3 class="text-xl font-semibold text-lab-blue mt-8 mb-3">Step 2: Add main() method</h3>
+        <p>This is where Java starts running your program.</p>
+        <code>
+            <span class="code-keyword">public</span> <span class="code-keyword">static</span> <span class="code-keyword">void</span> <span class="code-method">main</span>(<span class="code-type">String</span>[] <span class="code-var">args</span>) {
+                <span class="code-object">System</span>.<span class="code-object">out</span>.<span class="code-method">println</span>(<span class="code-string">"Hello, World!"</span>);
+            }
+        </code>
+        <p class="mt-4">Try this:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Add the <span class="font-mono text-blue-800 font-medium">main()</span> method inside your class.</li>
+            <li>Run it. You should see: <span class="font-semibold text-gray-800">Output:</span> "Hello world!" — in the Console</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 3: Play with print statements</h3>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Try printing your name, age, and favorite hobby.</li>
+            <li>Use both <span class="font-mono text-blue-800 font-medium">System.out.println()</span> and <span class="font-mono text-blue-800 font-medium">System.out.print()</span>.</li>
+        </ul>
+        <code>
+            <span class="code-object">System</span>.<span class="code-object">out</span>.<span class="code-method">println</span>(<span class="code-string">"Name: Sunny"</span>);
+            <span class="code-object">System</span>.<span class="code-object">out</span>.<span class="code-method">println</span>(<span class="code-string">"Age: 21"</span>);
+            <span class="code-object">System</span>.<span class="code-object">out</span>.<span class="code-method">print</span>(<span class="code-string">"Hobby: Coding"</span>);
+            <span class="code-object">System</span>.<span class="code-object">out</span>.<span class="code-method">print</span>(<span class="code-string">" & Reading"</span>);
+        </code>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Mini Challenge:</h3>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Create a class: <span class="font-mono text-blue-800 font-bold">PersonalInfo</span>.</li>
+            <li>In <span class="font-mono text-blue-800 font-medium">main()</span>, declare variables: name (<span class="code-type">String</span>), age (<span class="code-type">int</span>), height (<span class="code-type">double</span>).</li>
+            <li>Print a message like:</li>
+        </ul>
+
+        <!-- Image 2 Content -->
+        <p class="mt-4"><span class="font-semibold text-gray-800">Target Output:</span> Hi, I am Sunny, I am 21 years old and 5.8 ft tall.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 5: Explore & Experiment</h3>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>What happens if you forget <span class="font-mono text-blue-800 font-medium">public</span> static void? Try it!</li>
+            <li>What if you remove a semicolon? What does the error message say?</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Goal:</span> Learn by trying, breaking, and fixing your code.</p>
+
+        <hr class="border-gray-200 my-10">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Java Practice Lab: Variables & Data Types</h2>
+        <p>You've already learned how to create a class, write a <span class="font-mono text-blue-800 font-medium">main()</span> method, and print text to the console. Now let's make your code a little smarter by using variables — small storage boxes for your program's data.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Let's Store Something!</h3>
+        <p>Create a class called — <span class="font-mono text-blue-800 font-bold">MyProfile</span></p>
+        <p class="mt-2">Inside it, store the following details as variables:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Your name (<span class="code-type">String</span>)</li>
+            <li>Your age (<span class="code-type">int</span>)</li>
+            <li>Your average score (<span class="code-type">double</span>)</li>
+            <li>Whether you are a student or not (<span class="code-type">boolean</span>)</li>
+        </ul>
+        <p class="mt-4">Then print them all in one meaningful sentence.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hint:</span><br> Use <span class="code-operator">+</span> to join your text with variable values.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Think about this:</span><br> If you wrap numbers in quotes, they become <span class="font-bold text-gray-800">text</span>. What's the difference when printing "21" vs 21?</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br> Hi, my name is Arjun, I am 21 years old, my average score is 89.5, and it's <span class="code-literal">true</span> I am a student!</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls to watch for:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li><span class="text-lab-italic">Missing semicolon</span> — Java won't forgive you!</li>
+            <li><span class="text-lab-italic">Wrong data type</span> — like writing int name = "Sunny"; <span class="text-red-500 font-bold">X</span></li>
+            <li><span class="text-lab-italic">Boolean prints as true or false</span> — no need for quotes.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Done? Great!</span><br> You just used data types and string <span class="font-bold text-gray-800">concatenation</span> to describe yourself.</p>
+
+        <!-- Image 3 Content -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Quick Math</h3>
+        <p>Create a new class called — <span class="text-lab-red">SimpleMath</span>.
+        <br>This time, declare two integer variables — maybe marks of two subjects or prices of two items.
+        <br>Find and print:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Sum</li>
+            <li>Difference</li>
+            <li>Product</li>
+            <li>Division</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hint:</span><br> Use <span class="font-mono text-blue-800 font-medium">+</span>, <span class="font-mono text-blue-800 font-medium">-</span>, <span class="font-mono text-blue-800 font-medium">*</span>, <span class="font-mono text-blue-800 font-medium">/</span>.
+        <br>Print each result clearly — like "Sum: " before the value.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Sum: 30<br>
+        Difference: 10<br>
+        Product: 200<br>
+        Division: 2
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Watch out for:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li><span class="font-bold text-gray-800">Division</span> between integers gives <span class="text-lab-italic">whole numbers only!</span></li>
+            <li>If you want <span class="text-lab-italic">decimal</span> output, use <span class="code-type">double</span>.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Access in Action</h3>
+        <p>You've been writing everything inside <span class="font-mono text-blue-800 font-medium">main()</span>.
+        <br>Now try something slightly more organized.
+        <br>Create a class <span class="font-mono text-blue-800 font-bold">StudentDetails</span> and add:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>A variable <span class="font-mono text-blue-800 font-medium">name</span> with <span class="font-bold text-gray-800">private access</span>.</li>
+            <li>A method <span class="font-mono text-blue-800 font-medium">displayDetails()</span> that prints the name.</li>
+        </ul>
+        <p class="mt-4">In your <span class="font-mono text-blue-800 font-medium">main()</span> method, create an object of the class and call that method.</p>
+        
+        <!-- Image 4 Content -->
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hint:</span><br>
+        This is your first taste of <span class="font-bold text-gray-800">OOP (Object-Oriented Programming)</span> — methods belong to classes, and you call them through objects.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Student name: Sunny
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forgetting <span class="font-mono text-blue-800 font-medium">public</span> in the class or method may stop access.</li>
+            <li>Don't write code outside of methods — Java doesn't allow loose statements.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Nice work!</span><br>
+        You just practiced <span class="font-bold text-gray-800">access</span> modifiers, methods, and variables — that's object-oriented programming in action.
+        </p>
+
+        <hr class="border-gray-200 my-10">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Java Practice Lab: Operators & Expressions</h2>
+        <p>Alright — you've learned how to use variables to store data.
+        <br>Now it's time to make those variables do some <span class="text-lab-italic">real work!</span></p>
+        <p class="mt-2">Operators are just tools that let you perform actions like addition, comparison, or even checking conditions.</p>
+        <p class="mt-2">Let's see what you can <span class="font-bold text-gray-800">do</span>.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1 | Basic Math Practice</h3>
+        <p>Create a class called <span class="font-mono text-blue-800 font-bold">MathPlayground</span>.
+        <br>Inside <span class="font-mono text-blue-800 font-medium">main()</span>, declare two integers:</p>
+        <code>
+            <span class="code-type">int</span> <span class="code-var">a</span> = <span class="code-literal">15</span>;
+            <span class="code-type">int</span> <span class="code-var">b</span> = <span class="code-literal">4</span>;
+        </code>
+        <p class="mt-4">Now print:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Their sum</li>
+            <li>Their difference</li>
+            <li>Their product</li>
+            <li>Their division (both <span class="code-type">int</span> and <span class="code-type">double</span> versions)</li>
+            <li>The <span class="font-bold text-gray-800">remainder</span> when you divide <span class="code-var">a</span> by <span class="code-var">b</span></li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hint:</span><br>
+        Use <span class="font-mono text-blue-800 font-medium">+</span>, <span class="font-mono text-blue-800 font-medium">-</span>, <span class="font-mono text-blue-800 font-medium">*</span>, <span class="font-mono text-blue-800 font-medium">/</span>, and <span class="font-mono text-blue-800 font-medium">%</span>.</p>
+        <hr class="border-gray-200 my-10">
+
+        <!-- --- Challenge 2: Comparison Check --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Comparison Check</h3>
+        <p>Now create a new class called <span class="font-mono text-blue-800 font-bold">NumberCheck</span>.</p>
+        <p class="mt-2">Take two integers — say, <span class="font-mono text-blue-800 font-medium">x = 10</span>, <span class="font-mono text-blue-800 font-medium">y = 20</span>.
+        <br>Print out:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Whether they are equal</li>
+            <li>Whether x is greater than y</li>
+            <li>Whether x is less than or equal to y</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hint:</span><br>
+        Use comparison operators: <span class="font-mono text-blue-800 font-medium">==</span>, <span class="font-mono text-blue-800 font-medium">></span>, <span class="font-mono text-blue-800 font-medium"><</span>, <span class="font-mono text-blue-800 font-medium">>=</span>, <span class="font-mono text-blue-800 font-medium"><=</span>, <span class="font-mono text-blue-800 font-medium">!=</span></p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Are they equal? false<br>
+        Is x greater than y? false<br>
+        Is x less than or equal to y? true
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Common mistake:</span><br>
+        Don't confuse <span class="font-mono text-blue-800 font-medium">==</span> (comparison) with <span class="font-mono text-blue-800 font-medium">=</span> (assignment).
+        <br>They look similar but do very different things.
+        </p>
+
+        <!-- --- Challenge 3: Combine Conditions --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Combine Conditions</h3>
+        <p>Create a class called <span class="font-mono text-blue-800 font-bold">LogicTest</span>.</p>
+        <p class="mt-2">Declare two int variables with <span class="font-bold text-gray-800">values</span>: <span class="font-mono text-blue-800 font-medium">marks = 75</span> and <span class="font-mono text-blue-800 font-medium">attendance = 80</span>.</p>
+        <p class="mt-2">Now check if the student passes, which happens when marks are above 60 <span class="font-bold text-gray-800">and</span> attendance is above 70.</p>
+        <p class="mt-2">Print "Pass" or "Fail" accordingly.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hint:</span><br>
+        Use logical operators:<br>
+        <span class="font-mono text-blue-800 font-medium">&&</span> → AND<br>
+        <span class="font-mono text-blue-800 font-medium">||</span> → OR<br>
+        <span class="font-mono text-blue-800 font-medium">!</span> → NOT
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Pass
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Bonus Tip:</span><br>
+        Try changing the numbers and see how results change when either condition fails.
+        </p>
+        
+        <hr class="border-gray-200 my-10">
+
+        <!-- --- Conditionals (if/else) --- -->
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Conditionals (if / else)</h2>
+        <p>So far, your programs just printed fixed results.
+        <br>Now it's time to make them react — to make choices.</p>
+        <p class="mt-2">If something is true, do this.
+        <br>Otherwise, do that.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Simple Decision</h3>
+        <p>Create a class called <span class="font-mono text-blue-800 font-bold">AgeChecker</span>.</p>
+        <p class="mt-2">Ask Java to print whether a person is an adult or not.</p>
+        <code>
+            <span class="code-type">int</span> <span class="code-var">age</span> = <span class="code-literal">17</span>;
+        </code>
+        <p class="mt-2">If <span class="font-bold text-gray-800">age</span> is 18 or above, print "You are an adult."
+        <br>Otherwise, print "You are not an adult yet."</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        You are not an adult yet.
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hint:</span><br>
+        Use <span class="font-mono text-blue-800 font-medium">if (condition) { ... } else { ... }</span>
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forgetting parentheses around the condition.</li>
+            <li>Missing <span class="font-mono text-blue-800 font-medium">{ }</span> — especially if you add multiple lines inside.</li>
+        </ul>
+
+        <!-- --- Challenge 2: Add More Conditions --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Add More Conditions</h3>
+        <p>Make a class <span class="font-mono text-blue-800 font-bold">GradeSystem</span>.</p>
+        <p>Declare:</p>
+        <code>
+            <span class="code-type">int</span> <span class="code-var">marks</span> = <span class="code-literal">82</span>;
+        </code>
+        <p class="mt-4">Print:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>"Excellent" if marks ≥ 90</li>
+            <li>"Good" if marks ≥ 75</li>
+            <li>"Average" if marks ≥ 50</li>
+            <li>"Fail" otherwise</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Good
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hint:</span><br>
+        Use <span class="font-mono text-blue-800 font-medium">if... else if... else</span>
+        <br>Try changing marks to test different outcomes.
+        </p>
+
+        <!-- --- Challenge 3: Nested Decisions --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Nested Decisions</h3>
+        <p>Let's combine what you know!
+        <br>Create a class called <span class="font-mono text-blue-800 font-bold">EligibilityCheck</span>.</p>
+        <p>Declare:</p>
+        <code>
+            <span class="code-type">int</span> <span class="code-var">age</span> = <span class="code-literal">20</span>;
+            <span class="code-type">boolean</span> <span class="code-var">hasLicense</span> = <span class="code-literal">true</span>;
+        </code>
+        <p class="mt-4">If age is above 18, check <span class="font-bold text-gray-800">inside</span> whether they have a license.
+        <br>If yes → print "You can drive!"
+        <br>If no → print "You're old enough, but you need a license!"
+        <br>Otherwise → print "You're too young to drive!"
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        You can drive!
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forgetting to close nested braces <span class="font-mono text-blue-800 font-medium">{ }</span></li>
+            <li>Misplacing <span class="font-mono text-blue-800 font-medium">else</span> — it always pairs with the <span class="text-lab-italic">closest</span> if.</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <!-- --- Loops --- -->
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Loops</h2>
+        <p>You've learned variables, operators, and conditionals.
+        <br>Now let's make Java <span class="font-bold text-gray-800">repeat</span> things without writing the same code <span class="text-lab-italic">again and again</span>.</p>
+        <p class="mt-2">We have <span class="font-bold text-gray-800">for</span>, <span class="font-bold text-gray-800">while</span>, and later <span class="font-bold text-gray-800">do-while</span> loops.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Counting with a For Loop</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Print numbers 1 to 10 on the console.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Think: start at 1, stop at 10.</li>
+            <li>Increase the number by 1 each time.</li>
+            <li>Use a loop to avoid typing <span class="font-mono text-blue-800 font-medium">System.out.println()</span> 10 times.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output:</span><br>
+        1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+        </p>
+
+        <!-- --- Challenge 2: Sum of First 5 Numbers (While Loop) --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Sum of First 5 Numbers (While Loop)</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Add numbers 1 to 5 and show the running total.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Start with <span class="font-mono text-blue-800 font-medium">sum = 0</span> and <span class="font-mono text-blue-800 font-medium">i = 1</span></li>
+            <li>Keep adding <span class="font-mono text-blue-800 font-medium">i</span> to <span class="font-mono text-blue-800 font-medium">sum</span></li>
+            <li>Print the sum after each addition</li>
+            <li>Stop when <span class="font-mono text-blue-800 font-medium">i</span> exceeds 5</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output:</span><br>
+        Adding 1, sum is now: 1<br>
+        Adding 2, sum is now: 3<br>
+        Adding 3, sum is now: 6<br>
+        Adding 4, sum is now: 10<br>
+        Adding 5, sum is now: 15
+        </p>
+
+        <!-- --- Challenge 3: Even Numbers Only --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Even Numbers Only</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Print all <span class="font-bold text-gray-800">even numbers</span> from 2 to 20.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Can be done with <span class="font-mono text-blue-800 font-medium">for</span> loop or <span class="font-mono text-blue-800 font-medium">while</span> loop</li>
+            <li>Remember even numbers are divisible by 2</li>
+            <li>Increment your counter accordingly</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output:</span><br>
+        2<br>4<br>6<br>8<br>... (and so on)
+        </p>  
+        <!-- --- Challenge 4: Multiplication Table --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Multiplication Table</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Print multiplication table for 3 (from 1x3 to 10x3).</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>One loop is enough.</li>
+            <li>Multiply your loop counter by 3.</li>
+            <li>Print each line in the format: 1 x 3 = 3</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output:</span><br>
+        1 x 3 = 3<br>
+        2 x 3 = 6<br>
+        3 x 3 = 9<br>
+        4 x 3 = 12<br>
+        5 x 3 = 15<br>
+        6 x 3 = 18<br>
+        7 x 3 = 21<br>
+        8 x 3 = 24<br>
+        9 x 3 = 27<br>
+        10 x 3 = 30
+        </p>
+
+        <!-- --- Challenge 5: Nested Loops (Advanced) --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: Nested Loops (Advanced)</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Print a simple pattern like a right-angled triangle of stars.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use a loop inside another loop.</li>
+            <li>Outer loop → rows</li>
+            <li>Inner loop → stars in each row</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output:</span><br>
+        *<br>
+        **<br>
+        ***<br>
+        ****<br>
+        *****
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Mentor Tip:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Don't worry if it looks tricky at first.</li>
+            <li>Start with one row at a time.</li>
+            <li>Nested loops are just loops inside loops.</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <!-- --- Strings & Arrays --- -->
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Strings & Arrays</h2>
+        <p>You've worked with variables, loops, and operators.
+        <br>Now let's explore Strings (text) and Arrays (collections of data).</p>
+        
+        <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-3">Strings</h3>
+        <p>Strings are sequences of characters, like your name or a sentence.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Basic String Operations</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Print your name, then print it in uppercase and lowercase.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use a single String variable.</li>
+            <li>Methods like <span class="font-mono text-blue-800 font-medium">.toUpperCase()</span> and <span class="font-mono text-blue-800 font-medium">.toLowerCase()</span> can help.</li>
+            <li>Print each version.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Sunny<br>
+        SUNNY<br>
+        sunny
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: String Length and Concatenation</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Take two Strings: first name and last name.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Print the full name (concatenate).</li>
+            <li>Print the total number of characters in the full name.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="font-mono text-blue-800 font-medium">+</span> to join Strings.</li>
+            <li><span class="font-mono text-blue-800 font-medium">.length()</span> gives the number of characters.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Sunny Kumar<br>
+        Total characters: 11
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-3">Arrays</h3>
+        <p>Arrays store multiple values of the same type.
+        <br>Think of it as a row of boxes, each with a number or text.</p>
+        
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Basic Array</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Store 5 numbers in an array and print them using a loop.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use a <span class="font-mono text-blue-800 font-medium">for</span> loop.</li>
+            <li>Indexes start at 0, not 1.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output:</span><br>
+        10<br>20<br>30<br>40<br>50
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Sum of Array Elements</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Add all elements of an integer array and print the total.</p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use a loop to go through each element.</li>
+            <li>Keep a running total.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output:</span><br>
+        Sum of array: 150
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Strings in Arrays</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Store 5 names in a String array.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Print each name with its length.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="font-mono text-blue-800 font-medium">.length()</span> on each string.</li>
+            <li>Loop through the array.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Sunny (5)<br>
+        Kumar (5)<br>
+        Ananya (6)<br>
+        Rahul (5)<br>
+        Priya (5)
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Mini Exploration Challenge</h3>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Try mixing past concepts:</li>
+            <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+                <li>Loop through a number array and print only even numbers.</li>
+                <li>Store names in an array and print only those starting with 'S'.</li>
+            </ul>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output (Example):</span><br>
+        10<br>
+        20<br>
+        50<br>
+        Sunny<br>
+        Sakshi
+        </p>
+
+        <hr class="border-gray-200 my-10">
+
+        <!-- --- Basics of OOP --- -->
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Basics of OOP</h2>
+        <p>You've worked with variables, loops, conditionals, strings, and arrays.
+        <br>Now let's make Java think like a real program — using Objects and Classes.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Create a Class and Object</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Create a <span class="font-bold text-gray-800">class</span> Student and store a student's name and age.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Print the name and age from the object.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="font-bold text-gray-800">fields (variables)</span> inside the class.</li>
+            <li>Use a <span class="font-bold text-gray-800">method</span> like <span class="font-mono text-blue-800 font-medium">displayInfo()</span> to print details.</li>
+            <li>Create an object in <span class="font-mono text-blue-800 font-medium">main()</span> and call the method.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Name: Sunny<br>
+        Age: 21
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Methods with Parameters</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Add a method <span class="font-mono text-blue-800 font-medium">updateAge(int newAge)</span> to your <span class->Student</span> class.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Change the student's age and print updated info.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>The method takes a <span class="font-bold text-gray-800">parameter</span>.</li>
+            <li>Update the field inside the method.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Updated Age: 22
+        </p>
+        <!-- --- Challenge 3: Constructors --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Constructors</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Make a constructor for Student that sets name and age when an object is created.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Create two students and print their info.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Constructor has same name as class.</li>
+            <li>No return type (not even void).</li>
+            <li>Can initialize multiple fields at once.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Student 1: Name: Sunny, Age: 21<br>
+        Student 2: Name: Ananya, Age: 22
+        </p>
+
+        <!-- --- Challenge 4: Access Modifiers --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Access Modifiers</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Make age <span class="font-bold text-gray-800">private</span> and name <span class="font-bold text-gray-800">public</span>.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Add a <span class="font-bold text-gray-800">getter</span> method for age (<span class="font-mono text-blue-800 font-medium">getAge()</span>).</li>
+            <li>Print name directly, print age via getter.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Name: Sunny<br>
+        Age: 21
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Private fields can't be accessed outside class directly.</li>
+            <li>Getter methods allow safe access.</li>
+        </ul>
+
+        <!-- --- Challenge 5: Combining Past Concepts --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: Combining Past Concepts</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Create a <span class="font-mono text-blue-800 font-bold">Classroom</span> class.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Store an <span class="font-bold text-gray-800">array of Student objects</span> (3 students).</li>
+            <li>Loop through the array and print all student names and ages.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Arrays + Objects = powerful combo.</li>
+            <li>Loop through array using <span class="font-mono text-blue-800 font-medium">for</span> loop or <span class="font-mono text-blue-800 font-medium">enhanced for</span>.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Student: Sunny, Age: 21<br>
+        Student: Ananya, Age: 22<br>
+        Student: Rahul, Age: 20
+        </p>
+
+        <hr class="border-gray-200 my-10">
+
+        <!-- --- Inheritance & Polymorphism --- -->
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Inheritance & Polymorphism</h2>
+        <p>You already know how to create classes, objects, fields, methods, and constructors.
+        <br>Now let's explore how one class can reuse another <span class="font-bold text-gray-800">class's</span> code, and how methods can behave differently.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Basic Inheritance</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Create a <span class="font-mono text-blue-800 font-bold">Person</span> class with name and a method <span class="font-mono text-blue-800 font-medium">displayInfo()</span>.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Create a <span class="font-mono text-blue-800 font-bold">Student</span> class that <span class="font-bold text-gray-800">extends</span> Person.</li>
+            <li>Add <span class="font-mono text-blue-800 font-medium">rollNumber</span> to Student.</li>
+            <li>Print both name and roll number from a Student object.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="font-mono text-blue-800 font-medium">extends</span> keyword to inherit.</li>
+            <li>The child class automatically gets the parent's fields and methods.</li>
+            <li>Create an object of the child class to test.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Name: Sunny<br>
+        Roll Number: 101
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forgetting <span class="font-mono text-blue-800 font-medium">extends</span> → child class won't inherit.</li>
+            <li>Parent method still accessible, no object needed for parent class.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Compile-time Polymorphism (Method Overloading)</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> In Student class, create multiple <span class="font-mono text-blue-800 font-medium">display()</span> methods:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li><span class="font-mono text-blue-800 font-medium">display()</span> → no parameters</li>
+            <li><span class="font-mono text-blue-800 font-medium">display(String subject)</span> → prints subject info</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Same method name, different parameter types or count.</li>
+            <li>This is called <span class="font-bold text-gray-800">compile-time polymorphism</span>.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Displaying student info<br>
+        Displaying student info for Math
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Changing only return type does not count as overloading.</li>
+            <li>Parameters must differ in number or type.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Runtime Polymorphism (Method Overriding)</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>In <span class="font-mono text-blue-800 font-bold">Person</span> class, have <span class="font-mono text-blue-800 font-medium">displayInfo()</span> print name.</li>
+            <li>In <span class="font-mono text-blue-800 font-bold">Student</span> class, <span class="font-bold text-gray-800">override</span> <span class="font-mono text-blue-800 font-medium">displayInfo()</span> to print name and roll number.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Same method name, same parameters, in child class.</li>
+            <li>Use a <span class="font-mono text-blue-800 font-medium">Person</span> reference pointing to a <span class="font-mono text-blue-800 font-medium">Student</span> object.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Name: Sunny<br>
+        Roll Number: 101
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forget <span class="font-mono text-blue-800 font-medium">@Override</span> annotation → still works but annotation helps detect mistakes.</li>
+            <li>If method is <span class="font-mono text-blue-800 font-medium">private</span>/<span class="font-mono text-blue-800 font-medium">final</span>/<span class="font-mono text-blue-800 font-medium">static</span>, it cannot be overridden.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Multiple Inheritance Note</h3>
+        <p><span class="font-semibold text-gray-800">Concept:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Java <span class="font-bold text-gray-800">does not allow</span> multiple inheritance with classes.</li>
+            <li>Example: <span class="font-mono text-blue-800 font-medium">class Student extends Person, Teacher</span> <span class="text-red-500 font-bold">X</span> → compilation error.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Why? <span class="font-bold text-gray-800">Diamond problem</span> (ambiguity in inherited methods).</li>
+            <li>Solution: Use <span class="font-bold text-gray-800">interfaces</span> if you need multiple "parents".</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span></li
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Try creating a class with two parent classes → compiler will show error.</li>
+            <li>Instead, implement multiple interfaces.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Mini Challenge: Combine Inheritance & Polymorphism</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Create a <span class="font-mono text-blue-800 font-bold">Teacher</span> class extending <span class="font-mono text-blue-800 font-bold">Person</span>.</li>
+            <li>Both Student and Teacher <span class="font-bold text-gray-800">override</span> <span class="font-mono text-blue-800 font-medium">displayInfo()</span>.</li>
+            <li>Create a <span class="font-mono text-blue-800 font-medium">Person</span> array containing Student and Teacher objects.</li>
+            <li>Loop through array and call <span class="font-mono text-blue-800 font-medium">displayInfo()</span>.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Student: Sunny, Roll Number: 101<br>
+        Teacher: Mr. Raj, Subject: Math
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use polymorphic reference: <span class="font-mono text-blue-800 font-medium">Person p = new Student();</span></li>
+            <li>Loops + polymorphism = powerful combo.</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <!-- --- Encapsulation & Abstraction --- -->
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Encapsulation & Abstraction</h2>
+        <p>You've already learned classes, objects, inheritance, and polymorphism.
+        <br>Now let's make your classes secure, organized, and easy to use.</p>
+        <!-- --- Challenge 1: Read-Only Field --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Read-Only Field</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Create a class <span class="font-mono text-blue-800 font-bold">BankAccount</span>.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Field: <span class="font-mono text-blue-800 font-medium">accountNumber</span> → <span class="font-bold text-gray-800">private</span></li>
+            <li>Provide only a <span class="font-bold text-gray-800">getter</span> (no setter).</li>
+            <li>Print the account number in <span class="font-mono text-blue-800 font-medium">main()</span>.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Getter method = <span class="font-mono text-blue-800 font-medium">public int getAccountNumber()</span></li>
+            <li>Direct access like <span class="font-mono text-blue-800 font-medium">accountNumber</span> outside class → <span class="text-red-500 font-bold">X</span></li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Account Number: 12345
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forgetting <span class="font-mono text-blue-800 font-medium">private</span> → defeats encapsulation.</li>
+            <li>Writing a setter here will make it read-write, not read-only.</li>
+        </ul>
+
+        <!-- --- Challenge 2: Write-Only Field --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Write-Only Field</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Field: <span class="font-mono text-blue-800 font-medium">password</span> → <span class="font-bold text-gray-800">private</span></li>
+            <li>Provide only a <span class="font-bold text-gray-800">setter</span>.</li>
+            <li>Try setting the password and see that it cannot be read.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Setter method = <span class="font-mono text-blue-800 font-medium">public void setPassword(String pwd)</span></li>
+            <li>Attempting <span class="font-mono text-blue-800 font-medium">System.out.println(password)</span> outside class → <span class="text-red-500 font-bold">X</span></li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Password set successfully!
+        </p>
+
+        <!-- --- Challenge 3: Read/Write Field --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Read/Write Field</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Field: <span class="font-mono text-blue-800 font-medium">balance</span> → <span class="font-bold text-gray-800">private</span></li>
+            <li>Provide <span class="font-bold text-gray-800">both getter and setter</span>.</li>
+            <li>Update balance and print the new balance.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Initial Balance: 1000<br>
+        Updated Balance: 1500
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use getter to read.</li>
+            <li>Use setter to write.</li>
+            <li>Keep logic safe, e.g., prevent negative balance.</li>
+        </ul>
+
+        <!-- --- Challenge 4: Abstract Class --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Abstract Class</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Create <span class="font-bold text-gray-800">abstract class</span> <span class="font-mono text-blue-800 font-bold">Vehicle</span>.</li>
+            <li>Abstract method: <span class="font-mono text-blue-800 font-medium">start()</span>.</li>
+            <li>Create concrete class <span class="font-mono text-blue-800 font-bold">Car</span> extending <span class="font-mono text-blue-800 font-bold">Vehicle</span> and implement <span class="font-mono text-blue-800 font-medium">start()</span>.</li>
+            <li>Call <span class="font-mono text-blue-800 font-medium">start()</span> from a <span class="font-mono text-blue-800 font-bold">Car</span> object.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Abstract class cannot be instantiated.</li>
+            <li>Must implement all abstract methods in child class.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Car is starting
+        </p>
+
+        <!-- --- Challenge 5: Interface Implementation --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: Interface Implementation</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Create <span class="font-bold text-gray-800">interface</span> <span class="font-mono text-blue-800 font-bold">Playable</span> with method <span class="font-mono text-blue-800 font-medium">play()</span>.</li>
+            <li>Create class <span class="font-mono text-blue-800 font-bold">Guitar</span> implementing <span class="font-mono text-blue-800 font-bold">Playable</span>.</li>
+            <li>Implement <span class="font-mono text-blue-800 font-medium">play()</span> to print a message.</li>
+            <li>Call <span class="font-mono text-blue-800 font-medium">play()</span> from <span class="font-mono text-blue-800 font-bold">Guitar</span> object.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Playing the guitar
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Interfaces are fully abstract (no method body in interface).</li>
+            <li>Class can <span class="font-bold text-gray-800">implement</span> multiple interfaces → solves multiple inheritance problem.</li>
+        </ul>
+
+        <!-- --- Mini Exploration Challenge --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Mini Exploration Challenge: Combine Encapsulation & Abstraction</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Create abstract class <span class="font-mono text-blue-800 font-bold">Employee</span> with abstract method <span class="font-mono text-blue-800 font-medium">calculateSalary()</span>.</li>
+            <li>Field: <span class="font-mono text-blue-800 font-medium">employeeName</span> (private, read-only).</li>
+            <li>Concrete class <span class="font-mono text-blue-800 font-bold">Manager</span> extends <span class="font-mono text-blue-800 font-bold">Employee</span>.</li>
+            <li>Implement <span class="font-mono text-blue-800 font-medium">calculateSalary()</span> and print employee name + salary.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Employee: Rajesh<br>
+        Salary: 50000
+        </p>
+
+        <hr class="border-gray-200 my-10">
+
+        <!-- --- Exception Handling --- -->
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Exception Handling</h2>
+        <p>Errors happen. Even in real-world programs, something unexpected can occur — like <span class="font-bold text-gray-800">dividing by zero</span> or opening a missing file.
+        <br>Java lets you handle errors gracefully using <span class="font-bold text-gray-800">exceptions</span>.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Basic try-catch</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Handle division by zero.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Divide an integer by 0 inside a <span class="font-mono text-blue-800 font-medium">try</span> block.</li>
+            <li><span class="font-mono text-blue-800 font-medium">Catch</span> the exception and print a friendly message.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="font-mono text-blue-800 font-medium">try { ... } catch (ArithmeticException e) { ... }</span></li>
+            <li>Print <span class="font-mono text-blue-800 font-medium">e.getMessage()</span> to see the error.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Cannot divide by zero!
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forgetting the <span class="font-mono text-blue-800 font-medium">catch</span> block → program will crash.</li>
+            <li>Catching the wrong exception type → won't handle the error.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Multiple Catch Blocks</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Handle multiple possible errors.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Try dividing two numbers (<span class="font-mono text-blue-800 font-medium">ArithmeticException</span>).</li>
+            <li>Try accessing an array element out of bounds (<span class="font-mono text-blue-800 font-medium">ArrayIndexOutOfBoundsException</span>).</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></U>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use multiple <span class="font-mono text-blue-800 font-medium">catch</span> blocks in order.</li>
+            <li>Each block handles a specific exception type.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Cannot divide by zero!<br>
+        Array index is out of range!
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Finally Block</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Always execute a block whether an exception occurs or not.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Use <span class="font-mono text-blue-800 font-medium">try-catch-finally</span>.</li>
+            <li>In <span class="font-mono text-blue-800 font-medium">finally</span>, print "Execution finished!"</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Cannot divide by zero!<br>
+        Execution finished!
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: throw and throws</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Handle exceptions by throwing them.</p>
+        <!-- --- Challenge 1: Read-Only Field --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Read-Only Field</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Create a class <span class="font-mono text-blue-800 font-bold">BankAccount</span>.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Field: <span class="font-mono text-blue-800 font-medium">accountNumber</span> → <span class="font-bold text-gray-800">private</span></li>
+            <li>Provide only a <span class="font-bold text-gray-800">getter</span> (no setter).</li>
+            <li>Print the account number in <span class="font-mono text-blue-800 font-medium">main()</span>.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Getter method = <span class="font-mono text-blue-800 font-medium">public int getAccountNumber()</span></li>
+            <li>Direct access like <span class="font-mono text-blue-800 font-medium">accountNumber</span> outside class → <span class="text-red-500 font-bold">X</span></li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Account Number: 12345
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forgetting <span class="font-mono text-blue-800 font-medium">private</span> → defeats encapsulation.</li>
+            <li>Writing a setter here will make it read-write, not read-only.</li>
+        </ul>
+
+        <!-- --- Challenge 2: Write-Only Field --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Write-Only Field</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Field: <span class="font-mono text-blue-800 font-medium">password</span> → <span class="font-bold text-gray-800">private</span></li>
+            <li>Provide only a <span class="font-bold text-gray-800">setter</span>.</li>
+            <li>Try setting the password and see that it cannot be read.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Setter method = <span class="font-mono text-blue-800 font-medium">public void setPassword(String pwd)</span></li>
+            <li>Attempting <span class="font-mono text-blue-800 font-medium">System.out.println(password)</span> outside class → <span class="text-red-500 font-bold">X</span></li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Password set successfully!
+        </p>
+
+        <!-- --- Challenge 3: Read/Write Field --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Read/Write Field</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Field: <span class="font-mono text-blue-800 font-medium">balance</span> → <span class="font-bold text-gray-800">private</span></li>
+            <li>Provide <span class="font-bold text-gray-800">both getter and setter</span>.</li>
+            <li>Update balance and print the new balance.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Initial Balance: 1000<br>
+        Updated Balance: 1500
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use getter to read.</li>
+            <li>Use setter to write.</li>
+            <li>Keep logic safe, e.g., prevent negative balance.</li>
+        </ul>
+
+        <!-- --- Challenge 4: Abstract Class --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Abstract Class</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Create <span class="font-bold text-gray-800">abstract class</span> <span class="font-mono text-blue-800 font-bold">Vehicle</span>.</li>
+            <li>Abstract method: <span class="font-mono text-blue-800 font-medium">start()</span>.</li>
+            <li>Create concrete class <span class="font-mono text-blue-800 font-bold">Car</span> extending <span class="font-mono text-blue-800 font-bold">Vehicle</span> and implement <span class="font-mono text-blue-800 font-medium">start()</span>.</li>
+            <li>Call <span class="font-mono text-blue-800 font-medium">start()</span> from a <span class="font-mono text-blue-800 font-bold">Car</span> object.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Abstract class cannot be instantiated.</li>
+            <li>Must implement all abstract methods in child class.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Car is starting
+        </p>
+
+        <!-- --- Challenge 5: Interface Implementation --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: Interface Implementation</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Create <span class="font-bold text-gray-800">interface</span> <span class="font-mono text-blue-800 font-bold">Playable</span> with method <span class="font-mono text-blue-800 font-medium">play()</span>.</li>
+            <li>Create class <span class="font-mono text-blue-800 font-bold">Guitar</span> implementing <span class="font-mono text-blue-800 font-bold">Playable</span>.</li>
+            <li>Implement <span class="font-mono text-blue-800 font-medium">play()</span> to print a message.</li>
+            <li>Call <span class="font-mono text-blue-800 font-medium">play()</span> from <span class="font-mono text-blue-800 font-bold">Guitar</span> object.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Playing the guitar
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Interfaces are fully abstract (no method body in interface).</li>
+            <li>Class can <span class="font-bold text-gray-800">implement</span> multiple interfaces → solves multiple inheritance problem.</li>
+        </ul>
+
+        <!-- --- Mini Exploration Challenge --- -->
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Mini Exploration Challenge: Combine Encapsulation & Abstraction</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Create abstract class <span class="font-mono text-blue-800 font-bold">Employee</span> with abstract method <span class="font-mono text-blue-800 font-medium">calculateSalary()</span>.</li>
+            <li>Field: <span class="font-mono text-blue-800 font-medium">employeeName</span> (private, read-only).</li>
+            <li>Concrete class <span class="font-mono text-blue-800 font-bold">Manager</span> extends <span class="font-mono text-blue-800 font-bold">Employee</span>.</li>
+            <li>Implement <span class="font-mono text-blue-800 font-medium">calculateSalary()</span> and print employee name + salary.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Employee: Rajesh<br>
+        Salary: 50000
+        </p>
+
+        <hr class="border-gray-200 my-10">
+
+        <!-- --- Exception Handling --- -->
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Exception Handling</h2>
+        <p>Errors happen. Even in real-world programs, something unexpected can occur — like <span class="font-bold text-gray-800">dividing by zero</span> or opening a missing file.
+        <br>Java lets you handle errors gracefully using <span class="font-bold text-gray-800">exceptions</span>.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Basic try-catch</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Handle division by zero.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Divide an integer by 0 inside a <span class="font-mono text-blue-800 font-medium">try</span> block.</li>
+            <li><span class="font-mono text-blue-800 font-medium">Catch</span> the exception and print a friendly message.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="font-mono text-blue-800 font-medium">try { ... } catch (ArithmeticException e) { ... }</span></li>
+            <li>Print <span class="font-mono text-blue-800 font-medium">e.getMessage()</span> to see the error.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Cannot divide by zero!
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forgetting the <span class="font-mono text-blue-800 font-medium">catch</span> block → program will crash.</li>
+            <li>Catching the wrong exception type → won't handle the error.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Multiple Catch Blocks</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Handle multiple possible errors.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Try dividing two numbers (<span class="font-mono text-blue-800 font-medium">ArithmeticException</span>).</li>
+            <li>Try accessing an array element out of bounds (<span class="font-mono text-blue-800 font-medium">ArrayIndexOutOfBoundsException</span>).</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></U>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use multiple <span class="font-mono text-blue-800 font-medium">catch</span> blocks in order.</li>
+            <li>Each block handles a specific exception type.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Cannot divide by zero!<br>
+        Array index is out of range!
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Finally Block</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Always execute a block whether an exception occurs or not.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Use <span class="font-mono text-blue-800 font-medium">try-catch-finally</span>.</li>
+            <li>In <span class="font-mono text-blue-800 font-medium">finally</span>, print "Execution finished!"</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Cannot divide by zero!<br>
+        Execution finished!
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: throw and throws</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> Handle exceptions by throwing them.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Create a method <span class="font-mono text-blue-800 font-medium">checkAge(int age)</span>.</li>
+            <li><span class="font-bold text-gray-800">Throw</span> an <span class="font-mono text-blue-800 font-medium">IllegalArgumentException</span> if age < 18.</li>
+            <li>Call it from <span class="font-mono text-blue-800 font-medium">main()</span> and catch it.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li><span class="font-mono text-blue-800 font-medium">throw new IllegalArgumentException("Age must be 18 or above")</span></li>
+            <li>Method signature can have <span class="font-mono text-blue-800 font-medium">throws IllegalArgumentException</span></li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        Age must be 18 or above
+        </p>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Pitfalls:</span></p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forgetting <span class="font-mono text-blue-800 font-medium">throws</span> in method signature → compile-time error for <span class="font-bold text-gray-800">checked</span> exceptions.</li>
+            <li>Throwing <span class="font-bold text-gray-800">unchecked</span> exceptions (like <span class="font-mono text-blue-800 font-medium">ArithmeticException</span>) doesn't require <span class="font-mono text-blue-800 font-medium">throws</span>.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge: Checked vs Unchecked Exceptions</h3>
+        <p><span class="font-semibold text-gray-800">Goal:</span> See the difference.</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li><span class="font-bold text-gray-800">Unchecked:</span> <span class="font-mono text-blue-800 font-medium">ArithmeticException</span>, <span class="font-mono text-blue-800 font-medium">NullPointerException</span> → no compile-time requirement to handle.</li>
+            <li><span class="font-bold text-gray-800">Checked:</span> <span class="font-mono text-blue-800 font-medium">IOException</span>, <span class="font-mono text-blue-800 font-medium">FileNotFoundException</span> → must handle or declare.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Hints:</span></U>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Try opening a file that doesn't exist → compiler will force you to handle.</li>
+            <li>Try dividing by zero → compiler won't complain, but runtime exception occurs.</li>
+        </ul>
+        <p class="mt-4"><span class="font-semibold text-gray-800">Expected Output Example:</span><br>
+        File not found! Please check the path.<br>
+        Cannot divide by zero!
+        </p>
+    </div>
+
+</body>
+</html>

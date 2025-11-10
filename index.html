@@ -75,9 +75,16 @@
                             <h3 class="text-2xl font-bold text-revature-blue">Java</h3>
                         </div>
                         <p class="text-gray-600 mb-6">Master the fundamentals of Java, from basic syntax to advanced object-oriented programming concepts.</p>
-                        <a href="java-fundamentals.html" class="inline-block bg-revature-orange text-white font-semibold px-6 py-3 rounded-lg group-hover:bg-revature-orange-dark transition-colors duration-300">
-                            Start Studying &rarr;
-                        </a>
+<div class="flex space-x-4">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="java-fundamentals.html" class="inline-block bg-revature-orange text-white font-semibold px-6 py-3 rounded-lg group-hover:bg-revature-orange-dark transition-colors duration-300">
+        Learn
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="java-questions.html" class="inline-block bg-revature-orange text-white font-semibold px-6 py-3 rounded-lg group-hover:bg-revature-orange-dark transition-colors duration-300">
+        Practice
+    </a>
+</div>
                     </div>
                 </div>
 
@@ -90,9 +97,39 @@
                             <h3 class="text-2xl font-bold text-revature-blue">Python</h3>
                         </div>
                         <p class="text-gray-600 mb-6">Dive into Python's simple syntax and powerful capabilities for web development, data science, and automation.</p>
-                        <a href="python-fundamentals.html" class="inline-block bg-revature-orange text-white font-semibold px-6 py-3 rounded-lg group-hover:bg-revature-orange-dark transition-colors duration-300">
-                            Start Studying &rarr;
-                        </a>
+                        <!-- 
+  START: CLICKABLE DROPDOWN
+  This replaces the original 'Learn &rarr;' link
+-->
+<div class="relative inline-block text-left">
+    <!-- The new button that triggers the dropdown -->
+    <button onclick="toggleDropdown('pythonDropdown')" type="button" class="inline-flex items-center justify-center bg-revature-orange text-white font-semibold px-6 py-3 rounded-lg group-hover:bg-revature-orange-dark transition-colors duration-300" aria-expanded="false" aria-haspopup="true">
+        Learn
+        <!-- The little arrow icon -->
+        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.29a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+        </svg>
+    </button>
+
+    <!-- The dropdown menu itself (hidden by default) -->
+    <div id="pythonDropdown" class="hidden absolute left-0 z-20 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div class="py-1">
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100">
+              Python Basics
+            </a>
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100">
+              Web Development
+            </a>
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100">
+              Data Science
+            </a>
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100">
+              Automation
+            </a>
+        </div>
+    </div>
+</div>
+<!-- END: CLICKABLE DROPDOWN -->
                     </div>
                 </div>
 
@@ -153,6 +190,42 @@
             <p class="mt-2 text-sm text-gray-400">A resource by associates, for associates.</p>
         </div>
     </footer>
+
+        <!-- 
+    JAVASCRIPT FOR DROPDOWN
+    Goes just before the closing </body> tag.
+    -->
+    <script>
+        // This function toggles the 'hidden' class on the dropdown menu
+        function toggleDropdown(dropdownId) {
+            // Close all other dropdowns first
+            closeAllDropdowns(dropdownId);
+            // Then toggle the one that was clicked
+            document.getElementById(dropdownId).classList.toggle("hidden");
+        }
+
+        // This closes all dropdowns, except for the one specified (if any)
+        function closeAllDropdowns(exceptId) {
+            // Find all dropdown menus
+            var dropdowns = document.querySelectorAll('div[id$="Dropdown"]');
+            dropdowns.forEach(function(dropdown) {
+                // If it's not the one we're trying to open, and it's currently visible, hide it.
+                if (dropdown.id !== exceptId && !dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        }
+
+        // This closes the dropdown if you click anywhere else on the page
+        window.addEventListener('click', function(event) {
+            
+            // Check if the click was *outside* a dropdown button
+            if (!event.target.closest('button[aria-haspopup="true"]')) {
+                // If it was, close all open dropdowns
+                closeAllDropdowns(null);
+            }
+        });
+    </script>
 
 </body>
 </html>
