@@ -13,8 +13,8 @@
 3. Java Program Structure (Hello World Example)  
 4. Data Types and Variables  
 5. Operators and Expressions  
-6. Keywords (Continue, Break, and Return)  
-7. Control Flow Statements (if-else, switch, loops)  
+6. Control Flow Statements (if-else, switch, loops) 
+7. Keywords (Continue, Break, and Return)  
 8. Arrays and Strings  
 9. Java Memory Model Basics (stack vs heap, garbage collection overview)  
 10. Classes and Objects  
