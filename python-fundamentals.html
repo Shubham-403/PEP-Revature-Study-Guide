@@ -111,18 +111,114 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <header class="bg-white shadow-sm sticky top-0 z-10">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo/Title -->
             <div class="text-2xl font-bold text-orange-600">
                 <a href="#">Revature Study Guide</a>
             </div>
-            <div>
-                <a href="index.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300">Home</a>
-                <a href="java-questions.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300">Python Practice</a>
+            
+            <!-- Navigation Links -->
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300">Home</a>
+
+                <!-- Java Dropdown -->
+                <div class="relative inline-block text-left dropdown">
+                    <button type="button" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300 inline-flex items-center dropdown-toggle">
+                        Java
+                        <!-- Dropdown Arrow -->
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden dropdown-menu z-20">
+                        <div class="py-1" role="menu" aria-orientation="vertical">
+                            <a href="java-fundamentals.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">Java Fundamentals</a>
+                            <a href="java-coding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">Java Coding Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python Dropdown -->
+                <div class="relative inline-block text-left dropdown">
+                    <button type="button" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300 inline-flex items-center dropdown-toggle">
+                        Python
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden dropdown-menu z-20">
+                        <div class="py-1" role="menu" aria-orientation="vertical">
+                            <a href="python-fundamentals.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">Python Fundamentals</a>
+                            <a href="python-coding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">Python Coding Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SQL Dropdown -->
+                <div class="relative inline-block text-left dropdown">
+                    <button type="button" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300 inline-flex items-center dropdown-toggle">
+                        SQL
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden dropdown-menu z-20">
+                        <div class="py-1" role="menu" aria-orientation="vertical">
+                            <a href="sql-fundamentals.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">SQL Fundamentals</a>
+                            <a href="sql-coding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">SQL Coding Page</a>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </nav>
     </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+
+            dropdownToggles.forEach((toggle, index) => {
+                toggle.addEventListener('click', (event) => {
+                    // Stop the click from bubbling up to the window listener
+                    event.stopPropagation();
+                    
+                    const menu = toggle.nextElementSibling;
+
+                    // Close all other open dropdowns
+                    dropdownMenus.forEach((m, i) => {
+                        if (i !== index && !m.classList.contains('hidden')) {
+                            m.classList.add('hidden');
+                        }
+                    });
+                    
+                    // Toggle the clicked dropdown
+                    menu.classList.toggle('hidden');
+                });
+            });
+
+            // Close dropdowns if an item inside is clicked
+            document.querySelectorAll('.dropdown-menu a').forEach(item => {
+                item.addEventListener('click', (event) => {
+                    item.closest('.dropdown-menu').classList.add('hidden');
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', (event) => {
+                // Check if the click was outside a dropdown
+                if (!event.target.closest('.dropdown')) {
+                    dropdownMenus.forEach(menu => {
+                        menu.classList.add('hidden');
+                    });
+                }
+            });
+        });
+    </script>
 
     <main class="container mx-auto px-4 sm:px-6 py-12">
         <article class="prose max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg">

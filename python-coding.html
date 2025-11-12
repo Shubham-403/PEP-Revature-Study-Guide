@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Practice Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Light theme styles based on the new image */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB; /* Light grey background (Tailwind gray-50) */
+        }
+
+        /* This is the new white content card */
+        .content-card {
+            background-color: #FFFFFF;
+            color: #1F2937; /* Dark text */
+            max-width: 900px;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB; /* Light border */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        /* --- Text Color Classes (Light Theme) --- */
+        .text-lab-red {
+            color: #DC2626; /* Red */
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 600;
+        }
+
+        .text-lab-italic {
+            font-style: italic;
+        }
+        
+        /* --- Code Block Styling (Light Theme) --- */
+        code {
+            font-family: 'Fira Code', monospace;
+            background-color: #F3F4F6; /* Light grey background */
+            padding: 1.5em;
+            display: block;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            color: #111827; /* Dark text for code */
+            border: 1px solid #E5E7EB;
+        }
+        
+        /* --- Syntax Highlighting Classes (Light Theme) --- */
+        .code-keyword { color: #2563EB; } /* blue */
+        .code-type { color: #9333EA; } /* purple */
+        .code-string { color: #166534; } /* green */
+        .code-comment { color: #6B7280; } /* grey */
+        .code-class { color: #9333EA; } /* purple */
+        .code-method { color: #0B749B; } /* cyan-ish blue */
+        .code-object { color: #0B749B; }
+        .code-var { color: #374151; } /* dark grey */
+        .code-literal { color: #C2410C; } /* orange */
+        .code-operator { color: #2563EB; } /* blue */
+
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo/Title -->
+            <div class="text-2xl font-bold text-orange-600">
+                <a href="#">Revature Study Guide</a>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300">Home</a>
+
+                <!-- Java Dropdown -->
+                <div class="relative inline-block text-left dropdown">
+                    <button type="button" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300 inline-flex items-center dropdown-toggle">
+                        Java
+                        <!-- Dropdown Arrow -->
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden dropdown-menu z-20">
+                        <div class="py-1" role="menu" aria-orientation="vertical">
+                            <a href="java-fundamentals.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">Java Fundamentals</a>
+                            <a href="java-coding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">Java Coding Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python Dropdown -->
+                <div class="relative inline-block text-left dropdown">
+                    <button type="button" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300 inline-flex items-center dropdown-toggle">
+                        Python
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden dropdown-menu z-20">
+                        <div class="py-1" role="menu" aria-orientation="vertical">
+                            <a href="python-fundamentals.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">Python Fundamentals</a>
+                            <a href="python-coding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">Python Coding Page</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SQL Dropdown -->
+                <div class="relative inline-block text-left dropdown">
+                    <button type="button" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300 inline-flex items-center dropdown-toggle">
+                        SQL
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden dropdown-menu z-20">
+                        <div class="py-1" role="menu" aria-orientation="vertical">
+                            <a href="sql-fundamentals.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">SQL Fundamentals</a>
+                            <a href="sql-coding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">SQL Coding Page</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+
+            dropdownToggles.forEach((toggle, index) => {
+                toggle.addEventListener('click', (event) => {
+                    // Stop the click from bubbling up to the window listener
+                    event.stopPropagation();
+                    
+                    const menu = toggle.nextElementSibling;
+
+                    // Close all other open dropdowns
+                    dropdownMenus.forEach((m, i) => {
+                        if (i !== index && !m.classList.contains('hidden')) {
+                            m.classList.add('hidden');
+                        }
+                    });
+                    
+                    // Toggle the clicked dropdown
+                    menu.classList.toggle('hidden');
+                });
+            });
+
+            // Close dropdowns if an item inside is clicked
+            document.querySelectorAll('.dropdown-menu a').forEach(item => {
+                item.addEventListener('click', (event) => {
+                    item.closest('.dropdown-menu').classList.add('hidden');
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', (event) => {
+                // Check if the click was outside a dropdown
+                if (!event.target.closest('.dropdown')) {
+                    dropdownMenus.forEach(menu => {
+                        menu.classList.add('hidden');
+                    });
+                }
+            });
+        });
+    </script>
+    </body>
+</html>
