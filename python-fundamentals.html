@@ -837,6 +837,18 @@ document2 = TxtFile("Meeting-Notes")
 document1.open() # Output: Opening PDF file: Revature-Handbook.pdf
 document2.open() # Output: Opening text file: Meeting-Notes.txt</code></pre>
 
+<h4>Using <code>import</code> with Abstraction</h4>
+<p>To use abstraction in Python, we rely on a special built-in package called <code>abc</code>, which stands for <em>Abstract Base Classes</em>. But before we can use it, we first need to <strong>import</strong> it into our program.</p>
+
+<blockquote style="background-color: #f5f5f5; border-left: 4px solid #ccc; padding: 10px 15px; margin: 15px 0;">
+    <p>In Python, <code>import</code> is a keyword that lets us bring in extra functionality from other modules or packages so we don’t have to write everything ourselves.<br>
+    In this case, we import the <code>abc</code> package to access tools that help us create abstract classes.</p>
+</blockquote>
+<pre><code class="language-python">from abc import ABC, abstractmethod
+</code></pre>
+
+<p>Here, <code>from abc import ABC, abstractmethod</code> means we’re bringing in two things — <code>ABC</code> (used to define an abstract class) and <code>abstractmethod</code> (used to mark methods that must be implemented by child classes). Without importing the <code>abc</code> package, Python wouldn’t know what an abstract class is.</p>g
+
             <h3>3. Exception Handling</h3>
             <p>An <strong>exception</strong> is an error that occurs during the execution of a program. If not handled, it will cause the program to crash. <strong>Exception handling</strong> is a way to gracefully manage these errors so your program can continue running or terminate smoothly.</p>
         
