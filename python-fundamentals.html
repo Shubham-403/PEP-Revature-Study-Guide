@@ -69,6 +69,14 @@
             font-size: 0.9em;
             font-weight: 500;
         }
+        .tight-heading h2 {
+  margin-bottom: 0.25rem;
+}
+
+.tight-heading h3 {
+  margin-top: 0;
+}
+
         /* Code blocks */
         .prose pre {
             background-color: #1f2937; /* gray-800 */
@@ -115,7 +123,7 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo/Title -->
             <div class="text-2xl font-bold text-orange-600">
-                <a href="#">Revature Study Guide</a>
+                <a href="index.html">Revature Study Guide</a>
             </div>
             
             <!-- Navigation Links -->
@@ -318,8 +326,14 @@ print("Hello, " + student_name + "! Get ready to learn.")</code></pre>
                 <li><strong>Indentation is Crucial:</strong> This is the most important rule! Python uses whitespace (spaces or tabs) to define code blocks (like loops or if statements) instead of curly braces <code>{}</code>. Indent your code consistently, or it will not run.</li>
             </ul>
 
-            <h2>4. Data Types and Variables</h2>
-            <p><strong>What is a Variable?</strong> A variable is like a labelled box where you can give the box a name, and you can change what's inside it later.</p>
+            <div class="tight-heading">
+  <h2>4. Data Types and Variables</h2>
+  <h3>What is a Variable?</h3>
+  <p>
+  A variable is like a labelled box where you can give the box a name, and you can change what's inside it later.</p>
+</div>
+
+            
             <pre><code class="language-python"># Here, 'batch_name' is the variable (the box label)
 # and "PEP-October-2025" is the value (the info inside the box).
 batch_name = "PEP-October-2025"</code></pre>
