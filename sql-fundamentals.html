@@ -867,19 +867,91 @@ WHERE OrderID = 101;
 <!-- DELETE -->
 <h4 class="mt-4 text-lg font-semibold text-green-700">DELETE</h4>
 <p>Used to remove one or more records from a table.</p>
+
 <pre>
 <code class="language-sql">
 -- Delete a client record
 DELETE FROM Clients
 WHERE CustomerID = 5;
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 1 row affected</span>
 
 -- Delete all orders for a specific customer
 DELETE FROM Orders
 WHERE CustomerID = 5;
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 1 row affected</span>
 </code>
 </pre>
-<blockquote><p><strong>Important:</strong> If you skip the <code>WHERE</code> clause, all data from the table will be deleted.</p>
+
+<blockquote>
+<p><strong>Important:</strong> If you skip the <code>WHERE</code> clause, all data from the table will be deleted.</p>
 </blockquote>
+
+
+<!-- Updated Clients Table -->
+<h4 class="mt-4 font-semibold text-orange-700">Updated Clients Table (After DELETE)</h4>
+<div class="overflow-x-auto my-4 rounded border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">City</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">Phone</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+
+            <tr><td class="p-3">1</td><td class="p-3">Yogananda</td><td class="p-3">Chennai</td><td class="p-3">9876543210</td></tr>
+            <tr><td class="p-3">2</td><td class="p-3">Vishnu</td><td class="p-3">Hyderabad</td><td class="p-3">9123456780</td></tr>
+
+            <tr style="background:#f2f2f2;">
+                <td class="p-3">3</td><td class="p-3">Ramesh</td>
+                <td class="p-3">Hyderabad</td>
+                <td class="p-3">9988776655</td>
+            </tr>
+
+            <tr><td class="p-3">4</td><td class="p-3">Kavitha</td><td class="p-3">Pune</td><td class="p-3">9090909090</td></tr>
+
+            <!-- CustomerID = 5 REMOVED -->
+
+            <tr><td class="p-3">6</td><td class="p-3">Meena</td><td class="p-3">Kochi</td><td class="p-3">9555666777</td></tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Updated Orders Table -->
+<h4 class="mt-4 font-semibold text-orange-700">Updated Orders Table (After DELETE)</h4>
+<div class="overflow-x-auto my-4 rounded border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">OrderID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">Product</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+
+            <tr style="background:#f2f2f2;">
+                <td class="p-3">101</td><td class="p-3">1</td><td class="p-3">Brown Sugar</td>
+            </tr>
+
+            <tr><td class="p-3">102</td><td class="p-3">2</td><td class="p-3">Rice</td></tr>
+            <tr><td class="p-3">103</td><td class="p-3">3</td><td class="p-3">Milk</td></tr>
+            <tr><td class="p-3">104</td><td class="p-3">4</td><td class="p-3">Wheat</td></tr>
+
+            <!-- Order for CustomerID=5 REMOVED -->
+
+            <tr><td class="p-3">106</td><td class="p-3">6</td><td class="p-3">Coffee</td></tr>
+
+        </tbody>
+    </table>
+</div>
+
 <h3>3. DQL (Data Query Language):</h3>
 <p>DQL commands are used to query and retrieve data stored in database tables.</p>
 <p>Think of DQL as <strong>"asking your database questions and getting answers"</strong> — it helps you view and analyze the stored information.</p>
@@ -903,75 +975,125 @@ WHERE CustomerID = 5;
     </table>
 </div>
 
-<p class="mt-6">Let’s use the previously inserted <strong>Customers</strong> and <strong>Orders</strong> tables to perform various DQL queries and understand how to retrieve data effectively.</p>
+<p class="mt-6">Let’s use the previously inserted <strong>Clients</strong> and <strong>Orders</strong> tables to perform various DQL queries and understand how to retrieve data effectively.</p>
 
-<!-- BASIC SELECT -->
+<!-- 1. Retrieve All Records -->
 <h4 class="mt-4 text-lg font-semibold text-orange-700">1. Retrieve All Records</h4>
-<p>Fetch all columns and rows from the <code>Customers</code> table.</p>
-<pre>
-<code class="language-sql">
--- Retrieve all customers
-SELECT * FROM Customers;
+<p>Fetch all columns and rows from the <code>Clients</code> table.</p>
+
+<pre><code class="language-sql">
+-- Retrieve all clients
+SELECT * FROM Clients;
+<span style="color:#d97b35;">-- Output:</span>
++------------+--------------+-----------+------------+
+| CustomerID | CustomerName | City      | Phone      |
++------------+--------------+-----------+------------+
+| 1          | Yogananda    | Chennai   | 9876543210 |
+| 2          | Vishnu       | Hyderabad | 9123456780 |
+| 3          | Ramesh       | Hyderabad | 9988776655 |
+| 4          | Kavitha      | Pune      | 9090909090 |
+| 6          | Meena        | Kochi     | 9555666777 |
++------------+--------------+-----------+------------+
 
 -- Retrieve all orders
 SELECT * FROM Orders;
-</code>
-</pre>
+<span style="color:#d97b35;">-- Output:</span>
++---------+------------+-------------+
+| OrderID | CustomerID | Product     |
++---------+------------+-------------+
+| 101     | 1          | Brown Sugar |
+| 102     | 2          | Rice        |
+| 103     | 3          | Milk        |
+| 104     | 4          | Wheat       |
+| 106     | 6          | Coffee      |
++---------+------------+-------------+
+</code></pre>
 
-<!-- SELECT SPECIFIC COLUMNS -->
+<!-- 2. Retrieve Specific Columns -->
 <h4 class="mt-4 text-lg font-semibold text-orange-700">2. Retrieve Specific Columns</h4>
-<p>Fetch only the required columns instead of the entire table.</p>
-<pre>
-<code class="language-sql">
--- Retrieve only customer names and cities
-SELECT CustomerName, City FROM Customers;
+
+<pre><code class="language-sql">
+-- Retrieve only client names and cities
+SELECT CustomerName, City FROM Clients;
+<span style="color:#d97b35;">-- Output:</span>
++--------------+-----------+
+| CustomerName | City      |
++--------------+-----------+
+| Yogananda    | Chennai   |
+| Vishnu       | Hyderabad |
+| Ramesh       | Hyderabad |
+| Kavitha      | Pune      |
+| Meena        | Kochi     |
++--------------+-----------+
 
 -- Retrieve only product names from orders
 SELECT Product FROM Orders;
-</code>
-</pre>
+<span style="color:#d97b35;">-- Output:</span>
++-------------+
+| Product     |
++-------------+
+| Brown Sugar |
+| Rice        |
+| Milk        |
+| Wheat       |
+| Coffee      |
++-------------+
+</code></pre>
 
-<!-- SELECT WITH CONDITION -->
+<!-- 3. Retrieve Data with Conditions -->
 <h4 class="mt-4 text-lg font-semibold text-orange-700">3. Retrieve Data with Conditions</h4>
-<p>Use the <code>WHERE</code> clause to filter data based on specific conditions.</p>
-<pre>
-<code class="language-sql">
--- Customers from Hyderabad
-SELECT * FROM Customers WHERE City = 'Hyderabad';
+
+<pre><code class="language-sql">
+-- Clients from Hyderabad
+SELECT * FROM Clients WHERE City = 'Hyderabad';
+<span style="color:#d97b35;">-- Output:</span>
++------------+-------------+-----------+------------+
+| CustomerID | CustomerName| City      | Phone      |
++------------+-------------+-----------+------------+
+| 2          | Vishnu      | Hyderabad | 9123456780 |
+| 3          | Ramesh      | Hyderabad | 9988776655 |
++------------+-------------+-----------+------------+
 
 -- Orders made by CustomerID = 3
 SELECT * FROM Orders WHERE CustomerID = 3;
-</code>
-</pre>
+<span style="color:#d97b35;">-- Output:</span>
++---------+------------+---------+
+| OrderID | CustomerID | Product |
++---------+------------+---------+
+| 103     | 3          | Milk    |
++---------+------------+---------+
+</code></pre>
 
-<!-- SELECT WITH ORDER BY -->
+<!-- 4. Retrieve Data in Sorted Order -->
 <h4 class="mt-4 text-lg font-semibold text-orange-700">4. Retrieve Data in Sorted Order</h4>
-<p>Use the <code>ORDER BY</code> clause to display results in ascending or descending order.</p>
-<pre>
-<code class="language-sql">
--- Customers sorted by name
-SELECT * FROM Customers ORDER BY CustomerName ASC;
+
+<pre><code class="language-sql">
+-- Clients sorted by name
+SELECT * FROM Clients ORDER BY CustomerName ASC;
+<span style="color:#d97b35;">-- Output:</span>
++------------+--------------+-----------+------------+
+| CustomerID | CustomerName | City      | Phone      |
++------------+--------------+-----------+------------+
+| 4          | Kavitha      | Pune      | 9090909090 |
+| 6          | Meena        | Kochi     | 9555666777 |
+| 3          | Ramesh       | Hyderabad | 9988776655 |
+| 2          | Vishnu       | Hyderabad | 9123456780 |
+| 1          | Yogananda    | Chennai   | 9876543210 |
++------------+--------------+-----------+------------+
 
 -- Orders sorted by product name (descending)
 SELECT * FROM Orders ORDER BY Product DESC;
-</code>
-</pre>
-
-<!-- SELECT WITH ALIAS AND JOIN -->
-<h4 class="mt-4 text-lg font-semibold text-orange-700">5. Retrieve Data Using JOIN</h4>
-<p>Use <code>JOIN</code> to combine related data from multiple tables based on a common column.</p>
-<pre>
-<code class="language-sql">
--- Retrieve customer names with their corresponding products
-SELECT 
-    C.CustomerName, 
-    C.City, 
-    O.Product
-FROM Customers AS C
-INNER JOIN Orders AS O
-ON C.CustomerID = O.CustomerID;
-</code>
-</pre>
+<span style="color:#d97b35;">-- Output:</span>
++---------+------------+-------------+
+| OrderID | CustomerID | Product     |
++---------+------------+-------------+
+| 104     | 4          | Wheat       |
+| 103     | 3          | Milk        |
+| 102     | 2          | Rice        |
+| 106     | 6          | Coffee      |
+| 101     | 1          | Brown Sugar |
++---------+------------+-------------+
+</code></pre>
 
 <blockquote><p><strong>Important:</strong> The <code>SELECT</code> statement does not modify data — it only retrieves it. Always use filters or joins carefully to avoid large, unnecessary data loads.</p>
 
