@@ -529,26 +529,26 @@ A practical use-case: When business requirements change — like adding a phone 
 <pre>
     <code class="language-sql">
 -- Add a new column for storing phone numbers
-ALTER TABLE Customers ADD Phone VARCHAR(10);
+ALTER TABLE Clients ADD Phone VARCHAR(10);
 <span style="color:#d97b35;">-- Output:
 -- Query OK, 0 rows affected
 -- Records: 0  Duplicates: 0  Warnings: 0</span>
 
 -- Modify column size to store longer names
-ALTER TABLE Customers MODIFY CustomerName VARCHAR(100);
+ALTER TABLE Clients MODIFY CustomerName VARCHAR(100);
 <span style="color:#d97b35;">-- Output:
 -- Query OK, 0 rows affected
 -- Records: 0  Duplicates: 0  Warnings: 0</span>
 
 -- Best use-case example:
 -- The business now wants to store the email for each customer.
-ALTER TABLE Customers ADD Email VARCHAR(100);
+ALTER TABLE Clients ADD Email VARCHAR(100);
 <span style="color:#d97b35;">-- Output:
 -- Query OK, 0 rows affected</span>
     </code>
 </pre>
 
-<h4>Customers Table (After Adding Phone Column)</h4>
+<h4>Clients Table (After Adding Phone Column)</h4>
 <div class="overflow-x-auto my-6 rounded-lg border">
     <table class="w-full text-left">
         <thead class="bg-gray-50">
@@ -588,7 +588,7 @@ TRUNCATE TABLE Orders;
 -- Query OK, 0 rows affected</span>
     </code>
 </pre>
-<p><strong>Task for you:</strong> First insert some sample rows into the <code>Orders</code> table using DML commands. Then run the <code>TRUNCATE</code> command and observe how it clears all rows but keeps the table structure intact.</p>
+<p><strong>Task for you:</strong> After inserting some sample rows into the <code>Orders</code> table using DML commands. Then run the <code>TRUNCATE</code> command and observe how it clears all rows but keeps the table structure intact.</p>
 
 
 <h4 class="text-orange-700 font-semibold mt-4">DROP</h4>
@@ -652,15 +652,17 @@ DROP DATABASE GroceryShop;
 <p>Used to add new records into a table.</p>
 <pre>
 <code class="language-sql">
--- Insert multiple customer records
-INSERT INTO Customers (CustomerID, CustomerName, City)
+-- Insert multiple customer records (including Phone column)
+INSERT INTO Customers (CustomerID, CustomerName, City, Phone)
 VALUES 
-(1, 'Yogananda', 'Chennai'),
-(2, 'Vishnu', 'Hyderabad'),
-(3, 'Ramesh', 'Bangalore'),
-(4, 'Kavitha', 'Pune'),
-(5, 'Suresh', 'Delhi'),
-(6, 'Meena', 'Kochi');
+(1, 'Yogananda', 'Chennai', '9876543210'),
+(2, 'Vishnu', 'Hyderabad', '9123456780'),
+(3, 'Ramesh', 'Bangalore', '9988776655'),
+(4, 'Kavitha', 'Pune', '9090909090'),
+(5, 'Suresh', 'Delhi', '8008008008'),
+(6, 'Meena', 'Kochi', '9555666777');
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 6 rows affected</span>
 
 -- Insert corresponding order records
 INSERT INTO Orders (OrderID, CustomerID, Product)
@@ -671,8 +673,56 @@ VALUES
 (104, 4, 'Wheat'),
 (105, 5, 'Tea'),
 (106, 6, 'Coffee');
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 6 rows affected</span>
 </code>
 </pre>
+
+<!-- Effect on tables -->
+<h4 class="mt-4 font-semibold text-orange-700">Updated Customers Table</h4>
+<div class="overflow-x-auto my-4 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID (PK)</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">City</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Phone</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr><td class="p-4">1</td><td class="p-4">Yogananda</td><td class="p-4">Chennai</td><td class="p-4">9876543210</td></tr>
+            <tr><td class="p-4">2</td><td class="p-4">Vishnu</td><td class="p-4">Hyderabad</td><td class="p-4">9123456780</td></tr>
+            <tr><td class="p-4">3</td><td class="p-4">Ramesh</td><td class="p-4">Bangalore</td><td class="p-4">9988776655</td></tr>
+            <tr><td class="p-4">4</td><td class="p-4">Kavitha</td><td class="p-4">Pune</td><td class="p-4">9090909090</td></tr>
+            <tr><td class="p-4">5</td><td class="p-4">Suresh</td><td class="p-4">Delhi</td><td class="p-4">8008008008</td></tr>
+            <tr><td class="p-4">6</td><td class="p-4">Meena</td><td class="p-4">Kochi</td><td class="p-4">9555666777</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Orders Table -->
+<h4 class="mt-4 font-semibold text-orange-700">Updated Orders Table</h4>
+<div class="overflow-x-auto my-4 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID (PK)</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID (FK)</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr><td class="p-4">101</td><td class="p-4">1</td><td class="p-4">Sugar</td></tr>
+            <tr><td class="p-4">102</td><td class="p-4">2</td><td class="p-4">Rice</td></tr>
+            <tr><td class="p-4">103</td><td class="p-4">3</td><td class="p-4">Milk</td></tr>
+            <tr><td class="p-4">104</td><td class="p-4">4</td><td class="p-4">Wheat</td></tr>
+            <tr><td class="p-4">105</td><td class="p-4">5</td><td class="p-4">Tea</td></tr>
+            <tr><td class="p-4">106</td><td class="p-4">6</td><td class="p-4">Coffee</td></tr>
+        </tbody>
+    </table>
+</div>
+
 <blockquote><p><strong>Important:</strong> The number of columns and values must match, and data types should be compatible with the table definition.</p>
 </blockquote>
 <!-- UPDATE -->
@@ -680,17 +730,138 @@ VALUES
 <p>Used to modify existing records in a table based on a condition.</p>
 <pre>
 <code class="language-sql">
--- Update city for a specific customer
-UPDATE Customers
+-- Update city for a specific Client
+UPDATE Clients
 SET City = 'Hyderabad'
 WHERE CustomerID = 3;
+
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 1 row affected</span>
 
 -- Update product name for a specific order
 UPDATE Orders
 SET Product = 'Brown Sugar'
 WHERE OrderID = 101;
+
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 1 row affected</span>
 </code>
 </pre>
+
+<h3>Updated Clients Table</h3>
+<div class="overflow-x-auto my-4 rounded border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">City</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">Phone</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">1</td>
+                <td class="p-3">Yogananda</td>
+                <td class="p-3">Chennai</td>
+                <td class="p-3">9876543210</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">2</td>
+                <td class="p-3">Vishnu</td>
+                <td class="p-3">Hyderabad</td>
+                <td class="p-3">9123456780</td>
+            </tr>
+
+            <!-- UPDATED ROW (highlighted light grey) -->
+            <tr class="hover:bg-gray-50" style="background-color:#f2f2f2;">
+                <td class="p-3">3</td>
+                <td class="p-3">Ramesh</td>
+                <td class="p-3">Hyderabad</td> <!-- updated -->
+                <td class="p-3">9988776655</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">4</td>
+                <td class="p-3">Kavitha</td>
+                <td class="p-3">Pune</td>
+                <td class="p-3">9090909090</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">5</td>
+                <td class="p-3">Suresh</td>
+                <td class="p-3">Delhi</td>
+                <td class="p-3">8008008008</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">6</td>
+                <td class="p-3">Meena</td>
+                <td class="p-3">Kochi</td>
+                <td class="p-3">9555666777</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+<h3>Updated Orders Table</h3>
+<div class="overflow-x-auto my-4 rounded border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">OrderID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">Product</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+
+            <!-- UPDATED ROW (highlighted light grey) -->
+            <tr class="hover:bg-gray-50" style="background-color:#f2f2f2;">
+                <td class="p-3">101</td>
+                <td class="p-3">1</td>
+                <td class="p-3">Brown Sugar</td> <!-- updated -->
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">102</td>
+                <td class="p-3">2</td>
+                <td class="p-3">Rice</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">103</td>
+                <td class="p-3">3</td>
+                <td class="p-3">Milk</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">104</td>
+                <td class="p-3">4</td>
+                <td class="p-3">Wheat</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">105</td>
+                <td class="p-3">5</td>
+                <td class="p-3">Tea</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">106</td>
+                <td class="p-3">6</td>
+                <td class="p-3">Coffee</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
 <blockquote><p><strong>Important:</strong> Always use a <code>WHERE</code> clause; omitting it updates all rows in the table.</p>
 </blockquote>
 <!-- DELETE -->
@@ -698,8 +869,8 @@ WHERE OrderID = 101;
 <p>Used to remove one or more records from a table.</p>
 <pre>
 <code class="language-sql">
--- Delete a customer record
-DELETE FROM Customers
+-- Delete a client record
+DELETE FROM Clients
 WHERE CustomerID = 5;
 
 -- Delete all orders for a specific customer
