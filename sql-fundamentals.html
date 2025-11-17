@@ -1479,80 +1479,46 @@ We don’t have any unmatched rows in the <code>Orders</code> table, so <code>FU
                 </table>
             </div>
             <h4>Example Scenario:</h4>
-            <p>Orders Table:</p>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Quantity</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">101</td>
-                            <td class="p-4">Sugar</td>
-                            <td class="p-4">2</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">102</td>
-                            <td class="p-4">Rice</td>
-                            <td class="p-4">1</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">103</td>
-                            <td class="p-4">Oil</td>
-                            <td class="p-4">1</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">104</td>
-                            <td class="p-4">Salt</td>
-                            <td class="p-4">5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p>Queries:</p>
-             <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Goal</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Query</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Output</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">Total Orders</td>
-                            <td class="p-4"><code>SELECT COUNT(*) FROM Orders;</code></td>
-                            <td class="p-4">4</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">Total Quantity Sold</td>
-                            <td class="p-4"><code>SELECT SUM(Quantity) FROM Orders;</code></td>
-                            <td class="p-4">9</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">Average Quantity per Order</td>
-                            <td class="p-4"><code>SELECT AVG(Quantity) FROM Orders;</code></td>
-                            <td class="p-4">2.25</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">Smallest Order</td>
-                            <td class="p-4"><code>SELECT MIN(Quantity) FROM Orders;</code></td>
-                            <td class="p-4">1</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">Largest Order</td>
-                            <td class="p-4"><code>SELECT MAX(Quantity) FROM Orders;</code></td>
-                            <td class="p-4">5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<p>Orders Table:</p>
+<div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">101</td>
+                <td class="p-4">1</td>
+                <td class="p-4">Brown Sugar</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">102</td>
+                <td class="p-4">2</td>
+                <td class="p-4">Rice</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">103</td>
+                <td class="p-4">3</td>
+                <td class="p-4">Milk</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">104</td>
+                <td class="p-4">4</td>
+                <td class="p-4">Wheat</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">106</td>
+                <td class="p-4">6</td>
+                <td class="p-4">Coffee</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<strong>Queries : </strong>
 
             <h2>GROUP BY, HAVING & ORDER BY</h2>
             <p>Let's go step-by-step.</p>
