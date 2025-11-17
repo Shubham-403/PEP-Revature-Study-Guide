@@ -1298,6 +1298,34 @@ ON Clients.CustomerID = Orders.CustomerID;
 <blockquote><p><strong>Good to know:</strong> INNER JOIN hides unmatched data on both sides. Perfect when you only want valid linked records.</p></blockquote>
 
 
+            <h4>2. LEFT JOIN:</h4>
+<p>Returns <strong>all rows from the left table</strong> (Clients) and the matching rows from Orders. If a client has no orders, the order columns become <strong>NULL</strong>.</p>
+
+<pre><code class="language-sql">
+SELECT Clients.CustomerName, Orders.Product
+FROM Clients
+LEFT JOIN Orders
+ON Clients.CustomerID = Orders.CustomerID;
+
+<span style="color:#d97b35;">-- Output:</span>
++--------------+-------------+
+| CustomerName | Product     |
++--------------+-------------+
+| Yogananda    | Brown Sugar |
+| Vishnu       | Rice        |
+| Ramesh       | Milk        |
+| Kavitha      | Wheat       |
+| Meena        | Coffee      |
+| Arun         | NULL        |
++--------------+-------------+
+
+<span style="color:#d97b35;">-- Note:</span>
+-- "Arun" (CustomerID = 7) appears in the result,
+-- but Product is NULL because he has no orders.
+-- LEFT JOIN keeps all clients, even without matching order records.
+</code></pre>
+
+<p><strong>Use <code>LEFT JOIN </code>when:</strong> You want to see every client, including those who never placed an order.</p>
 
             <h4>3. RIGHT JOIN (or RIGHT OUTER JOIN):</h4>
             <p>It returns <strong>all rows from the right table</strong> (Orders) and the matching rows from the left table (Customers).</p>
