@@ -1355,14 +1355,46 @@ ON Clients.CustomerID = Orders.CustomerID;
 </code></pre>
 
 <p><strong>Use<code>RIGHT JOIN </code> when:</strong> You want all orders, even if some don't have matching customers.</p>
+<h4>4. FULL OUTER JOIN:</h4>
+<p>Returns <strong>all rows from both tables</strong>. If a customer has no order or an order has no valid customer, the missing fields show <strong>NULL</strong>.</p>
 
-            <h4>4. FULL OUTER JOIN:</h4>
-            <p>It returns <strong>all rows from both tables</strong>, showing NULL where there is no match.</p>
-            <pre><code class="language-sql">SELECT Customers.CustomerName, Orders.Product
-FROM Customers
-FULL OUTER JOIN Orders
-ON Customers.CustomerID = Orders.CustomerID;</code></pre>
-            <p>Use FULL JOIN when you need to see everything – matches and non-matches.</p>
+<pre><code class="language-sql">
+-- FULL OUTER JOIN (MySQL simulation using UNION)
+SELECT Clients.CustomerName, Orders.Product
+FROM Clients
+LEFT JOIN Orders
+ON Clients.CustomerID = Orders.CustomerID
+
+UNION
+
+SELECT Clients.CustomerName, Orders.Product
+FROM Clients
+RIGHT JOIN Orders
+ON Clients.CustomerID = Orders.CustomerID;
+
+<span style="color:#d97b35;">-- Output:</span>
++--------------+-------------+
+| CustomerName | Product     |
++--------------+-------------+
+| Yogananda    | Brown Sugar |
+| Vishnu       | Rice        |
+| Ramesh       | Milk        |
+| Kavitha      | Wheat       |
+| Meena        | Coffee      |
+| Arun         | NULL        |
++--------------+-------------+
+
+<span style="color:#d97b35;">-- Note:</span>
+-- Arun appears with NULL because he has NO orders.
+-- No NULL rows from Orders because all orders have valid customers.
+-- FULL JOIN shows all Customers + all Orders (matched + unmatched).
+</code></pre>
+<blockquote>
+Don’t get confused when <code>FULL OUTER JOIN</code> looks the same as <code>LEFT JOIN</code> in this example.  
+We don’t have any unmatched rows in the <code>Orders</code> table, so <code>FULL OUTER JOIN</code> has nothing extra to show.
+</blockquote>
+
+<p><strong>Use <code>FULL OUTER JOIN </code>when:</strong> You want to see every record, matched or not.</p>
 
             <h3>SUMMARY:</h3>
              <div class="overflow-x-auto my-6 rounded-lg border">
@@ -1400,13 +1432,14 @@ ON Customers.CustomerID = Orders.CustomerID;</code></pre>
             </div>
 
             <h2>AGGREGATE FUNCTIONS:</h2>
-            <p>After combining data, Yogananda wants summaries like:</p>
-            <ul>
-                <li>How many total customers?</li>
-                <li>How many total orders?</li>
-                <li>Average quantity orders?</li>
-            </ul>
-            <p>That's where <strong>Aggregate functions</strong> help.</p>
+           <p>After combining data, the Store Manager wants summaries like:</p>
+<ul>
+    <li>How many total customers?</li>
+    <li>How many total orders?</li>
+    <li>Average quantity ordered?</li>
+</ul>
+<p>That’s where <strong>Aggregate functions</strong> help.</p>
+
             <div class="overflow-x-auto my-6 rounded-lg border">
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
