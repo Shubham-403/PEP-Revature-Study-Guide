@@ -1328,13 +1328,33 @@ ON Clients.CustomerID = Orders.CustomerID;
 <p><strong>Use <code>LEFT JOIN </code>when:</strong> You want to see every client, including those who never placed an order.</p>
 
             <h4>3. RIGHT JOIN (or RIGHT OUTER JOIN):</h4>
-            <p>It returns <strong>all rows from the right table</strong> (Orders) and the matching rows from the left table (Customers).</p>
-            <pre><code class="language-sql">SELECT Customers.CustomerName, Orders.Product
-FROM Customers
+<p>Returns <strong>all rows from the right table</strong> (Orders) and only the matching rows from Clients. If an order has no valid customer, the customer fields become <strong>NULL</strong>.</p>
+
+<pre><code class="language-sql">
+SELECT Clients.CustomerName, Orders.Product
+FROM Clients
 RIGHT JOIN Orders
-ON Customers.CustomerID = Orders.CustomerID;</code></pre>
-            <p>Here CustomerName is NULL because OrderID 104 has no valid customer.</p>
-            <p><strong>Note:</strong> Use RIGHT JOIN when you want all orders, even if some customers don't exist.</p>
+ON Clients.CustomerID = Orders.CustomerID;
+
+<span style="color:#d97b35;">-- Output:</span>
++--------------+-------------+
+| CustomerName | Product     |
++--------------+-------------+
+| Yogananda    | Brown Sugar |
+| Vishnu       | Rice        |
+| Ramesh       | Milk        |
+| Kavitha      | Wheat       |
+| Meena        | Coffee      |
++--------------+-------------+
+
+<span style="color:#d97b35;">-- Note:</span>
+-- No NULL rows appear because every Order in this dataset
+-- has a valid matching CustomerID.
+-- RIGHT JOIN includes all Orders, but since all of them match,
+-- the result looks identical to INNER JOIN.
+</code></pre>
+
+<p><strong>Use<code>RIGHT JOIN </code> when:</strong> You want all orders, even if some don't have matching customers.</p>
 
             <h4>4. FULL OUTER JOIN:</h4>
             <p>It returns <strong>all rows from both tables</strong>, showing NULL where there is no match.</p>
