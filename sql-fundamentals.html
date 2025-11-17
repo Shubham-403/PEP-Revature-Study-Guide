@@ -1518,7 +1518,135 @@ We don’t have any unmatched rows in the <code>Orders</code> table, so <code>FU
         </tbody>
     </table>
 </div>
-<strong>Queries : </strong>
+<strong>Queries:</strong>
+
+
+<!-- 1. Total Orders -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">1.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Total number of orders
+SELECT COUNT(*) AS TotalOrders FROM Orders;
+-- <span style="color:#d97b35;">Output:</span>
++-------------+
+| TotalOrders |
++-------------+
+|           5 |
++-------------+
+  </code></pre>
+</div>
+<!-- Note on Aliases -->
+<p><strong>Note on Aliases:</strong></p>
+<ul>
+  <li>An <em>alias</em> is a temporary name given to a column or table in a SQL query to make the output more readable.</li>
+  <li>It does not change the original column or table name in the database.</li>
+  <li>Column aliases are often used with aggregate functions (like <code>COUNT()</code>, <code>SUM()</code>, <code>MIN()</code>, <code>MAX()</code>, <code>AVG()</code>) to give the result a meaningful name.</li>
+  <li>Table aliases help shorten long table names when writing joins or complex queries.</li>
+  <li>Example from our queries: <code>SELECT COUNT(*) AS TotalOrders</code> – here <code>TotalOrders</code> is an alias for the result of <code>COUNT(*)</code>.</li>
+</ul>
+<!-- 2. Total Unique Customers -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">2.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Total unique customers
+SELECT COUNT(DISTINCT CustomerID) AS UniqueCustomers
+FROM Orders;
+-- <span style="color:#d97b35;">Output:</span>
++-----------------+
+| UniqueCustomers |
++-----------------+
+|               5 |
++-----------------+
+  </code></pre>
+</div>
+
+<!-- 3. Orders per Customer -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">3.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Orders per customer
+SELECT CustomerID, COUNT(*) AS OrderCount
+FROM Orders
+GROUP BY CustomerID;
+-- <span style="color:#d97b35;">Output:</span>
++------------+------------+
+| CustomerID | OrderCount |
++------------+------------+
+|          1 |          1 |
+|          2 |          1 |
+|          3 |          1 |
+|          4 |          1 |
+|          6 |          1 |
++------------+------------+
+  </code></pre>
+</div>
+
+<!-- 4. Smallest OrderID -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">4.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Smallest OrderID
+SELECT MIN(OrderID) AS SmallestOrderID FROM Orders;
+-- <span style="color:#d97b35;">Output:</span>
++------------------+
+| SmallestOrderID  |
++------------------+
+|              101 |
++------------------+
+  </code></pre>
+</div>
+
+<!-- 5. Largest OrderID -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">5.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Largest OrderID
+SELECT MAX(OrderID) AS LargestOrderID FROM Orders;
+-- <span style="color:#d97b35;">Output:</span>
++------------------+
+| LargestOrderID   |
++------------------+
+|              106 |
++------------------+
+  </code></pre>
+</div>
+
+<!-- 6. Total Products Ordered -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">6.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Total products ordered
+SELECT COUNT(Product) AS TotalProducts FROM Orders;
+-- <span style="color:#d97b35;">Output:</span>
++---------------+
+| TotalProducts |
++---------------+
+|             5 |
++---------------+
+  </code></pre>
+</div>
+
+<div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+    <strong style="flex-shrink: 0; width: 2rem;">7.</strong>
+    <pre style="margin: 0; flex-grow: 1;"><code class="language-sql">
+-- Count product frequency
+SELECT Product, COUNT(*) AS TimesOrdered
+FROM Orders
+GROUP BY Product;
+-- <span style="color:#d97b35;">Output:</span>
++-------------+---------------+
+| Product     | TimesOrdered  |
++-------------+---------------+
+| Brown Sugar |             1 |
+| Rice        |             1 |
+| Milk        |             1 |
+| Wheat       |             1 |
+| Coffee      |             1 |
++-------------+---------------+
+    </code></pre>
+</div>
+
+
 
             <h2>GROUP BY, HAVING & ORDER BY</h2>
             <p>Let's go step-by-step.</p>
