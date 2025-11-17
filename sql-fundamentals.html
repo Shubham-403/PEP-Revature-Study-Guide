@@ -1165,75 +1165,103 @@ SELECT * FROM Orders ORDER BY Product DESC;
             <h2>JOINS – Combining Data from Multiple Tables</h2>
             <p>Store Manager now has two tables </p>
             <h4>Clients Table</h4>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">City</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">1</td>
-                            <td class="p-4">Yogananda</td>
-                            <td class="p-4">Chennai</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">2</td>
-                            <td class="p-4">Vishnu</td>
-                            <td class="p-4">Hyderabad</td>
-                        </tr>
-                         <tr class="hover:bg-gray-50">
-                            <td class="p-4">3</td>
-                            <td class="p-4">Kiran</td>
-                            <td class="p-4">Bangalore</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h4>Orders Table</h4>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
-                             <th class="p-4 font-semibold text-orange-800 bg-orange-100">Quantity</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">101</td>
-                            <td class="p-4">1</td>
-                            <td class="p-4">Sugar</td>
-                            <td class="p-4">2</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">102</td>
-                            <td class="p-4">2</td>
-                            <td class="p-4">Rice</td>
-                            <td class="p-4">1</td>
-                        </tr>
-                         <tr class="hover:bg-gray-50">
-                            <td class="p-4">103</td>
-                            <td class="p-4">1</td>
-                            <td class="p-4">Oil</td>
-                            <td class="p-4">1</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">104</td>
-                            <td class="p-4">4</td>
-                            <td class="p-4">Salt</td>
-                            <td class="p-4">5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p>Notice that CustomerID=4 (in Orders Table) doesn't exist in the Clients table - maybe an order by mistake. Now Yogananda wants to view "which customers bought what?" To do this, we need JOINS.</p>
-            
+         <div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">City</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Phone</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">1</td>
+                <td class="p-4">Yogananda</td>
+                <td class="p-4">Chennai</td>
+                <td class="p-4">9876543210</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">2</td>
+                <td class="p-4">Vishnu</td>
+                <td class="p-4">Hyderabad</td>
+                <td class="p-4">9123456780</td>
+            </tr>
+            <tr>
+                <td class="p-4">3</td>
+                <td class="p-4">Ramesh</td>
+                <td class="p-4">Hyderabad</td>
+                <td class="p-4">9988776655</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">4</td>
+                <td class="p-4">Kavitha</td>
+                <td class="p-4">Pune</td>
+                <td class="p-4">9090909090</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">6</td>
+                <td class="p-4">Meena</td>
+                <td class="p-4">Kochi</td>
+                <td class="p-4">9555666777</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+           <h4>Orders Table</h4>
+<div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr >
+                <td class="p-4">101</td>
+                <td class="p-4">1</td>
+                <td class="p-4">Brown Sugar</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">102</td>
+                <td class="p-4">2</td>
+                <td class="p-4">Rice</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">103</td>
+                <td class="p-4">3</td>
+                <td class="p-4">Milk</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">104</td>
+                <td class="p-4">4</td>
+                <td class="p-4">Wheat</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">106</td>
+                <td class="p-4">6</td>
+                <td class="p-4">Coffee</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p><strong>Before we start learning JOINS, it's important to see how they behave when some records do not have matching pairs.</strong><br>
+Right now, every customer has at least one order, so everything matches perfectly. To understand JOINS clearly, we’ll intentionally create a small imbalance by adding one client who has <em>no orders</em>. This will help us see how each JOIN handles unmatched records.</p>
+<pre>
+<code class="language-sql">
+-- Insert a client with no orders (used to demonstrate JOIN behavior)
+INSERT INTO Clients (CustomerID, CustomerName, City, Phone)
+VALUES (7, 'Arun', 'Mysore', '9000011122');
+
+<span style="color:#d97b35;">-- Output:</span>
+-- Query OK, 1 row affected
+</code>
+</pre>
+
             <h3>What are JOINS?</h3>
             <p>A <strong>JOIN</strong> combines rows from two or more tables based on a related column between them (usually <strong>Primary Key = Foreign Key</strong>).</p>
             <p>It's like saying "Hey database, show me information from both notebooks together, where the entries match!"</p>
@@ -1243,20 +1271,33 @@ SELECT * FROM Orders ORDER BY Product DESC;
             
             <h4>1. INNER JOIN:</h4>
             <p>Shows only the <strong>matching rows</strong> from both tables. If a customer doesn't have an order, or an order doesn't have a valid customer – those rows are <strong>ignored</strong>.</p>
-            <pre><code class="language-sql">SELECT Customers.CustomerName, Orders.Product, Orders.Quantity
-FROM Customers
+            
+<pre><code class="language-sql">
+SELECT Clients.CustomerName, Orders.Product
+FROM Clients
 INNER JOIN Orders
-ON Customers.CustomerID = Orders.CustomerID;</code></pre>
-            <p><strong>Note:</strong> Use INNER JOIN when you only want rows that have matches on both tables.</p>
+ON Clients.CustomerID = Orders.CustomerID;
 
-            <h4>2. LEFT JOIN:</h4>
-            <p>Returns <strong>all rows from the left table</strong> (Customers) and the matching rows from the right table (Orders). If there's no match, NULL is shown.</p>
-            <pre><code class="language-sql">SELECT Customers.CustomerName, Orders.Product, Orders.Quantity
-FROM Customers
-LEFT JOIN Orders
-ON Customers.CustomerID = Orders.CustomerID;</code></pre>
-            <p>Kiran didn't place the order -> Product and Quantity show NULL.</p>
-            <p><strong>Note:</strong> Use LEFT JOIN when you want all customers, even those without any orders.</p>
+<span style="color:#d97b35;">-- Output:</span>
++--------------+-------------+
+| CustomerName | Product     |
++--------------+-------------+
+| Yogananda    | Brown Sugar |
+| Vishnu       | Rice        |
+| Ramesh       | Milk        |
+| Kavitha      | Wheat       |
+| Meena        | Coffee      |
++--------------+-------------+
+
+<span style="color:#d97b35;">-- Note:</span>
+-- The client "Arun" (CustomerID = 7) does NOT appear.
+-- Reason: He has no matching entry in the Orders table.
+-- INNER JOIN only returns rows where both tables have a match.
+</code></pre>
+
+<blockquote><p><strong>Good to know:</strong> INNER JOIN hides unmatched data on both sides. Perfect when you only want valid linked records.</p></blockquote>
+
+
 
             <h4>3. RIGHT JOIN (or RIGHT OUTER JOIN):</h4>
             <p>It returns <strong>all rows from the right table</strong> (Orders) and the matching rows from the left table (Customers).</p>
