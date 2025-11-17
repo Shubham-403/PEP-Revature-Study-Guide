@@ -278,13 +278,13 @@
 <p>Just like we speak <code>English</code> to people, computers understand a special language called <code>SQL</code>.</p>
 <!-- ✅ Add the link here -->
 
-    You can practice writing SQL queries using this online SQL compiler: 
-    <a href="https://www.mycompiler.io/new/sql" target="_blank" 
+    <p>You can practice writing SQL queries using this online SQL compiler: </p>
+    <blockquote><strong>Website link :</strong> Click here -><a href="https://sqliteonline.com/" target="_blank" 
    style="color:#ec6f39; text-decoration:none; font-weight:600; cursor:pointer; transition:all 0.3s ease;"
    onmouseover="this.style.color='#0d6efd'; this.style.textDecoration='underline';"
    onmouseout="this.style.color='#ec6f39'; this.style.textDecoration='none';">
    SQL Compiler &#8599;
-</a>
+</a> </blockquote>
 
 
 </p>
@@ -1647,99 +1647,135 @@ GROUP BY Product;
 </div>
 
 
+<h2>GROUP BY, HAVING & ORDER BY</h2>
+<p>These clauses help organize, summarize, and sort data in SQL. Let’s explore them one by one with clear definitions, scenarios, and examples using our <code>Clients</code> and <code>Orders</code> tables.</p>
 
-            <h2>GROUP BY, HAVING & ORDER BY</h2>
-            <p>Let's go step-by-step.</p>
-            
-            <h3>1. GROUP BY:</h3>
-            <p>Used to group rows having the same value in one or more columns. Usually used with aggregate functions.</p>
-            <p>Yogananda wants to know: "How many total orders has each customer placed?"</p>
-            <pre><code class="language-sql">SELECT CustomerID, COUNT(OrderID) AS TotalOrders
+<h3>1. GROUP BY</h3>
+The <code>GROUP BY</code> clause groups rows that have the same values in one or more columns. It is usually used with aggregate functions like <code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code> to calculate summaries for each group.</p>
+<p><strong>Scenario:</strong> The Store Manager wants to know: "How many total orders has each customer placed?"</p>
+<pre><code class="language-sql">
+SELECT CustomerID, COUNT(OrderID) AS TotalOrders
 FROM Orders
-GROUP BY CustomerID;</code></pre>
+GROUP BY CustomerID;
+-- <span style="color:#d97b35;">Output:</span>
++------------+------------+
+| CustomerID | TotalOrders|
++------------+------------+
+|          1 |          1 |
+|          2 |          1 |
+|          3 |          1 |
+|          4 |          1 |
+|          6 |          1 |
++------------+------------+
+</code></pre>
+<p>Here, each <code>CustomerID</code> forms a group, and <code>COUNT(OrderID)</code> calculates how many orders that customer placed.</p>
 
-            <h3>2. HAVING:</h3>
-            <p>It works like "WHERE", but for groups. It is used to filter results after GROUP BY.</p>
-            <p>Yogananda wants only those customers who placed more than one order.</p>
-            <pre><code class="language-sql">SELECT CustomerID, COUNT(OrderID) AS TotalOrders
+<h3>2. HAVING</h3>
+The <code>HAVING</code> clause is similar to <code>WHERE</code>, but it filters groups after aggregation. <code>WHERE</code> filters rows before grouping, whereas <code>HAVING</code> filters the result of <code>GROUP BY</code>.</p>
+<p><strong>Scenario:</strong> The Store Manager wants only customers who placed more than one order. This is important to analyze high-volume customers.</p>
+<pre><code class="language-sql">
+SELECT CustomerID, COUNT(OrderID) AS TotalOrders
 FROM Orders
 GROUP BY CustomerID
-HAVING COUNT(OrderID) > 1;</code></pre>
-            <p><strong>Note:</strong> WHERE filters rows before grouping, HAVING filters results after grouping.</p>
-            
-            <h3>3. ORDER BY:</h3>
-            <p>Used to sort results in ascending (ASC) or descending (DESC) order.</p>
-            <pre><code class="language-sql">SELECT CustomerName, City
+HAVING COUNT(OrderID) > 1;
+-- <span style="color:#d97b35;">Output:</span>
++------------+------------+
+| CustomerID | TotalOrders|
++------------+------------+
+-- No rows returned
+</code></pre>
+<p>Since in our data each customer has only one order, no rows satisfy <code>HAVING COUNT(OrderID) &gt; 1</code>. If a customer had multiple orders, only those would appear.</p>
+
+<h3>3. ORDER BY</h3>
+The <code>ORDER BY</code> clause sorts the result set by one or more columns. Default order is ascending (ASC). Use <code>DESC</code> for descending order.</p>
+<p><strong>Scenario:</strong> The Store Manager wants the customer list sorted by name from Z → A to prepare a report.</p>
+<pre><code class="language-sql">
+SELECT CustomerName, City
 FROM Customers
-ORDER BY CustomerName DESC;</code></pre>
-            <p><strong>Note:</strong> Default order is ASC.</p>
+ORDER BY CustomerName DESC;
+-- <span style="color:#d97b35;">Output:</span>
++--------------+-----------+
+| CustomerName | City      |
++--------------+-----------+
+| Vishnu       | Hyderabad |
+| Yogananda    | Chennai   |
+| Meena        | Kochi     |
+| Kavitha      | Pune      |
+| Arun         | Mysore    |
++--------------+-----------+
+</code></pre>
+<p>Here, <code>ORDER BY CustomerName DESC</code> sorts customers in reverse alphabetical order. Without <code>DESC</code>, it would default to ascending (A → Z).</p>
 
-            <h2>NORMALIZATION – Making Databases Efficient</h2>
-            <p>Now Yogananda has stored all his shop data in one big table. Everything works fine... until problems appear.</p>
-            
-            <h3>Problem in This Design:</h3>
-            <ol>
-                <li><strong>Repetition</strong> – Same customer info repeated.</li>
-                <li><strong>Update anomaly</strong> – If Kiran changes his phone, must update every row.</li>
-                <li><strong>Delete anomaly</strong> – If Vishnu's only order is deleted, his info is lost.</li>
-            </ol>
-            <p>To fix this, we apply <strong>Normalization</strong>.</p>
-            
-            <h3>What is Normalization?</h3>
-            <p>Normalization is the process of organizing data into smaller, related tables to:</p>
-            <ul>
-                <li>Remove repetition</li>
-                <li>Reduce storage waste</li>
-                <li>Maintain consistency</li>
-                <li>Improve data integrity</li>
-            </ul>
+<p><strong>Summary:</strong></p>
+<ul>
+<li><code>GROUP BY</code> → groups rows to calculate summaries.</li>
+<li><code>HAVING</code> → filters groups after aggregation.</li>
+<li><code>ORDER BY</code> → sorts the result set.</li>
+<li>These clauses are often used together to generate meaningful reports.</li>
+</ul>
+<h2>NORMALIZATION – Making Databases Efficient</h2>
+<p>Now the Store Manager has stored all his shop data in one big table. Initially, everything works fine… but as the data grows, several problems appear:</p>
 
-            <h3>Normal Forms (Levels of Normalization)</h3>
-            
-            <h4>a. 1NF (First Normal Form):</h4>
-            <p>Each column must have atomic (single) values. No repeating groups or arrays.</p>
-            
-            <h4>b. 2NF (Second Normal Form)</h4>
-            <ul>
-                <li>Must be in 1NF.</li>
-                <li>No partial dependency – every non-key column depends on the entire primary key.</li>
-            </ul>
+<h3>Problems in This Design:</h3>
+<ul>
+    <li><strong>Repetition:</strong> Same customer information is repeated for every order, wasting space.</li>
+    <li><strong>Update anomaly:</strong> If a customer changes their phone number, every row containing that customer must be updated manually.</li>
+    <li><strong>Delete anomaly:</strong> If a customer's only order is deleted, their information disappears from the database.</li>
+</ul>
+<p>To fix these issues, we apply <strong>Normalization</strong>.</p>
 
-            <h4>c. 3NF (Third Normal Form):</h4>
-             <ul>
-                <li>Must be in 2NF.</li>
-                <li>No transitive dependency – non-key column shouldn't depend on another non-key column.</li>
-            </ul>
+<h3>What is Normalization?</h3>
+<p>Normalization is the process of organizing data into smaller, related tables to:</p>
+<ul>
+    <li>Eliminate repetition</li>
+    <li>Reduce storage waste</li>
+    <li>Maintain data consistency</li>
+    <li>Improve data integrity</li>
+</ul>
 
-            <h3>SUMMARY OF NORMALIZATION:</h3>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Normal Form</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Rule</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Fixes</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>1NF</strong></td>
-                            <td class="p-4">No repeating groups</td>
-                            <td class="p-4">Atomic data</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>2NF</strong></td>
-                            <td class="p-4">No partial dependency</td>
-                            <td class="p-4">Split based on full key</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>3NF</strong></td>
-                            <td class="p-4">No transitive dependency</td>
-                            <td class="p-4">Remove derived dependencies</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<h3>Types of Normalization</h3>
+
+<h4>1. First Normal Form (1NF)</h4>
+<p><strong>Rule:</strong> Each column must hold atomic (single) values; no repeating groups or arrays.</p>
+<p><strong>Example:</strong> Instead of storing multiple products in one column separated by commas, each product gets its own row. This ensures that each value is unique and easy to query.</p>
+
+<h4>2. Second Normal Form (2NF)</h4>
+<p><strong>Rule:</strong> Table must already be in 1NF and contain no partial dependencies; every non-key column must depend on the full primary key.</p>
+<p><strong>Example:</strong> In a table where <code>(OrderID, ProductID)</code> is the primary key, storing customer information violates 2NF if customer info depends only on <code>OrderID</code>. To fix this, customer details should go in a separate table.</p>
+
+<h4>3. Third Normal Form (3NF)</h4>
+<p><strong>Rule:</strong> Table must already be in 2NF and contain no transitive dependencies; non-key columns should not depend on other non-key columns.</p>
+<p><strong>Example:</strong> If <code>City</code> depends on <code>CustomerName</code> instead of the primary key <code>CustomerID</code>, this is a transitive dependency. Moving city information to a separate table resolves this.</p>
+
+<h3>Summary Table of Normalization</h3>
+<div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Normal Form</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Rule</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">How It Helps</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>1NF</strong></td>
+                <td class="p-4">No repeating groups; all columns atomic</td>
+                <td class="p-4">Makes each piece of data searchable and reduces redundancy</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>2NF</strong></td>
+                <td class="p-4">No partial dependency; non-key columns depend on full primary key</td>
+                <td class="p-4">Separates data logically and avoids repeated information in composite-key tables</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>3NF</strong></td>
+                <td class="p-4">No transitive dependency; non-key columns independent of each other</td>
+                <td class="p-4">Prevents inconsistencies and ensures updates are easy and safe</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
             </article>
     </main>
