@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Practice Lab</title>
+    <title>Python Practice Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Light theme styles based on the new image */
+        /* Light theme styles */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F9FAFB; /* Light grey background (Tailwind gray-50) */
+            background-color: #F9FAFB; /* Light grey background */
         }
 
-        /* This is the new white content card */
+        /* White content card */
         .content-card {
             background-color: #FFFFFF;
             color: #1F2937; /* Dark text */
@@ -25,7 +25,7 @@
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
 
-        /* --- Text Color Classes (Light Theme) --- */
+        /* --- Text Color Classes --- */
         .text-lab-red {
             color: #DC2626; /* Red */
             text-decoration: underline;
@@ -37,7 +37,7 @@
             font-style: italic;
         }
         
-        /* --- Code Block Styling (Light Theme) --- */
+        /* --- Code Block Styling --- */
         code {
             font-family: 'Fira Code', monospace;
             background-color: #F3F4F6; /* Light grey background */
@@ -53,7 +53,7 @@
             border: 1px solid #E5E7EB;
         }
         
-        /* --- Syntax Highlighting Classes (Light Theme) --- */
+        /* --- Syntax Highlighting Classes --- */
         .code-keyword { color: #2563EB; } /* blue */
         .code-type { color: #9333EA; } /* purple */
         .code-string { color: #166534; } /* green */
@@ -69,28 +69,22 @@
 </head>
 <body class="bg-gray-50">
 
-    <!-- Header Navigation -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo/Title -->
             <div class="text-2xl font-bold text-orange-600">
                 <a href="#">Revature Study Guide</a>
             </div>
             
-            <!-- Navigation Links -->
             <div class="flex items-center space-x-2">
                 <a href="index.html" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300">Home</a>
 
-                <!-- Java Dropdown -->
                 <div class="relative inline-block text-left dropdown">
                     <button type="button" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300 inline-flex items-center dropdown-toggle">
                         Java
-                        <!-- Dropdown Arrow -->
                         <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <!-- Dropdown Menu -->
                     <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden dropdown-menu z-20">
                         <div class="py-1" role="menu" aria-orientation="vertical">
                             <a href="java-fundamentals.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600" role="menuitem">Java Fundamentals</a>
@@ -99,7 +93,6 @@
                     </div>
                 </div>
 
-                <!-- Python Dropdown -->
                 <div class="relative inline-block text-left dropdown">
                     <button type="button" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300 inline-flex items-center dropdown-toggle">
                         Python
@@ -115,7 +108,6 @@
                     </div>
                 </div>
 
-                <!-- SQL Dropdown -->
                 <div class="relative inline-block text-left dropdown">
                     <button type="button" class="px-4 py-2 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 hover:text-orange-600 transition duration-300 inline-flex items-center dropdown-toggle">
                         SQL
@@ -143,33 +135,24 @@
 
             dropdownToggles.forEach((toggle, index) => {
                 toggle.addEventListener('click', (event) => {
-                    // Stop the click from bubbling up to the window listener
                     event.stopPropagation();
-                    
                     const menu = toggle.nextElementSibling;
-
-                    // Close all other open dropdowns
                     dropdownMenus.forEach((m, i) => {
                         if (i !== index && !m.classList.contains('hidden')) {
                             m.classList.add('hidden');
                         }
                     });
-                    
-                    // Toggle the clicked dropdown
                     menu.classList.toggle('hidden');
                 });
             });
 
-            // Close dropdowns if an item inside is clicked
             document.querySelectorAll('.dropdown-menu a').forEach(item => {
                 item.addEventListener('click', (event) => {
                     item.closest('.dropdown-menu').classList.add('hidden');
                 });
             });
 
-            // Close dropdowns when clicking outside
             window.addEventListener('click', (event) => {
-                // Check if the click was outside a dropdown
                 if (!event.target.closest('.dropdown')) {
                     dropdownMenus.forEach(menu => {
                         menu.classList.add('hidden');
@@ -178,5 +161,1135 @@
             });
         });
     </script>
-    </body>
+
+    <div class="content-card mx-auto p-6 sm:p-8 md:p-12 mt-8 mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Python Practice Lab</h2>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 0: Make Sure Python is Ready</h3>
+        <p>Before coding, check:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Is Python installed?</li>
+        </ul>
+        <code>
+            <span class="code-var">python --version</span>
+        </code>
+        <p class="mb-2">or</p>
+        <code>
+            <span class="code-var">python3 --version</span>
+        </code>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>Can you run a Python script?</li>
+        </ul>
+        <code>
+            <span class="code-var">python hello.py</span>
+        </code>
+        <p class="mt-4"><span class="font-bold text-gray-800">Tip:</span> Use any editor: VS Code, PyCharm, or even online editors like <span class="font-bold text-gray-900">replit.com</span>.</p>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Your First Python Code</h3>
+        <p>Python is simpler than Java:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li>No semicolons at the end</li>
+            <li>No curly braces {}</li>
+            <li>Indentation is important (usually 4 spaces)</li>
+        </ul>
+
+        <h4 class="text-lg font-bold text-blue-600 mt-6 mb-2">Challenge 1: Hello, World!</h4>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Print Hello, World! to the console</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="font-mono text-blue-800 font-medium">print()</span> function</li>
+            <li>Don’t use semicolons</li>
+            <li>Syntax: <span class="font-mono text-blue-800 font-medium">print("text")</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <p class="mt-2 font-mono text-gray-700">Hello, World!</p>
+
+        <p class="mt-4 font-bold text-gray-800">Pitfalls:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forgetting parentheses → <span class="text-lab-red">SyntaxError</span></li>
+            <li>Incorrect indentation → <span class="text-lab-red">IndentationError</span></li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 2: Variables and Data Types</h3>
+        <p>Python is <strong>dynamically typed</strong>:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
+            <li><span class="code-type">int</span> → whole numbers</li>
+            <li><span class="code-type">float</span> → decimals</li>
+            <li><span class="code-type">str</span> → text</li>
+            <li><span class="code-type">bool</span> → True/False</li>
+        </ul>
+
+        <h4 class="text-lg font-bold text-blue-600 mt-6 mb-2">Challenge 2: Create Your Personal Info</h4>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Create variables: name, age, height</li>
+            <li>Print: "Hi, I am &lt;name&gt;, I am &lt;age&gt; years old and &lt;height&gt; ft tall"</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hint:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <strong>f-strings</strong> for clean formatting:</li>
+        </ul>
+        <code>
+            <span class="code-keyword">print</span>(<span class="code-string">f"Hi, I am {name}, I am {age} years old and {height} ft tall"</span>)
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <p class="mt-2 font-mono text-gray-700">Hi, I am Sunny, I am 21 years old and 5.8 ft tall</p>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>age = "21" (string instead of int) → arithmetic operations may fail</li>
+            <li>height = 5.8 → floating-point number works fine</li>
+        </ul>
+
+        <h4 class="text-lg font-bold text-blue-600 mt-8 mb-2">Challenge 3: Update & Print Variables</h4>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Change your age and height variables</li>
+            <li>Print updated info in one statement</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <p class="mt-2 font-mono text-gray-700">Hi, I am Sunny, I am 22 years old and 5.9 ft tall</p>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Just reassign variables: <span class="font-mono text-blue-800">age = 22</span></li>
+            <li>f-strings automatically reflect updated values</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 3: Basic Operations</h3>
+        <p>Python can do <strong>math directly with variables</strong>:</p>
+
+        <h4 class="text-lg font-bold text-blue-600 mt-6 mb-2">Challenge 4: Math with Variables</h4>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Create two numbers: a = 10, b = 5</li>
+            <li>Print: sum, difference, product, division (float), remainder, power</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Operators: <span class="font-mono text-blue-800">+ - * / % **</span></li>
+            <li>Division <span class="font-mono text-blue-800">/</span> gives float, <span class="font-mono text-blue-800">//</span> gives integer</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="mt-2 font-mono text-gray-700 bg-gray-50 p-4 rounded-lg border border-gray-200">
+            Sum: 15<br>
+            Difference: 5<br>
+            Product: 50<br>
+            Division: 2.0<br>
+            Integer Division: 2<br>
+            Remainder: 0<br>
+            Power: 100000
+        </div>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Division by zero → handle later with exceptions</li>
+            <li>Power operator: <span class="font-mono text-blue-800">**</span></li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 4: Simple String Operations</h3>
+
+        <h4 class="text-lg font-bold text-blue-600 mt-6 mb-2">Challenge 5: Manipulate Strings</h4>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Take your name in a variable</li>
+            <li>Print: uppercase, lowercase, length</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Methods: <span class="font-mono text-blue-800">.upper(), .lower(), len()</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <p class="mt-2 font-mono text-gray-700">Name: Sunny</p>
+        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 font-mono text-sm mb-6">
+            Uppercase: SUNNY<br>
+            Lowercase: sunny<br>
+            Length: 5
+        </div>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-3">Pitfalls:</h3>
+        <ul class="list-disc list-outside pl-6 space-y-2 mb-10">
+            <li>Forget parentheses <span class="text-gray-500">→</span> <span class="font-mono text-blue-600">.upper</span> without <span class="font-mono text-blue-600">()</span> doesn't work</li>
+            <li>Strings are immutable <span class="text-gray-500">—</span> you cannot change a single character directly</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h2 class="text-2xl font-bold text-blue-600 uppercase mb-6">Operators, Expressions, and Control Flow</h2>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Operators & Expressions</h3>
+        <p class="mb-6">Python can perform arithmetic, comparison, and logical operations.</p>
+        
+        <hr class="border-gray-200 my-8">
+
+        <h3 class="text-xl font-semibold text-blue-600 mt-8 mb-3">Challenge 1: Arithmetic Operators</h3>
+        <p class="mb-4"><span class="font-bold text-gray-800">Goal:</span> Practice basic math operations with variables</p>
+
+        <p class="font-bold text-gray-800 mb-2">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mb-4">
+            <li>Take two numbers: <span class="font-mono text-purple-700">a = 15</span> and <span class="font-mono text-purple-700">b = 4</span></li>
+            <li>Print sum, difference, product, division, integer division, remainder, and power</li>
+        </ul>
+
+        <p class="font-bold text-gray-800 mb-2">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mb-4">
+            <li>Use: <span class="font-mono text-blue-600">+ - * / // % **</span></li>
+            <li>Division <span class="font-mono text-blue-600">/</span> <span class="text-gray-500">→</span> float result</li>
+            <li>Integer division <span class="font-mono text-blue-600">//</span> <span class="text-gray-500">→</span> whole number result</li>
+        </ul>
+
+        <p class="font-bold text-gray-800 mb-2">Expected Output:</p>
+        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 font-mono text-sm mb-6">
+            Sum: 19<br>
+            Difference: 11<br>
+            Product: 60<br>
+            Division: 3.75<br>
+            Integer Division: 3<br>
+            Remainder: 3<br>
+            Power: 50625
+        </div>
+
+        <p class="font-bold text-gray-800 mb-2">Tip:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mb-8">
+            <li>Try changing numbers and predict results</li>
+            <li>Division by 0 <span class="text-gray-500">→</span> will cause error later</li>
+        </ul>
+
+        <hr class="border-gray-200 my-8">
+
+        <h3 class="text-xl font-semibold text-blue-600 mt-8 mb-3">Challenge 2: Comparison Operators</h3>
+        <p class="mb-4"><span class="font-bold text-gray-800">Goal:</span> Compare numbers and print results</p>
+
+        <p class="font-bold text-gray-800 mb-2">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mb-4">
+            <li>Variables: <span class="font-mono text-purple-700">a = 10</span>, <span class="font-mono text-purple-700">b = 20</span></li>
+            <li>Check: equal, not equal, greater than, less than, greater or equal, less or equal</li>
+        </ul>
+
+        <p class="font-bold text-gray-800 mb-2">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mb-4">
+            <li>Operators: <span class="font-mono text-blue-600">== != > < >= <=</span></li>
+            <li>Each comparison prints True or False</li>
+        </ul>
+
+        <p class="font-bold text-gray-800 mb-2">Expected Output:</p>
+        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 font-mono text-sm mb-6">
+            a == b: False<br>
+            a != b: True<br>
+            a > b: False<br>
+            a < b: True<br>
+            a >= b: False<br>
+            a <= b: True
+        </div>
+
+        <p class="font-bold text-gray-800 mb-2">Tip:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mb-8">
+            <li>Try swapping values and predict the output</li>
+        </ul>
+
+        <hr class="border-gray-200 my-8">
+
+        <h3 class="text-xl font-semibold text-blue-600 mt-8 mb-3">Challenge 3: Logical Operators</h3>
+        <p class="mb-4"><span class="font-bold text-gray-800">Goal:</span> Practice and, or, not</p>
+
+        <p class="font-bold text-gray-800 mb-2">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mb-4">
+            <li>Variables: <span class="font-mono text-purple-700">x = True</span>, <span class="font-mono text-purple-700">y = False</span></li>
+            <li>Print results of x and y, x or y, not x</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Expected Output:</h3>
+        <code>
+            x <span class="code-keyword">and</span> y: <span class="code-literal">False</span><br>
+            x <span class="code-keyword">or</span> y: <span class="code-literal">True</span><br>
+            <span class="code-keyword">not</span> x: <span class="code-literal">False</span>
+        </code>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Hints:</h3>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Combine boolean values</li>
+            <li>Think: <span class="font-mono text-blue-800 font-medium">and</span> → both must be True, <span class="font-mono text-blue-800 font-medium">or</span> → at least one True, <span class="font-mono text-blue-800 font-medium">not</span> → inverse</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Tip:</h3>
+        <ul class="list-disc list-outside pl-6 space-y-2">
+            <li>Logical operators are often used in if-else decisions</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 2: Control Flow Statements</h2>
+        <p>Python uses indentation to define blocks instead of <span class="font-mono text-blue-800 font-medium">{}</span>.</p>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: If-Else (Age Check)</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Decide if someone is adult or minor</p>
+        
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Variable: <span class="font-mono text-blue-800 font-medium">age</span> (e.g., 21)</li>
+            <li>Print <span class="code-string">"Adult"</span> if <span class="font-mono text-blue-800 font-medium">age >= 18</span>, else <span class="code-string">"Minor"</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="code-keyword">if</span> and <span class="code-keyword">else</span></li>
+            <li>Predict output before running</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Adult
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Age exactly 18 → should print "Adult"</li>
+            <li>Negative age → might need validation</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: Elif (Grade System)</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Assign grade based on marks</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Variable: <span class="font-mono text-blue-800 font-medium">marks</span> (e.g., 85)</li>
+            <li>Grades:
+                <ul class="list-disc list-outside pl-6 mt-2 space-y-1">
+                    <li>90+ → "A"</li>
+                    <li>80–89 → "B"</li>
+                    <li>70–79 → "C"</li>
+                    <li>else → "Fail"</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="code-keyword">if</span>, <span class="code-keyword">elif</span>, and <span class="code-keyword">else</span></li>
+            <li>Predict what grade will print for different marks</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Grade: B
+        </code>
+
+        <hr class="border-gray-200 my-10">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 3: Loops</h2>
+        <p>Python has <span class="code-keyword">for</span> and <span class="code-keyword">while</span> loops for repetition.</p>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 6: For Loop (Numbers 1–10)</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Print numbers 1 to 10</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use a <span class="code-keyword">for</span> loop and a simple range</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="font-mono text-blue-800 font-medium">range()</span> with start and end values</li>
+            <li>Predict output before running</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li><span class="font-mono text-blue-800 font-medium">range(1,1)</span> → prints nothing</li>
+            <li><span class="font-mono text-blue-800 font-medium">range(1,11,2)</span> → prints every second number</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 7: While Loop (Running Sum)</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Calculate sum of numbers 1 to 5</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Keep a <span class="font-mono text-blue-800 font-medium">sum</span> variable</li>
+            <li>Add numbers from 1 to 5 using a <span class="code-keyword">while</span> loop</li>
+            <li>Print running total each step</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Initialize a counter</li>
+            <li>Update sum inside loop</li>
+            <li>Print inside the loop</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Adding 1, sum is now: 1<br>
+            Adding 2, sum is now: 3<br>
+            Adding 3, sum is now: 6<br>
+            Adding 4, sum is now: 10<br>
+            Adding 5, sum is now: 15
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>If starting counter > 5 → loop won’t run, sum remains 0</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h2 class="text-3xl font-bold text-blue-600 mb-6">Python Mini Challenge: Student Score Analysis</h2>
+        <p><span class="font-bold text-gray-800">Goal:</span> Write a program that:</p>
+        
+        <ol class="list-decimal list-outside pl-6 space-y-3 mt-4">
+            <li>Stores a <span class="font-bold text-gray-800">student’s name, age, and marks</span> for 3 subjects</li>
+            <li>Calculates <span class="font-bold text-gray-800">total marks, average marks, and percentage</span></li>
+            <li>Prints <span class="font-bold text-gray-800">grade</span> based on percentage:
+                <ul class="list-disc list-outside pl-6 mt-2 space-y-1">
+                    <li>90+ → "A"</li>
+                    <li>80–89 → "B"</li>
+                    <li>70–79 → "C"</li>
+                    <li>else → "Fail"</li>
+                </ul>
+            </li>
+            <li>Checks if the student is <span class="font-bold text-gray-800">adult</span> (age ≥ 18)</li>
+            <li>Prints <span class="font-bold text-gray-800">subject-wise pass/fail</span> (passing ≥ 35 marks)</li>
+        </ol>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Hints:</h3>
+        <ol class="list-decimal list-outside pl-6 space-y-4 mt-4">
+            <li>
+                <span class="font-bold text-gray-800">Variables & Data Types:</span>
+                <ul class="list-disc list-outside pl-6 mt-2 space-y-1">
+                    <li>Name → string</li>
+                    <li>Age → integer</li>
+                    <li>Marks → integers (or a list for multiple subjects)</li>
+                </ul>
+            </li>
+            <li>
+                <span class="font-bold text-gray-800">Operators & Expressions:</span>
+                <ul class="list-disc list-outside pl-6 mt-2 space-y-1">
+                    <li>Total = sum of marks</li>
+                    <li>Average = total / 3</li>
+                    <li>Percentage = (total / 300) * 100</li>
+                </ul>
+            </li>
+            <li>
+                <span class="font-bold text-gray-800">If-Else & Elif:</span>
+                <ul class="list-disc list-outside pl-6 mt-2 space-y-1">
+                    <li>Use <span class="code-keyword">if-else</span> for adult check</li>
+                    <li>Use <span class="code-keyword">elif</span> ladder for grade calculation</li>
+                    <li>Use <span class="code-keyword">if-else</span> inside a loop to check each subject pass/fail</li>
+                </ul>
+            </li>
+            <li>
+                <span class="font-bold text-gray-800">Loops:</span>
+                <ul class="list-disc list-outside pl-6 mt-2 space-y-1">
+                    <li>Use a <span class="code-keyword">for</span> loop to iterate over subjects for pass/fail</li>
+                </ul>
+            </li>
+        </ol>
+        <hr class="border-gray-200 my-10">
+
+        <h2 class="text-3xl font-bold text-blue-600 mb-6">Functions</h2>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Introduction to Functions</h3>
+        <p class="font-bold text-gray-800">Syntax:</p>
+        
+        <code>
+            <span class="code-keyword">def</span> <span class="code-method">function_name</span>(<span class="code-var">parameters</span>):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># code block</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-var">result</span> <span class="code-comment"># optional</span>
+        </code>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 1: Simple Function</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Write a function to <span class="font-bold text-gray-800">greet a person</span> by name</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Define a function <span class="font-mono text-blue-800 font-medium">greet</span> that takes <span class="font-mono text-blue-800 font-medium">name</span> as input</li>
+            <li>Print <span class="code-string">"Hello &lt;name&gt;!"</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="code-keyword">def</span> to define the function</li>
+            <li>Call the function after defining it</li>
+            <li>Observe indentation rules</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <code>
+            Hello Sunny!<br>
+            Hello Ananya!
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Call without argument → <span class="text-lab-red">TypeError</span></li>
+            <li>Name as empty string → prints just "Hello !"</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 2: Function with Return Value</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Write a function to <span class="font-bold text-gray-800">add two numbers</span></p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Function <span class="font-mono text-blue-800 font-medium">add_numbers(a, b)</span></li>
+            <li>Returns the sum of a and b</li>
+            <li>Call the function and <span class="font-bold text-gray-800">print the result</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="code-keyword">return</span> to get value</li>
+            <li>Assign the returned value to a variable before printing</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <code>
+            Sum: 25
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Pass floats or negative numbers</li>
+            <li>Pass non-numeric values → will raise <span class="text-lab-red">TypeError</span></li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 3: Function with Default Argument</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Make a function <span class="font-bold text-gray-800">greet with default name</span></p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Function <span class="font-mono text-blue-800 font-medium">greet(name="Guest")</span></li>
+            <li>Print <span class="code-string">"Hello &lt;name&gt;!"</span></li>
+            <li>Call function <span class="font-bold text-gray-800">with and without an argument</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Hello Sunny!<br>
+            Hello Guest!
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Hint:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Default arguments are used if no value is passed</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: Function to Check Even or Odd</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Write a reusable function <span class="font-mono text-blue-800 font-medium">check_even_odd(number)</span></p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Returns <span class="code-string">"Even"</span> or <span class="code-string">"Odd"</span> based on input</li>
+            <li>Call function for numbers 7, 10, 0</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            7 → Odd<br>
+            10 → Even<br>
+            0 → Even
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Negative numbers → should still return correct result</li>
+            <li>Non-integer input → can raise error</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: Function with Multiple Parameters</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Calculate <span class="font-bold text-gray-800">average of n numbers</span></p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Function <span class="font-mono text-blue-800 font-medium">calculate_average(a, b, c)</span></li>
+            <li>Return average as a float</li>
+            <li>Print result using <span class="font-bold text-gray-800">f-string</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <code>
+            Average: 81.0
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Passing numbers as strings → <span class="text-lab-red">TypeError</span></li>
+            <li>Zero values → should compute correctly</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h2 class="text-3xl font-bold text-blue-600 mb-6">Collections</h2>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Lists</h3>
+        <p class="font-bold text-gray-800">Concept:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>A <span class="font-bold text-gray-800">list</span> is an <span class="font-bold text-gray-800">ordered, mutable collection</span> of elements.</li>
+            <li>Can store <span class="font-bold text-gray-800">numbers, strings, or mixed types</span>.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 1: Create & Print List</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Create a list of 5 numbers and print it</p>
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>List: <span class="font-mono text-blue-800 font-medium">numbers = [10, 20, 30, 40, 50]</span></li>
+            <li>Print each element <span class="font-bold text-gray-800">using a for loop</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="code-keyword">for</span> item <span class="code-keyword">in</span> numbers:</li>
+            <li>Predict output before running</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            10<br>20<br>30<br>40<br>50
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Empty list → loop prints nothing</li>
+            <li>List with mixed types → works fine</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 2: List Operations</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Perform basic operations</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Add a number to the list</li>
+            <li>Remove a number</li>
+            <li>Print <span class="font-bold text-gray-800">sum, max, min</span> of the list</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Methods: <span class="code-method">.append()</span>, <span class="code-method">.remove()</span></li>
+            <li>Functions: <span class="code-method">sum()</span>, <span class="code-method">max()</span>, <span class="code-method">min()</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <code>
+            Numbers: [10, 20, 30, 40, 50, 60]<br><br>
+            Sum: 210<br>
+            Max: 60<br>
+            Min: 10
+        </code>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 2: Tuples</h3>
+        <p class="font-bold text-gray-800">Concept:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Tuples are <span class="font-bold text-gray-800">ordered but immutable</span></li>
+            <li>Elements <span class="font-bold text-gray-800">cannot be changed</span> after creation</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 3: Create & Access Tuple</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Create a tuple of 3 names and print each</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Tuple: <span class="font-mono text-blue-800 font-medium">names = ("Sunny", "Ananya", "Rahul")</span></li>
+            <li>Use <span class="font-bold text-gray-800">for loop</span> to print</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Sunny<br>
+            Ananya<br>
+            Rahul
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Try changing an element → should raise <span class="text-lab-red">TypeError</span></li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 3: Sets</h3>
+        <p class="font-bold text-gray-800">Concept:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Sets are <span class="font-bold text-gray-800">unordered, unique elements</span></li>
+            <li>Useful to remove duplicates</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: Create & Manipulate Set</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Create a set with duplicate numbers and see uniqueness</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Set: <span class="font-mono text-blue-800 font-medium">numbers = {10, 20, 20, 30}</span></li>
+            <li>Print the set</li>
+            <li>Add a new number and remove one</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Original Set: {10, 20, 30}<br>
+            After Adding 40: {10, 20, 30, 40}<br>
+            After Removing 20: {10, 30, 40}
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Hint:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Methods: <span class="code-method">.add()</span>, <span class="code-method">.remove()</span></li>
+            <li>Order may change when printing</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 4: Dictionaries</h3>
+        <p class="font-bold text-gray-800">Concept:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Dictionaries store <span class="font-bold text-gray-800">key-value pairs</span></li>
+            <li>Access values using <span class="font-bold text-gray-800">keys</span></li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: Create & Access Dictionary</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Store marks of 3 students and print</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Dictionary: <span class="font-mono text-blue-800 font-medium">marks = {"Sunny": 90, "Ananya": 85, "Rahul": 88}</span></li>
+            <li>Print each student and mark <span class="font-bold text-gray-800">using a loop</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Sunny: 90<br>
+            Ananya: 85<br>
+            Rahul: 88
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Access a non-existing key → raises <span class="text-lab-red">KeyError</span></li>
+            <li>Can check key existence using <span class="code-keyword">if</span> key <span class="code-keyword">in</span> dict:</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Mini Challenge Using Collections</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Combine lists and dictionaries</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Store 3 students' names in a list</li>
+            <li>Create an empty dictionary for marks</li>
+            <li>Loop over the list and assign marks to each student</li>
+            <li>Print student and marks</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <code>
+            Sunny: 92<br>
+            Ananya: 85<br>
+            Rahul: 88
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use a <span class="code-keyword">for</span> loop</li>
+            <li>Assign values like <span class="font-mono text-blue-800 font-medium">marks[name] = value</span></li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h2 class="text-3xl font-bold text-blue-600 mb-6">OOP</h2>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Classes & Objects</h3>
+        <p class="font-bold text-gray-800">Concept:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>A <span class="font-bold text-gray-800">class</span> is a blueprint for objects.</li>
+            <li>An <span class="font-bold text-gray-800">object</span> is an instance of a class.</li>
+            <li>Attributes store data; methods define behavior.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 1: Create a Simple Class</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Create a Student class with name and age</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Class: <span class="font-mono text-blue-800 font-medium">Student</span></li>
+            <li>Attributes: <span class="font-mono text-blue-800 font-medium">name, age</span></li>
+            <li>Method: <span class="font-mono text-blue-800 font-medium">display_info()</span> prints Name: &lt;name&gt;, Age: &lt;age&gt;</li>
+            <li>Create <span class="font-bold text-gray-800">2 objects</span> and call display_info()</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="code-keyword">__init__</span>(self, ...) to initialize attributes</li>
+            <li>Call methods with object.method()</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Name: Sunny, Age: 21<br>
+            Name: Ananya, Age: 22
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forget <span class="code-keyword">self</span> → <span class="text-lab-red">TypeError</span></li>
+            <li>Print object without method → prints memory address</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 2: Using Object Attributes</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Update and access object attributes</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Change age of one student</li>
+            <li>Print updated info</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Name: Sunny, Age: 23
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Hint:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li><span class="font-mono text-blue-800 font-medium">student.age = 23</span></li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 2: Inheritance & Polymorphism</h3>
+        <p class="font-bold text-gray-800">Concepts:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li><span class="font-bold text-gray-800">Inheritance:</span> Child class inherits attributes/methods from parent class</li>
+            <li><span class="font-bold text-gray-800">Polymorphism:</span> Same method behaves differently in parent/child</li>
+            <li><span class="font-bold text-gray-800">Single inheritance</span> → supported</li>
+            <li><span class="font-bold text-gray-800">Multiple inheritance</span> → Python supports, but <span class="font-bold text-gray-800">Java-style multiple class inheritance is not allowed</span></li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 3: Single Inheritance</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Create Person (parent) and Student (child)</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Parent class: <span class="font-mono text-blue-800 font-medium">Person</span> → name, method <span class="font-mono text-blue-800 font-medium">display()</span></li>
+            <li>Child class: <span class="font-mono text-blue-800 font-medium">Student</span> → roll_no, override <span class="font-mono text-blue-800 font-medium">display()</span></li>
+            <li>Create object of Student and call display()</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Student: Sunny, Roll No: 101
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="code-keyword">super()</span>.__init__(name) to initialize parent class attributes</li>
+            <li>Override method in child for polymorphism</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: Polymorphism with Functions</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Same method name for different classes</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Class <span class="font-mono text-blue-800 font-medium">Teacher</span> → display() prints Teacher: &lt;name&gt;</li>
+            <li>Call display() on Student and Teacher objects</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Student: Sunny, Roll No: 101<br><br>
+            Teacher: Mr. Kumar
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Forget overriding → parent method executes</li>
+            <li>Multiple inheritance conflicts → Python uses <span class="font-bold text-gray-800">MRO (Method Resolution Order)</span></li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 3: Encapsulation</h3>
+        <p class="font-bold text-gray-800">Concept:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Hide data and restrict direct access</li>
+            <li><span class="font-bold text-gray-800">Read-only</span> → getter method only</li>
+            <li><span class="font-bold text-gray-800">Write-only</span> → setter method only</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: Read-Only Attribute</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Make roll_no read-only</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Class Student → private attribute <span class="font-mono text-blue-800 font-medium">__roll_no</span></li>
+            <li>Create <span class="font-bold text-gray-800">getter</span> method get_roll_no()</li>
+            <li>Try to change __roll_no directly → should not be allowed</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Roll No: 101
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Private attribute → prefix with <span class="code-keyword">__</span></li>
+            <li>Use student.get_roll_no() to access</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 6: Write-Only Attribute</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Create a write-only password</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Attribute: <span class="font-mono text-blue-800 font-medium">__password</span></li>
+            <li>Setter method set_password()</li>
+            <li>No getter → cannot read password</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Behavior:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Can set password but cannot print it directly</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 4: Abstraction</h3>
+        <p class="font-bold text-gray-800">Concept:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Hides internal details, shows only necessary functionality</li>
+            <li>Use <span class="font-bold text-gray-800">abstract base classes (abc module)</span></li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 7: Abstract Class Example</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Create abstract class Shape</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Abstract method: <span class="code-method">area()</span></li>
+            <li>Child class: Rectangle → implements area()</li>
+            <li>Create object of Rectangle and call area()</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <code>
+            Area: 50
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li><span class="code-keyword">from</span> abc <span class="code-keyword">import</span> ABC, abstractmethod</li>
+            <li>Cannot instantiate abstract class directly</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h2 class="text-3xl font-bold text-blue-600 mb-6">Exception Handling</h2>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Introduction to Exceptions</h3>
+        <p class="font-bold text-gray-800">Concept:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>An <span class="font-bold text-gray-800">exception</span> occurs when Python encounters an error during execution.</li>
+            <li><span class="font-bold text-gray-800">Try-Except</span> blocks handle exceptions without stopping the program.</li>
+            <li>Common exceptions: <span class="text-lab-red">ZeroDivisionError</span>, <span class="text-lab-red">ValueError</span>, <span class="text-lab-red">TypeError</span>, <span class="text-lab-red">IndexError</span>, <span class="text-lab-red">KeyError</span>.</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Syntax:</p>
+        <code>
+            <span class="code-keyword">try</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># code that might raise exception</span><br>
+            <span class="code-keyword">except</span> <span class="code-type">ExceptionType</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># handle exception</span>
+        </code>
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 1: ZeroDivisionError</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Handle division by zero</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Take <span class="font-mono text-blue-800 font-medium">a = 10</span> and <span class="font-mono text-blue-800 font-medium">b = 0</span></li>
+            <li>Divide a by b inside a <span class="code-keyword">try</span> block</li>
+            <li>Handle the error in <span class="code-keyword">except</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Catch <span class="text-lab-red">ZeroDivisionError</span></li>
+            <li>Print friendly message like "Cannot divide by zero"</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <code>
+            Cannot divide by zero
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Change b = 2 → should print 5.0</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 2: ValueError</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Handle invalid input</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Ask user to enter a number using <span class="code-method">input()</span></li>
+            <li>Convert it to integer</li>
+            <li>Catch <span class="text-lab-red">ValueError</span> if input is not a number</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="code-method">int()</span> inside try</li>
+            <li>Print message "Invalid input, please enter a number"</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Behavior:</p>
+        <code>
+            Enter a number: abc<br>
+            Invalid input, please enter a number
+        </code>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 3: Handling Multiple Exceptions</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Catch different exceptions in one block</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Divide two numbers input by user</li>
+            <li>Handle both <span class="text-lab-red">ZeroDivisionError</span> and <span class="text-lab-red">ValueError</span></li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Behavior:</p>
+        <code>
+            Enter numerator: 10<br>
+            Enter denominator: 0<br>
+            Cannot divide by zero<br><br>
+            Enter numerator: ten<br>
+            Invalid input, please enter a number
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use multiple <span class="code-keyword">except</span> blocks</li>
+            <li>Or a single block: <span class="code-keyword">except</span> (ZeroDivisionError, ValueError)</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: Finally Block</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Ensure code always runs</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Add a <span class="code-keyword">finally</span> block to previous challenge</li>
+            <li>Print "Calculation attempt finished" regardless of error</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Behavior:</p>
+        <code>
+            Cannot divide by zero<br>
+            Calculation attempt finished
+        </code>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: Raising Exceptions</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Force an exception when a condition is not met</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Function <span class="font-mono text-blue-800 font-medium">check_age(age)</span></li>
+            <li>If age &lt; 0 → <span class="code-keyword">raise</span> <span class="text-lab-red">ValueError</span> with message "Age cannot be negative"</li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Behavior:</p>
+        <code>
+            Age cannot be negative
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Hint:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="code-keyword">raise</span> <span class="code-type">ValueError</span>("message")</li>
+            <li>Wrap function call in try-except to handle</li>
+        </ul>
+
+        <hr class="border-gray-200 my-10">
+
+        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Mini Challenge Using Exceptions</h3>
+        <p><span class="font-bold text-gray-800">Goal:</span> Combine everything learned: OOP, functions, loops, and exception handling</p>
+
+        <p class="mt-4 font-bold text-gray-800">Task:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Create <span class="font-mono text-blue-800 font-medium">Student</span> class with attributes name and marks (list of 3 subjects)</li>
+            <li>Function <span class="font-mono text-blue-800 font-medium">calculate_average()</span> → returns average</li>
+            <li>Use <span class="code-keyword">try-except</span> to handle:
+                <ul class="list-disc list-outside pl-6 mt-2 space-y-1">
+                    <li>Non-numeric marks</li>
+                    <li>Empty marks list</li>
+                    <li>Negative marks</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <code>
+            Sunny: Marks = [90, 85, 78]<br>
+            Average: 84.33<br><br>
+            Ananya: Invalid marks input
+        </code>
+
+        <p class="mt-4 font-bold text-gray-800">Hints:</p>
+        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
+            <li>Use <span class="code-keyword">try</span> inside method or function</li>
+            <li>Catch <span class="text-lab-red">ValueError</span> for invalid marks</li>
+            <li>Loop over multiple students using <span class="code-keyword">for loop</span></li>
+        </ul>
+        
+    </div>
+    
+
+</body>
 </html>
