@@ -9,6 +9,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .code-reference {
+    position: relative;
+    margin: 1.2em 0;
+}
+
+.code-label {
+    position: absolute;
+    top: -12px;
+    left: 14px;
+    background: #FDBA74; /* soft orange */
+    color: #7C2D12;      /* dark orange/brown text */
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+}
+
+.code-reference code {
+    font-family: 'Fira Code', monospace;
+    background-color: #FFF7ED; /* light orange background */
+    padding: 1.5em;
+    display: block;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #431407;
+    border: 1px solid #FED7AA;
+}
+
+/* Optional subtle interaction */
+.code-reference code:hover {
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.15);
+    transition: box-shadow 0.2s ease;
+}
+
         /* Light theme styles based on the new image */
         body {
             font-family: 'Inter', sans-serif;
@@ -183,7 +220,7 @@
     <div class="content-card mx-auto p-6 sm:p-8 md:p-12 mt-8 mb-12">
 
         <!-- Image 1 Content -->
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Java Practice Lab:</h2>
+        <h1 class="text-3xl font-bold text-gray-900 mb-6">Java Practice Lab:</h1>
 
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Mentor's Note:</h3>
         <ul class="list-disc list-outside pl-6 space-y-2">
@@ -201,20 +238,27 @@
 
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Create your first class</h3>
         <p>Think of a class as a container for your program.</p>
-        <code>
-            <span class="code-keyword">class</span> <span class="code-class">HelloWorld</span> {
-                <span class="code-comment">// we will put code here next</span>
-            }
-        </code>
+        <div class="code-reference">
+    
+    <code>
+        <span class="code-keyword">class</span>
+        <span class="code-class">HelloWorld</span> {
+            <span class="code-comment">// we will put code here next</span>
+        }
+    </code>
+</div>
+
 
         <h3 class="text-xl font-semibold text-lab-blue mt-8 mb-3">Step 2: Add main() method</h3>
         <p>This is where Java starts running your program.</p>
+        <div class="code-reference">
         <code>
             <span class="code-keyword">public</span> <span class="code-keyword">static</span> <span class="code-keyword">void</span> <span class="code-method">main</span>(<span class="code-type">String</span>[] <span class="code-var">args</span>) {
                 <span class="code-object">System</span>.<span class="code-object">out</span>.<span class="code-method">println</span>(<span class="code-string">"Hello, World!"</span>);
             }
         </code>
-        <p class="mt-4">Try this:</p>
+        </div>
+        <Strong>Try this:</Strong>
         <ul class="list-disc list-outside pl-6 space-y-2">
             <li>Add the <span class="font-mono text-blue-800 font-medium">main()</span> method inside your class.</li>
             <li>Run it. You should see: <span class="font-semibold text-gray-800">Output:</span> "Hello world!" — in the Console</li>
@@ -225,13 +269,14 @@
             <li>Try printing your name, age, and favorite hobby.</li>
             <li>Use both <span class="font-mono text-blue-800 font-medium">System.out.println()</span> and <span class="font-mono text-blue-800 font-medium">System.out.print()</span>.</li>
         </ul>
+        <div class="code-reference">
         <code>
             <span class="code-object">System</span>.<span class="code-object">out</span>.<span class="code-method">println</span>(<span class="code-string">"Name: Sunny"</span>);
             <span class="code-object">System</span>.<span class="code-object">out</span>.<span class="code-method">println</span>(<span class="code-string">"Age: 21"</span>);
             <span class="code-object">System</span>.<span class="code-object">out</span>.<span class="code-method">print</span>(<span class="code-string">"Hobby: Coding"</span>);
             <span class="code-object">System</span>.<span class="code-object">out</span>.<span class="code-method">print</span>(<span class="code-string">" & Reading"</span>);
         </code>
-
+</div>
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Mini Challenge:</h3>
         <ul class="list-disc list-outside pl-6 space-y-2">
             <li>Create a class: <span class="font-mono text-blue-800 font-bold">PersonalInfo</span>.</li>
