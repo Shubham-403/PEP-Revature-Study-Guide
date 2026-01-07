@@ -115,7 +115,7 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo/Title -->
             <div class="text-2xl font-bold text-orange-600">
-                <a href="#">Revature Study Guide</a>
+                <a href="index.html">Revature Study Guide</a>
             </div>
             
             <!-- Navigation Links -->
@@ -223,20 +223,24 @@
     <main class="container mx-auto px-4 sm:px-6 py-12">
         <article class="prose max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg">
             
-            <h1>Yogananda Grocery Shop & The World of Databases</h1>
-            <p>Meet Yogananda, a grocery shop owner in Chennai. He sells rice, sugar, oil, and biscuits – everything. He has a big problem with maintaining all the data on <code>paper</code>.</p>
-            <ul>
-                <li>One notebook for customer details</li>
-                <li>One notebook for sale.</li>
-                <li>One notebook for payment details (EMI's type).</li>
-            </ul>
-            <p>When a customer asks, "Did I pay last week?". If 5 customers came together, everything became a mess! Then one day, his son said "Appa, let's use a <code>computer database!</code>"</p>
+      <h1>FreshMart Retail Store & The World of Databases</h1>
+<p>Meet Store Manager, a grocery shop owner in Chennai. He sells rice, sugar, oil, and biscuits – everything. He has a big problem with maintaining all the data on <code>paper</code>.</p>
 
-            <h2>What is Database?</h2>
-            <p>A database is like a digital notebook—a structured place to store, manage, and update information easily. It's organized neatly using <strong>tables</strong> with <strong>rows</strong> and <strong>columns</strong>.</p>
-            <p><strong>Example:</strong> One table for customers, one table for products.</p>
-            
-            <h3>Benefits for Yogananda with Database:</h3>
+<ul>
+    <li>One notebook for customer details</li>
+    <li>One notebook for sale.</li>
+    <li>One notebook for payment details (EMI’s type).</li>
+</ul>
+
+<p>When a customer asks, “Did I pay last week?” the Store Manager had to flip through pages in notebooks. If 5 customers came together, everything became a mess! Then one day, the operations team said “Manager, let’s use a <code>computer database!</code>”</p>
+
+<h2>What is Database?</h2>
+<p>A database is like a digital notebook — a structured place to store, manage, and update information easily.</p>
+<p>It’s organized neatly using <strong>tables</strong> with <strong>rows</strong> and <strong>columns</strong>.</p>
+<p><strong>Example:</strong> One table for customers, one table for products, one table for payments.</p>
+
+<h3>Benefits for Store Manager with Database:</h3>
+
             <div class="overflow-x-auto my-6 rounded-lg border">
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
@@ -266,21 +270,21 @@
                 </table>
             </div>
             
-            <p>Now, Yogananda can talk to his customer and ask questions like:</p>
-            <ul>
-                <li>Show me all customers from Chennai</li>
-            </ul>
-            <p>But... how will he <strong>talk</strong> to the database?</p>
-            <p>Just like we speak <code>English</code> to people, computers understand a special language called <code>SQL</code>.</p>
-            <!-- ✅ Add the link here -->
-<p>
-    You can practice writing SQL queries using this online SQL compiler: 
-    <a href="https://www.mycompiler.io/new/sql" target="_blank" 
+           <p>Now, Store Manager can talk to his customer and ask questions like:</p>
+<ul>
+    <li>Show me all customers from Chennai</li>
+</ul>
+<p>But... how will he <strong>talk</strong> to the database?</p>
+<p>Just like we speak <code>English</code> to people, computers understand a special language called <code>SQL</code>.</p>
+<!-- ✅ Add the link here -->
+
+    <p>You can practice writing SQL queries using this online SQL compiler: </p>
+    <blockquote><strong>Website link :</strong> Click here -><a href="https://sqliteonline.com/" target="_blank" 
    style="color:#ec6f39; text-decoration:none; font-weight:600; cursor:pointer; transition:all 0.3s ease;"
    onmouseover="this.style.color='#0d6efd'; this.style.textDecoration='underline';"
    onmouseout="this.style.color='#ec6f39'; this.style.textDecoration='none';">
    SQL Compiler &#8599;
-</a>
+</a> </blockquote>
 
 
 </p>
@@ -328,7 +332,7 @@
             </div>
 
             <h3>Understanding Tables</h3>
-            <p>Let's connect this to Yogananda's old notebooks.</p>
+            <p>Let’s connect this to Store Manager’s old notebooks.  </p>
             <div class="overflow-x-auto my-6 rounded-lg border">
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
@@ -470,11 +474,16 @@ Now, let's apply these DDL commands on our sample database structure.
 Note that DDL only <strong>defines the structure</strong> of tables — it does not insert or modify any data.  
 Adding records (data) is done later using <strong>DML commands</strong> such as <code>INSERT</code>.
 </p>
-
+<blockquote>
+<b>NOTE:</b> Most online SQL compilers do not allow creating databases. They provide only one predefined database. You cannot create a new database, but you can create tables and run all operations inside the given database. So skip the <code>CREATE DATABASE</code> command and continue with the remaining SQL commands.
+</blockquote>
+<h4 class="text-orange-700 font-semibold mt-4">CREATE</h4>
 <pre>
     <code class="language-sql">
 -- Create a new database
 CREATE DATABASE GroceryShop;
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 1 row affected</span>
 
 -- Create the Customers table (only structure, no data yet)
 CREATE TABLE Customers (
@@ -482,6 +491,8 @@ CREATE TABLE Customers (
     CustomerName VARCHAR(50),
     City VARCHAR(50)
 );
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 0 rows affected</span>
 
 -- Create the Orders table linked to Customers (structure only)
 CREATE TABLE Orders (
@@ -490,6 +501,8 @@ CREATE TABLE Orders (
     Product VARCHAR(50),
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 );
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 0 rows affected</span>
 
 -- Note:
 -- The above statements only define table structure.
@@ -497,46 +510,104 @@ CREATE TABLE Orders (
 -- INSERT INTO Customers VALUES (1, 'Yogananda', 'Chennai');
     </code>
 </pre>
-
-<h4 class="text-orange-700 font-semibold mt-4">ALTER</h4>
-<p>Used to add or modify columns in an existing table.</p>
-<pre>
-    <code class="language-sql">
--- Add a new column for storing phone numbers
-ALTER TABLE Customers ADD Phone VARCHAR(10);
-
--- Modify column size
-ALTER TABLE Customers MODIFY CustomerName VARCHAR(100);
-    </code>
-</pre>
-
 <h4 class="text-orange-700 font-semibold mt-4">RENAME</h4>
 <p>Used to change the table name.</p>
 <pre>
     <code class="language-sql">
 -- Rename Customers table to Clients
 RENAME TABLE Customers TO Clients;
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 0 rows affected</span>
+    </code>
+</pre>
+<blockquote><p style="margin:0; padding:0;"><strong>Note:</strong> Before <code>RENAME</code>→ Table name was <em>Customers</em>. After <code>RENAME</code> → Table name is <em>Clients</em>. The structure and data stay exactly the same.</p></blockquote>
+
+<h4 class="text-orange-700 font-semibold mt-4">ALTER</h4>
+<p>Used to add, remove, or modify columns in an existing table.  
+A practical use-case: When business requirements change — like adding a phone number field, increasing name length, or changing a column type — you use <code>ALTER</code> instead of redesigning the table.</p>
+
+<pre>
+    <code class="language-sql">
+-- Add a new column for storing phone numbers
+ALTER TABLE Clients ADD Phone VARCHAR(10);
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 0 rows affected
+-- Records: 0  Duplicates: 0  Warnings: 0</span>
+
+-- Modify column size to store longer names
+ALTER TABLE Clients MODIFY CustomerName VARCHAR(100);
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 0 rows affected
+-- Records: 0  Duplicates: 0  Warnings: 0</span>
+
+-- Best use-case example:
+-- The business now wants to store the email for each customer.
+ALTER TABLE Clients ADD Email VARCHAR(100);
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 0 rows affected</span>
     </code>
 </pre>
 
+<h4>Clients Table (After Adding Phone Column)</h4>
+<div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID (PK)</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">City</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Phone</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">1</td>
+                <td class="p-4">Yogananda</td>
+                <td class="p-4">Chennai</td>
+                <td class="p-4">NULL</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">2</td>
+                <td class="p-4">Vishnu</td>
+                <td class="p-4">Hyderabad</td>
+                <td class="p-4">NULL</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
 <h4 class="text-orange-700 font-semibold mt-4">TRUNCATE</h4>
 <p>Used to delete all rows from a table while keeping its structure intact.</p>
+
 <pre>
     <code class="language-sql">
 -- Remove all order records but retain table structure
 TRUNCATE TABLE Orders;
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 0 rows affected</span>
     </code>
 </pre>
+<p><strong>Task for you:</strong> After inserting some sample rows into the <code>Orders</code> table using DML commands. Then run the <code>TRUNCATE</code> command and observe how it clears all rows but keeps the table structure intact.</p>
+
 
 <h4 class="text-orange-700 font-semibold mt-4">DROP</h4>
 <p>Used to permanently delete a table or database.</p>
+<p class="text-red-700 text-sm mt-2">
+<blockquote><strong>Warning:</strong> If you run the <code>DROP</code> command on a database, all the tables used in the above examples will be permanently deleted. You cannot recover the data or redo the activities unless you recreate the tables from scratch.
+</p></blockquote>
+
 <pre>
     <code class="language-sql">
 -- Drop the Orders table permanently
 DROP TABLE Orders;
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 0 rows affected</span>
 
 -- Drop the entire database
 DROP DATABASE GroceryShop;
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 0 rows affected</span>
     </code>
 </pre>
 
@@ -581,15 +652,17 @@ DROP DATABASE GroceryShop;
 <p>Used to add new records into a table.</p>
 <pre>
 <code class="language-sql">
--- Insert multiple customer records
-INSERT INTO Customers (CustomerID, CustomerName, City)
+-- Insert multiple customer records (including Phone column)
+INSERT INTO Customers (CustomerID, CustomerName, City, Phone)
 VALUES 
-(1, 'Yogananda', 'Chennai'),
-(2, 'Vishnu', 'Hyderabad'),
-(3, 'Ramesh', 'Bangalore'),
-(4, 'Kavitha', 'Pune'),
-(5, 'Suresh', 'Delhi'),
-(6, 'Meena', 'Kochi');
+(1, 'Yogananda', 'Chennai', '9876543210'),
+(2, 'Vishnu', 'Hyderabad', '9123456780'),
+(3, 'Ramesh', 'Bangalore', '9988776655'),
+(4, 'Kavitha', 'Pune', '9090909090'),
+(5, 'Suresh', 'Delhi', '8008008008'),
+(6, 'Meena', 'Kochi', '9555666777');
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 6 rows affected</span>
 
 -- Insert corresponding order records
 INSERT INTO Orders (OrderID, CustomerID, Product)
@@ -600,8 +673,56 @@ VALUES
 (104, 4, 'Wheat'),
 (105, 5, 'Tea'),
 (106, 6, 'Coffee');
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 6 rows affected</span>
 </code>
 </pre>
+
+<!-- Effect on tables -->
+<h4 class="mt-4 font-semibold text-orange-700">Updated Customers Table</h4>
+<div class="overflow-x-auto my-4 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID (PK)</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">City</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Phone</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr><td class="p-4">1</td><td class="p-4">Yogananda</td><td class="p-4">Chennai</td><td class="p-4">9876543210</td></tr>
+            <tr><td class="p-4">2</td><td class="p-4">Vishnu</td><td class="p-4">Hyderabad</td><td class="p-4">9123456780</td></tr>
+            <tr><td class="p-4">3</td><td class="p-4">Ramesh</td><td class="p-4">Bangalore</td><td class="p-4">9988776655</td></tr>
+            <tr><td class="p-4">4</td><td class="p-4">Kavitha</td><td class="p-4">Pune</td><td class="p-4">9090909090</td></tr>
+            <tr><td class="p-4">5</td><td class="p-4">Suresh</td><td class="p-4">Delhi</td><td class="p-4">8008008008</td></tr>
+            <tr><td class="p-4">6</td><td class="p-4">Meena</td><td class="p-4">Kochi</td><td class="p-4">9555666777</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Orders Table -->
+<h4 class="mt-4 font-semibold text-orange-700">Updated Orders Table</h4>
+<div class="overflow-x-auto my-4 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID (PK)</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID (FK)</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr><td class="p-4">101</td><td class="p-4">1</td><td class="p-4">Sugar</td></tr>
+            <tr><td class="p-4">102</td><td class="p-4">2</td><td class="p-4">Rice</td></tr>
+            <tr><td class="p-4">103</td><td class="p-4">3</td><td class="p-4">Milk</td></tr>
+            <tr><td class="p-4">104</td><td class="p-4">4</td><td class="p-4">Wheat</td></tr>
+            <tr><td class="p-4">105</td><td class="p-4">5</td><td class="p-4">Tea</td></tr>
+            <tr><td class="p-4">106</td><td class="p-4">6</td><td class="p-4">Coffee</td></tr>
+        </tbody>
+    </table>
+</div>
+
 <blockquote><p><strong>Important:</strong> The number of columns and values must match, and data types should be compatible with the table definition.</p>
 </blockquote>
 <!-- UPDATE -->
@@ -609,35 +730,228 @@ VALUES
 <p>Used to modify existing records in a table based on a condition.</p>
 <pre>
 <code class="language-sql">
--- Update city for a specific customer
-UPDATE Customers
+-- Update city for a specific Client
+UPDATE Clients
 SET City = 'Hyderabad'
 WHERE CustomerID = 3;
+
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 1 row affected</span>
 
 -- Update product name for a specific order
 UPDATE Orders
 SET Product = 'Brown Sugar'
 WHERE OrderID = 101;
+
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 1 row affected</span>
 </code>
 </pre>
+
+<h3>Updated Clients Table</h3>
+<div class="overflow-x-auto my-4 rounded border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">City</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">Phone</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">1</td>
+                <td class="p-3">Yogananda</td>
+                <td class="p-3">Chennai</td>
+                <td class="p-3">9876543210</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">2</td>
+                <td class="p-3">Vishnu</td>
+                <td class="p-3">Hyderabad</td>
+                <td class="p-3">9123456780</td>
+            </tr>
+
+            <!-- UPDATED ROW (highlighted light grey) -->
+            <tr class="hover:bg-gray-50" style="background-color:#f2f2f2;">
+                <td class="p-3">3</td>
+                <td class="p-3">Ramesh</td>
+                <td class="p-3">Hyderabad</td> <!-- updated -->
+                <td class="p-3">9988776655</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">4</td>
+                <td class="p-3">Kavitha</td>
+                <td class="p-3">Pune</td>
+                <td class="p-3">9090909090</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">5</td>
+                <td class="p-3">Suresh</td>
+                <td class="p-3">Delhi</td>
+                <td class="p-3">8008008008</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">6</td>
+                <td class="p-3">Meena</td>
+                <td class="p-3">Kochi</td>
+                <td class="p-3">9555666777</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+<h3>Updated Orders Table</h3>
+<div class="overflow-x-auto my-4 rounded border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">OrderID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">Product</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+
+            <!-- UPDATED ROW (highlighted light grey) -->
+            <tr class="hover:bg-gray-50" style="background-color:#f2f2f2;">
+                <td class="p-3">101</td>
+                <td class="p-3">1</td>
+                <td class="p-3">Brown Sugar</td> <!-- updated -->
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">102</td>
+                <td class="p-3">2</td>
+                <td class="p-3">Rice</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">103</td>
+                <td class="p-3">3</td>
+                <td class="p-3">Milk</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">104</td>
+                <td class="p-3">4</td>
+                <td class="p-3">Wheat</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">105</td>
+                <td class="p-3">5</td>
+                <td class="p-3">Tea</td>
+            </tr>
+
+            <tr class="hover:bg-gray-50">
+                <td class="p-3">106</td>
+                <td class="p-3">6</td>
+                <td class="p-3">Coffee</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
 <blockquote><p><strong>Important:</strong> Always use a <code>WHERE</code> clause; omitting it updates all rows in the table.</p>
 </blockquote>
 <!-- DELETE -->
 <h4 class="mt-4 text-lg font-semibold text-green-700">DELETE</h4>
 <p>Used to remove one or more records from a table.</p>
+
 <pre>
 <code class="language-sql">
--- Delete a customer record
-DELETE FROM Customers
+-- Delete a client record
+DELETE FROM Clients
 WHERE CustomerID = 5;
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 1 row affected</span>
 
 -- Delete all orders for a specific customer
 DELETE FROM Orders
 WHERE CustomerID = 5;
+<span style="color:#d97b35;">-- Output:
+-- Query OK, 1 row affected</span>
 </code>
 </pre>
-<blockquote><p><strong>Important:</strong> If you skip the <code>WHERE</code> clause, all data from the table will be deleted.</p>
+
+<blockquote>
+<p><strong>Important:</strong> If you skip the <code>WHERE</code> clause, all data from the table will be deleted.</p>
 </blockquote>
+
+
+<!-- Updated Clients Table -->
+<h4 class="mt-4 font-semibold text-orange-700">Updated Clients Table (After DELETE)</h4>
+<div class="overflow-x-auto my-4 rounded border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">City</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">Phone</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+
+            <tr><td class="p-3">1</td><td class="p-3">Yogananda</td><td class="p-3">Chennai</td><td class="p-3">9876543210</td></tr>
+            <tr><td class="p-3">2</td><td class="p-3">Vishnu</td><td class="p-3">Hyderabad</td><td class="p-3">9123456780</td></tr>
+
+            <tr style="background:#f2f2f2;">
+                <td class="p-3">3</td><td class="p-3">Ramesh</td>
+                <td class="p-3">Hyderabad</td>
+                <td class="p-3">9988776655</td>
+            </tr>
+
+            <tr><td class="p-3">4</td><td class="p-3">Kavitha</td><td class="p-3">Pune</td><td class="p-3">9090909090</td></tr>
+
+            <!-- CustomerID = 5 REMOVED -->
+
+            <tr><td class="p-3">6</td><td class="p-3">Meena</td><td class="p-3">Kochi</td><td class="p-3">9555666777</td></tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Updated Orders Table -->
+<h4 class="mt-4 font-semibold text-orange-700">Updated Orders Table (After DELETE)</h4>
+<div class="overflow-x-auto my-4 rounded border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">OrderID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-3 font-semibold text-orange-800 bg-orange-100">Product</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+
+            <tr style="background:#f2f2f2;">
+                <td class="p-3">101</td><td class="p-3">1</td><td class="p-3">Brown Sugar</td>
+            </tr>
+
+            <tr><td class="p-3">102</td><td class="p-3">2</td><td class="p-3">Rice</td></tr>
+            <tr><td class="p-3">103</td><td class="p-3">3</td><td class="p-3">Milk</td></tr>
+            <tr><td class="p-3">104</td><td class="p-3">4</td><td class="p-3">Wheat</td></tr>
+
+            <!-- Order for CustomerID=5 REMOVED -->
+
+            <tr><td class="p-3">106</td><td class="p-3">6</td><td class="p-3">Coffee</td></tr>
+
+        </tbody>
+    </table>
+</div>
+
 <h3>3. DQL (Data Query Language):</h3>
 <p>DQL commands are used to query and retrieve data stored in database tables.</p>
 <p>Think of DQL as <strong>"asking your database questions and getting answers"</strong> — it helps you view and analyze the stored information.</p>
@@ -661,75 +975,125 @@ WHERE CustomerID = 5;
     </table>
 </div>
 
-<p class="mt-6">Let’s use the previously inserted <strong>Customers</strong> and <strong>Orders</strong> tables to perform various DQL queries and understand how to retrieve data effectively.</p>
+<p class="mt-6">Let’s use the previously inserted <strong>Clients</strong> and <strong>Orders</strong> tables to perform various DQL queries and understand how to retrieve data effectively.</p>
 
-<!-- BASIC SELECT -->
+<!-- 1. Retrieve All Records -->
 <h4 class="mt-4 text-lg font-semibold text-orange-700">1. Retrieve All Records</h4>
-<p>Fetch all columns and rows from the <code>Customers</code> table.</p>
-<pre>
-<code class="language-sql">
--- Retrieve all customers
-SELECT * FROM Customers;
+<p>Fetch all columns and rows from the <code>Clients</code> table.</p>
+
+<pre><code class="language-sql">
+-- Retrieve all clients
+SELECT * FROM Clients;
+<span style="color:#d97b35;">-- Output:</span>
++------------+--------------+-----------+------------+
+| CustomerID | CustomerName | City      | Phone      |
++------------+--------------+-----------+------------+
+| 1          | Yogananda    | Chennai   | 9876543210 |
+| 2          | Vishnu       | Hyderabad | 9123456780 |
+| 3          | Ramesh       | Hyderabad | 9988776655 |
+| 4          | Kavitha      | Pune      | 9090909090 |
+| 6          | Meena        | Kochi     | 9555666777 |
++------------+--------------+-----------+------------+
 
 -- Retrieve all orders
 SELECT * FROM Orders;
-</code>
-</pre>
+<span style="color:#d97b35;">-- Output:</span>
++---------+------------+-------------+
+| OrderID | CustomerID | Product     |
++---------+------------+-------------+
+| 101     | 1          | Brown Sugar |
+| 102     | 2          | Rice        |
+| 103     | 3          | Milk        |
+| 104     | 4          | Wheat       |
+| 106     | 6          | Coffee      |
++---------+------------+-------------+
+</code></pre>
 
-<!-- SELECT SPECIFIC COLUMNS -->
+<!-- 2. Retrieve Specific Columns -->
 <h4 class="mt-4 text-lg font-semibold text-orange-700">2. Retrieve Specific Columns</h4>
-<p>Fetch only the required columns instead of the entire table.</p>
-<pre>
-<code class="language-sql">
--- Retrieve only customer names and cities
-SELECT CustomerName, City FROM Customers;
+
+<pre><code class="language-sql">
+-- Retrieve only client names and cities
+SELECT CustomerName, City FROM Clients;
+<span style="color:#d97b35;">-- Output:</span>
++--------------+-----------+
+| CustomerName | City      |
++--------------+-----------+
+| Yogananda    | Chennai   |
+| Vishnu       | Hyderabad |
+| Ramesh       | Hyderabad |
+| Kavitha      | Pune      |
+| Meena        | Kochi     |
++--------------+-----------+
 
 -- Retrieve only product names from orders
 SELECT Product FROM Orders;
-</code>
-</pre>
+<span style="color:#d97b35;">-- Output:</span>
++-------------+
+| Product     |
++-------------+
+| Brown Sugar |
+| Rice        |
+| Milk        |
+| Wheat       |
+| Coffee      |
++-------------+
+</code></pre>
 
-<!-- SELECT WITH CONDITION -->
+<!-- 3. Retrieve Data with Conditions -->
 <h4 class="mt-4 text-lg font-semibold text-orange-700">3. Retrieve Data with Conditions</h4>
-<p>Use the <code>WHERE</code> clause to filter data based on specific conditions.</p>
-<pre>
-<code class="language-sql">
--- Customers from Hyderabad
-SELECT * FROM Customers WHERE City = 'Hyderabad';
+
+<pre><code class="language-sql">
+-- Clients from Hyderabad
+SELECT * FROM Clients WHERE City = 'Hyderabad';
+<span style="color:#d97b35;">-- Output:</span>
++------------+-------------+-----------+------------+
+| CustomerID | CustomerName| City      | Phone      |
++------------+-------------+-----------+------------+
+| 2          | Vishnu      | Hyderabad | 9123456780 |
+| 3          | Ramesh      | Hyderabad | 9988776655 |
++------------+-------------+-----------+------------+
 
 -- Orders made by CustomerID = 3
 SELECT * FROM Orders WHERE CustomerID = 3;
-</code>
-</pre>
+<span style="color:#d97b35;">-- Output:</span>
++---------+------------+---------+
+| OrderID | CustomerID | Product |
++---------+------------+---------+
+| 103     | 3          | Milk    |
++---------+------------+---------+
+</code></pre>
 
-<!-- SELECT WITH ORDER BY -->
+<!-- 4. Retrieve Data in Sorted Order -->
 <h4 class="mt-4 text-lg font-semibold text-orange-700">4. Retrieve Data in Sorted Order</h4>
-<p>Use the <code>ORDER BY</code> clause to display results in ascending or descending order.</p>
-<pre>
-<code class="language-sql">
--- Customers sorted by name
-SELECT * FROM Customers ORDER BY CustomerName ASC;
+
+<pre><code class="language-sql">
+-- Clients sorted by name
+SELECT * FROM Clients ORDER BY CustomerName ASC;
+<span style="color:#d97b35;">-- Output:</span>
++------------+--------------+-----------+------------+
+| CustomerID | CustomerName | City      | Phone      |
++------------+--------------+-----------+------------+
+| 4          | Kavitha      | Pune      | 9090909090 |
+| 6          | Meena        | Kochi     | 9555666777 |
+| 3          | Ramesh       | Hyderabad | 9988776655 |
+| 2          | Vishnu       | Hyderabad | 9123456780 |
+| 1          | Yogananda    | Chennai   | 9876543210 |
++------------+--------------+-----------+------------+
 
 -- Orders sorted by product name (descending)
 SELECT * FROM Orders ORDER BY Product DESC;
-</code>
-</pre>
-
-<!-- SELECT WITH ALIAS AND JOIN -->
-<h4 class="mt-4 text-lg font-semibold text-orange-700">5. Retrieve Data Using JOIN</h4>
-<p>Use <code>JOIN</code> to combine related data from multiple tables based on a common column.</p>
-<pre>
-<code class="language-sql">
--- Retrieve customer names with their corresponding products
-SELECT 
-    C.CustomerName, 
-    C.City, 
-    O.Product
-FROM Customers AS C
-INNER JOIN Orders AS O
-ON C.CustomerID = O.CustomerID;
-</code>
-</pre>
+<span style="color:#d97b35;">-- Output:</span>
++---------+------------+-------------+
+| OrderID | CustomerID | Product     |
++---------+------------+-------------+
+| 104     | 4          | Wheat       |
+| 103     | 3          | Milk        |
+| 102     | 2          | Rice        |
+| 106     | 6          | Coffee      |
+| 101     | 1          | Brown Sugar |
++---------+------------+-------------+
+</code></pre>
 
 <blockquote><p><strong>Important:</strong> The <code>SELECT</code> statement does not modify data — it only retrieves it. Always use filters or joins carefully to avoid large, unnecessary data loads.</p>
 
@@ -799,77 +1163,105 @@ ON C.CustomerID = O.CustomerID;
             </div>
 
             <h2>JOINS – Combining Data from Multiple Tables</h2>
-            <p>Yogananda now has two tables</p>
-            <h4>Customers Table</h4>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">City</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">1</td>
-                            <td class="p-4">Yogananda</td>
-                            <td class="p-4">Chennai</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">2</td>
-                            <td class="p-4">Vishnu</td>
-                            <td class="p-4">Hyderabad</td>
-                        </tr>
-                         <tr class="hover:bg-gray-50">
-                            <td class="p-4">3</td>
-                            <td class="p-4">Kiran</td>
-                            <td class="p-4">Bangalore</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h4>Orders Table</h4>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
-                             <th class="p-4 font-semibold text-orange-800 bg-orange-100">Quantity</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">101</td>
-                            <td class="p-4">1</td>
-                            <td class="p-4">Sugar</td>
-                            <td class="p-4">2</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">102</td>
-                            <td class="p-4">2</td>
-                            <td class="p-4">Rice</td>
-                            <td class="p-4">1</td>
-                        </tr>
-                         <tr class="hover:bg-gray-50">
-                            <td class="p-4">103</td>
-                            <td class="p-4">1</td>
-                            <td class="p-4">Oil</td>
-                            <td class="p-4">1</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">104</td>
-                            <td class="p-4">4</td>
-                            <td class="p-4">Salt</td>
-                            <td class="p-4">5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p>Notice that CustomerID=4 (in Orders Table) doesn't exist in the customers table - maybe an order by mistake. Now Yogananda wants to view "which customers bought what?" To do this, we need JOINS.</p>
-            
+            <p>Store Manager now has two tables </p>
+            <h4>Clients Table</h4>
+         <div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerName</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">City</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Phone</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">1</td>
+                <td class="p-4">Yogananda</td>
+                <td class="p-4">Chennai</td>
+                <td class="p-4">9876543210</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">2</td>
+                <td class="p-4">Vishnu</td>
+                <td class="p-4">Hyderabad</td>
+                <td class="p-4">9123456780</td>
+            </tr>
+            <tr>
+                <td class="p-4">3</td>
+                <td class="p-4">Ramesh</td>
+                <td class="p-4">Hyderabad</td>
+                <td class="p-4">9988776655</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">4</td>
+                <td class="p-4">Kavitha</td>
+                <td class="p-4">Pune</td>
+                <td class="p-4">9090909090</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">6</td>
+                <td class="p-4">Meena</td>
+                <td class="p-4">Kochi</td>
+                <td class="p-4">9555666777</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+           <h4>Orders Table</h4>
+<div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr >
+                <td class="p-4">101</td>
+                <td class="p-4">1</td>
+                <td class="p-4">Brown Sugar</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">102</td>
+                <td class="p-4">2</td>
+                <td class="p-4">Rice</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">103</td>
+                <td class="p-4">3</td>
+                <td class="p-4">Milk</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">104</td>
+                <td class="p-4">4</td>
+                <td class="p-4">Wheat</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">106</td>
+                <td class="p-4">6</td>
+                <td class="p-4">Coffee</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p><strong>Before we start learning JOINS, it's important to see how they behave when some records do not have matching pairs.</strong><br>
+Right now, every customer has at least one order, so everything matches perfectly. To understand JOINS clearly, we’ll intentionally create a small imbalance by adding one client who has <em>no orders</em>. This will help us see how each JOIN handles unmatched records.</p>
+<pre>
+<code class="language-sql">
+-- Insert a client with no orders (used to demonstrate JOIN behavior)
+INSERT INTO Clients (CustomerID, CustomerName, City, Phone)
+VALUES (7, 'Arun', 'Mysore', '9000011122');
+
+<span style="color:#d97b35;">-- Output:</span>
+-- Query OK, 1 row affected
+</code>
+</pre>
+
             <h3>What are JOINS?</h3>
             <p>A <strong>JOIN</strong> combines rows from two or more tables based on a related column between them (usually <strong>Primary Key = Foreign Key</strong>).</p>
             <p>It's like saying "Hey database, show me information from both notebooks together, where the entries match!"</p>
@@ -879,37 +1271,130 @@ ON C.CustomerID = O.CustomerID;
             
             <h4>1. INNER JOIN:</h4>
             <p>Shows only the <strong>matching rows</strong> from both tables. If a customer doesn't have an order, or an order doesn't have a valid customer – those rows are <strong>ignored</strong>.</p>
-            <pre><code class="language-sql">SELECT Customers.CustomerName, Orders.Product, Orders.Quantity
-FROM Customers
+            
+<pre><code class="language-sql">
+SELECT Clients.CustomerName, Orders.Product
+FROM Clients
 INNER JOIN Orders
-ON Customers.CustomerID = Orders.CustomerID;</code></pre>
-            <p><strong>Note:</strong> Use INNER JOIN when you only want rows that have matches on both tables.</p>
+ON Clients.CustomerID = Orders.CustomerID;
+
+<span style="color:#d97b35;">-- Output:</span>
++--------------+-------------+
+| CustomerName | Product     |
++--------------+-------------+
+| Yogananda    | Brown Sugar |
+| Vishnu       | Rice        |
+| Ramesh       | Milk        |
+| Kavitha      | Wheat       |
+| Meena        | Coffee      |
++--------------+-------------+
+
+<span style="color:#d97b35;">-- Note:</span>
+-- The client "Arun" (CustomerID = 7) does NOT appear.
+-- Reason: He has no matching entry in the Orders table.
+-- INNER JOIN only returns rows where both tables have a match.
+</code></pre>
+
+<blockquote><p><strong>Good to know:</strong> INNER JOIN hides unmatched data on both sides. Perfect when you only want valid linked records.</p></blockquote>
+
 
             <h4>2. LEFT JOIN:</h4>
-            <p>Returns <strong>all rows from the left table</strong> (Customers) and the matching rows from the right table (Orders). If there's no match, NULL is shown.</p>
-            <pre><code class="language-sql">SELECT Customers.CustomerName, Orders.Product, Orders.Quantity
-FROM Customers
+<p>Returns <strong>all rows from the left table</strong> (Clients) and the matching rows from Orders. If a client has no orders, the order columns become <strong>NULL</strong>.</p>
+
+<pre><code class="language-sql">
+SELECT Clients.CustomerName, Orders.Product
+FROM Clients
 LEFT JOIN Orders
-ON Customers.CustomerID = Orders.CustomerID;</code></pre>
-            <p>Kiran didn't place the order -> Product and Quantity show NULL.</p>
-            <p><strong>Note:</strong> Use LEFT JOIN when you want all customers, even those without any orders.</p>
+ON Clients.CustomerID = Orders.CustomerID;
+
+<span style="color:#d97b35;">-- Output:</span>
++--------------+-------------+
+| CustomerName | Product     |
++--------------+-------------+
+| Yogananda    | Brown Sugar |
+| Vishnu       | Rice        |
+| Ramesh       | Milk        |
+| Kavitha      | Wheat       |
+| Meena        | Coffee      |
+| Arun         | NULL        |
++--------------+-------------+
+
+<span style="color:#d97b35;">-- Note:</span>
+-- "Arun" (CustomerID = 7) appears in the result,
+-- but Product is NULL because he has no orders.
+-- LEFT JOIN keeps all clients, even without matching order records.
+</code></pre>
+
+<p><strong>Use <code>LEFT JOIN </code>when:</strong> You want to see every client, including those who never placed an order.</p>
 
             <h4>3. RIGHT JOIN (or RIGHT OUTER JOIN):</h4>
-            <p>It returns <strong>all rows from the right table</strong> (Orders) and the matching rows from the left table (Customers).</p>
-            <pre><code class="language-sql">SELECT Customers.CustomerName, Orders.Product
-FROM Customers
-RIGHT JOIN Orders
-ON Customers.CustomerID = Orders.CustomerID;</code></pre>
-            <p>Here CustomerName is NULL because OrderID 104 has no valid customer.</p>
-            <p><strong>Note:</strong> Use RIGHT JOIN when you want all orders, even if some customers don't exist.</p>
+<p>Returns <strong>all rows from the right table</strong> (Orders) and only the matching rows from Clients. If an order has no valid customer, the customer fields become <strong>NULL</strong>.</p>
 
-            <h4>4. FULL OUTER JOIN:</h4>
-            <p>It returns <strong>all rows from both tables</strong>, showing NULL where there is no match.</p>
-            <pre><code class="language-sql">SELECT Customers.CustomerName, Orders.Product
-FROM Customers
-FULL OUTER JOIN Orders
-ON Customers.CustomerID = Orders.CustomerID;</code></pre>
-            <p>Use FULL JOIN when you need to see everything – matches and non-matches.</p>
+<pre><code class="language-sql">
+SELECT Clients.CustomerName, Orders.Product
+FROM Clients
+RIGHT JOIN Orders
+ON Clients.CustomerID = Orders.CustomerID;
+
+<span style="color:#d97b35;">-- Output:</span>
++--------------+-------------+
+| CustomerName | Product     |
++--------------+-------------+
+| Yogananda    | Brown Sugar |
+| Vishnu       | Rice        |
+| Ramesh       | Milk        |
+| Kavitha      | Wheat       |
+| Meena        | Coffee      |
++--------------+-------------+
+
+<span style="color:#d97b35;">-- Note:</span>
+-- No NULL rows appear because every Order in this dataset
+-- has a valid matching CustomerID.
+-- RIGHT JOIN includes all Orders, but since all of them match,
+-- the result looks identical to INNER JOIN.
+</code></pre>
+
+<p><strong>Use<code>RIGHT JOIN </code> when:</strong> You want all orders, even if some don't have matching customers.</p>
+<h4>4. FULL OUTER JOIN:</h4>
+<p>Returns <strong>all rows from both tables</strong>. If a customer has no order or an order has no valid customer, the missing fields show <strong>NULL</strong>.</p>
+
+<pre><code class="language-sql">
+-- FULL OUTER JOIN (MySQL simulation using UNION)
+SELECT Clients.CustomerName, Orders.Product
+FROM Clients
+LEFT JOIN Orders
+ON Clients.CustomerID = Orders.CustomerID
+
+UNION
+
+SELECT Clients.CustomerName, Orders.Product
+FROM Clients
+RIGHT JOIN Orders
+ON Clients.CustomerID = Orders.CustomerID;
+
+<span style="color:#d97b35;">-- Output:</span>
++--------------+-------------+
+| CustomerName | Product     |
++--------------+-------------+
+| Yogananda    | Brown Sugar |
+| Vishnu       | Rice        |
+| Ramesh       | Milk        |
+| Kavitha      | Wheat       |
+| Meena        | Coffee      |
+| Arun         | NULL        |
++--------------+-------------+
+
+<span style="color:#d97b35;">-- Note:</span>
+-- Arun appears with NULL because he has NO orders.
+-- No NULL rows from Orders because all orders have valid customers.
+-- FULL JOIN shows all Customers + all Orders (matched + unmatched).
+</code></pre>
+<blockquote>
+Don’t get confused when <code>FULL OUTER JOIN</code> looks the same as <code>LEFT JOIN</code> in this example.  
+We don’t have any unmatched rows in the <code>Orders</code> table, so <code>FULL OUTER JOIN</code> has nothing extra to show.
+</blockquote>
+
+<p><strong>Use <code>FULL OUTER JOIN </code>when:</strong> You want to see every record, matched or not.</p>
 
             <h3>SUMMARY:</h3>
              <div class="overflow-x-auto my-6 rounded-lg border">
@@ -947,13 +1432,14 @@ ON Customers.CustomerID = Orders.CustomerID;</code></pre>
             </div>
 
             <h2>AGGREGATE FUNCTIONS:</h2>
-            <p>After combining data, Yogananda wants summaries like:</p>
-            <ul>
-                <li>How many total customers?</li>
-                <li>How many total orders?</li>
-                <li>Average quantity orders?</li>
-            </ul>
-            <p>That's where <strong>Aggregate functions</strong> help.</p>
+           <p>After combining data, the Store Manager wants summaries like:</p>
+<ul>
+    <li>How many total customers?</li>
+    <li>How many total orders?</li>
+    <li>Average quantity ordered?</li>
+</ul>
+<p>That’s where <strong>Aggregate functions</strong> help.</p>
+
             <div class="overflow-x-auto my-6 rounded-lg border">
                 <table class="w-full text-left">
                     <thead class="bg-gray-50">
@@ -993,173 +1479,303 @@ ON Customers.CustomerID = Orders.CustomerID;</code></pre>
                 </table>
             </div>
             <h4>Example Scenario:</h4>
-            <p>Orders Table:</p>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Quantity</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">101</td>
-                            <td class="p-4">Sugar</td>
-                            <td class="p-4">2</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">102</td>
-                            <td class="p-4">Rice</td>
-                            <td class="p-4">1</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">103</td>
-                            <td class="p-4">Oil</td>
-                            <td class="p-4">1</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">104</td>
-                            <td class="p-4">Salt</td>
-                            <td class="p-4">5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<p>Orders Table:</p>
+<div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">OrderID</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">CustomerID</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Product</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">101</td>
+                <td class="p-4">1</td>
+                <td class="p-4">Brown Sugar</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">102</td>
+                <td class="p-4">2</td>
+                <td class="p-4">Rice</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">103</td>
+                <td class="p-4">3</td>
+                <td class="p-4">Milk</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">104</td>
+                <td class="p-4">4</td>
+                <td class="p-4">Wheat</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4">106</td>
+                <td class="p-4">6</td>
+                <td class="p-4">Coffee</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<strong>Queries:</strong>
 
-            <p>Queries:</p>
-             <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Goal</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Query</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Output</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">Total Orders</td>
-                            <td class="p-4"><code>SELECT COUNT(*) FROM Orders;</code></td>
-                            <td class="p-4">4</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">Total Quantity Sold</td>
-                            <td class="p-4"><code>SELECT SUM(Quantity) FROM Orders;</code></td>
-                            <td class="p-4">9</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">Average Quantity per Order</td>
-                            <td class="p-4"><code>SELECT AVG(Quantity) FROM Orders;</code></td>
-                            <td class="p-4">2.25</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">Smallest Order</td>
-                            <td class="p-4"><code>SELECT MIN(Quantity) FROM Orders;</code></td>
-                            <td class="p-4">1</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4">Largest Order</td>
-                            <td class="p-4"><code>SELECT MAX(Quantity) FROM Orders;</code></td>
-                            <td class="p-4">5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
-            <h2>GROUP BY, HAVING & ORDER BY</h2>
-            <p>Let's go step-by-step.</p>
-            
-            <h3>1. GROUP BY:</h3>
-            <p>Used to group rows having the same value in one or more columns. Usually used with aggregate functions.</p>
-            <p>Yogananda wants to know: "How many total orders has each customer placed?"</p>
-            <pre><code class="language-sql">SELECT CustomerID, COUNT(OrderID) AS TotalOrders
+<!-- 1. Total Orders -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">1.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Total number of orders
+SELECT COUNT(*) AS TotalOrders FROM Orders;
+-- <span style="color:#d97b35;">Output:</span>
++-------------+
+| TotalOrders |
++-------------+
+|           5 |
++-------------+
+  </code></pre>
+</div>
+<!-- Note on Aliases -->
+<p><strong>Note on Aliases:</strong></p>
+<ul>
+  <li>An <em>alias</em> is a temporary name given to a column or table in a SQL query to make the output more readable.</li>
+  <li>It does not change the original column or table name in the database.</li>
+  <li>Column aliases are often used with aggregate functions (like <code>COUNT()</code>, <code>SUM()</code>, <code>MIN()</code>, <code>MAX()</code>, <code>AVG()</code>) to give the result a meaningful name.</li>
+  <li>Table aliases help shorten long table names when writing joins or complex queries.</li>
+  <li>Example from our queries: <code>SELECT COUNT(*) AS TotalOrders</code> – here <code>TotalOrders</code> is an alias for the result of <code>COUNT(*)</code>.</li>
+</ul>
+<!-- 2. Total Unique Customers -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">2.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Total unique customers
+SELECT COUNT(DISTINCT CustomerID) AS UniqueCustomers
+FROM Orders;
+-- <span style="color:#d97b35;">Output:</span>
++-----------------+
+| UniqueCustomers |
++-----------------+
+|               5 |
++-----------------+
+  </code></pre>
+</div>
+
+<!-- 3. Orders per Customer -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">3.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Orders per customer
+SELECT CustomerID, COUNT(*) AS OrderCount
 FROM Orders
-GROUP BY CustomerID;</code></pre>
+GROUP BY CustomerID;
+-- <span style="color:#d97b35;">Output:</span>
++------------+------------+
+| CustomerID | OrderCount |
++------------+------------+
+|          1 |          1 |
+|          2 |          1 |
+|          3 |          1 |
+|          4 |          1 |
+|          6 |          1 |
++------------+------------+
+  </code></pre>
+</div>
 
-            <h3>2. HAVING:</h3>
-            <p>It works like "WHERE", but for groups. It is used to filter results after GROUP BY.</p>
-            <p>Yogananda wants only those customers who placed more than one order.</p>
-            <pre><code class="language-sql">SELECT CustomerID, COUNT(OrderID) AS TotalOrders
+<!-- 4. Smallest OrderID -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">4.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Smallest OrderID
+SELECT MIN(OrderID) AS SmallestOrderID FROM Orders;
+-- <span style="color:#d97b35;">Output:</span>
++------------------+
+| SmallestOrderID  |
++------------------+
+|              101 |
++------------------+
+  </code></pre>
+</div>
+
+<!-- 5. Largest OrderID -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">5.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Largest OrderID
+SELECT MAX(OrderID) AS LargestOrderID FROM Orders;
+-- <span style="color:#d97b35;">Output:</span>
++------------------+
+| LargestOrderID   |
++------------------+
+|              106 |
++------------------+
+  </code></pre>
+</div>
+
+<!-- 6. Total Products Ordered -->
+<div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;">
+  <strong style="flex-shrink:0;width:2rem;">6.</strong>
+  <pre style="margin:0;flex-grow:1;"><code class="language-sql">
+-- Total products ordered
+SELECT COUNT(Product) AS TotalProducts FROM Orders;
+-- <span style="color:#d97b35;">Output:</span>
++---------------+
+| TotalProducts |
++---------------+
+|             5 |
++---------------+
+  </code></pre>
+</div>
+
+<div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+    <strong style="flex-shrink: 0; width: 2rem;">7.</strong>
+    <pre style="margin: 0; flex-grow: 1;"><code class="language-sql">
+-- Count product frequency
+SELECT Product, COUNT(*) AS TimesOrdered
+FROM Orders
+GROUP BY Product;
+-- <span style="color:#d97b35;">Output:</span>
++-------------+---------------+
+| Product     | TimesOrdered  |
++-------------+---------------+
+| Brown Sugar |             1 |
+| Rice        |             1 |
+| Milk        |             1 |
+| Wheat       |             1 |
+| Coffee      |             1 |
++-------------+---------------+
+    </code></pre>
+</div>
+
+
+<h2>GROUP BY, HAVING & ORDER BY</h2>
+<p>These clauses help organize, summarize, and sort data in SQL. Let’s explore them one by one with clear definitions, scenarios, and examples using our <code>Clients</code> and <code>Orders</code> tables.</p>
+
+<h3>1. GROUP BY</h3>
+The <code>GROUP BY</code> clause groups rows that have the same values in one or more columns. It is usually used with aggregate functions like <code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code> to calculate summaries for each group.</p>
+<p><strong>Scenario:</strong> The Store Manager wants to know: "How many total orders has each customer placed?"</p>
+<pre><code class="language-sql">
+SELECT CustomerID, COUNT(OrderID) AS TotalOrders
+FROM Orders
+GROUP BY CustomerID;
+-- <span style="color:#d97b35;">Output:</span>
++------------+------------+
+| CustomerID | TotalOrders|
++------------+------------+
+|          1 |          1 |
+|          2 |          1 |
+|          3 |          1 |
+|          4 |          1 |
+|          6 |          1 |
++------------+------------+
+</code></pre>
+<p>Here, each <code>CustomerID</code> forms a group, and <code>COUNT(OrderID)</code> calculates how many orders that customer placed.</p>
+
+<h3>2. HAVING</h3>
+The <code>HAVING</code> clause is similar to <code>WHERE</code>, but it filters groups after aggregation. <code>WHERE</code> filters rows before grouping, whereas <code>HAVING</code> filters the result of <code>GROUP BY</code>.</p>
+<p><strong>Scenario:</strong> The Store Manager wants only customers who placed more than one order. This is important to analyze high-volume customers.</p>
+<pre><code class="language-sql">
+SELECT CustomerID, COUNT(OrderID) AS TotalOrders
 FROM Orders
 GROUP BY CustomerID
-HAVING COUNT(OrderID) > 1;</code></pre>
-            <p><strong>Note:</strong> WHERE filters rows before grouping, HAVING filters results after grouping.</p>
-            
-            <h3>3. ORDER BY:</h3>
-            <p>Used to sort results in ascending (ASC) or descending (DESC) order.</p>
-            <pre><code class="language-sql">SELECT CustomerName, City
+HAVING COUNT(OrderID) > 1;
+-- <span style="color:#d97b35;">Output:</span>
++------------+------------+
+| CustomerID | TotalOrders|
++------------+------------+
+-- No rows returned
+</code></pre>
+<p>Since in our data each customer has only one order, no rows satisfy <code>HAVING COUNT(OrderID) &gt; 1</code>. If a customer had multiple orders, only those would appear.</p>
+
+<h3>3. ORDER BY</h3>
+The <code>ORDER BY</code> clause sorts the result set by one or more columns. Default order is ascending (ASC). Use <code>DESC</code> for descending order.</p>
+<p><strong>Scenario:</strong> The Store Manager wants the customer list sorted by name from Z → A to prepare a report.</p>
+<pre><code class="language-sql">
+SELECT CustomerName, City
 FROM Customers
-ORDER BY CustomerName DESC;</code></pre>
-            <p><strong>Note:</strong> Default order is ASC.</p>
+ORDER BY CustomerName DESC;
+-- <span style="color:#d97b35;">Output:</span>
++--------------+-----------+
+| CustomerName | City      |
++--------------+-----------+
+| Vishnu       | Hyderabad |
+| Yogananda    | Chennai   |
+| Meena        | Kochi     |
+| Kavitha      | Pune      |
+| Arun         | Mysore    |
++--------------+-----------+
+</code></pre>
+<p>Here, <code>ORDER BY CustomerName DESC</code> sorts customers in reverse alphabetical order. Without <code>DESC</code>, it would default to ascending (A → Z).</p>
 
-            <h2>NORMALIZATION – Making Databases Efficient</h2>
-            <p>Now Yogananda has stored all his shop data in one big table. Everything works fine... until problems appear.</p>
-            
-            <h3>Problem in This Design:</h3>
-            <ol>
-                <li><strong>Repetition</strong> – Same customer info repeated.</li>
-                <li><strong>Update anomaly</strong> – If Kiran changes his phone, must update every row.</li>
-                <li><strong>Delete anomaly</strong> – If Vishnu's only order is deleted, his info is lost.</li>
-            </ol>
-            <p>To fix this, we apply <strong>Normalization</strong>.</p>
-            
-            <h3>What is Normalization?</h3>
-            <p>Normalization is the process of organizing data into smaller, related tables to:</p>
-            <ul>
-                <li>Remove repetition</li>
-                <li>Reduce storage waste</li>
-                <li>Maintain consistency</li>
-                <li>Improve data integrity</li>
-            </ul>
+<p><strong>Summary:</strong></p>
+<ul>
+<li><code>GROUP BY</code> → groups rows to calculate summaries.</li>
+<li><code>HAVING</code> → filters groups after aggregation.</li>
+<li><code>ORDER BY</code> → sorts the result set.</li>
+<li>These clauses are often used together to generate meaningful reports.</li>
+</ul>
+<h2>NORMALIZATION – Making Databases Efficient</h2>
+<p>Now the Store Manager has stored all his shop data in one big table. Initially, everything works fine… but as the data grows, several problems appear:</p>
 
-            <h3>Normal Forms (Levels of Normalization)</h3>
-            
-            <h4>a. 1NF (First Normal Form):</h4>
-            <p>Each column must have atomic (single) values. No repeating groups or arrays.</p>
-            
-            <h4>b. 2NF (Second Normal Form)</h4>
-            <ul>
-                <li>Must be in 1NF.</li>
-                <li>No partial dependency – every non-key column depends on the entire primary key.</li>
-            </ul>
+<h3>Problems in This Design:</h3>
+<ul>
+    <li><strong>Repetition:</strong> Same customer information is repeated for every order, wasting space.</li>
+    <li><strong>Update anomaly:</strong> If a customer changes their phone number, every row containing that customer must be updated manually.</li>
+    <li><strong>Delete anomaly:</strong> If a customer's only order is deleted, their information disappears from the database.</li>
+</ul>
+<p>To fix these issues, we apply <strong>Normalization</strong>.</p>
 
-            <h4>c. 3NF (Third Normal Form):</h4>
-             <ul>
-                <li>Must be in 2NF.</li>
-                <li>No transitive dependency – non-key column shouldn't depend on another non-key column.</li>
-            </ul>
+<h3>What is Normalization?</h3>
+<p>Normalization is the process of organizing data into smaller, related tables to:</p>
+<ul>
+    <li>Eliminate repetition</li>
+    <li>Reduce storage waste</li>
+    <li>Maintain data consistency</li>
+    <li>Improve data integrity</li>
+</ul>
 
-            <h3>SUMMARY OF NORMALIZATION:</h3>
-            <div class="overflow-x-auto my-6 rounded-lg border">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Normal Form</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Rule</th>
-                            <th class="p-4 font-semibold text-orange-800 bg-orange-100">Fixes</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>1NF</strong></td>
-                            <td class="p-4">No repeating groups</td>
-                            <td class="p-4">Atomic data</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>2NF</strong></td>
-                            <td class="p-4">No partial dependency</td>
-                            <td class="p-4">Split based on full key</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-4"><strong>3NF</strong></td>
-                            <td class="p-4">No transitive dependency</td>
-                            <td class="p-4">Remove derived dependencies</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<h3>Types of Normalization</h3>
+
+<h4>1. First Normal Form (1NF)</h4>
+<p><strong>Rule:</strong> Each column must hold atomic (single) values; no repeating groups or arrays.</p>
+<p><strong>Example:</strong> Instead of storing multiple products in one column separated by commas, each product gets its own row. This ensures that each value is unique and easy to query.</p>
+
+<h4>2. Second Normal Form (2NF)</h4>
+<p><strong>Rule:</strong> Table must already be in 1NF and contain no partial dependencies; every non-key column must depend on the full primary key.</p>
+<p><strong>Example:</strong> In a table where <code>(OrderID, ProductID)</code> is the primary key, storing customer information violates 2NF if customer info depends only on <code>OrderID</code>. To fix this, customer details should go in a separate table.</p>
+
+<h4>3. Third Normal Form (3NF)</h4>
+<p><strong>Rule:</strong> Table must already be in 2NF and contain no transitive dependencies; non-key columns should not depend on other non-key columns.</p>
+<p><strong>Example:</strong> If <code>City</code> depends on <code>CustomerName</code> instead of the primary key <code>CustomerID</code>, this is a transitive dependency. Moving city information to a separate table resolves this.</p>
+
+<h3>Summary Table of Normalization</h3>
+<div class="overflow-x-auto my-6 rounded-lg border">
+    <table class="w-full text-left">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Normal Form</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">Rule</th>
+                <th class="p-4 font-semibold text-orange-800 bg-orange-100">How It Helps</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>1NF</strong></td>
+                <td class="p-4">No repeating groups; all columns atomic</td>
+                <td class="p-4">Makes each piece of data searchable and reduces redundancy</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>2NF</strong></td>
+                <td class="p-4">No partial dependency; non-key columns depend on full primary key</td>
+                <td class="p-4">Separates data logically and avoids repeated information in composite-key tables</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="p-4"><strong>3NF</strong></td>
+                <td class="p-4">No transitive dependency; non-key columns independent of each other</td>
+                <td class="p-4">Prevents inconsistencies and ensures updates are easy and safe</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
             </article>
     </main>

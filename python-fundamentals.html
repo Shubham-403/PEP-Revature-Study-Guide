@@ -69,6 +69,14 @@
             font-size: 0.9em;
             font-weight: 500;
         }
+        .tight-heading h2 {
+  margin-bottom: 0.25rem;
+}
+
+.tight-heading h3 {
+  margin-top: 0;
+}
+
         /* Code blocks */
         .prose pre {
             background-color: #1f2937; /* gray-800 */
@@ -115,7 +123,7 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo/Title -->
             <div class="text-2xl font-bold text-orange-600">
-                <a href="#">Revature Study Guide</a>
+                <a href="index.html">Revature Study Guide</a>
             </div>
             
             <!-- Navigation Links -->
@@ -318,8 +326,14 @@ print("Hello, " + student_name + "! Get ready to learn.")</code></pre>
                 <li><strong>Indentation is Crucial:</strong> This is the most important rule! Python uses whitespace (spaces or tabs) to define code blocks (like loops or if statements) instead of curly braces <code>{}</code>. Indent your code consistently, or it will not run.</li>
             </ul>
 
-            <h2>4. Data Types and Variables</h2>
-            <p><strong>What is a Variable?</strong> A variable is like a labelled box where you can give the box a name, and you can change what's inside it later.</p>
+            <div class="tight-heading">
+  <h2>4. Data Types and Variables</h2>
+  <h3>What is a Variable?</h3>
+  <p>
+  A variable is like a labelled box where you can give the box a name, and you can change what's inside it later.</p>
+</div>
+
+            
             <pre><code class="language-python"># Here, 'batch_name' is the variable (the box label)
 # and "PEP-October-2025" is the value (the info inside the box).
 batch_name = "PEP-October-2025"</code></pre>
@@ -470,6 +484,70 @@ while count > 0:
     count = count - 1 # This line is crucial to prevent an infinite loop!
     
 print("Liftoff!")</code></pre>
+
+<h4>Breaking Out or Skipping in Loops:</h4>
+<p>Sometimes you don’t want a loop to run all the way to the end. You may want to <strong>stop it early</strong> or <strong>skip over certain parts</strong> — that’s where <code>break</code> and <code>continue</code> come in.</p>
+
+<h5><strong>1. The break Statement </strong></h5>
+<p>The <code>break</code> statement is used to <strong>completely exit</strong> the loop before it naturally finishes. You use it when a certain condition is met and you no longer need to continue looping.</p>
+
+<pre><code class="language-python"># Stop the loop when a particular student is found
+students = ["Priya", "Rohan", "Sana", "Vikram", "Anita"]
+
+for student in students:
+    if student == "Sana":
+        print("Sana found! Stopping the search.")
+        break
+    print(f"Checking {student}...")</code></pre>
+
+<p><strong>Output:</strong></p>
+<pre><code>Checking Priya...
+Checking Rohan...
+Sana found! Stopping the search.</code></pre>
+
+<p>👉 The loop ends <strong>immediately</strong> once <code>Sana</code> is found — it doesn’t continue to check “Vikram” or “Anita”.</p>
+
+<div><h5><strong>2. The continue Statement</strong></h5> </div>
+<p>The <code>continue</code> statement is used to <strong>skip the current iteration</strong> of the loop and move on to the next one. You use it when you want to ignore certain values but still keep looping.</p>
+
+<pre><code class="language-python"># Skip a specific student
+students = ["Priya", "Rohan", "Sana", "Vikram", "Anita"]
+
+for student in students:
+    if student == "Rohan":
+        continue  # Skip Rohan
+    print(f"Welcome to the Revature PEP program, {student}!")</code></pre>
+
+<p><strong>Output:</strong></p>
+<pre><code>Welcome to the Revature PEP program, Priya!
+Welcome to the Revature PEP program, Sana!
+Welcome to the Revature PEP program, Vikram!
+Welcome to the Revature PEP program, Anita!</code></pre>
+
+<p>👉 <code>continue</code> <strong>skipped Rohan</strong>, but the loop continued for everyone else.</p>
+
+<h5> <strong> Summary: </strong></h5>
+<table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+    <thead>
+        <tr style="background-color: lch(58.81% 56.13 41.09)">
+            <th style="border: 1px solid #000; padding: 8px;">Keyword</th>
+            <th style="border: 1px solid #000; padding: 8px;">Purpose</th>
+            <th style="border: 1px solid #000; padding: 8px;">Effect</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #000; padding: 8px;"><code>break</code></td>
+            <td style="border: 1px solid #000; padding: 8px;">Exit the loop completely</td>
+            <td style="border: 1px solid #000; padding: 8px;">Stops looping immediately</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #000; padding: 8px;"><code>continue</code></td>
+            <td style="border: 1px solid #000; padding: 8px;">Skip current iteration</td>
+            <td style="border: 1px solid #000; padding: 8px;">Moves to next loop iteration</td>
+        </tr>
+    </tbody>
+</table>
 
             <h3>3. Functions in Python</h3>
             <p>A <strong>function</strong> is a reusable block of code that performs a specific task. Think of it like a recipe. You define the recipe once, and then you can "call" it anytime you want to use it, without having to rewrite all the steps. This makes your code organized, efficient, and easy to read. This follows the <strong>DRY (Don't Repeat Yourself)</strong> principle.</p>
@@ -759,11 +837,23 @@ document2 = TxtFile("Meeting-Notes")
 document1.open() # Output: Opening PDF file: Revature-Handbook.pdf
 document2.open() # Output: Opening text file: Meeting-Notes.txt</code></pre>
 
+<h4>Using <code>import</code> with Abstraction</h4>
+<p>To use abstraction in Python, we rely on a special built-in package called <code>abc</code>, which stands for <em>Abstract Base Classes</em>. But before we can use it, we first need to <strong>import</strong> it into our program.</p>
+
+<blockquote style="background-color: #f5f5f5; border-left: 4px solid #ccc; padding: 10px 15px; margin: 15px 0;">
+    <p>In Python, <code>import</code> is a keyword that lets us bring in extra functionality from other modules or packages so we don’t have to write everything ourselves.<br>
+    In this case, we import the <code>abc</code> package to access tools that help us create abstract classes.</p>
+</blockquote>
+<pre><code class="language-python">from abc import ABC, abstractmethod
+</code></pre>
+
+<p>Here, <code>from abc import ABC, abstractmethod</code> means we’re bringing in two things — <code>ABC</code> (used to define an abstract class) and <code>abstractmethod</code> (used to mark methods that must be implemented by child classes). Without importing the <code>abc</code> package, Python wouldn’t know what an abstract class is.</p>g
+
             <h3>3. Exception Handling</h3>
             <p>An <strong>exception</strong> is an error that occurs during the execution of a program. If not handled, it will cause the program to crash. <strong>Exception handling</strong> is a way to gracefully manage these errors so your program can continue running or terminate smoothly.</p>
-            <ul>
-                <li><strong>Analogy:</strong> Exception handling is a <strong>safety net</strong>. If your program's "acrobat" (the code) slips and falls (an error occurs), the safety net catches it and prevents a disaster (a crash).</li>
-            </ul>
+        
+                <blockquote><strong>Analogy:</strong> Exception handling is a <strong>safety net</strong>. If your program's "acrobat" (the code) slips and falls (an error occurs), the safety net catches it and prevents a disaster (a crash).</blockquote>
+            
             <p>We use the <strong>try...except</strong> block to handle exceptions.</p>
             <ul>
                 <li><strong>try:</strong> You place the code that might cause an error inside the try block.</li>
