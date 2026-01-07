@@ -36,6 +36,19 @@
         .text-lab-italic {
             font-style: italic;
         }
+
+        .code-reference code {
+    font-family: 'Fira Code', monospace;
+    background-color: #FFF7ED; /* light orange background */
+    padding: 1.5em;
+    display: block;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #431407;
+    border: 1px solid #FED7AA;
+}
         
         /* --- Code Block Styling --- */
         code {
@@ -163,27 +176,52 @@
     </script>
 
     <div class="content-card mx-auto p-6 sm:p-8 md:p-12 mt-8 mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Python Practice Lab</h2>
+      <h1 class="text-3xl font-bold text-gray-900 mb-6">Python Practice Lab</h1>
 
-        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 0: Make Sure Python is Ready</h3>
-        <p>Before coding, check:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Is Python installed?</li>
-        </ul>
-        <code>
-            <span class="code-var">python --version</span>
-        </code>
-        <p class="mb-2">or</p>
-        <code>
-            <span class="code-var">python3 --version</span>
-        </code>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-4">
-            <li>Can you run a Python script?</li>
-        </ul>
-        <code>
-            <span class="code-var">python hello.py</span>
-        </code>
-        <p class="mt-4"><span class="font-bold text-gray-800">Tip:</span> Use any editor: VS Code, PyCharm, or even online editors like <span class="font-bold text-gray-900">replit.com</span>.</p>
+<ul class="list-disc list-outside pl-6 space-y-2">
+       <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">
+    Step 0: Check If Python Is Installed
+</h3>
+
+<ul class="list-disc list-outside pl-6 space-y-2">
+  
+    <li>
+        Open your terminal and type
+        <span class="font-mono text-blue-800 font-medium">python --version</span>
+        or
+        <span class="font-mono text-blue-800 font-medium">python3 --version</span>
+        and press Enter.
+    </li>
+
+    <li>
+        <span >If you see a version number</span>
+        (example : <span class="font-mono text-blue-800 font-medium">Python 3.11.6</span> ), Python is installed and ready.
+    </li>
+
+    <li>
+        <span class="font-semibold text-red-700">If you see an error</span>
+        like “command not found” or “not recognized”, Python is not installed or not set in PATH.
+    </li>
+
+    <li>
+        In that case, install Python from
+        <span class="font-semibold text-gray-900">python.org</span>
+        and make sure to check
+        <span class="font-semibold">“Add Python to PATH”</span>
+        during installation.
+    </li>
+
+    <li>
+        Once the version command works, you can move to the next step.
+    </li>
+</ul>
+
+<p class="mt-4">
+    <span class="font-bold text-gray-800">Tip:</span>
+    You can write Python code using VS Code, PyCharm, or online editors.
+</p>
+
+</ul>
 
         <hr class="border-gray-200 my-10">
 
@@ -195,7 +233,7 @@
             <li>Indentation is important (usually 4 spaces)</li>
         </ul>
 
-        <h4 class="text-lg font-bold text-blue-600 mt-6 mb-2">Challenge 1: Hello, World!</h4>
+        <h4 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Hello, World!</h4>
         <ul class="list-disc list-outside pl-6 space-y-2">
             <li>Print Hello, World! to the console</li>
         </ul>
@@ -227,7 +265,7 @@
             <li><span class="code-type">bool</span> → True/False</li>
         </ul>
 
-        <h4 class="text-lg font-bold text-blue-600 mt-6 mb-2">Challenge 2: Create Your Personal Info</h4>
+        <h4 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Create Your Personal Info</h4>
         <ul class="list-disc list-outside pl-6 space-y-2">
             <li>Create variables: name, age, height</li>
             <li>Print: "Hi, I am &lt;name&gt;, I am &lt;age&gt; years old and &lt;height&gt; ft tall"</li>
@@ -237,12 +275,13 @@
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Use <strong>f-strings</strong> for clean formatting:</li>
         </ul>
+        <div class="code-reference">
         <code>
             <span class="code-keyword">print</span>(<span class="code-string">f"Hi, I am {name}, I am {age} years old and {height} ft tall"</span>)
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
-        <p class="mt-2 font-mono text-gray-700">Hi, I am Sunny, I am 21 years old and 5.8 ft tall</p>
+        <div class="code-reference"><code><p class="mt-2 font-mono text-gray-700">Hi, I am Sunny, I am 21 years old and 5.8 ft tall</p></code></div>
 
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -250,14 +289,14 @@
             <li>height = 5.8 → floating-point number works fine</li>
         </ul>
 
-        <h4 class="text-lg font-bold text-blue-600 mt-8 mb-2">Challenge 3: Update & Print Variables</h4>
+        <h4 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Update & Print Variables</h4>
         <ul class="list-disc list-outside pl-6 space-y-2">
             <li>Change your age and height variables</li>
             <li>Print updated info in one statement</li>
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
-        <p class="mt-2 font-mono text-gray-700">Hi, I am Sunny, I am 22 years old and 5.9 ft tall</p>
+        <div class="code-reference"><code><p class="mt-2 font-mono text-gray-700">Hi, I am Sunny, I am 22 years old and 5.9 ft tall</p></code></div>
 
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -270,7 +309,7 @@
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 3: Basic Operations</h3>
         <p>Python can do <strong>math directly with variables</strong>:</p>
 
-        <h4 class="text-lg font-bold text-blue-600 mt-6 mb-2">Challenge 4: Math with Variables</h4>
+        <h4 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Math with Variables</h4>
         <ul class="list-disc list-outside pl-6 space-y-2">
             <li>Create two numbers: a = 10, b = 5</li>
             <li>Print: sum, difference, product, division (float), remainder, power</li>
@@ -283,7 +322,7 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <div class="mt-2 font-mono text-gray-700 bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <div class="code-reference"><code><div >
             Sum: 15<br>
             Difference: 5<br>
             Product: 50<br>
@@ -291,7 +330,7 @@
             Integer Division: 2<br>
             Remainder: 0<br>
             Power: 100000
-        </div>
+        </div></code></div>
 
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -303,7 +342,7 @@
 
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 4: Simple String Operations</h3>
 
-        <h4 class="text-lg font-bold text-blue-600 mt-6 mb-2">Challenge 5: Manipulate Strings</h4>
+        <h4 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: Manipulate Strings</h4>
         <ul class="list-disc list-outside pl-6 space-y-2">
             <li>Take your name in a variable</li>
             <li>Print: uppercase, lowercase, length</li>
@@ -330,14 +369,14 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h2 class="text-2xl font-bold text-blue-600 uppercase mb-6">Operators, Expressions, and Control Flow</h2>
+        <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Operators, Expressions, and Control Flow</h2>
 
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Operators & Expressions</h3>
         <p class="mb-6">Python can perform arithmetic, comparison, and logical operations.</p>
         
         <hr class="border-gray-200 my-8">
 
-        <h3 class="text-xl font-semibold text-blue-600 mt-8 mb-3">Challenge 1: Arithmetic Operators</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Arithmetic Operators</h3>
         <p class="mb-4"><span class="font-bold text-gray-800">Goal:</span> Practice basic math operations with variables</p>
 
         <p class="font-bold text-gray-800 mb-2">Task:</p>
@@ -372,7 +411,7 @@
 
         <hr class="border-gray-200 my-8">
 
-        <h3 class="text-xl font-semibold text-blue-600 mt-8 mb-3">Challenge 2: Comparison Operators</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Comparison Operators</h3>
         <p class="mb-4"><span class="font-bold text-gray-800">Goal:</span> Compare numbers and print results</p>
 
         <p class="font-bold text-gray-800 mb-2">Task:</p>
@@ -404,7 +443,7 @@
 
         <hr class="border-gray-200 my-8">
 
-        <h3 class="text-xl font-semibold text-blue-600 mt-8 mb-3">Challenge 3: Logical Operators</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Logical Operators</h3>
         <p class="mb-4"><span class="font-bold text-gray-800">Goal:</span> Practice and, or, not</p>
 
         <p class="font-bold text-gray-800 mb-2">Task:</p>
@@ -435,7 +474,7 @@
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 2: Control Flow Statements</h2>
         <p>Python uses indentation to define blocks instead of <span class="font-mono text-blue-800 font-medium">{}</span>.</p>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: If-Else (Age Check)</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: If-Else (Age Check)</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Decide if someone is adult or minor</p>
         
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -463,7 +502,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: Elif (Grade System)</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: Elif (Grade System)</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Assign grade based on marks</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -495,7 +534,7 @@
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 3: Loops</h2>
         <p>Python has <span class="code-keyword">for</span> and <span class="code-keyword">while</span> loops for repetition.</p>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 6: For Loop (Numbers 1–10)</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 6: For Loop (Numbers 1–10)</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Print numbers 1 to 10</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -522,7 +561,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 7: While Loop (Running Sum)</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 7: While Loop (Running Sum)</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Calculate sum of numbers 1 to 5</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -555,7 +594,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h2 class="text-3xl font-bold text-blue-600 mb-6">Python Mini Challenge: Student Score Analysis</h2>
+        <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Python Mini Challenge: Student Score Analysis</h2>
         <p><span class="font-bold text-gray-800">Goal:</span> Write a program that:</p>
         
         <ol class="list-decimal list-outside pl-6 space-y-3 mt-4">
@@ -619,7 +658,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-var">result</span> <span class="code-comment"># optional</span>
         </code>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 1: Simple Function</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Simple Function</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Write a function to <span class="font-bold text-gray-800">greet a person</span> by name</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -649,7 +688,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 2: Function with Return Value</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Function with Return Value</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Write a function to <span class="font-bold text-gray-800">add two numbers</span></p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -678,7 +717,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 3: Function with Default Argument</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Function with Default Argument</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Make a function <span class="font-bold text-gray-800">greet with default name</span></p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -701,7 +740,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: Function to Check Even or Odd</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Function to Check Even or Odd</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Write a reusable function <span class="font-mono text-blue-800 font-medium">check_even_odd(number)</span></p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -725,7 +764,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: Function with Multiple Parameters</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: Function with Multiple Parameters</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Calculate <span class="font-bold text-gray-800">average of n numbers</span></p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -757,7 +796,7 @@
             <li>Can store <span class="font-bold text-gray-800">numbers, strings, or mixed types</span>.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 1: Create & Print List</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Create & Print List</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Create a list of 5 numbers and print it</p>
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -784,7 +823,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 2: List Operations</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: List Operations</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Perform basic operations</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -817,7 +856,7 @@
             <li>Elements <span class="font-bold text-gray-800">cannot be changed</span> after creation</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 3: Create & Access Tuple</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Create & Access Tuple</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Create a tuple of 3 names and print each</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -847,7 +886,7 @@
             <li>Useful to remove duplicates</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: Create & Manipulate Set</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Create & Manipulate Set</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Create a set with duplicate numbers and see uniqueness</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -879,7 +918,7 @@
             <li>Access values using <span class="font-bold text-gray-800">keys</span></li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: Create & Access Dictionary</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: Create & Access Dictionary</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Store marks of 3 students and print</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -903,7 +942,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Mini Challenge Using Collections</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Mini Challenge Using Collections</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Combine lists and dictionaries</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -939,7 +978,7 @@
             <li>Attributes store data; methods define behavior.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 1: Create a Simple Class</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Create a Simple Class</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Create a Student class with name and age</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -970,7 +1009,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 2: Using Object Attributes</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Using Object Attributes</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Update and access object attributes</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1000,7 +1039,7 @@
             <li><span class="font-bold text-gray-800">Multiple inheritance</span> → Python supports, but <span class="font-bold text-gray-800">Java-style multiple class inheritance is not allowed</span></li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 3: Single Inheritance</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Single Inheritance</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Create Person (parent) and Student (child)</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1023,7 +1062,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: Polymorphism with Functions</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Polymorphism with Functions</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Same method name for different classes</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1054,7 +1093,7 @@
             <li><span class="font-bold text-gray-800">Write-only</span> → setter method only</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: Read-Only Attribute</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: Read-Only Attribute</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Make roll_no read-only</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1077,7 +1116,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 6: Write-Only Attribute</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 6: Write-Only Attribute</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Create a write-only password</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1101,7 +1140,7 @@
             <li>Use <span class="font-bold text-gray-800">abstract base classes (abc module)</span></li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 7: Abstract Class Example</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 7: Abstract Class Example</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Create abstract class Shape</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1141,7 +1180,7 @@
             <span class="code-keyword">except</span> <span class="code-type">ExceptionType</span>:<br>
             &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># handle exception</span>
         </code>
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 1: ZeroDivisionError</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: ZeroDivisionError</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Handle division by zero</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1169,7 +1208,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 2: ValueError</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: ValueError</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Handle invalid input</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1193,7 +1232,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 3: Handling Multiple Exceptions</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Handling Multiple Exceptions</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Catch different exceptions in one block</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1219,7 +1258,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: Finally Block</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Finally Block</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Ensure code always runs</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1236,7 +1275,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: Raising Exceptions</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: Raising Exceptions</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Force an exception when a condition is not met</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -1258,7 +1297,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Mini Challenge Using Exceptions</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Mini Challenge Using Exceptions</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Combine everything learned: OOP, functions, loops, and exception handling</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
