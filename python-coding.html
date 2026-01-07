@@ -355,11 +355,11 @@
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
         <p class="mt-2 font-mono text-gray-700">Name: Sunny</p>
-        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 font-mono text-sm mb-6">
+        <div class="code-reference"><code>
             Uppercase: SUNNY<br>
             Lowercase: sunny<br>
             Length: 5
-        </div>
+        </code></div>
 
         <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-3">Pitfalls:</h3>
         <ul class="list-disc list-outside pl-6 space-y-2 mb-10">
@@ -369,7 +369,7 @@
 
         <hr class="border-gray-200 my-10">
 
-        <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Operators, Expressions, and Control Flow</h2>
+        <h2 class="text-2xl font-semibold text-gray-900 mt-8 mb-3">Operators, Expressions, and Control Flow</h2>
 
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Operators & Expressions</h3>
         <p class="mb-6">Python can perform arithmetic, comparison, and logical operations.</p>
@@ -393,7 +393,7 @@
         </ul>
 
         <p class="font-bold text-gray-800 mb-2">Expected Output:</p>
-        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 font-mono text-sm mb-6">
+        <div class="code-reference"><code>
             Sum: 19<br>
             Difference: 11<br>
             Product: 60<br>
@@ -401,7 +401,7 @@
             Integer Division: 3<br>
             Remainder: 3<br>
             Power: 50625
-        </div>
+        </code></div>
 
         <p class="font-bold text-gray-800 mb-2">Tip:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mb-8">
@@ -427,14 +427,14 @@
         </ul>
 
         <p class="font-bold text-gray-800 mb-2">Expected Output:</p>
-        <div class="bg-gray-50 p-4 rounded-md border border-gray-200 font-mono text-sm mb-6">
+        <div class="code-reference"><code>
             a == b: False<br>
             a != b: True<br>
             a > b: False<br>
             a < b: True<br>
             a >= b: False<br>
             a <= b: True
-        </div>
+        </code></div>
 
         <p class="font-bold text-gray-800 mb-2">Tip:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mb-8">
@@ -452,11 +452,13 @@
             <li>Print results of x and y, x or y, not x</li>
         </ul>
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Expected Output:</h3>
+        <div class="code-reference">
         <code>
             x <span class="code-keyword">and</span> y: <span class="code-literal">False</span><br>
             x <span class="code-keyword">or</span> y: <span class="code-literal">True</span><br>
             <span class="code-keyword">not</span> x: <span class="code-literal">False</span>
-        </code>
+        </code></div>
+
 
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Hints:</h3>
         <ul class="list-disc list-outside pl-6 space-y-2">
@@ -490,10 +492,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Adult
         </code>
-
+    </div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Age exactly 18 → should print "Adult"</li>
@@ -525,10 +528,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Grade: B
         </code>
-
+        </div>
         <hr class="border-gray-200 my-10">
 
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 3: Loops</h2>
@@ -549,10 +553,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
         </code>
-
+        </div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li><span class="font-mono text-blue-800 font-medium">range(1,1)</span> → prints nothing</li>
@@ -579,6 +584,7 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Adding 1, sum is now: 1<br>
             Adding 2, sum is now: 3<br>
@@ -586,7 +592,7 @@
             Adding 4, sum is now: 10<br>
             Adding 5, sum is now: 15
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>If starting counter > 5 → loop won’t run, sum remains 0</li>
@@ -651,13 +657,14 @@
 
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Introduction to Functions</h3>
         <p class="font-bold text-gray-800">Syntax:</p>
+        <div class="code-reference">
         
         <code>
             <span class="code-keyword">def</span> <span class="code-method">function_name</span>(<span class="code-var">parameters</span>):<br>
             &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment"># code block</span><br>
             &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-var">result</span> <span class="code-comment"># optional</span>
         </code>
-
+</div>
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Simple Function</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Write a function to <span class="font-bold text-gray-800">greet a person</span> by name</p>
 
@@ -675,11 +682,12 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <div class="code-reference">
         <code>
             Hello Sunny!<br>
             Hello Ananya!
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Call without argument → <span class="text-lab-red">TypeError</span></li>
@@ -705,10 +713,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <div class="code-reference">
         <code>
             Sum: 25
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Pass floats or negative numbers</li>
@@ -728,11 +737,12 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Hello Sunny!<br>
             Hello Guest!
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Hint:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Default arguments are used if no value is passed</li>
@@ -750,12 +760,13 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             7 → Odd<br>
             10 → Even<br>
             0 → Even
         </code>
-
+        </div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Negative numbers → should still return correct result</li>
@@ -775,10 +786,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <div class="code-reference">
         <code>
             Average: 81.0
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Passing numbers as strings → <span class="text-lab-red">TypeError</span></li>
@@ -811,10 +823,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             10<br>20<br>30<br>40<br>50
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Empty list → loop prints nothing</li>
@@ -840,13 +853,14 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <div class="code-reference">
         <code>
             Numbers: [10, 20, 30, 40, 50, 60]<br><br>
             Sum: 210<br>
             Max: 60<br>
             Min: 10
         </code>
-
+        </div>
         <hr class="border-gray-200 my-10">
 
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 2: Tuples</h3>
@@ -866,12 +880,13 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Sunny<br>
             Ananya<br>
             Rahul
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Try changing an element → should raise <span class="text-lab-red">TypeError</span></li>
@@ -897,12 +912,13 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Original Set: {10, 20, 30}<br>
             After Adding 40: {10, 20, 30, 40}<br>
             After Removing 20: {10, 30, 40}
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Hint:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Methods: <span class="code-method">.add()</span>, <span class="code-method">.remove()</span></li>
@@ -928,12 +944,13 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Sunny: 90<br>
             Ananya: 85<br>
             Rahul: 88
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Access a non-existing key → raises <span class="text-lab-red">KeyError</span></li>
@@ -954,12 +971,13 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <div class="code-reference">
         <code>
             Sunny: 92<br>
             Ananya: 85<br>
             Rahul: 88
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Use a <span class="code-keyword">for</span> loop</li>
@@ -996,11 +1014,12 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Name: Sunny, Age: 21<br>
             Name: Ananya, Age: 22
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Forget <span class="code-keyword">self</span> → <span class="text-lab-red">TypeError</span></li>
@@ -1019,10 +1038,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Name: Sunny, Age: 23
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Hint:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li><span class="font-mono text-blue-800 font-medium">student.age = 23</span></li>
@@ -1050,10 +1070,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Student: Sunny, Roll No: 101
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Use <span class="code-keyword">super()</span>.__init__(name) to initialize parent class attributes</li>
@@ -1072,11 +1093,12 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Student: Sunny, Roll No: 101<br><br>
             Teacher: Mr. Kumar
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Forget overriding → parent method executes</li>
@@ -1104,10 +1126,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Roll No: 101
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Private attribute → prefix with <span class="code-keyword">__</span></li>
@@ -1151,10 +1174,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <div class="code-reference">
         <code>
             Area: 50
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li><span class="code-keyword">from</span> abc <span class="code-keyword">import</span> ABC, abstractmethod</li>
@@ -1197,10 +1221,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+        <div class="code-reference">
         <code>
             Cannot divide by zero
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Edge Cases:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Change b = 2 → should print 5.0</li>
@@ -1314,12 +1339,13 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
+        <div class="code-reference">
         <code>
             Sunny: Marks = [90, 85, 78]<br>
             Average: 84.33<br><br>
             Ananya: Invalid marks input
         </code>
-
+</div>
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Use <span class="code-keyword">try</span> inside method or function</li>
