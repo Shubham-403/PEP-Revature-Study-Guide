@@ -51,7 +51,42 @@
             color: #111827;
             border: 1px solid #E5E7EB;
         }
-        
+        .code-reference {
+    font-family: 'Fira Code', monospace;
+    background-color: #FFF7ED; /* light orange background */
+    padding: 1.5em;
+    display: block;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #431407;
+    border: 1px solid #FED7AA;
+        }
+    code{
+    font-family: 'Fira Code', monospace;
+    background-color: #FFF7ED; /* light orange background */
+    padding: 1.5em;
+    display: block;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #431407;
+    border: 1px solid #FED7AA;
+
+}
+.mysql-output {
+    font-family: 'Fira Code', Consolas, monospace;
+    background-color: #111827;   /* dark terminal */
+    color: #E5E7EB;              /* light text */
+    padding: 16px;
+    border-radius: 8px;
+    line-height: 1.5;
+    font-size: 14px;
+    overflow-x: auto;
+}
+
         /* --- Syntax Highlighting Classes (Works for SQL too) --- */
         .code-keyword { color: #2563EB; } /* SELECT, FROM, WHERE */
         .code-type { color: #9333EA; }    /* INT, VARCHAR */
@@ -182,9 +217,7 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Behavior:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Database is created and can be selected for use</li>
-        </ul>
+        <pre class="mysql-output">{ Query OK, 0 rows affected (0.07 sec) } - Database is created and can be selected for use</pre>
 
         <hr class="border-gray-200 my-10">
 
@@ -204,9 +237,8 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Outcome:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Tables created successfully</li>
-        </ul>
+        <pre class="mysql-output">{ Query OK, 0 rows affected (0.07 sec) } - Tables created successfully</pre>
+        
 
         <hr class="border-gray-200 my-10">
 
@@ -227,9 +259,9 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Two rows in Employees table</li>
-        </ul>
+        <pre class="mysql-output">Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0 
+Two rows in Employees Table</pre>
 
         <hr class="border-gray-200 my-10">
 
@@ -247,9 +279,9 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Two rows in Salaries table</li>
-        </ul>
+        <pre class="mysql-output">Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0 <br>Two rows in salaries table</pre>
+        
 
         <hr class="border-gray-200 my-10">
 
@@ -269,20 +301,27 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output (Employees):</p>
-        <code>
-            EmpID | EmpName | City<br>
-            --------------------------<br>
-            1 &nbsp;&nbsp;&nbsp;&nbsp;| Ravi &nbsp;&nbsp;&nbsp;| Chennai<br>
-            2 &nbsp;&nbsp;&nbsp;&nbsp;| Priya &nbsp;&nbsp;| Hyderabad
-        </code>
+        
+       <pre class="mysql-output">
++-------+---------+-----------+
+| EmpId | EmpName | city      |
++-------+---------+-----------+
+|     1 | Ravi    | Chennai   |
+|     2 | Priya   | Hyderabad |
++-------+---------+-----------+
+2 rows in set (0.00 sec)
+</pre>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output (Salaries):</p>
-        <code>
-            SalaryID | EmpID | Amount<br>
-            --------------------------<br>
-            1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 1 &nbsp;&nbsp;&nbsp;&nbsp;| 30000<br>
-            2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 2 &nbsp;&nbsp;&nbsp;&nbsp;| 40000
-        </code>
+        <pre class="mysql-output">
++----------+-------+--------+
+| SalaryID | EmpID | Amount |
++----------+-------+--------+
+|        1 |     1 |  30000 |
+|        2 |     2 |  40000 |
++----------+-------+--------+
+2 rows in set (0.00 sec)
+</pre>
 
         <hr class="border-gray-200 my-10">
 
@@ -302,14 +341,22 @@
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
         <p class="mt-2 text-sm text-gray-600">Employees in Chennai:</p>
-        <code>
-            1 | Ravi | Chennai
-        </code>
+      <pre class="mysql-output">
++-------+---------+---------+
+| EmpId | EmpName | city    |
++-------+---------+---------+
+|     1 | Ravi    | Chennai |
++-------+---------+---------+
+1 row in set (0.02 sec)</pre>
         
         <p class="mt-2 text-sm text-gray-600">Salaries > 35000:</p>
-        <code>
-            2 | 2 | 40000
-        </code>
+        <pre class="mysql-output">
++----------+-------+--------+
+| SalaryID | EmpID | Amount |
++----------+-------+--------+
+|        2 |     2 |  40000 |
++----------+-------+--------+
+1 row in set (0.00 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
@@ -324,12 +371,19 @@
 
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Use <span class="code-keyword">UPDATE</span> <span class="code-object">table_name</span> <span class="code-keyword">SET</span> column = value <span class="code-keyword">WHERE</span> condition;</li>
+            <li>Use <span class="code-keyword">UPDATE</span> <span class="code-object">table_name</span> <span class="code-keyword">SET</span> columnName = value <span class="code-keyword">WHERE</span> condition;</li>
         </ul>
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Priya's city updated</li>
-        </ul>
+        <pre class="mysql-output">Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0</pre>
+<strong>Table : </strong>
+<pre class="mysql-output">+-------+---------+-----------+
+| EmpId | EmpName | city      |
++-------+---------+-----------+
+|     1 | Ravi    | Chennai   |
+|     2 | Priya   | Bangalore |
++-------+---------+-----------+
+2 rows in set (0.00 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
@@ -346,9 +400,7 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Ravi removed</li>
-        </ul>
+        
 
         <hr class="border-gray-200 my-10">
 
