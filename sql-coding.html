@@ -51,7 +51,42 @@
             color: #111827;
             border: 1px solid #E5E7EB;
         }
-        
+        .code-reference {
+    font-family: 'Fira Code', monospace;
+    background-color: #FFF7ED; /* light orange background */
+    padding: 1.5em;
+    display: block;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #431407;
+    border: 1px solid #FED7AA;
+        }
+    code{
+    font-family: 'Fira Code', monospace;
+    background-color: #FFF7ED; /* light orange background */
+    padding: 1.5em;
+    display: block;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #431407;
+    border: 1px solid #FED7AA;
+
+}
+.mysql-output {
+    font-family: 'Fira Code', Consolas, monospace;
+    background-color: #111827;   /* dark terminal */
+    color: #E5E7EB;              /* light text */
+    padding: 16px;
+    border-radius: 8px;
+    line-height: 1.5;
+    font-size: 14px;
+    overflow-x: auto;
+}
+
         /* --- Syntax Highlighting Classes (Works for SQL too) --- */
         .code-keyword { color: #2563EB; } /* SELECT, FROM, WHERE */
         .code-type { color: #9333EA; }    /* INT, VARCHAR */
@@ -156,8 +191,8 @@
 
     <div class="content-card mx-auto p-6 sm:p-8 md:p-12 mt-8 mb-12">
         
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">SQL Practice Lab:</h2>
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 1: Database & Table Creation</h2>
+        <h1 class="text-3xl font-bold text-gray-900 mb-6">SQL Practice Lab:</h1>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Step 1: Database & Table Creation</h2>
         
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Concept:</h3>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -166,7 +201,7 @@
             <li><span class="font-bold text-gray-800">Primary Key</span> → unique identifier for a record</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 1: Create a Database</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 1: Create a Database</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Create a database for your practice</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -182,13 +217,11 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Behavior:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Database is created and can be selected for use</li>
-        </ul>
+        <pre class="mysql-output">{ Query OK, 0 rows affected (0.07 sec) } - Database is created and can be selected for use</pre>
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 2: Create Tables</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 2: Create Tables</h3>
         <p><span class="font-bold text-gray-800">Goal:</span> Create Employees and Salaries tables</p>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
@@ -204,20 +237,19 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Outcome:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Tables created successfully</li>
-        </ul>
+        <pre class="mysql-output">{ Query OK, 0 rows affected (0.07 sec) } - Tables created successfully</pre>
+        
 
         <hr class="border-gray-200 my-10">
 
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 2: Insert Data</h2>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 3: Insert Employee Records</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 3: Insert Employee Records</h3>
         
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Add employee: Ravi, Chennai, ID 1</li>
-            <li>Add employee: Priya, Hyderabad, ID 2</li>
+            <li>Add employee: Employee name is Ravi from Chennaihis EmpId is 1</li>
+            <li>Add employee: Employee name is Priya from Hyderabad EmpId is 2</li>
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
@@ -227,13 +259,13 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Two rows in Employees table</li>
-        </ul>
+        <pre class="mysql-output">Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0 
+Two rows in Employees Table</pre>
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 4: Insert Salary Records</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 4: Insert Salary Records</h3>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -247,15 +279,15 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Two rows in Salaries table</li>
-        </ul>
+        <pre class="mysql-output">Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0 <br>Two rows in salaries table</pre>
+        
 
         <hr class="border-gray-200 my-10">
 
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 3: View Data</h2>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 5: SELECT All Data</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 5: SELECT All Data</h3>
         
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -269,24 +301,31 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output (Employees):</p>
-        <code>
-            EmpID | EmpName | City<br>
-            --------------------------<br>
-            1 &nbsp;&nbsp;&nbsp;&nbsp;| Ravi &nbsp;&nbsp;&nbsp;| Chennai<br>
-            2 &nbsp;&nbsp;&nbsp;&nbsp;| Priya &nbsp;&nbsp;| Hyderabad
-        </code>
+        
+       <pre class="mysql-output">
++-------+---------+-----------+
+| EmpId | EmpName | city      |
++-------+---------+-----------+
+|     1 | Ravi    | Chennai   |
+|     2 | Priya   | Hyderabad |
++-------+---------+-----------+
+2 rows in set (0.00 sec)
+</pre>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output (Salaries):</p>
-        <code>
-            SalaryID | EmpID | Amount<br>
-            --------------------------<br>
-            1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 1 &nbsp;&nbsp;&nbsp;&nbsp;| 30000<br>
-            2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 2 &nbsp;&nbsp;&nbsp;&nbsp;| 40000
-        </code>
+        <pre class="mysql-output">
++----------+-------+--------+
+| SalaryID | EmpID | Amount |
++----------+-------+--------+
+|        1 |     1 |  30000 |
+|        2 |     2 |  40000 |
++----------+-------+--------+
+2 rows in set (0.00 sec)
+</pre>
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 6: Conditional SELECT</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 6: Conditional SELECT</h3>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -302,20 +341,28 @@
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
         <p class="mt-2 text-sm text-gray-600">Employees in Chennai:</p>
-        <code>
-            1 | Ravi | Chennai
-        </code>
+      <pre class="mysql-output">
++-------+---------+---------+
+| EmpId | EmpName | city    |
++-------+---------+---------+
+|     1 | Ravi    | Chennai |
++-------+---------+---------+
+1 row in set (0.02 sec)</pre>
         
         <p class="mt-2 text-sm text-gray-600">Salaries > 35000:</p>
-        <code>
-            2 | 2 | 40000
-        </code>
+        <pre class="mysql-output">
++----------+-------+--------+
+| SalaryID | EmpID | Amount |
++----------+-------+--------+
+|        2 |     2 |  40000 |
++----------+-------+--------+
+1 row in set (0.00 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 4: Update & Delete</h2>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 7: Update Record</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 7: Update Record</h3>
         
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -324,16 +371,23 @@
 
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Use <span class="code-keyword">UPDATE</span> <span class="code-object">table_name</span> <span class="code-keyword">SET</span> column = value <span class="code-keyword">WHERE</span> condition;</li>
+            <li>Use <span class="code-keyword">UPDATE</span> <span class="code-object">table_name</span> <span class="code-keyword">SET</span> columnName = value <span class="code-keyword">WHERE</span> condition;</li>
         </ul>
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Priya's city updated</li>
-        </ul>
+        <pre class="mysql-output">Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0</pre>
+<strong>Table : </strong>
+<pre class="mysql-output">+-------+---------+-----------+
+| EmpId | EmpName | city      |
++-------+---------+-----------+
+|     1 | Ravi    | Chennai   |
+|     2 | Priya   | Bangalore |
++-------+---------+-----------+
+2 rows in set (0.00 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 8: Delete Record</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 8: Delete Record</h3>
         
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -346,9 +400,17 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Ravi removed</li>
-        </ul>
+        <pre class="mysql-output">Query OK, 1 row affected (0.02 sec)</pre>
+        <strong>
+            Table : 
+        </strong>
+        <pre class="mysql-output">
++-------+---------+-----------+
+| EmpId | EmpName | city      |
++-------+---------+-----------+
+|     2 | Priya   | Bangalore |
++-------+---------+-----------+
+1 row in set (0.00 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
@@ -362,7 +424,7 @@
             <li><span class="font-bold text-gray-800">RIGHT JOIN</span> → all rows from right table</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 9: INNER JOIN</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 9: INNER JOIN</h3>
         
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -371,26 +433,26 @@
 
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Join on EmpID</li>
-            <li>Syntax:</li>
+            <li>Use JOIN between Employees and Salaries</li>
+            <li>Match rows using EmpID
+            </li>
+            <li>
+                Select employee name and salary amount
+            </li>
         </ul>
-        <code>
-            <span class="code-keyword">SELECT</span> <span class="code-object">Employees</span>.<span class="code-object">EmpName</span>, <span class="code-object">Salaries</span>.<span class="code-object">Amount</span><br>
-            <span class="code-keyword">FROM</span> <span class="code-object">Employees</span><br>
-            <span class="code-keyword">INNER JOIN</span> <span class="code-object">Salaries</span><br>
-            <span class="code-keyword">ON</span> <span class="code-object">Employees</span>.<span class="code-object">EmpID</span> = <span class="code-object">Salaries</span>.<span class="code-object">EmpID</span>;
-        </code>
+        
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <code>
-            EmpName | Amount<br>
-            ----------------<br>
-            Priya &nbsp;&nbsp;| 40000
-        </code>
+     <pre class="mysql-output">+---------+--------+
+| EmpName | Amount |
++---------+--------+
+| Priya   |  40000 |
++---------+--------+
+1 row in set (0.02 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 10: LEFT JOIN</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 10: LEFT JOIN</h3>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -403,10 +465,16 @@
             <li>Use <span class="code-keyword">LEFT JOIN</span></li>
             <li>Check for NULL values for missing salaries</li>
         </ul>
-
+<p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+<pre class="mysql-output">+---------+--------+
+| EmpName | Amount |
++---------+--------+
+| Priya   |  40000 |
++---------+--------+
+1 row in set (0.00 sec)</pre>
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 11: RIGHT JOIN</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 11: RIGHT JOIN</h3>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -418,7 +486,14 @@
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Use <span class="code-keyword">RIGHT JOIN</span></li>
         </ul>
-
+<p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+<pre class="mysql-output">+---------+--------+
+| EmpName | Amount |
++---------+--------+
+| NULL    |  30000 |
+| Priya   |  40000 |
++---------+--------+
+2 rows in set (0.01 sec)</pre>
         <hr class="border-gray-200 my-10">
 
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 6: Aggregate Functions</h2>
@@ -429,7 +504,7 @@
         </ul>
         <p class="mt-2 pl-6 text-gray-700"><span class="font-bold">Examples:</span> <span class="code-keyword">COUNT</span>(), <span class="code-keyword">SUM</span>(), <span class="code-keyword">AVG</span>(), <span class="code-keyword">MAX</span>(), <span class="code-keyword">MIN</span>()</p>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 12: Count Employees</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 12: Count Employees</h3>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -437,13 +512,17 @@
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <code>
-            2
-        </code>
+        
+        <pre class="mysql-output">+-----------------+
+| total_employees |
++-----------------+
+|               1 |
++-----------------+
+1 row in set (0.02 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 13: Salary Calculations</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 13: Salary Calculations</h3>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -451,21 +530,22 @@
             <li>Average salary</li>
             <li>Highest salary</li>
             <li>Lowest salary</li>
+            <p>Try to retrive all of them in a single Query </p>
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <code>
-            Total: 70000<br>
-            Average: 35000<br>
-            Highest: 40000<br>
-            Lowest: 30000
-        </code>
+        <pre class="mysql-output">+--------------+----------------+----------------+---------------+
+| total_salary | average_salary | highest_salary | lowest_salary |
++--------------+----------------+----------------+---------------+
+|        70000 |     35000.0000 |          40000 |         30000 |
++--------------+----------------+----------------+---------------+
+1 row in set (0.01 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 7: Grouping & Sorting</h2>
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 14: Group Salaries by EmpID</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 14: Group Salaries by EmpID</h3>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -477,10 +557,25 @@
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Use <span class="code-keyword">GROUP BY</span> and <span class="code-keyword">HAVING</span></li>
         </ul>
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+       <pre class="mysql-output">Empty set (0.02 sec)</pre>
 
+
+<p class="mt-4 font-bold text-gray-800">Reason:</p>
+<ul class="list-disc pl-6">
+    <li>Each employee has only one salary record.</li>
+    <li>HAVING COUNT(*) > 1 filters out all rows.</li>
+    <li>Therefore, the result is an empty set.</li>
+</ul>
+
+<p class="mt-4 font-bold text-gray-800">Instruction to Candidate:</p>
+<ul class="list-disc pl-6">
+    <li>Insert more salary records for the same EmpID.</li>
+    <li>Rerun the query to see results.</li>
+</ul>
         <hr class="border-gray-200 my-10">
 
-        <h3 class="text-xl font-semibold text-blue-700 mt-8 mb-3">Challenge 15: Sorting</h3>
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 15: Sorting</h3>
 
         <p class="mt-4 font-bold text-gray-800">Task:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
@@ -495,13 +590,20 @@
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
         <p class="mt-2 text-sm text-gray-600">Employees A → Z:</p>
-        <code>
-            Priya
-        </code>
+         <pre class="mysql-output">+---------+
+| EmpName |
++---------+
+| Priya   |
++---------+
+1 row in set (0.00 sec)</pre>
         <p class="mt-2 text-sm text-gray-600">Salaries Descending:</p>
-        <code>
-            40000, 30000
-        </code>
+         <pre class="mysql-output">+--------+
+| Amount |
++--------+
+|  40000 |
+|  30000 |
++--------+
+2 rows in set (0.00 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
