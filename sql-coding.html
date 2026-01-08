@@ -400,7 +400,17 @@ Rows matched: 1  Changed: 1  Warnings: 0</pre>
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        
+        <pre class="mysql-output">Query OK, 1 row affected (0.02 sec)</pre>
+        <strong>
+            Table : 
+        </strong>
+        <pre class="mysql-output">
++-------+---------+-----------+
+| EmpId | EmpName | city      |
++-------+---------+-----------+
+|     2 | Priya   | Bangalore |
++-------+---------+-----------+
+1 row in set (0.00 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
@@ -423,22 +433,22 @@ Rows matched: 1  Changed: 1  Warnings: 0</pre>
 
         <p class="mt-4 font-bold text-gray-800">Hints:</p>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
-            <li>Join on EmpID</li>
-            <li>Syntax:</li>
+            <li>Use JOIN between Employees and Salaries</li>
+            <li>Match rows using EmpID
+            </li>
+            <li>
+                Select employee name and salary amount
+            </li>
         </ul>
-        <code>
-            <span class="code-keyword">SELECT</span> <span class="code-object">Employees</span>.<span class="code-object">EmpName</span>, <span class="code-object">Salaries</span>.<span class="code-object">Amount</span><br>
-            <span class="code-keyword">FROM</span> <span class="code-object">Employees</span><br>
-            <span class="code-keyword">INNER JOIN</span> <span class="code-object">Salaries</span><br>
-            <span class="code-keyword">ON</span> <span class="code-object">Employees</span>.<span class="code-object">EmpID</span> = <span class="code-object">Salaries</span>.<span class="code-object">EmpID</span>;
-        </code>
+        
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <code>
-            EmpName | Amount<br>
-            ----------------<br>
-            Priya &nbsp;&nbsp;| 40000
-        </code>
+     <pre class="mysql-output">+---------+--------+
+| EmpName | Amount |
++---------+--------+
+| Priya   |  40000 |
++---------+--------+
+1 row in set (0.02 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
@@ -455,7 +465,13 @@ Rows matched: 1  Changed: 1  Warnings: 0</pre>
             <li>Use <span class="code-keyword">LEFT JOIN</span></li>
             <li>Check for NULL values for missing salaries</li>
         </ul>
-
+<p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+<pre class="mysql-output">+---------+--------+
+| EmpName | Amount |
++---------+--------+
+| Priya   |  40000 |
++---------+--------+
+1 row in set (0.00 sec)</pre>
         <hr class="border-gray-200 my-10">
 
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 11: RIGHT JOIN</h3>
@@ -470,7 +486,14 @@ Rows matched: 1  Changed: 1  Warnings: 0</pre>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Use <span class="code-keyword">RIGHT JOIN</span></li>
         </ul>
-
+<p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+<pre class="mysql-output">+---------+--------+
+| EmpName | Amount |
++---------+--------+
+| NULL    |  30000 |
+| Priya   |  40000 |
++---------+--------+
+2 rows in set (0.01 sec)</pre>
         <hr class="border-gray-200 my-10">
 
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 6: Aggregate Functions</h2>
@@ -489,9 +512,13 @@ Rows matched: 1  Changed: 1  Warnings: 0</pre>
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <code>
-            2
-        </code>
+        
+        <pre class="mysql-output">+-----------------+
+| total_employees |
++-----------------+
+|               1 |
++-----------------+
+1 row in set (0.02 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
@@ -503,15 +530,16 @@ Rows matched: 1  Changed: 1  Warnings: 0</pre>
             <li>Average salary</li>
             <li>Highest salary</li>
             <li>Lowest salary</li>
+            <p>Try to retrive all of them in a single Query </p>
         </ul>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
-        <code>
-            Total: 70000<br>
-            Average: 35000<br>
-            Highest: 40000<br>
-            Lowest: 30000
-        </code>
+        <pre class="mysql-output">+--------------+----------------+----------------+---------------+
+| total_salary | average_salary | highest_salary | lowest_salary |
++--------------+----------------+----------------+---------------+
+|        70000 |     35000.0000 |          40000 |         30000 |
++--------------+----------------+----------------+---------------+
+1 row in set (0.01 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
@@ -529,7 +557,22 @@ Rows matched: 1  Changed: 1  Warnings: 0</pre>
         <ul class="list-disc list-outside pl-6 space-y-2 mt-2">
             <li>Use <span class="code-keyword">GROUP BY</span> and <span class="code-keyword">HAVING</span></li>
         </ul>
+        <p class="mt-4 font-bold text-gray-800">Expected Output:</p>
+       <pre class="mysql-output">Empty set (0.02 sec)</pre>
 
+
+<p class="mt-4 font-bold text-gray-800">Reason:</p>
+<ul class="list-disc pl-6">
+    <li>Each employee has only one salary record.</li>
+    <li>HAVING COUNT(*) > 1 filters out all rows.</li>
+    <li>Therefore, the result is an empty set.</li>
+</ul>
+
+<p class="mt-4 font-bold text-gray-800">Instruction to Candidate:</p>
+<ul class="list-disc pl-6">
+    <li>Insert more salary records for the same EmpID.</li>
+    <li>Rerun the query to see results.</li>
+</ul>
         <hr class="border-gray-200 my-10">
 
         <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Challenge 15: Sorting</h3>
@@ -547,13 +590,20 @@ Rows matched: 1  Changed: 1  Warnings: 0</pre>
 
         <p class="mt-4 font-bold text-gray-800">Expected Output Example:</p>
         <p class="mt-2 text-sm text-gray-600">Employees A → Z:</p>
-        <code>
-            Priya
-        </code>
+         <pre class="mysql-output">+---------+
+| EmpName |
++---------+
+| Priya   |
++---------+
+1 row in set (0.00 sec)</pre>
         <p class="mt-2 text-sm text-gray-600">Salaries Descending:</p>
-        <code>
-            40000, 30000
-        </code>
+         <pre class="mysql-output">+--------+
+| Amount |
++--------+
+|  40000 |
+|  30000 |
++--------+
+2 rows in set (0.00 sec)</pre>
 
         <hr class="border-gray-200 my-10">
 
